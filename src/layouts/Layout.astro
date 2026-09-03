@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Bubbles from "../components/Bubbles.astro";
 import { profile } from "../data/profile";
 
 interface Props {
@@ -29,20 +30,27 @@ const nav = [
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap"
-      rel="stylesheet"
-    />
     <title>{title}</title>
   </head>
   <body>
+    <Bubbles />
     <header class="site-header">
-      <div class="wrap">
-        <a class="brand" href={`${base}/`}>{profile.name}</a>
+      <div class="bar">
+        <a class="brand" href={`${base}/`}>
+          <span class="mark" aria-hidden="true">L</span>
+          {profile.name}
+        </a>
         <nav aria-label="Sections">
-          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+          {
+            nav.map((item) => (
+              <a class="link" href={item.href}>
+                {item.label}
+              </a>
+            ))
+          }
+          <a class="btn small" href={profile.links.appStore}
+            >Get Hearing Buddy</a
+          >
         </nav>
       </div>
     </header>
@@ -51,9 +59,32 @@ const nav = [
     </main>
     <footer>
       <div class="wrap">
-        <span>© {new Date().getFullYear()} {profile.name}</span>
-        <a href={profile.links.linkedin}>LinkedIn</a>
+        © {new Date().getFullYear()}
+        {profile.name} · <a href={profile.links.linkedin}>LinkedIn</a>
       </div>
     </footer>
+    <script>
+      // Reveal sections as they scroll into view, the way hearingbuddyapp.com does.
+      const items = document.querySelectorAll<HTMLElement>(".reveal");
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (reduce || !("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("is-visible"));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+        );
+        items.forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>
