@@ -57,9 +57,10 @@ const nav = [
     </main>
     <footer>
       <div class="wrap">
-        © {new Date().getFullYear()}
-        {profile.name} ·
-        <a href={`mailto:${profile.email}`}>{profile.email}</a> ·
+        <span>© {new Date().getFullYear()} {profile.name}</span>
+        <span aria-hidden="true"> · </span>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <span aria-hidden="true"> · </span>
         <a href={profile.links.linkedin}>LinkedIn</a>
       </div>
     </footer>
