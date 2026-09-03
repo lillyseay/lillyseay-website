@@ -5,6 +5,7 @@
   --brand: #ee86f3; /* orchid magenta: buttons, strong bands, marks */
   --brand-soft: #f8d8fa; /* pale orchid: soft bands, pills, tags */
   --brand-text: #b933c4; /* the same hue, darkened only so small text stays readable on white */
+  --highlight: var(--brand-soft);
   --surface: #ffffff;
   --card: #ffffff;
   --band-soft: var(--brand-soft);
@@ -44,6 +45,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --brand-text: #ee86f3;
+    --highlight: rgba(238, 134, 243, 0.22);
     --surface: #000000;
     --card: #141018;
     --band-soft: #2a1430;
@@ -70,6 +72,7 @@
 /* Explicit dark theme (same tokens) */
 :root[data-theme="dark"] {
   --brand-text: #ee86f3;
+  --highlight: rgba(238, 134, 243, 0.22);
   --surface: #000000;
   --card: #141018;
   --band-soft: #2a1430;
@@ -386,6 +389,10 @@ section {
 .card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-float);
+}
+
+.card.tilt:hover {
+  transform: none;
 }
 
 .card p {
@@ -940,4 +947,236 @@ footer {
   margin-top: 0.35rem;
   font-size: 0.95rem;
   opacity: 0.85;
+}
+
+/* ---------- Motion ---------- */
+
+/* Hero headline: words rise out of a blur, one after another */
+.hero h1 .w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.35em);
+  filter: blur(10px);
+  animation: word-in 0.9s var(--ease-out) forwards;
+  animation-delay: calc(0.15s + var(--i, 0) * 70ms);
+  will-change: transform, opacity, filter;
+}
+
+@keyframes word-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Accent words get a highlighter sweep once their section is visible.
+   Drawn as a single-color background so it follows line wraps. */
+.grad {
+  background-image: linear-gradient(var(--highlight), var(--highlight));
+  background-repeat: no-repeat;
+  background-size: 0% 0.32em;
+  background-position: 0 92%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 0.04em;
+  margin: 0 -0.04em;
+  transition: background-size 0.7s var(--ease-out) 0.3s;
+}
+
+.is-visible .grad,
+.hero.ready .grad {
+  background-size: 100% 0.32em;
+}
+
+.hero.ready .grad {
+  transition-delay: 1.1s;
+}
+
+.band-strong .grad {
+  --highlight: rgba(255, 255, 255, 0.45);
+}
+
+/* Staggered children inside a revealed grid or timeline */
+.grid > li,
+.timeline > li {
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.grid.reveal > li {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.grid.reveal.is-visible > li {
+  opacity: 1;
+  transform: none;
+}
+
+.grid > li:nth-child(1),
+.timeline > li:nth-child(1) {
+  --i: 0;
+}
+.grid > li:nth-child(2),
+.timeline > li:nth-child(2) {
+  --i: 1;
+}
+.grid > li:nth-child(3),
+.timeline > li:nth-child(3) {
+  --i: 2;
+}
+.grid > li:nth-child(4),
+.timeline > li:nth-child(4) {
+  --i: 3;
+}
+.grid > li:nth-child(5),
+.timeline > li:nth-child(5) {
+  --i: 4;
+}
+.grid > li:nth-child(6),
+.timeline > li:nth-child(6) {
+  --i: 5;
+}
+
+/* Card hover: lift plus a gentle 3D tilt driven by pointer position */
+.tilt {
+  transform-style: preserve-3d;
+  transition:
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out);
+}
+
+.tilt.is-tilting {
+  transition: box-shadow 0.5s var(--ease-out);
+}
+
+/* Buttons: press and lift */
+.btn {
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    background 0.3s,
+    color 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.12s;
+}
+
+/* Nav tightens and gains depth once you scroll */
+.site-header .bar {
+  transition:
+    box-shadow 0.4s var(--ease-out),
+    padding 0.4s var(--ease-out),
+    background 0.4s;
+}
+
+.site-header.scrolled .bar {
+  padding: 0.45rem 0.6rem 0.45rem 0.9rem;
+  box-shadow: 0 8px 30px rgba(29, 18, 36, 0.12);
+}
+
+/* Nav slides in on load */
+.site-header {
+  animation: nav-in 0.8s var(--ease-out) both;
+}
+
+@keyframes nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stats count up; the number scales in slightly */
+.stats strong {
+  display: inline-block;
+  transform: scale(0.85);
+  opacity: 0;
+  transition:
+    transform 0.8s var(--ease-out),
+    opacity 0.8s var(--ease-out);
+}
+
+.is-visible .stats strong,
+.stats .is-visible strong {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Laurel wings unfold */
+.laurel svg {
+  transform-origin: center;
+  animation: laurel-in 1s var(--ease-out) 0.9s both;
+}
+
+.laurel svg:last-child {
+  transform: scaleX(-1);
+  animation-name: laurel-in-flip;
+}
+
+@keyframes laurel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6) rotate(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes laurel-in-flip {
+  from {
+    opacity: 0;
+    transform: scaleX(-1) scale(0.6) rotate(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(-1) scale(1) rotate(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 .w {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+  .grad {
+    background-size: 100% 0.32em;
+    transition: none;
+  }
+  .grid.reveal > li,
+  .stats strong {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .tilt,
+  .btn,
+  .site-header .bar {
+    transition: none;
+  }
+  .site-header,
+  .laurel svg {
+    animation: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
 }

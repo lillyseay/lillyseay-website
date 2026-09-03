@@ -66,11 +66,15 @@ const nav = [
       </div>
     </footer>
     <script>
-      // Reveal sections as they scroll into view.
-      const items = document.querySelectorAll<HTMLElement>(".reveal");
       const reduce = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
+      const fine = window.matchMedia(
+        "(hover: hover) and (pointer: fine)",
+      ).matches;
+
+      // 1. Reveal sections as they scroll into view.
+      const items = document.querySelectorAll<HTMLElement>(".reveal, .stats");
       if (reduce || !("IntersectionObserver" in window)) {
         items.forEach((el) => el.classList.add("is-visible"));
       } else {
@@ -87,6 +91,102 @@ const nav = [
         );
         items.forEach((el) => io.observe(el));
       }
+
+      // 2. Hero headline: split into words that rise out of a blur.
+      const hero = document.querySelector<HTMLElement>(".hero");
+      const h1 = hero?.querySelector<HTMLElement>("h1");
+      if (h1 && !reduce) {
+        let i = 0;
+        const wrap = (node: Node) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const frag = document.createDocumentFragment();
+            const parts = (node.textContent ?? "").split(/(\s+)/);
+            for (const part of parts) {
+              if (!part) continue;
+              if (/^\s+$/.test(part)) {
+                frag.appendChild(document.createTextNode(part));
+              } else {
+                const span = document.createElement("span");
+                span.className = "w";
+                span.style.setProperty("--i", String(i++));
+                span.textContent = part;
+                frag.appendChild(span);
+              }
+            }
+            node.parentNode?.replaceChild(frag, node);
+          } else if (
+            node.nodeType === Node.ELEMENT_NODE &&
+            (node as Element).tagName !== "BR"
+          ) {
+            Array.from(node.childNodes).forEach(wrap);
+          }
+        };
+        Array.from(h1.childNodes).forEach(wrap);
+        h1.classList.remove("fade-up");
+        h1.style.opacity = "1";
+        hero?.classList.add("ready");
+      } else {
+        hero?.classList.add("ready");
+      }
+
+      // 3. Stats: count numbers up when the band appears.
+      const stats = document.querySelectorAll<HTMLElement>(".stats strong");
+      const countUp = (el: HTMLElement) => {
+        const raw = el.textContent ?? "";
+        const m = raw.match(/^(\d+)(.*)$/);
+        if (!m) return;
+        const target = Number(m[1]);
+        const suffix = m[2];
+        if (target > 999) return; // years stay as they are
+        const start = performance.now();
+        const dur = 1200;
+        const tick = (now: number) => {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      if (!reduce && "IntersectionObserver" in window && stats.length) {
+        const so = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                countUp(e.target as HTMLElement);
+                so.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.4 },
+        );
+        stats.forEach((el) => so.observe(el));
+      }
+
+      // 4. Cards tilt toward the pointer.
+      if (!reduce && fine) {
+        document.querySelectorAll<HTMLElement>(".tilt").forEach((card) => {
+          const max = 4;
+          card.addEventListener("pointermove", (ev) => {
+            const r = card.getBoundingClientRect();
+            const px = (ev.clientX - r.left) / r.width - 0.5;
+            const py = (ev.clientY - r.top) / r.height - 0.5;
+            card.classList.add("is-tilting");
+            card.style.transform = `perspective(900px) rotateX(${(-py * max).toFixed(2)}deg) rotateY(${(px * max).toFixed(2)}deg) translateY(-3px)`;
+          });
+          card.addEventListener("pointerleave", () => {
+            card.classList.remove("is-tilting");
+            card.style.transform = "";
+          });
+        });
+      }
+
+      // 5. Nav gets compact once the page scrolls.
+      const header = document.querySelector<HTMLElement>(".site-header");
+      const onScroll = () =>
+        header?.classList.toggle("scrolled", window.scrollY > 24);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
     </script>
   </body>
 </html>

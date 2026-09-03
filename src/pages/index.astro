@@ -17,7 +17,7 @@ import {
 ---
 
 <Layout title={`${profile.name}, iOS engineer, designer, and founder`}>
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="wrap">
       <div>
         <span class="pill fade-up">{profile.location}</span>
@@ -39,7 +39,7 @@ import {
       </div>
       <div class="mock fade-up" style="--delay: 0.2s">
         <span class="chip tl">Speaker</span>
-        <div class="card" aria-label="Recent highlights">
+        <div class="card tilt" aria-label="Recent highlights">
           <h3><span class="dot" aria-hidden="true"></span>Recent highlights</h3>
           <ul class="transcript">
             {
@@ -85,7 +85,7 @@ import {
       <ul class="grid one reveal">
         {
           apps.map((app) => (
-            <li class="card app">
+            <li class="card app tilt">
               <div class="app-head">
                 <div>
                   <h3>
