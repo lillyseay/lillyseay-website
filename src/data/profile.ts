@@ -315,13 +315,82 @@ export const featuredWork = [
   },
 ];
 
-export const inAppEvents = [
-  { app: "Hearing Buddy", title: "In-app event", image: "" },
-  { app: "Hearing Buddy", title: "In-app event", image: "" },
-  { app: "Hearing Buddy", title: "In-app event", image: "" },
-  { app: "Tappily", title: "In-app event", image: "" },
-  { app: "Tappily", title: "In-app event", image: "" },
-  { app: "Tappily", title: "In-app event", image: "" },
+// App Store features: in-app events, editorial features, and Today tab placements.
+// `image` is the feature graphic or event card; `screenshot` is a capture of the
+// feature on the App Store; `link` is the App Store story or product page if it exists.
+export const appStoreFeatures = [
+  {
+    app: "Hearing Buddy",
+    title: "Apps We Love",
+    kind: "Editorial feature",
+    date: "August 2026",
+    link: "https://apps.apple.com/us/story/id6790991028",
+    image: "",
+    screenshot: "",
+  },
+  {
+    app: "Hearing Buddy",
+    title: "Caption sharing launch",
+    kind: "Featured on the App Store",
+    date: "August 2026",
+    link: "",
+    image: "",
+    screenshot: "",
+  },
+  {
+    app: "Hearing Buddy",
+    title: "Apple Design Awards week",
+    kind: "Featured on the App Store",
+    date: "July 2026",
+    link: "",
+    image: "",
+    screenshot: "",
+  },
+  {
+    app: "Hearing Buddy",
+    title: "In-app event",
+    kind: "In-app event",
+    date: "",
+    link: "",
+    image: "",
+    screenshot: "",
+  },
+  {
+    app: "Hearing Buddy",
+    title: "In-app event",
+    kind: "In-app event",
+    date: "",
+    link: "",
+    image: "",
+    screenshot: "",
+  },
+  {
+    app: "Tappily",
+    title: "In-app event",
+    kind: "In-app event",
+    date: "",
+    link: "",
+    image: "",
+    screenshot: "",
+  },
+  {
+    app: "Tappily",
+    title: "In-app event",
+    kind: "In-app event",
+    date: "",
+    link: "",
+    image: "",
+    screenshot: "",
+  },
+  {
+    app: "Tappily",
+    title: "Apple Entrepreneur Camp alumni",
+    kind: "Developer feature",
+    date: "2023",
+    link: "https://developer.apple.com/entrepreneur-camp/",
+    image: "",
+    screenshot: "",
+  },
 ];
 
 export const moreWork = Array.from({ length: 9 }, (_, i) => ({

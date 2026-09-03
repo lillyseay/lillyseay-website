@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import {
   profile,
   featuredWork,
-  inAppEvents,
+  appStoreFeatures,
   moreWork,
   recognition,
   servicesLine,
@@ -65,31 +65,46 @@ import {
     </div>
   </section>
 
-  <section id="events">
+  <section id="features">
     <div class="wrap">
       <div class="section-head reveal">
-        <h2 class="display">In-app events</h2>
-        <p>App Store event cards I designed for my apps</p>
+        <h2 class="display">App Store features</h2>
+        <p>In-app events, feature graphics, and placements on the App Store</p>
       </div>
       <ul class="events-grid stagger">
         {
-          inAppEvents.map((e) => (
-            <li>
-              <div class={`box ${e.image ? "" : "empty"}`}>
-                {e.image && (
-                  <img
-                    src={e.image}
-                    alt={`${e.app}: ${e.title}`}
-                    loading="lazy"
-                  />
-                )}
-              </div>
-              <div class="cap">
-                <strong>{e.app}</strong>
-                {e.title}
-              </div>
-            </li>
-          ))
+          appStoreFeatures.map((f) => {
+            const art = f.image || f.screenshot;
+            return (
+              <li>
+                <div class={`box ${art ? "" : "empty"}`}>
+                  {art && (
+                    <img
+                      src={art}
+                      alt={`${f.app}: ${f.title}`}
+                      loading="lazy"
+                    />
+                  )}
+                  <span class="kind-tag">{f.kind}</span>
+                </div>
+                <div class="cap">
+                  <strong>{f.app}</strong>
+                  {f.title}
+                  {f.date && <span class="muted"> · {f.date}</span>}
+                  {f.link && (
+                    <>
+                      <br />
+                      <a class="cap-link" href={f.link}>
+                        {f.link.includes("apps.apple.com")
+                          ? "View on the App Store"
+                          : "View feature"}
+                      </a>
+                    </>
+                  )}
+                </div>
+              </li>
+            );
+          })
         }
       </ul>
     </div>

@@ -456,6 +456,34 @@ section {
   font-weight: 600;
 }
 
+.events-grid .cap .muted {
+  color: var(--muted);
+}
+
+.cap-link {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--brand-text);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.kind-tag {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  z-index: 1;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  background: var(--brand-soft);
+  color: #1d1224;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.66rem;
+}
+
 /* More work: 3-column squares, some tilted */
 .work-grid {
   display: grid;
