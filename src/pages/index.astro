@@ -1,57 +1,79 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Ridgeline from "../components/Ridgeline.astro";
+import TrailMap from "../components/TrailMap.astro";
 import {
   profile,
+  trail,
+  journey,
   featuredWork,
   appStoreFeatures,
   moreWork,
-  recognition,
-  servicesLine,
   talks,
   community,
-  experience,
   education,
-  services,
   social,
 } from "../data/profile";
 ---
 
-<Layout title={`${profile.name}, iOS engineer, designer, and founder`}>
-  <section class="hero">
+<Layout
+  title={`${profile.name}, a career adventure through engineering, apps, and marketing`}
+>
+  <section class="hero" id="top">
     <div class="wrap">
-      <div class="meta fade-up">
-        <span class="place">{profile.location}</span>
-        <span class="tiny"
-          ><a href={`mailto:${profile.email}`}>{profile.email}</a></span
-        >
+      <h1>
+        Hello, I'm Lilly. My career has been an <em>adventure</em> through
+        <mark>electrical engineering</mark>, <mark>mobile app design</mark>, and
+        <mark>marketing</mark>, with a few summits along the way.
+      </h1>
+      <p class="lede fade-up" style="--delay: 0.9s">
+        Based in Portland, Oregon. On my journey I co-founded Hearing Buddy, a
+        2026 Apple Design Award finalist, spoke at FOSDEM and at Apple, and grew
+        a social audience past 115,000 followers.
+      </p>
+      <div class="hero-actions fade-up" style="--delay: 1.05s">
+        <a class="pill-link" href="#trail">Follow the trail</a>
+        <a class="pill-link ghost" href="#work">See what I built</a>
       </div>
-      <h1 class="display name">{profile.name}</h1>
-      <div class="fan" aria-hidden="true">
-        <div class="fan-card box"></div>
-        <div class="fan-card box"></div>
-        <div class="fan-card box"></div>
-        <div class="fan-card box"></div>
+    </div>
+    <Ridgeline />
+  </section>
+
+  <section id="trail" class="trail-section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The trail so far</p>
+        <h2>Three basecamps, <em>one long climb</em></h2>
+        <p class="sub">{trail.intro}</p>
       </div>
-      <h2 class="display tagline fade-up" style="--delay: 0.9s">
-        iOS engineer,<br />designer &amp; <em>founder</em>
-      </h2>
-      <div class="lists fade-up" style="--delay: 1.1s">
-        <div>
-          <p class="eyebrow">Recognition includes</p>
-          <p>{recognition.join(", ")}</p>
-        </div>
-        <div>
-          <p class="eyebrow">Services</p>
-          <p>{servicesLine.join(", ")}</p>
-        </div>
+      <TrailMap />
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <div class="section-head left reveal">
+        <p class="eyebrow">Recent adventures</p>
+        <h2>Where I've been, <em>and when</em></h2>
       </div>
+      <ol class="journey stagger">
+        {
+          journey.map((j) => (
+            <li>
+              <span class="what">{j.what}</span>
+              <span class="where">{j.where}</span>
+              <span class="when">{j.when}</span>
+            </li>
+          ))
+        }
+      </ol>
     </div>
   </section>
 
   <section id="work" class="featured">
     <div class="wrap section-head reveal">
-      <h2 class="display">Featured work</h2>
-      <p>Apps I founded and campaigns I ran</p>
+      <p class="eyebrow">Things I built along the way</p>
+      <h2>Apps, channels, <em>and campaigns</em></h2>
     </div>
     <div class="featured-track stagger" role="list">
       {
@@ -71,8 +93,9 @@ import {
   <section id="features">
     <div class="wrap">
       <div class="section-head reveal">
-        <h2 class="display">App Store features</h2>
-        <p>In-app events, feature graphics, and placements on the App Store</p>
+        <p class="eyebrow">Summit markers</p>
+        <h2>Featured on the <em>App Store</em></h2>
+        <p class="sub">In-app events, feature graphics, and placements</p>
       </div>
       <ul class="events-grid stagger">
         {
@@ -116,8 +139,8 @@ import {
   <section id="more">
     <div class="wrap">
       <div class="section-head reveal">
-        <h2 class="display">More work</h2>
-        <p>Take a scroll, stay a while</p>
+        <p class="eyebrow">More from the trail</p>
+        <h2>Take a scroll, <em>stay a while</em></h2>
       </div>
       <ul class="work-grid stagger">
         {
@@ -136,8 +159,9 @@ import {
   <section id="social" class="band-soft">
     <div class="wrap">
       <div class="section-head reveal">
-        <h2 class="display">Social media</h2>
-        <p>{social.intro}</p>
+        <p class="eyebrow">Sharing the trail</p>
+        <h2>Marketing apps <em>on social</em></h2>
+        <p class="sub">{social.intro}</p>
       </div>
       <ul class="grid two stagger">
         {
@@ -175,8 +199,9 @@ import {
   <section id="speaking">
     <div class="wrap">
       <div class="section-head reveal">
-        <h2 class="display">Speaking</h2>
-        <p>
+        <p class="eyebrow">Campfire talks</p>
+        <h2>Stories I've told <em>on stage</em></h2>
+        <p class="sub">
           Accessibility, Swift on hardware, and what it takes to ship an app as
           a small team
         </p>
@@ -213,77 +238,36 @@ import {
     </div>
   </section>
 
-  <section id="experience">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <h2 class="display">Experience</h2>
+  <section id="about" class="about">
+    <div class="wrap about-grid reveal">
+      <div>
+        <p class="eyebrow">Trail notes</p>
+        <h2>Born in Oklahoma, <em>at home in the PNW</em></h2>
+      </div>
+      <div class="notes">
+        {profile.about.map((para) => <p>{para}</p>)}
         <p>
-          From FPGA design to native apps to running an engineering training
-          program, and now a company of my own
+          {education.degree}, {education.school}, {education.years}. {
+            education.notes
+          }
+        </p>
+        <p>
+          When I'm not building, I'm on a paddleboard or a trail with two black
+          labs, Jet and Nova.
         </p>
       </div>
-      <ol class="timeline stagger">
-        {
-          experience.map((job) => (
-            <li class="card">
-              <div class="when">
-                {job.start} to {job.end}
-              </div>
-              <div>
-                <h3>{job.role}</h3>
-                <div class="org">{job.org}</div>
-                <p>{job.body}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
     </div>
   </section>
 
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <h2 class="display">About</h2>
-        <p>{profile.headline}</p>
-      </div>
-      <div class="about-copy reveal">
-        {profile.about.map((para) => <p>{para}</p>)}
-      </div>
-      <ul class="grid two stagger">
-        <li class="card">
-          <h3>Education</h3>
-          <ul class="plain-list">
-            <li>{education.degree}</li>
-            <li>{education.school}, {education.years}</li>
-            <li class="muted">{education.notes}</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>What I work on</h3>
-          <ul class="tags">
-            {services.map((s) => <li>{s}</li>)}
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
+  <section class="closing">
     <div class="wrap reveal">
-      <h2 class="display" style="font-size: clamp(2.3rem, 5.2vw, 3.6rem)">
-        Contact
+      <div class="dash"></div>
+      <h2 class="big">
+        Build things that help people <em>hear, feel, and connect.</em>
       </h2>
       <div class="links">
-        <a class="pill-link" href={`mailto:${profile.email}`}>{profile.email}</a
-        >
+        <a class="pill-link" href={`mailto:${profile.email}`}>Get in touch</a>
         <a class="pill-link ghost" href={profile.links.linkedin}>LinkedIn</a>
-        <a class="pill-link ghost" href="https://www.instagram.com/lillyseay/"
-          >Instagram</a
-        >
-        <a class="pill-link ghost" href="https://www.tiktok.com/@lillyseay"
-          >TikTok</a
-        >
       </div>
     </div>
   </section>

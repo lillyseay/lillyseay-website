@@ -1,0 +1,60 @@
+---
+// Layered Pacific Northwest ridgeline with evergreens and drifting fog.
+// Drawn in neutrals and pale magenta so it sits under the brand colors.
+---
+
+<div class="ridge" aria-hidden="true">
+  <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <clipPath id="ridge-clip"
+        ><rect width="1440" height="420"></rect></clipPath
+      >
+    </defs>
+    <g clip-path="url(#ridge-clip)">
+      <!-- far range, alpenglow -->
+      <path
+        class="ridge-far"
+        d="M0 300 L120 210 L210 250 L330 150 L420 200 L520 120 L640 220 L760 160 L880 230 L1000 140 L1120 210 L1240 170 L1340 230 L1440 190 L1440 420 L0 420 Z"
+      ></path>
+      <!-- fog band -->
+      <ellipse class="fog fog-a" cx="420" cy="290" rx="380" ry="34"></ellipse>
+      <ellipse class="fog fog-b" cx="1080" cy="270" rx="420" ry="30"></ellipse>
+      <!-- mid range -->
+      <path
+        class="ridge-mid"
+        d="M0 340 L90 290 L180 320 L300 240 L390 290 L470 250 L560 300 L680 230 L790 300 L900 260 L1010 320 L1110 270 L1220 320 L1320 280 L1440 330 L1440 420 L0 420 Z"
+      ></path>
+      <!-- near treeline -->
+      <g class="trees">
+        <path
+          d="M60 420 L60 372 M60 372 L44 400 L76 400 Z M60 384 L48 408 L72 408 Z"
+        ></path>
+        <path
+          d="M130 420 L130 350 M130 350 L108 392 L152 392 Z M130 366 L112 404 L148 404 Z"
+        ></path>
+        <path
+          d="M210 420 L210 380 M210 380 L196 402 L224 402 Z M210 390 L198 412 L222 412 Z"
+        ></path>
+        <path
+          d="M1240 420 L1240 360 M1240 360 L1220 398 L1260 398 Z M1240 376 L1224 408 L1256 408 Z"
+        ></path>
+        <path
+          d="M1320 420 L1320 380 M1320 380 L1304 404 L1336 404 Z M1320 392 L1308 412 L1332 412 Z"
+        ></path>
+        <path
+          d="M1400 420 L1400 350 M1400 350 L1378 392 L1422 392 Z M1400 366 L1382 404 L1418 404 Z"
+        ></path>
+      </g>
+      <!-- ground -->
+      <path
+        class="ground"
+        d="M0 420 L0 400 C200 380 380 392 560 388 C760 384 980 396 1200 384 C1300 378 1380 384 1440 392 L1440 420 Z"
+      ></path>
+      <!-- dashed trail winding up the near ridge -->
+      <path
+        class="trail"
+        d="M-20 410 C160 396 220 372 330 372 C440 372 470 350 560 348 C660 346 690 320 760 318 C840 316 880 296 940 288 C1010 280 1060 262 1120 258"
+      ></path>
+    </g>
+  </svg>
+</div>

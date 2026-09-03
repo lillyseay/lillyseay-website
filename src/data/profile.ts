@@ -414,3 +414,108 @@ export const servicesLine = [
   "Influencer campaigns",
   "UGC and ad creative",
 ];
+
+// The career adventure, told as a trail with three basecamps.
+export const trail = {
+  intro:
+    "I grew up in Oklahoma, studied electrical engineering, and followed the work west to the Pacific Northwest. Every stretch of the trail taught me a different craft. I still use all three.",
+  basecamps: [
+    {
+      name: "Electrical engineering",
+      years: "2012 to 2017",
+      place: "Oklahoma and Kansas City",
+      elevation: "Where it started",
+      story:
+        "I learned how things actually work: circuits, signals, FPGAs, and the patience to debug hardware that won't tell you what's wrong. I milled printed circuit boards for other students, built a serial-to-TCP/IP converter with the FAA, and shipped FPGA and IoT work at Honeywell.",
+      stops: [
+        "B.S. Electrical Engineering, University of Central Oklahoma",
+        "IEEE student chapter president",
+        "Senior design project with the Federal Aviation Administration",
+        "Electrical engineer, Honeywell FM&T",
+      ],
+      skills: ["FPGA", "Embedded systems", "PCB design", "IoT"],
+    },
+    {
+      name: "Mobile app design and engineering",
+      years: "2017 to now",
+      place: "Portland, Oregon",
+      elevation: "The long climb",
+      story:
+        "I started Dalton Technologies and built native iOS and Android apps for startups and for myself: Bluetooth, wearables, on-device machine learning. I led a training program for new engineers at Hyster-Yale. Then I built the app I needed as someone who is hard of hearing, and Hearing Buddy became a 2026 Apple Design Award finalist.",
+      stops: [
+        "Founder, Dalton Technologies",
+        "Tappily, JavaSwift Academy, Guess a Number, Erupt",
+        "Engineering manager, Hyster-Yale Group",
+        "Co-founder and designer, Hearing Buddy",
+        "Apple Design Award finalist, Inclusivity, 2026",
+      ],
+      skills: [
+        "Swift and SwiftUI",
+        "Android",
+        "App design",
+        "Bluetooth",
+        "On-device ML",
+      ],
+    },
+    {
+      name: "Marketing",
+      years: "2023 to now",
+      place: "Everywhere the trail goes",
+      elevation: "The view from up here",
+      story:
+        "Building apps taught me that shipping is only half the trip. I grew my own accounts past 115,000 followers with short-form video and carousels, ran influencer campaigns and a creative pipeline for UGC and ads, and now I help other startups do the same for their apps.",
+      stops: [
+        "Apple Entrepreneur Camp with Tappily",
+        "Jet & Nova to 74K on TikTok",
+        "Hearing Buddy featured in Apps We Love",
+        "Social media marketing for app startups",
+      ],
+      skills: [
+        "Short-form video",
+        "Carousels",
+        "Influencer campaigns",
+        "UGC and ad creative",
+      ],
+    },
+  ],
+};
+
+// Journey table, most recent first: what I was doing, where, when.
+export const journey = [
+  {
+    what: "Founder, designer, and iOS engineer",
+    where: "Hearing Buddy",
+    when: "2026 to now",
+  },
+  {
+    what: "Marketing apps on social media",
+    where: "Startups and my own apps",
+    when: "2023 to now",
+  },
+  {
+    what: "Engineering manager",
+    where: "Hyster-Yale Group",
+    when: "2023 to 2025",
+  },
+  {
+    what: "Founder and CEO",
+    where: "Dalton Technologies",
+    when: "2017 to 2023",
+  },
+  {
+    what: "Electrical engineer",
+    where: "Honeywell FM&T",
+    when: "2016 to 2017",
+  },
+  {
+    what: "Senior design project",
+    where: "Federal Aviation Administration",
+    when: "2015 to 2016",
+  },
+  {
+    what: "Student of electrical engineering",
+    where: "University of Central Oklahoma",
+    when: "2012 to 2016",
+  },
+  { what: "Young explorer", where: "Oklahoma", when: "Before that" },
+];
