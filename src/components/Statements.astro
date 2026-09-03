@@ -1,0 +1,93 @@
+---
+import { statements } from "../data/profile";
+---
+
+<div class="statements">
+  {
+    statements.map((s, i) => (
+      <article
+        class={`statement reveal ${i % 2 ? "flip" : ""}`}
+        data-key={s.key}
+      >
+        <div class="statement-text">
+          <h3>{s.headline}</h3>
+          <p>{s.support}</p>
+          <ul class="tags">
+            {s.tags.map((t) => (
+              <li>{t}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="statement-art" aria-hidden="true">
+          {s.key === "apps" && (
+            <div class="art-phone">
+              <div class="phone">
+                <div class="notch" />
+                <div class="screen">
+                  <div class="row hero-row" />
+                  <div class="row" />
+                  <div class="row short" />
+                  <div class="row" />
+                </div>
+              </div>
+              <div class="badge-featured">Featured</div>
+              <div class="star s1">★</div>
+              <div class="star s2">★</div>
+            </div>
+          )}
+          {s.key === "social" && (
+            <div class="art-social">
+              <div class="deck">
+                <div class="slide c3" />
+                <div class="slide c2" />
+                <div class="slide c1">
+                  <div class="play" />
+                </div>
+              </div>
+              <div class="counter">
+                <span class="num" data-target="115000">
+                  0
+                </span>
+                <span class="lbl">followers</span>
+              </div>
+              <div class="heart h1">♥</div>
+              <div class="heart h2">♥</div>
+              <div class="heart h3">♥</div>
+            </div>
+          )}
+          {s.key === "creators" && (
+            <svg class="art-network" viewBox="0 0 320 240">
+              <g class="links">
+                <line x1="160" y1="120" x2="70" y2="60" />
+                <line x1="160" y1="120" x2="250" y2="60" />
+                <line x1="160" y1="120" x2="60" y2="180" />
+                <line x1="160" y1="120" x2="260" y2="180" />
+                <line x1="160" y1="120" x2="160" y2="30" />
+              </g>
+              <g class="nodes">
+                <circle class="hub" cx="160" cy="120" r="26" />
+                <circle class="n n1" cx="70" cy="60" r="16" />
+                <circle class="n n2" cx="250" cy="60" r="16" />
+                <circle class="n n3" cx="60" cy="180" r="16" />
+                <circle class="n n4" cx="260" cy="180" r="16" />
+                <circle class="n n5" cx="160" cy="30" r="16" />
+              </g>
+              <g class="pulses">
+                <circle class="pulse" cx="160" cy="120" r="26" />
+              </g>
+            </svg>
+          )}
+          {s.key === "teams" && (
+            <div class="art-steps">
+              <div class="bar b1" />
+              <div class="bar b2" />
+              <div class="bar b3" />
+              <div class="bar b4" />
+              <div class="walker" />
+            </div>
+          )}
+        </div>
+      </article>
+    ))
+  }
+</div>

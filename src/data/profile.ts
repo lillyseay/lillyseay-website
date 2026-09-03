@@ -532,59 +532,34 @@ export const summits = [
   { year: "2026", label: "Apple Design Award finalist", x: 85, height: 92 },
 ];
 
-// Services. Adventure-flavored names, plain descriptions.
-export const routes = {
-  intro:
-    "I've done every part of this myself: built the apps, earned the App Store features, and grown the audience. Here's how I work with startups.",
-  list: [
-    {
-      name: "App design and development",
-      difficulty: "Full project",
-      length: "8 to 16 weeks",
-      body: "I design and build native iOS and Android apps from idea to launch, including App Store screenshots, in-app events, and a pitch ready for Apple's editorial team.",
-      packed: [
-        "SwiftUI and Swift",
-        "Android",
-        "App and brand design",
-        "On-device ML",
-        "Bluetooth and IoT",
-      ],
-    },
-    {
-      name: "Social media launch",
-      difficulty: "Campaign",
-      length: "4 to 6 weeks",
-      body: "A launch plan for your app on TikTok, Instagram, and YouTube: content strategy, carousels, and short-form video built around hooks your audience actually stops for.",
-      packed: [
-        "Short-form video",
-        "Carousels",
-        "Content calendar",
-        "Analytics",
-      ],
-    },
-    {
-      name: "Influencer and UGC campaigns",
-      difficulty: "Campaign",
-      length: "4 to 8 weeks",
-      body: "Creator campaigns from start to finish: finding the right influencers, writing briefs, handling contracts, and setting up a repeatable pipeline for UGC and paid ad creative.",
-      packed: [
-        "Influencer sourcing",
-        "Creator briefs",
-        "UGC pipeline",
-        "Paid ad creative",
-      ],
-    },
-    {
-      name: "Engineering mentoring",
-      difficulty: "Ongoing",
-      length: "Monthly",
-      body: "Mentoring and technical training for early-career engineers and small app teams, based on the six-month program I designed and ran for new hires.",
-      packed: [
-        "1:1 mentoring",
-        "Training curriculum",
-        "Code review",
-        "Hiring help",
-      ],
-    },
-  ],
-};
+// Services as statements: one bold sentence, one supporting line, a few tags, and a graphic key.
+export const statements = [
+  {
+    key: "apps",
+    headline: "I build apps people love.",
+    support:
+      "Native iOS and Android, designed and coded by me, from first sketch to App Store feature.",
+    tags: ["SwiftUI", "Android", "App Store features"],
+  },
+  {
+    key: "social",
+    headline: "I get your app seen.",
+    support:
+      "Short-form video and carousels that stop the scroll. I've grown my own channels past 115,000 followers.",
+    tags: ["TikTok and Reels", "Carousels", "Launch campaigns"],
+  },
+  {
+    key: "creators",
+    headline: "I run creator campaigns.",
+    support:
+      "Influencers, UGC, and ad creative on a repeatable pipeline, so you always have something new to test.",
+    tags: ["Influencer sourcing", "UGC", "Ad creative"],
+  },
+  {
+    key: "teams",
+    headline: "I grow engineering teams.",
+    support:
+      "Mentoring and training for early-career engineers, built from the program I ran for new hires.",
+    tags: ["Mentoring", "Training", "Code review"],
+  },
+];

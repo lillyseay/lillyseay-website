@@ -1309,3 +1309,591 @@ footer .wrap {
   text-align: center;
   margin: 2.5rem 0 0;
 }
+
+/* ---------- Service statements ---------- */
+.statements {
+  display: grid;
+  gap: 3.5rem;
+}
+
+.statement {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.statement.flip .statement-text {
+  order: 2;
+}
+
+.statement h3 {
+  font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.statement p {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--text);
+  max-width: 34rem;
+}
+
+.statement .tags {
+  margin-top: 1.1rem;
+}
+
+.statement-art {
+  position: relative;
+  min-height: 15rem;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 720px) {
+  .statement {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .statement.flip .statement-text {
+    order: 0;
+  }
+  .statement-art {
+    min-height: 12rem;
+  }
+}
+
+/* Apps: phone with UI rows sliding in, a Featured badge that pops */
+.art-phone {
+  position: relative;
+  width: 12rem;
+  height: 15rem;
+}
+
+.phone {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 8.5rem;
+  height: 15rem;
+  border-radius: 1.6rem;
+  background: var(--ink);
+  padding: 0.45rem;
+  box-shadow: var(--shadow-float);
+}
+
+.phone .notch {
+  position: absolute;
+  top: 0.55rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.6rem;
+  height: 0.5rem;
+  border-radius: 100px;
+  background: #000;
+}
+
+.phone .screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.2rem;
+  background: var(--card);
+  padding: 1.4rem 0.7rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  overflow: hidden;
+}
+
+.phone .row {
+  height: 0.8rem;
+  border-radius: 0.4rem;
+  background: var(--brand-soft);
+  transform: translateX(-120%);
+  opacity: 0;
+}
+
+.phone .row.hero-row {
+  height: 3.6rem;
+  border-radius: 0.8rem;
+  background: var(--brand);
+}
+
+.phone .row.short {
+  width: 60%;
+}
+
+.is-visible .phone .row {
+  animation: row-in 0.7s var(--ease-out) forwards;
+}
+
+.is-visible .phone .row:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.is-visible .phone .row:nth-child(2) {
+  animation-delay: 0.35s;
+}
+.is-visible .phone .row:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.is-visible .phone .row:nth-child(4) {
+  animation-delay: 0.65s;
+}
+
+@keyframes row-in {
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.badge-featured {
+  position: absolute;
+  top: 1.6rem;
+  right: -0.6rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+  background: var(--brand);
+  color: #1d1224;
+  font-weight: 700;
+  font-size: 0.8rem;
+  box-shadow: 0 6px 18px rgba(238, 134, 243, 0.45);
+  transform: scale(0);
+}
+
+.is-visible .badge-featured {
+  animation: pop 0.6s var(--ease-out) 0.9s forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0) rotate(-12deg);
+  }
+  70% {
+    transform: scale(1.12) rotate(4deg);
+  }
+  100% {
+    transform: scale(1) rotate(-4deg);
+  }
+}
+
+.star {
+  position: absolute;
+  color: var(--brand);
+  font-size: 1.2rem;
+  opacity: 0;
+}
+
+.star.s1 {
+  top: 0.4rem;
+  left: 0.4rem;
+}
+
+.star.s2 {
+  bottom: 2rem;
+  left: -0.4rem;
+  font-size: 0.9rem;
+}
+
+.is-visible .star {
+  animation: twinkle 2.4s ease-in-out 1.2s infinite;
+}
+
+.is-visible .star.s2 {
+  animation-delay: 1.9s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Social: a deck of cards cycling, hearts floating, counter ticking */
+.art-social {
+  position: relative;
+  width: 13rem;
+  height: 15rem;
+}
+
+.deck {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8rem;
+  height: 11rem;
+  transform: translate(-50%, -50%);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  place-items: center;
+}
+
+.slide.c1 {
+  background: var(--brand);
+}
+
+.slide.c2 {
+  background: var(--brand-soft);
+  transform: rotate(-8deg) translateX(-14px);
+}
+
+.slide.c3 {
+  background: var(--box);
+  transform: rotate(8deg) translateX(14px);
+}
+
+.is-visible .slide.c1 {
+  animation: card-cycle 6s ease-in-out infinite;
+}
+
+.is-visible .slide.c2 {
+  animation: card-cycle 6s ease-in-out infinite -2s;
+}
+
+.is-visible .slide.c3 {
+  animation: card-cycle 6s ease-in-out infinite -4s;
+}
+
+@keyframes card-cycle {
+  0%,
+  28% {
+    transform: rotate(0) translateX(0);
+    z-index: 3;
+  }
+  33%,
+  61% {
+    transform: rotate(-8deg) translateX(-14px);
+    z-index: 2;
+  }
+  66%,
+  94% {
+    transform: rotate(8deg) translateX(14px);
+    z-index: 1;
+  }
+  100% {
+    transform: rotate(0) translateX(0);
+    z-index: 3;
+  }
+}
+
+.play {
+  width: 0;
+  height: 0;
+  border-left: 1.3rem solid #1d1224;
+  border-top: 0.8rem solid transparent;
+  border-bottom: 0.8rem solid transparent;
+  margin-left: 0.3rem;
+}
+
+.counter {
+  position: absolute;
+  right: -0.5rem;
+  bottom: 0.2rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-float);
+  border-radius: 1rem;
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.counter .num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter .lbl {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.heart {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  color: var(--brand);
+  font-size: 1.1rem;
+  opacity: 0;
+}
+
+.is-visible .heart {
+  animation: heart-float 3s ease-out infinite;
+}
+
+.heart.h2 {
+  left: 2rem;
+  animation-delay: 1s !important;
+}
+
+.heart.h3 {
+  left: 0.2rem;
+  animation-delay: 2s !important;
+}
+
+@keyframes heart-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.6);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-7rem) translateX(0.8rem) scale(1.1);
+  }
+}
+
+/* Creators: network of avatars lighting up from the hub */
+.art-network {
+  width: min(20rem, 100%);
+  height: auto;
+}
+
+.art-network .links line {
+  stroke: var(--brand-soft);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+.is-visible .art-network .links line {
+  animation: draw 0.9s var(--ease-out) forwards;
+}
+
+.is-visible .art-network .links line:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.is-visible .art-network .links line:nth-child(2) {
+  animation-delay: 0.35s;
+}
+.is-visible .art-network .links line:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.is-visible .art-network .links line:nth-child(4) {
+  animation-delay: 0.65s;
+}
+.is-visible .art-network .links line:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.art-network .hub {
+  fill: var(--brand);
+}
+
+.art-network .n {
+  fill: var(--brand-soft);
+  stroke: var(--card);
+  stroke-width: 3;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+}
+
+.is-visible .art-network .n {
+  animation: pop-node 0.5s var(--ease-out) forwards;
+}
+
+.is-visible .art-network .n1 {
+  animation-delay: 0.7s;
+}
+.is-visible .art-network .n2 {
+  animation-delay: 0.85s;
+}
+.is-visible .art-network .n3 {
+  animation-delay: 1s;
+}
+.is-visible .art-network .n4 {
+  animation-delay: 1.15s;
+}
+.is-visible .art-network .n5 {
+  animation-delay: 1.3s;
+}
+
+@keyframes pop-node {
+  to {
+    transform: scale(1);
+  }
+}
+
+.art-network .pulse {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.is-visible .art-network .pulse {
+  animation: ring 2.2s ease-out 1.4s infinite;
+}
+
+@keyframes ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+/* Teams: bars rising like steps, a dot climbing them */
+.art-steps {
+  position: relative;
+  width: 14rem;
+  height: 12rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.art-steps .bar {
+  flex: 1;
+  border-radius: 0.6rem 0.6rem 0.2rem 0.2rem;
+  background: var(--brand-soft);
+  height: 0;
+}
+
+.art-steps .b4 {
+  background: var(--brand);
+}
+
+.is-visible .art-steps .b1 {
+  animation: grow-bar 0.8s var(--ease-out) 0.1s forwards;
+  --h: 30%;
+}
+.is-visible .art-steps .b2 {
+  animation: grow-bar 0.8s var(--ease-out) 0.3s forwards;
+  --h: 50%;
+}
+.is-visible .art-steps .b3 {
+  animation: grow-bar 0.8s var(--ease-out) 0.5s forwards;
+  --h: 72%;
+}
+.is-visible .art-steps .b4 {
+  animation: grow-bar 0.8s var(--ease-out) 0.7s forwards;
+  --h: 100%;
+}
+
+@keyframes grow-bar {
+  to {
+    height: var(--h);
+  }
+}
+
+.walker {
+  position: absolute;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--ink);
+  left: 6%;
+  bottom: 30%;
+  opacity: 0;
+}
+
+.is-visible .walker {
+  animation: climb 3.2s ease-in-out 1.2s infinite;
+}
+
+@keyframes climb {
+  0% {
+    opacity: 0;
+    left: 6%;
+    bottom: 30%;
+  }
+  10% {
+    opacity: 1;
+  }
+  30% {
+    left: 31%;
+    bottom: 50%;
+  }
+  55% {
+    left: 56%;
+    bottom: 72%;
+  }
+  80% {
+    left: 81%;
+    bottom: 100%;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 81%;
+    bottom: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone .row,
+  .badge-featured,
+  .art-network .n {
+    transform: none;
+    opacity: 1;
+  }
+  .art-network .links line {
+    stroke-dashoffset: 0;
+  }
+  .art-steps .b1 {
+    height: 30%;
+  }
+  .art-steps .b2 {
+    height: 50%;
+  }
+  .art-steps .b3 {
+    height: 72%;
+  }
+  .art-steps .b4 {
+    height: 100%;
+  }
+  .is-visible .phone .row,
+  .is-visible .badge-featured,
+  .is-visible .star,
+  .is-visible .slide,
+  .is-visible .heart,
+  .is-visible .art-network .links line,
+  .is-visible .art-network .n,
+  .is-visible .art-network .pulse,
+  .is-visible .art-steps .bar,
+  .is-visible .walker {
+    animation: none;
+  }
+  .walker {
+    opacity: 1;
+  }
+}
