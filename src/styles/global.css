@@ -110,9 +110,9 @@ p {
 /* Display type: condensed, uppercase, tight */
 .display {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.035em;
   line-height: 0.95;
   color: var(--ink);
   margin: 0;
@@ -205,7 +205,7 @@ p {
 }
 
 .hero .name {
-  font-size: clamp(3.6rem, 12vw, 9.5rem);
+  font-size: clamp(3.2rem, 10.5vw, 8.5rem);
   margin-top: 1.5rem;
   line-height: 0.9;
 }
@@ -280,7 +280,7 @@ p {
 }
 
 .hero .tagline {
-  font-size: clamp(2.4rem, 8.5vw, 6.5rem);
+  font-size: clamp(2.1rem, 7vw, 5.4rem);
   color: var(--faint);
   margin-top: 1.25rem;
   line-height: 0.92;
@@ -318,7 +318,7 @@ section {
 }
 
 .section-head .display {
-  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-size: clamp(2.3rem, 5.2vw, 3.6rem);
 }
 
 .section-head p {
@@ -745,5 +745,206 @@ footer {
   .pill-link,
   .float-btn {
     transition: none;
+  }
+}
+
+/* ---------- Card sections (Social, Speaking, Experience, About) ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-float);
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--ink);
+}
+
+.card p {
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+@media (max-width: 640px) {
+  .grid.two {
+    grid-template-columns: 1fr;
+  }
+}
+
+.org {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+.subhead {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 3rem 0 1.25rem;
+}
+
+/* Timeline and talks: date rail + content */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline .card,
+.talk {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.when {
+  color: var(--brand-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding-top: 0.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.talk .links {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.talk .links a {
+  color: var(--brand-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 560px) {
+  .timeline .card,
+  .talk {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+
+/* Social accounts */
+.account .org {
+  margin-top: 0.1rem;
+}
+
+.platforms {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+}
+
+.platforms li + li {
+  margin-top: 0.35rem;
+}
+
+.platforms a {
+  color: var(--brand-text);
+  font-weight: 600;
+}
+
+.platforms .muted {
+  color: var(--muted);
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.tags li {
+  padding: 0.35rem 0.75rem;
+  background: var(--brand-soft);
+  color: #1d1224;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.plain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.plain-list li + li {
+  margin-top: 0.4rem;
+}
+
+/* Soft band for the marketing message */
+.band-soft {
+  background: var(--brand-soft);
+}
+
+.band-soft .card {
+  border-color: transparent;
+}
+
+:root[data-theme="dark"] .band-soft,
+:root:not([data-theme="light"]) .band-soft {
+  background: var(--band-soft, #2a1430);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .band-soft {
+    background: var(--brand-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
   }
 }

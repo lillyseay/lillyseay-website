@@ -8,7 +8,10 @@ import {
   recognition,
   servicesLine,
   talks,
+  community,
   experience,
+  education,
+  services,
   social,
 } from "../data/profile";
 ---
@@ -130,6 +133,114 @@ import {
     </div>
   </section>
 
+  <section id="social" class="band-soft">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="display">Social media</h2>
+        <p>{social.intro}</p>
+      </div>
+      <ul class="grid two stagger">
+        {
+          social.services.map((s) => (
+            <li class="card">
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <h3 class="subhead reveal">Accounts I run</h3>
+      <ul class="grid three stagger">
+        {
+          social.accounts.map((a) => (
+            <li class="card account">
+              <h3>{a.name}</h3>
+              <div class="org">{a.handle}</div>
+              <p>{a.body}</p>
+              <ul class="platforms">
+                {a.platforms.map((pl) => (
+                  <li>
+                    <a href={pl.url}>{pl.name}</a>
+                    {pl.stat && <span class="muted"> · {pl.stat}</span>}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="speaking">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="display">Speaking</h2>
+        <p>
+          Accessibility, Swift on hardware, and what it takes to ship an app as
+          a small team
+        </p>
+      </div>
+      <ul class="timeline stagger">
+        {
+          talks.map((t) => (
+            <li class="card talk">
+              <div class="when">{t.when}</div>
+              <div>
+                <h3>{t.title}</h3>
+                <div class="org">
+                  {t.event} · {t.where}
+                </div>
+                <p>{t.body}</p>
+                {t.links.length > 0 && (
+                  <p class="links">
+                    {t.links.map((l) => (
+                      <a href={l.url}>{l.label}</a>
+                    ))}
+                  </p>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="card reveal" style="margin-top: 1.25rem">
+        <h3>Apple and community</h3>
+        <ul class="plain-list">
+          {community.map((c) => <li>{c}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2 class="display">Experience</h2>
+        <p>
+          From FPGA design to native apps to running an engineering training
+          program, and now a company of my own
+        </p>
+      </div>
+      <ol class="timeline stagger">
+        {
+          experience.map((job) => (
+            <li class="card">
+              <div class="when">
+                {job.start} to {job.end}
+              </div>
+              <div>
+                <h3>{job.role}</h3>
+                <div class="org">{job.org}</div>
+                <p>{job.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
   <section id="about">
     <div class="wrap">
       <div class="section-head reveal">
@@ -139,78 +250,28 @@ import {
       <div class="about-copy reveal">
         {profile.about.map((para) => <p>{para}</p>)}
       </div>
-      <div class="text-cols reveal">
-        <div>
-          <h3>Speaking</h3>
-          <ul class="plain">
-            {
-              talks.map((t) => (
-                <li>
-                  <strong>{t.title}</strong>
-                  <br />
-                  <span class="muted">
-                    {t.event}, {t.when}
-                  </span>
-                  {t.links.length > 0 && (
-                    <>
-                      <br />
-                      {t.links.map((l, i) => (
-                        <>
-                          {i > 0 && " · "}
-                          <a href={l.url}>{l.label}</a>
-                        </>
-                      ))}
-                    </>
-                  )}
-                </li>
-              ))
-            }
+      <ul class="grid two stagger">
+        <li class="card">
+          <h3>Education</h3>
+          <ul class="plain-list">
+            <li>{education.degree}</li>
+            <li>{education.school}, {education.years}</li>
+            <li class="muted">{education.notes}</li>
           </ul>
-        </div>
-        <div>
-          <h3>Experience</h3>
-          <ul class="plain">
-            {
-              experience.map((job) => (
-                <li>
-                  <strong>{job.role}</strong>
-                  <br />
-                  <span class="muted">
-                    {job.org}, {job.start} to {job.end}
-                  </span>
-                </li>
-              ))
-            }
+        </li>
+        <li class="card">
+          <h3>What I work on</h3>
+          <ul class="tags">
+            {services.map((s) => <li>{s}</li>)}
           </ul>
-        </div>
-        <div>
-          <h3>Social</h3>
-          <ul class="plain">
-            {
-              social.accounts.map((a) => (
-                <li>
-                  <strong>{a.name}</strong>{" "}
-                  <span class="muted">{a.handle}</span>
-                  <br />
-                  {a.platforms.map((pl, i) => (
-                    <>
-                      {i > 0 && " · "}
-                      <a href={pl.url}>{pl.name}</a>
-                      {pl.stat && <span class="muted"> {pl.stat}</span>}
-                    </>
-                  ))}
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </section>
 
   <section id="contact" class="contact">
     <div class="wrap reveal">
-      <h2 class="display" style="font-size: clamp(2.6rem, 6vw, 4.2rem)">
+      <h2 class="display" style="font-size: clamp(2.3rem, 5.2vw, 3.6rem)">
         Contact
       </h2>
       <div class="links">
