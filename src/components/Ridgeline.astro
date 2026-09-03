@@ -4,9 +4,9 @@
 import { summits } from "../data/profile";
 
 const W = 1440;
-const H = 460;
-const baseY = 400; // valley floor
-const peakY = (h: number) => baseY - (h / 100) * 300; // 0..100 -> 400..100
+const H = 380;
+const baseY = 330; // valley floor
+const peakY = (h: number) => baseY - (h / 100) * 230; // 0..100 -> 330..100
 
 // Build the main ridge as a polyline: valley, peak, valley, peak...
 const pts: [number, number][] = [[0, baseY - 20]];
@@ -30,8 +30,8 @@ const ridgePath =
 
 // Far range: softer, lower, offset peaks
 const farPath =
-  `M0 330 L120 270 L230 300 L340 220 L450 280 L560 200 L680 270 L800 210 L920 280 ` +
-  `L1040 190 L1160 260 L1280 210 L1380 270 L${W} 240 L${W} ${H} L0 ${H} Z`;
+  `M0 280 L120 225 L230 250 L340 190 L450 240 L560 175 L680 230 L800 180 L920 240 ` +
+  `L1040 165 L1160 225 L1280 180 L1380 230 L${W} 205 L${W} ${H} L0 ${H} Z`;
 
 // Trail: dashed path from the left edge climbing peak to peak
 const trailPts = summits.map(

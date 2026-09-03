@@ -227,16 +227,33 @@ h1 em,
 /* ---------- Hero with ridgeline ---------- */
 .hero {
   position: relative;
-  padding: 3rem 0 0;
-  min-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 1.5rem 0 0;
   overflow: hidden;
 }
 
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 100px;
+  background: var(--brand-soft);
+  color: #1d1224;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+.chip::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
 .hero h1 {
-  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.8vw, 2.9rem);
   font-weight: 600;
   line-height: 1.18;
   max-width: 30ch;
@@ -287,13 +304,13 @@ h1 em,
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-top: 1.4rem;
 }
 
 .ridge {
   position: relative;
   width: 100%;
-  margin-top: 4.5rem;
+  margin-top: 4rem;
   line-height: 0;
 }
 
@@ -379,139 +396,6 @@ section {
   margin: 1rem auto 0;
   color: var(--muted);
   font-size: 1rem;
-}
-
-/* ---------- Trail map ---------- */
-.trailmap {
-  position: relative;
-  padding-left: 4.5rem;
-}
-
-.trail-line {
-  position: absolute;
-  left: 1.05rem;
-  top: 0;
-  width: 2.5rem;
-  height: 100%;
-}
-
-.trail-path {
-  fill: none;
-  stroke: var(--brand);
-  stroke-width: 3;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-}
-
-.basecamps {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 2.5rem;
-}
-
-.basecamp {
-  position: relative;
-}
-
-.marker {
-  position: absolute;
-  left: -4.5rem;
-  top: 1.4rem;
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 50%;
-  background: var(--brand);
-  color: #1d1224;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 0.95rem;
-  box-shadow: 0 0 0 6px var(--surface);
-  transition: transform 0.5s var(--ease-out);
-}
-
-.basecamp:hover .marker {
-  transform: scale(1.12);
-}
-
-.camp-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 0.15rem;
-}
-
-.camp-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.camp-card > p {
-  color: var(--text);
-  font-size: 1rem;
-  margin-top: 1rem;
-}
-
-.camp-cols {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 1.5rem 2rem;
-  margin-top: 1.5rem;
-}
-
-.camp-cols .eyebrow {
-  margin-bottom: 0.4rem;
-}
-
-.camp-cols .plain-list {
-  margin-top: 0;
-}
-
-.flag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 100px;
-  background: var(--brand-soft);
-  color: #1d1224;
-  font-size: 0.78rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.flag::before {
-  content: "";
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--brand);
-  animation: blink 1.6s ease-in-out infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0.35;
-  }
-}
-
-@media (max-width: 560px) {
-  .trailmap {
-    padding-left: 3rem;
-  }
-  .trail-line {
-    left: 0.35rem;
-  }
-  .marker {
-    left: -3rem;
-    width: 2.1rem;
-    height: 2.1rem;
-    font-size: 0.85rem;
-  }
 }
 
 /* ---------- Journey table ---------- */
@@ -1280,9 +1164,9 @@ footer .wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.15rem;
+  gap: 0.4rem;
   text-align: center;
-  padding: 0.5rem 0.85rem;
+  padding: 0.55rem 0.9rem 0.6rem;
   border-radius: 0.9rem;
   background: var(--card);
   box-shadow: var(--shadow-card);
@@ -1366,4 +1250,70 @@ footer .wrap {
     animation: none;
     opacity: 1;
   }
+}
+
+/* ---------- Guided routes ---------- */
+.routes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 680px) {
+  .routes {
+    grid-template-columns: 1fr;
+  }
+}
+
+.route h3 {
+  font-size: 1.35rem;
+  margin-top: 0.9rem;
+}
+
+.route > p {
+  color: var(--text);
+}
+
+.route-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.difficulty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
+  background: var(--brand-soft);
+  color: #1d1224;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.difficulty .peaks {
+  color: var(--brand-text);
+  letter-spacing: -0.1em;
+  font-size: 0.7rem;
+}
+
+.length {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.packed-label {
+  margin: 1.25rem 0 0.2rem;
+}
+
+.routes-cta {
+  text-align: center;
+  margin: 2.5rem 0 0;
 }

@@ -531,3 +531,60 @@ export const summits = [
   { year: "2025", label: "Shipaton Peace Prize, 2nd place", x: 62, height: 70 },
   { year: "2026", label: "Apple Design Award finalist", x: 85, height: 92 },
 ];
+
+// Services framed as guided routes. Difficulty is the scope of the trip, length the typical timeline.
+export const routes = {
+  intro:
+    "I've hiked every stretch of this trail myself: circuits, native apps, App Store features, and the marketing that gets people to download. Pick a route and I'll guide your team through it.",
+  list: [
+    {
+      name: "Summit the App Store",
+      difficulty: "Expedition",
+      length: "8 to 16 weeks",
+      body: "Design and build a native iOS or Android app from idea to launch, with App Store screenshots, in-app events, and a feature pitch ready for Apple's editorial team.",
+      packed: [
+        "SwiftUI and Swift",
+        "Android",
+        "App and brand design",
+        "On-device ML",
+        "Bluetooth and IoT",
+      ],
+    },
+    {
+      name: "The launch traverse",
+      difficulty: "Overnight",
+      length: "4 to 6 weeks",
+      body: "A social launch for your app: content strategy, carousels, and short-form video for TikTok, Reels, and Shorts, built around the hooks your audience actually stops for.",
+      packed: [
+        "Short-form video",
+        "Carousels",
+        "Content calendar",
+        "Analytics",
+      ],
+    },
+    {
+      name: "Creator ridge",
+      difficulty: "Overnight",
+      length: "4 to 8 weeks",
+      body: "Influencer campaigns end to end: finding the right creators, briefs, contracts, and a repeatable UGC and ad creative pipeline so you always have fresh variations to test.",
+      packed: [
+        "Influencer sourcing",
+        "Creator briefs",
+        "UGC pipeline",
+        "Paid ad creative",
+      ],
+    },
+    {
+      name: "Trail crew training",
+      difficulty: "Day hike",
+      length: "Ongoing",
+      body: "Mentoring and technical training for early-career engineers and small app teams, drawn from the six-month program I designed and ran for new hires.",
+      packed: [
+        "Engineering mentoring",
+        "Training curriculum",
+        "Code review",
+        "Hiring help",
+      ],
+    },
+  ],
+};

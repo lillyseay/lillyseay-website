@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Ridgeline from "../components/Ridgeline.astro";
-import TrailMap from "../components/TrailMap.astro";
+import Routes from "../components/Routes.astro";
 import {
   profile,
-  trail,
+  routes,
   journey,
   featuredWork,
   appStoreFeatures,
@@ -21,32 +21,31 @@ import {
 >
   <section class="hero" id="top">
     <div class="wrap">
+      <span class="chip fade-up">Portland, OR</span>
       <h1>
         Hello, I'm Lilly. My career has been an <em>adventure</em> through
         <mark>electrical engineering</mark>, <mark>mobile app design</mark>, and
         <mark>marketing</mark>, with a few summits along the way.
       </h1>
-      <p class="lede fade-up" style="--delay: 0.9s">
-        Based in Portland, Oregon. On my journey I co-founded Hearing Buddy, a
-        2026 Apple Design Award finalist, spoke at FOSDEM and at Apple, and grew
-        a social audience past 115,000 followers.
-      </p>
-      <div class="hero-actions fade-up" style="--delay: 1.05s">
-        <a class="pill-link" href="#trail">Follow the trail</a>
+      <div class="hero-actions fade-up" style="--delay: 0.9s">
+        <a class="pill-link" href="#routes">Plan a trip</a>
         <a class="pill-link ghost" href="#work">See what I built</a>
       </div>
     </div>
     <Ridgeline />
   </section>
 
-  <section id="trail" class="trail-section">
+  <section id="routes">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">The trail so far</p>
-        <h2>Three basecamps, <em>one long climb</em></h2>
-        <p class="sub">{trail.intro}</p>
+        <p class="eyebrow">Guided routes</p>
+        <h2>Hire a <em>trail guide</em></h2>
+        <p class="sub">{routes.intro}</p>
       </div>
-      <TrailMap />
+      <Routes />
+      <p class="routes-cta reveal">
+        <a class="pill-link" href={`mailto:${profile.email}`}>Plan a trip</a>
+      </p>
     </div>
   </section>
 
