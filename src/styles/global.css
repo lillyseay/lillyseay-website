@@ -1,7 +1,7 @@
 /* Design tokens borrowed from hearingbuddyapp.com */
 :root {
-  color-scheme: light;
-  /* Brand palette: magenta first, with pink, baby blue, and purple */
+  color-scheme: light dark;
+  /* Brand accents: magenta first, with pink, baby blue, and purple */
   --magenta: #e0299f;
   --magenta-ink: #b8157f;
   --magenta-deep: #9a1069;
@@ -11,20 +11,31 @@
   --babyblue-deep: #5ea8e6;
   --purple: #9b4de0;
   --lavender: #e9ddfb;
-  --ink: #2b1a3a;
+  /* Neutral base: white in light mode, black in dark mode */
+  --surface: #ffffff;
+  --card: #ffffff;
+  --ink: #1d1224;
   --text: #3a2a4a;
   --muted: #7c6a8c;
-  --surface: #fdf7fb;
-  --white: #ffffff;
-  --line: rgba(43, 26, 58, 0.08);
+  --line: rgba(43, 26, 58, 0.09);
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --pill-bg: rgba(224, 41, 159, 0.09);
+  --pill-fg: var(--magenta-ink);
+  --tag-bg: rgba(155, 77, 224, 0.1);
+  --tag-fg: var(--ink);
+  --ghost-fg: var(--ink);
+  --bubble-border: rgba(255, 255, 255, 0.55);
+  --wash-pink: rgba(247, 168, 208, 0.2);
+  --wash-lavender: rgba(233, 221, 251, 0.38);
+  --wash-blue: rgba(169, 214, 245, 0.24);
   --shadow-card:
     0 4px 20px rgba(43, 26, 58, 0.05), 0 1px 3px rgba(43, 26, 58, 0.03);
   --shadow-float:
     0 4px 24px rgba(155, 77, 224, 0.1), 0 1px 3px rgba(43, 26, 58, 0.05),
     inset 0 1px #ffffffe6;
-  --shadow-btn: 0 4px 14px rgba(224, 41, 159, 0.3);
+  --shadow-btn: 0 4px 14px rgba(224, 41, 159, 0.28);
   --shadow-btn-hover:
-    0 6px 16px rgba(224, 41, 159, 0.28), 0 12px 28px rgba(155, 77, 224, 0.18);
+    0 6px 16px rgba(224, 41, 159, 0.26), 0 12px 28px rgba(155, 77, 224, 0.16);
   --grad-brand: linear-gradient(135deg, var(--magenta), var(--purple));
   --grad-text: linear-gradient(
     135deg,
@@ -40,6 +51,64 @@
     "Segoe UI", system-ui, sans-serif;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --container: 58rem;
+}
+
+/* Dark mode: black base, same accents, softer washes */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --magenta: #f04fb8;
+    --magenta-ink: #ff7ccf;
+    --purple: #b07af0;
+    --babyblue-deep: #7dbdf5;
+    --surface: #000000;
+    --card: #141018;
+    --ink: #ffffff;
+    --text: #e6dff0;
+    --muted: #a99bb8;
+    --line: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(20, 16, 24, 0.85);
+    --pill-bg: rgba(240, 79, 184, 0.16);
+    --pill-fg: #ff9ad9;
+    --tag-bg: rgba(176, 122, 240, 0.18);
+    --tag-fg: #efe6fb;
+    --ghost-fg: #ffffff;
+    --bubble-border: rgba(255, 255, 255, 0.18);
+    --wash-pink: rgba(240, 79, 184, 0.12);
+    --wash-lavender: rgba(155, 77, 224, 0.14);
+    --wash-blue: rgba(94, 168, 230, 0.12);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-float:
+      0 4px 24px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3),
+      inset 0 1px rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* Explicit dark theme (same tokens) */
+:root[data-theme="dark"] {
+  --magenta: #f04fb8;
+  --magenta-ink: #ff7ccf;
+  --purple: #b07af0;
+  --babyblue-deep: #7dbdf5;
+  --surface: #000000;
+  --card: #141018;
+  --ink: #ffffff;
+  --text: #e6dff0;
+  --muted: #a99bb8;
+  --line: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(20, 16, 24, 0.85);
+  --pill-bg: rgba(240, 79, 184, 0.16);
+  --pill-fg: #ff9ad9;
+  --tag-bg: rgba(176, 122, 240, 0.18);
+  --tag-fg: #efe6fb;
+  --ghost-fg: #ffffff;
+  --bubble-border: rgba(255, 255, 255, 0.18);
+  --wash-pink: rgba(240, 79, 184, 0.12);
+  --wash-lavender: rgba(155, 77, 224, 0.14);
+  --wash-blue: rgba(94, 168, 230, 0.12);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-float:
+    0 4px 24px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px rgba(255, 255, 255, 0.06);
 }
 
 * {
@@ -66,17 +135,17 @@ body {
   background:
     radial-gradient(
       ellipse 70% 60% at 15% 10%,
-      rgba(247, 168, 208, 0.42) 0%,
+      var(--wash-pink) 0%,
       transparent 70%
     ),
     radial-gradient(
       ellipse 60% 55% at 90% 25%,
-      rgba(233, 221, 251, 0.75) 0%,
+      var(--wash-lavender) 0%,
       transparent 70%
     ),
     radial-gradient(
       ellipse 80% 60% at 80% 95%,
-      rgba(169, 214, 245, 0.5) 0%,
+      var(--wash-blue) 0%,
       transparent 70%
     ),
     var(--surface);
@@ -175,7 +244,7 @@ p {
   position: absolute;
   bottom: -8vh;
   border-radius: 50%;
-  border: 0.5px solid rgba(255, 255, 255, 0.45);
+  border: 0.5px solid var(--bubble-border);
   background-image: radial-gradient(
     circle at 30% 30%,
     rgba(255, 255, 255, 0.5),
@@ -220,7 +289,7 @@ p {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.65rem 0.75rem 0.65rem 1rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--nav-bg);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-radius: 1.25rem;
@@ -302,8 +371,8 @@ p {
 }
 
 .btn.ghost {
-  background: #fff;
-  color: var(--ink);
+  background: var(--card);
+  color: var(--ghost-fg);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-card);
 }
@@ -334,8 +403,8 @@ section {
   align-items: center;
   gap: 0.5rem;
   padding: 0.45rem 1rem;
-  background: rgba(224, 41, 159, 0.1);
-  color: var(--magenta-ink);
+  background: var(--pill-bg);
+  color: var(--pill-fg);
   font-size: 0.8125rem;
   font-weight: 600;
   border-radius: 100px;
@@ -344,7 +413,7 @@ section {
 
 /* Cards */
 .card {
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 24px;
   padding: 1.75rem;
@@ -512,7 +581,7 @@ section {
   align-items: center;
   gap: 0.45rem;
   padding: 0.45rem 0.9rem;
-  background: #fff;
+  background: var(--card);
   border-radius: 100px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -653,8 +722,8 @@ section {
 
 .tags li {
   padding: 0.35rem 0.75rem;
-  background: var(--lavender);
-  color: var(--ink);
+  background: var(--tag-bg);
+  color: var(--tag-fg);
   border-radius: 100px;
   font-size: 0.825rem;
   font-weight: 500;
@@ -679,11 +748,11 @@ section {
   background:
     linear-gradient(
       135deg,
-      rgba(247, 168, 208, 0.22),
-      rgba(233, 221, 251, 0.5) 50%,
-      rgba(169, 214, 245, 0.35)
+      var(--wash-pink),
+      var(--wash-lavender) 50%,
+      var(--wash-blue)
     ),
-    #fff;
+    var(--card);
 }
 
 .cta .card:hover {
