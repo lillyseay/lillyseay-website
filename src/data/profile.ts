@@ -542,8 +542,22 @@ export const statements = [
     tags: ["SwiftUI", "Android", "App Store features"],
   },
   {
+    key: "design",
+    headline: "I design apps that feel like Apple made them.",
+    support:
+      "Interfaces, icons, and brand systems that follow Apple's guidelines and still feel like yours.",
+    tags: ["UI and UX", "App icons", "Brand systems"],
+  },
+  {
+    key: "appstore",
+    headline: "I get apps featured on the App Store.",
+    support:
+      "In-app events, screenshots, and editorial pitches. Hearing Buddy has been featured three times this year.",
+    tags: ["In-app events", "Screenshots", "Editorial pitches"],
+  },
+  {
     key: "social",
-    headline: "I get your app seen.",
+    headline: "I grow audiences on social.",
     support:
       "Short-form video and carousels that stop the scroll. I've grown my own channels past 115,000 followers.",
     tags: ["TikTok and Reels", "Carousels", "Launch campaigns"],

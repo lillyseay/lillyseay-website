@@ -1897,3 +1897,344 @@ footer .wrap {
     opacity: 1;
   }
 }
+
+/* Design: layered artboards fanning out, swatches popping, a cursor drawing */
+.art-design {
+  position: relative;
+  width: 13rem;
+  height: 14rem;
+}
+
+.art-design .layer {
+  position: absolute;
+  inset: 1.5rem 1rem 1rem 1rem;
+  border-radius: 1rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  transform: translate(0, 0) rotate(0);
+  padding: 1rem;
+}
+
+.art-design .l3 {
+  background: var(--brand-soft);
+  border: 0;
+}
+
+.art-design .l2 {
+  background: var(--box);
+  border: 0;
+}
+
+.is-visible .art-design .l3 {
+  animation: fan-back 0.9s var(--ease-out) 0.2s forwards;
+}
+
+.is-visible .art-design .l2 {
+  animation: fan-mid 0.9s var(--ease-out) 0.3s forwards;
+}
+
+@keyframes fan-back {
+  to {
+    transform: translate(1.2rem, -1.2rem) rotate(7deg);
+  }
+}
+
+@keyframes fan-mid {
+  to {
+    transform: translate(0.6rem, -0.6rem) rotate(3.5deg);
+  }
+}
+
+.art-design .swatch {
+  position: absolute;
+  top: 1rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.art-design .swatch.a {
+  left: 1rem;
+  background: var(--brand);
+}
+
+.art-design .swatch.b {
+  left: 2.8rem;
+  background: var(--brand-soft);
+}
+
+.art-design .swatch.c {
+  left: 4.6rem;
+  background: var(--ink);
+}
+
+.is-visible .art-design .swatch {
+  animation: pop-node 0.5s var(--ease-out) forwards;
+}
+
+.is-visible .art-design .swatch.a {
+  animation-delay: 0.6s;
+}
+.is-visible .art-design .swatch.b {
+  animation-delay: 0.75s;
+}
+.is-visible .art-design .swatch.c {
+  animation-delay: 0.9s;
+}
+
+.art-design .line {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  top: 3.6rem;
+  height: 0.7rem;
+  border-radius: 0.35rem;
+  background: var(--brand-soft);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.art-design .line.short {
+  top: 5rem;
+  right: 4rem;
+}
+
+.is-visible .art-design .line {
+  animation: line-draw 0.7s var(--ease-out) 1s forwards;
+}
+
+.is-visible .art-design .line.short {
+  animation-delay: 1.15s;
+}
+
+@keyframes line-draw {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.art-design .cursor {
+  position: absolute;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: var(--ink);
+  left: 2rem;
+  top: 4rem;
+  opacity: 0;
+}
+
+.is-visible .art-design .cursor {
+  animation: cursor-draw 3s ease-in-out 1s infinite;
+}
+
+@keyframes cursor-draw {
+  0% {
+    opacity: 0;
+    left: 2rem;
+    top: 4rem;
+  }
+  10% {
+    opacity: 1;
+  }
+  45% {
+    left: 9rem;
+    top: 4.2rem;
+  }
+  75% {
+    left: 6rem;
+    top: 6.2rem;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: 6rem;
+    top: 6.2rem;
+  }
+}
+
+/* App Store: a listing card, screenshots sliding in, a ribbon and stars */
+.art-store {
+  position: relative;
+  width: 14rem;
+  height: 15rem;
+}
+
+.art-store .listing {
+  position: absolute;
+  top: 1.2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+}
+
+.art-store .icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 0.75rem;
+  background: var(--brand);
+  flex: none;
+}
+
+.art-store .meta {
+  flex: 1;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.art-store .t {
+  height: 0.6rem;
+  border-radius: 0.3rem;
+  background: var(--box);
+}
+
+.art-store .t.short {
+  width: 55%;
+}
+
+.art-store .get {
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  background: var(--brand-soft);
+  color: #1d1224;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.art-store .shots {
+  position: absolute;
+  top: 6rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.art-store .shot {
+  flex: 1;
+  height: 7.5rem;
+  border-radius: 0.8rem;
+  background: var(--box);
+  transform: translateX(3rem);
+  opacity: 0;
+}
+
+.art-store .shot:nth-child(2) {
+  background: var(--brand-soft);
+}
+
+.art-store .shot:nth-child(3) {
+  background: var(--brand);
+}
+
+.is-visible .art-store .shot {
+  animation: shot-in 0.7s var(--ease-out) forwards;
+}
+
+.is-visible .art-store .shot:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.is-visible .art-store .shot:nth-child(2) {
+  animation-delay: 0.45s;
+}
+.is-visible .art-store .shot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes shot-in {
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.art-store .ribbon {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+  background: var(--brand);
+  color: #1d1224;
+  font-weight: 700;
+  font-size: 0.78rem;
+  box-shadow: 0 6px 18px rgba(238, 134, 243, 0.45);
+  transform: scale(0);
+}
+
+.is-visible .art-store .ribbon {
+  animation: pop 0.6s var(--ease-out) 1s forwards;
+}
+
+.art-store .stars {
+  position: absolute;
+  bottom: -0.4rem;
+  left: 0;
+  display: flex;
+  gap: 0.15rem;
+  color: var(--brand);
+  font-size: 1.1rem;
+}
+
+.art-store .stars span {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.is-visible .art-store .stars span {
+  animation: pop-star 0.4s var(--ease-out) forwards;
+}
+
+.is-visible .art-store .stars span:nth-child(1) {
+  animation-delay: 1.2s;
+}
+.is-visible .art-store .stars span:nth-child(2) {
+  animation-delay: 1.3s;
+}
+.is-visible .art-store .stars span:nth-child(3) {
+  animation-delay: 1.4s;
+}
+.is-visible .art-store .stars span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+.is-visible .art-store .stars span:nth-child(5) {
+  animation-delay: 1.6s;
+}
+
+@keyframes pop-star {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art-design .swatch,
+  .art-design .line,
+  .art-store .shot,
+  .art-store .ribbon,
+  .art-store .stars span {
+    transform: none;
+    opacity: 1;
+  }
+  .is-visible .art-design .layer,
+  .is-visible .art-design .swatch,
+  .is-visible .art-design .line,
+  .is-visible .art-design .cursor,
+  .is-visible .art-store .shot,
+  .is-visible .art-store .ribbon,
+  .is-visible .art-store .stars span {
+    animation: none;
+  }
+}
