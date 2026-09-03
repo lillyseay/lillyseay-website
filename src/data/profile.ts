@@ -4,49 +4,127 @@ export const profile = {
   name: "Lilly Seay",
   pronouns: "She/Her",
   location: "Portland, Oregon",
+  email: "team@lillyseay.co",
   headline:
-    "iOS engineer and designer. Co-founder of Hearing Buddy. 2026 Apple Design Award finalist for Inclusivity.",
+    "iOS engineer, designer, and founder. Apple Design Award finalist, FOSDEM speaker, and Apple Entrepreneur Camp alum.",
   about: [
-    "I'm an Apple Design Award finalist with over ten years in mobile development and design. I'm a native mobile expert who likes hard problems, beautiful software, and building teams that ship.",
-    "I'm hard of hearing. Hearing Buddy started as the app I needed in conference rooms where I couldn't hear the speaker, and every feature since has come from lived experience.",
+    "I've spent over ten years building native apps and the hardware they talk to. I started as an electrical engineer working on FPGAs and embedded systems, moved into iOS and Android, led an engineering training program, and now run my own studio.",
+    "I'm hard of hearing, and the apps I care about most come from problems I've lived with. I like hard problems, beautiful software, and teams that ship.",
   ],
   links: {
     linkedin: "https://www.linkedin.com/in/lillyseay",
-    appStore:
-      "https://apps.apple.com/us/app/hearing-buddy-speech-to-text/id6747363502",
-    appsWeLove: "https://apps.apple.com/us/story/id6790991028",
   },
 };
 
-export const hearingBuddy = {
-  name: "Hearing Buddy",
-  tagline: "Free, unlimited live captions for people with hearing loss.",
-  description:
-    "A hearing buddy is the patient, understanding person who helps you hear. When they can't be there, Hearing Buddy is the backup. I co-founded it, designed the app and brand, and build it in SwiftUI.",
-  features: [
-    {
-      title: "Caption sharing",
-      body: "Several people can caption a meeting from different spots in a large room, and everyone sees the most accurate captions. A teacher can share captions with a whole class.",
-    },
-    {
-      title: "Everything stays on device",
-      body: "No servers and no internet required. Captions never leave the phone.",
-    },
-    {
-      title: "Unlimited and free",
-      body: "Most captioning apps charge by the minute. Hearing Buddy doesn't meter accessibility.",
-    },
-  ],
-  recognition: [
-    "2026 Apple Design Award finalist, Inclusivity",
-    "Featured on the App Store in Apps We Love",
-    "Demoed at WWDC26 in the Observatory at Apple Park",
-  ],
-};
+export const highlights = [
+  {
+    year: "2026",
+    text: "Apple Design Award finalist for Inclusivity with Hearing Buddy",
+  },
+  {
+    year: "2026",
+    text: "Pitched Hearing Buddy in the Observatory at Apple Park",
+  },
+  { year: "2025", text: "Spoke at FOSDEM in Brussels on Swift for IoT" },
+  { year: "2024", text: "Spoke at Apple's International Women's Day event" },
+  { year: "2023", text: "Apple Entrepreneur Camp with Tappily" },
+];
+
+export const apps = [
+  {
+    name: "Hearing Buddy",
+    role: "Co-founder, designer, and iOS engineer",
+    url: "https://hearingbuddyapp.com",
+    tagline: "Free, unlimited live captions for people with hearing loss.",
+    body: "Built from my own experience being hard of hearing. Caption sharing lets several people caption a large room and everyone sees the best result. Everything runs on device with no servers and no internet required.",
+    badges: [
+      "2026 Apple Design Award finalist",
+      "Featured in Apps We Love",
+      "Logo in the WWDC26 State of the Union",
+    ],
+    year: "2025 to now",
+  },
+  {
+    name: "Tappily",
+    role: "Founder and developer",
+    url: "https://tappilyapp.com",
+    tagline: "Fun activities for your mental health.",
+    body: "Game-like activities based on cognitive behavioral therapy that help reduce anxiety and build positive habits. Free on iOS, iPad, and Android.",
+    badges: ["Apple Entrepreneur Camp 2023"],
+    year: "2019 to now",
+  },
+  {
+    name: "JavaSwift Academy",
+    role: "Founder and instructor",
+    url: "https://javaswiftacademy.com",
+    tagline: "Learn to build your first app in seven days.",
+    body: "Seven-day challenges that teach beginners, especially women, to ship an iOS or Android app they can put on a portfolio, plus resume and cover letter templates for landing app developer work.",
+    badges: [],
+    year: "2019 to now",
+  },
+];
+
+export const moreApps = [
+  {
+    name: "Guess a Number",
+    years: "2021",
+    body: "A two-player Bluetooth game for iOS and iPad that works fully offline.",
+  },
+  {
+    name: "Erupt",
+    years: "2017 to 2018",
+    body: "A location-based social app for sharing photos and videos of favorite places, with in-app drawing and scaling on media. iOS and Android.",
+  },
+];
+
+export const talks = [
+  ,
+  {
+    title: "Hearing Buddy pitch",
+    event: "WWDC26 Apple Design Award finalist showcase",
+    where: "The Observatory, Apple Park",
+    when: "June 2026",
+    body: "Demoed and pitched Hearing Buddy to Apple and fellow finalists as part of the Apple Design Awards week.",
+    links: [],
+  },
+  {
+    title: "Why Swift is the Next Big Thing for IoT",
+    event: "FOSDEM 2025, Swift devroom",
+    where: "Brussels, Belgium",
+    when: "February 2025",
+    body: "A talk on bringing Swift to embedded devices, Bluetooth, and wearables, drawing on my background bridging hardware and software.",
+    links: [
+      {
+        label: "Talk page",
+        url: "https://archive.fosdem.org/2025/schedule/event/fosdem-2025-6148-why-swift-is-the-next-big-thing-for-iot/",
+      },
+      {
+        label: "Watch the recording",
+        url: "https://video.fosdem.org/2025/k4401/fosdem-2025-6148-why-swift-is-the-next-big-thing-for-iot.mp4",
+      },
+    ],
+  },
+  ,
+  {
+    title: "A Force Together: Women in App Development",
+    event: "Apple's International Women's Day event",
+    where: "Big Sur theater, Apple Developer Center, Cupertino",
+    when: "March 2024",
+    body: "Spoke alongside founders Aurelia Edwards and Bria Sullivan about technology, entrepreneurship, and community in app development.",
+    links: [],
+  },
+];
+
+export const community = [
+  "WWDC attendee in 2024, 2025, and 2026, the last as an Apple Design Award finalist",
+  "Apple Entrepreneur Camp alum",
+  "Society of Women Engineers member",
+  "IEEE student chapter president at the University of Central Oklahoma",
+];
 
 export const experience = [
   {
-    role: "Co-founder and designer",
+    role: "Founder, designer, and iOS engineer",
     org: "Hearing Buddy",
     start: "2026",
     end: "Now",
@@ -89,29 +167,6 @@ export const experience = [
   },
 ];
 
-export const projects = [
-  {
-    name: "Tappily",
-    years: "2019",
-    body: "A mental health app that uses game-like activities based on cognitive behavioral therapy to reduce anxiety. iOS, iPad, and Android.",
-  },
-  {
-    name: "JavaSwift Academy",
-    years: "2019",
-    body: "Seven-day challenges that teach beginners, especially women, to build their first iOS or Android app, plus resume templates for landing app developer work.",
-  },
-  {
-    name: "Guess a Number",
-    years: "2021",
-    body: "A two-player Bluetooth game for iOS and iPad that works fully offline.",
-  },
-  {
-    name: "Erupt",
-    years: "2017",
-    body: "A location-based social app for sharing photos and videos of favorite places, with in-app drawing and scaling on media. iOS and Android.",
-  },
-];
-
 export const education = {
   school: "University of Central Oklahoma",
   degree: "B.S. Electrical Engineering",
@@ -119,19 +174,15 @@ export const education = {
   notes: "GPA 3.67. IEEE chapter president. Society of Women Engineers.",
 };
 
-export const recognition = [
-  "Apple Design Award finalist, Inclusivity, 2026",
-  "Apple Entrepreneur Camp alum",
-  "Speaker on accessibility, iOS, and building apps",
-];
-
 export const services = [
+  "Swift and SwiftUI",
   "iOS development",
   "Android development",
-  "SwiftUI",
   "App and brand design",
   "Bluetooth and IoT",
-  "Machine learning on device",
+  "Wearables and smart devices",
+  "Embedded systems and FPGA",
+  "On-device machine learning",
   "Engineering management",
   "Product strategy",
 ];

@@ -748,3 +748,84 @@ footer {
     transform: none;
   }
 }
+
+/* App and talk cards */
+.grid.one {
+  grid-template-columns: 1fr;
+}
+
+.app-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.app h3 {
+  font-size: 1.35rem;
+}
+
+.app h3 a {
+  color: var(--espresso);
+}
+
+.app h3 a:hover {
+  color: var(--aqua-ink);
+}
+
+.app .org,
+.talk .org {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.15rem;
+}
+
+.app .tagline {
+  color: var(--espresso);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-top: 1rem;
+}
+
+.app .tags {
+  margin-top: 1rem;
+}
+
+.talk {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.talk .when {
+  color: var(--aqua-ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding-top: 0.2rem;
+}
+
+.talk .links {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.talk .links a {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 560px) {
+  .talk {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+
+.cta .actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}

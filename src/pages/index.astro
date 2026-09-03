@@ -3,95 +3,154 @@ import Layout from "../layouts/Layout.astro";
 import Laurel from "../components/Laurel.astro";
 import {
   profile,
-  hearingBuddy,
+  highlights,
+  apps,
+  moreApps,
+  talks,
+  community,
   experience,
-  projects,
   education,
-  recognition,
   services,
 } from "../data/profile";
 ---
 
-<Layout title={`${profile.name}, iOS engineer and designer`}>
+<Layout title={`${profile.name}, iOS engineer, designer, and founder`}>
   <section class="hero">
     <div class="wrap">
       <div>
-        <span class="pill fade-up">Made by someone with hearing loss</span>
+        <span class="pill fade-up">{profile.location}</span>
         <h1 class="fade-up" style="--delay: 0.08s">
           Hi, I'm Lilly.<br />
-          <span class="grad">I build apps that help people hear.</span>
+          <span class="grad">I design and build native apps.</span>
         </h1>
         <p class="lede fade-up" style="--delay: 0.16s">{profile.headline}</p>
         <div class="actions fade-up" style="--delay: 0.24s">
-          <a class="btn" href={profile.links.appStore}>Get Hearing Buddy</a>
-          <a class="btn ghost" href={profile.links.linkedin}
-            >Connect on LinkedIn</a
-          >
+          <a class="btn" href="#apps">See my apps</a>
+          <a class="btn ghost" href={`mailto:${profile.email}`}>Get in touch</a>
         </div>
         <div class="fade-up" style="--delay: 0.32s">
           <Laurel
             title="Apple Design Award Finalist"
-            subtitle="In inclusivity"
+            subtitle="2026 · Inclusivity"
           />
         </div>
       </div>
       <div class="mock fade-up" style="--delay: 0.2s">
-        <span class="chip tl">Live captions</span>
-        <div
-          class="card"
-          aria-label="Example of shared captions in Hearing Buddy"
-        >
-          <h3>
-            <span class="dot" aria-hidden="true"></span>Caption sharing · Room
-            204
-          </h3>
+        <span class="chip tl">Speaker</span>
+        <div class="card" aria-label="Recent highlights">
+          <h3><span class="dot" aria-hidden="true"></span>Recent highlights</h3>
           <ul class="transcript">
-            <li style="--delay: 0.6s">
-              <span class="who">Teacher</span>
-              Open your books to chapter four. We're starting with the water cycle
-              today.
-            </li>
-            <li style="--delay: 1.2s">
-              <span class="who">Student, back row</span>
-              Can you go over evaporation again?
-            </li>
-            <li style="--delay: 1.8s">
-              <span class="who">Teacher</span>
-              Sure. Water heats up, turns into vapor, and rises. <span
-                class="live">Then it cools and</span
-              >
-            </li>
+            {
+              highlights.map((h, i) => (
+                <li style={`--delay: ${0.5 + i * 0.35}s`}>
+                  <span class="who">{h.year}</span>
+                  {h.text}
+                </li>
+              ))
+            }
           </ul>
         </div>
-        <span class="chip br">On-device</span>
+        <span class="chip br">Founder</span>
       </div>
     </div>
   </section>
 
-  <section id="hearing-buddy">
+  <section id="apps">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="pill">What I'm building</span>
-        <h2>Meet <span class="grad">Hearing Buddy</span></h2>
-        <p>{hearingBuddy.tagline} {hearingBuddy.description}</p>
+        <span class="pill">What I've built</span>
+        <h2>Apps people <span class="grad">actually use</span></h2>
+        <p>
+          Three products I founded and still run, plus a few smaller experiments
+          along the way.
+        </p>
       </div>
-      <ul class="grid three reveal">
+      <ul class="grid one reveal">
         {
-          hearingBuddy.features.map((f) => (
-            <li class="card">
-              <h3>{f.title}</h3>
-              <p>{f.body}</p>
+          apps.map((app) => (
+            <li class="card app">
+              <div class="app-head">
+                <div>
+                  <h3>
+                    <a href={app.url}>{app.name}</a>
+                  </h3>
+                  <div class="org">
+                    {app.role} · {app.year}
+                  </div>
+                </div>
+                <a class="btn ghost small" href={app.url}>
+                  Visit site
+                </a>
+              </div>
+              <p class="tagline">{app.tagline}</p>
+              <p>{app.body}</p>
+              {app.badges.length > 0 && (
+                <ul class="tags">
+                  {app.badges.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))
         }
       </ul>
-      <div class="section-head reveal" style="margin: 3rem auto 0">
-        <ul class="plain muted" style="margin: 0 0 1.5rem">
-          {hearingBuddy.recognition.map((r) => <li>{r}</li>)}
+      <ul class="grid two reveal" style="margin-top: 1.25rem">
+        {
+          moreApps.map((p) => (
+            <li class="card">
+              <h3>
+                {p.name}{" "}
+                <span class="muted" style="font-weight: 500">
+                  {p.years}
+                </span>
+              </h3>
+              <p>{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="speaking">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="pill">Speaking</span>
+        <h2>On stage, <span class="grad">on the record</span></h2>
+        <p>
+          I talk about accessibility, Swift on hardware, and what it takes to
+          ship an app as a small team.
+        </p>
+      </div>
+      <ul class="grid one reveal">
+        {
+          talks.map((t) => (
+            <li class="card talk">
+              <div class="when">{t.when}</div>
+              <div>
+                <h3>{t.title}</h3>
+                <div class="org">
+                  {t.event} · {t.where}
+                </div>
+                <p>{t.body}</p>
+                {t.links.length > 0 && (
+                  <p class="links">
+                    {t.links.map((l) => (
+                      <a href={l.url}>{l.label}</a>
+                    ))}
+                  </p>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="card reveal" style="margin-top: 1.25rem">
+        <h3>Apple and community</h3>
+        <ul class="plain">
+          {community.map((c) => <li>{c}</li>)}
         </ul>
-        <a class="btn" href={profile.links.appStore}
-          >Download on the App Store</a
-        >
       </div>
     </div>
   </section>
@@ -125,34 +184,6 @@ import {
     </div>
   </section>
 
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="pill">Side projects</span>
-        <h2>Apps I've <span class="grad">shipped</span></h2>
-        <p>
-          Built under Dalton Technologies, my independent studio, between client
-          work.
-        </p>
-      </div>
-      <ul class="grid two reveal">
-        {
-          projects.map((p) => (
-            <li class="card">
-              <h3>
-                {p.name}{" "}
-                <span class="muted" style="font-weight: 500">
-                  {p.years}
-                </span>
-              </h3>
-              <p>{p.body}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
   <section id="about">
     <div class="wrap">
       <div class="section-head reveal">
@@ -162,19 +193,13 @@ import {
       <div class="about-copy reveal">
         {profile.about.map((para) => <p>{para}</p>)}
       </div>
-      <ul class="grid three reveal">
+      <ul class="grid two reveal">
         <li class="card">
           <h3>Education</h3>
           <ul class="plain">
             <li>{education.degree}</li>
             <li>{education.school}, {education.years}</li>
             <li class="muted">{education.notes}</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Recognition</h3>
-          <ul class="plain">
-            {recognition.map((r) => <li>{r}</li>)}
           </ul>
         </li>
         <li class="card">
@@ -187,15 +212,18 @@ import {
     </div>
   </section>
 
-  <section class="cta">
+  <section class="cta" id="contact">
     <div class="wrap">
       <div class="card reveal">
         <h2>Let's <span class="grad">connect</span></h2>
         <p>
-          I'm happy to talk about accessibility, iOS, building apps, or speaking
+          Happy to talk about accessibility, iOS, Swift on hardware, or speaking
           at your event.
         </p>
-        <a class="btn" href={profile.links.linkedin}>Message me on LinkedIn</a>
+        <div class="actions" style="justify-content: center">
+          <a class="btn" href={`mailto:${profile.email}`}>{profile.email}</a>
+          <a class="btn ghost" href={profile.links.linkedin}>LinkedIn</a>
+        </div>
       </div>
     </div>
   </section>
