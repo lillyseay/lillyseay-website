@@ -1,11 +1,5 @@
 ---
 // Decorative rising bubbles in the page gutters, like hearingbuddyapp.com.
-const tints = [
-  "rgba(247, 168, 208, 0.35)",
-  "rgba(169, 214, 245, 0.4)",
-  "rgba(233, 221, 251, 0.6)",
-  "rgba(224, 41, 159, 0.14)",
-];
 const make = (n: number, seed: number) =>
   Array.from({ length: n }, (_, i) => {
     const r = (k: number) => {
@@ -18,7 +12,6 @@ const make = (n: number, seed: number) =>
       dur: 18 + Math.round(r(3) * 18),
       delay: -Math.round(r(4) * 30),
       drift: Math.round(r(5) * 60 - 30),
-      tint: tints[i % tints.length],
     };
   });
 const left = make(7, 1);
@@ -31,7 +24,7 @@ const right = make(7, 2);
       left.map((b) => (
         <span
           class="bubble"
-          style={`width:${b.size}px;height:${b.size}px;left:${b.left}%;--dur:${b.dur}s;--delay:${b.delay}s;--drift:${b.drift}px;--tint:${b.tint}`}
+          style={`width:${b.size}px;height:${b.size}px;left:${b.left}%;--dur:${b.dur}s;--delay:${b.delay}s;--drift:${b.drift}px`}
         />
       ))
     }
@@ -41,7 +34,7 @@ const right = make(7, 2);
       right.map((b) => (
         <span
           class="bubble"
-          style={`width:${b.size}px;height:${b.size}px;left:${b.left}%;--dur:${b.dur}s;--delay:${b.delay}s;--drift:${b.drift}px;--tint:${b.tint}`}
+          style={`width:${b.size}px;height:${b.size}px;left:${b.left}%;--dur:${b.dur}s;--delay:${b.delay}s;--drift:${b.drift}px`}
         />
       ))
     }

@@ -4,6 +4,7 @@ import Laurel from "../components/Laurel.astro";
 import {
   profile,
   highlights,
+  stats,
   apps,
   moreApps,
   social,
@@ -53,6 +54,21 @@ import {
         </div>
         <span class="chip br">Founder</span>
       </div>
+    </div>
+  </section>
+
+  <section class="band-strong stats" aria-label="Highlights by the numbers">
+    <div class="wrap">
+      <ul class="reveal">
+        {
+          stats.map((st) => (
+            <li>
+              <strong>{st.value}</strong>
+              <span>{st.label}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 
@@ -114,7 +130,7 @@ import {
     </div>
   </section>
 
-  <section id="social">
+  <section id="social" class="band-soft">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="pill">Social media</span>

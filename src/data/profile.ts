@@ -16,6 +16,13 @@ export const profile = {
   },
 };
 
+export const stats = [
+  { value: "2026", label: "Apple Design Award finalist" },
+  { value: "115K+", label: "followers across TikTok and Instagram" },
+  { value: "10+", label: "years building native apps" },
+  { value: "3", label: "products founded and still running" },
+];
+
 export const highlights = [
   {
     year: "2026",
