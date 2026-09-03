@@ -1,286 +1,213 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Laurel from "../components/Laurel.astro";
 import {
   profile,
-  highlights,
-  stats,
-  apps,
-  moreApps,
-  social,
+  featuredWork,
+  inAppEvents,
+  moreWork,
+  recognition,
+  servicesLine,
   talks,
-  community,
   experience,
-  education,
-  services,
+  social,
 } from "../data/profile";
 ---
 
 <Layout title={`${profile.name}, iOS engineer, designer, and founder`}>
-  <section class="hero" id="top">
+  <section class="hero">
     <div class="wrap">
-      <div>
-        <span class="pill fade-up">{profile.location}</span>
-        <h1 class="fade-up" style="--delay: 0.08s">
-          Hi, I'm Lilly.<br />
-          <span class="grad">I design and build native apps.</span>
-        </h1>
-        <p class="lede fade-up" style="--delay: 0.16s">{profile.headline}</p>
-        <div class="actions fade-up" style="--delay: 0.24s">
-          <a class="btn" href="#apps">See my apps</a>
-          <a class="btn ghost" href={`mailto:${profile.email}`}>Get in touch</a>
-        </div>
-        <div class="fade-up" style="--delay: 0.32s">
-          <Laurel
-            title="Apple Design Award Finalist"
-            subtitle="2026 · Inclusivity"
-          />
-        </div>
+      <div class="meta fade-up">
+        <span class="place">{profile.location}</span>
+        <span class="tiny"
+          ><a href={`mailto:${profile.email}`}>{profile.email}</a></span
+        >
       </div>
-      <div class="mock fade-up" style="--delay: 0.2s">
-        <span class="chip tl">Speaker</span>
-        <div class="card tilt" aria-label="Recent highlights">
-          <h3><span class="dot" aria-hidden="true"></span>Recent highlights</h3>
-          <ul class="transcript">
-            {
-              highlights.map((h, i) => (
-                <li style={`--delay: ${0.5 + i * 0.35}s`}>
-                  <span class="who">{h.year}</span>
-                  {h.text}
-                </li>
-              ))
-            }
-          </ul>
+      <h1 class="display name">{profile.name}</h1>
+      <div class="fan" aria-hidden="true">
+        <div class="fan-card box"></div>
+        <div class="fan-card box"></div>
+        <div class="fan-card box"></div>
+        <div class="fan-card box"></div>
+      </div>
+      <h2 class="display tagline fade-up" style="--delay: 0.9s">
+        iOS engineer,<br />designer &amp; <em>founder</em>
+      </h2>
+      <div class="lists fade-up" style="--delay: 1.1s">
+        <div>
+          <p class="eyebrow">Recognition includes</p>
+          <p>{recognition.join(", ")}</p>
         </div>
-        <span class="chip br">Founder</span>
+        <div>
+          <p class="eyebrow">Services</p>
+          <p>{servicesLine.join(", ")}</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="band-strong stats" aria-label="Highlights by the numbers">
+  <section id="work" class="featured">
+    <div class="wrap section-head reveal">
+      <h2 class="display">Featured work</h2>
+      <p>Apps I founded and campaigns I ran</p>
+    </div>
+    <div class="featured-track stagger" role="list">
+      {
+        featuredWork.map((w) => (
+          <div class="feature-item" role="listitem">
+            <div class={`box ${w.image ? "" : "empty"}`}>
+              {w.image && <img src={w.image} alt={w.title} loading="lazy" />}
+            </div>
+            <span class="label">{w.title}</span>
+            <p class="kind">{w.kind}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="events">
     <div class="wrap">
-      <ul class="reveal">
+      <div class="section-head reveal">
+        <h2 class="display">In-app events</h2>
+        <p>App Store event cards I designed for my apps</p>
+      </div>
+      <ul class="events-grid stagger">
         {
-          stats.map((st) => (
+          inAppEvents.map((e) => (
             <li>
-              <strong>{st.value}</strong>
-              <span>{st.label}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
-  <section id="apps">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="pill">What I've built</span>
-        <h2>Apps people <span class="grad">actually use</span></h2>
-        <p>
-          Three products I founded and still run, plus a few smaller experiments
-          along the way.
-        </p>
-      </div>
-      <ul class="grid one reveal">
-        {
-          apps.map((app) => (
-            <li class="card app tilt">
-              <div class="app-head">
-                <div>
-                  <h3>
-                    <a href={app.url}>{app.name}</a>
-                  </h3>
-                  <div class="org">
-                    {app.role} · {app.year}
-                  </div>
-                </div>
-                <a class="btn ghost small" href={app.url}>
-                  Visit site
-                </a>
-              </div>
-              <p class="tagline">{app.tagline}</p>
-              <p>{app.body}</p>
-              {app.badges.length > 0 && (
-                <ul class="tags">
-                  {app.badges.map((b) => (
-                    <li>{b}</li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))
-        }
-      </ul>
-      <ul class="grid two reveal" style="margin-top: 1.25rem">
-        {
-          moreApps.map((p) => (
-            <li class="card">
-              <h3>
-                {p.name}{" "}
-                <span class="muted" style="font-weight: 500">
-                  {p.years}
-                </span>
-              </h3>
-              <p>{p.body}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
-  <section id="social" class="band-soft">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="pill">Social media</span>
-        <h2>Marketing apps <span class="grad">on social</span></h2>
-        <p>{social.intro}</p>
-      </div>
-      <ul class="grid two reveal">
-        {
-          social.services.map((s) => (
-            <li class="card">
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </li>
-          ))
-        }
-      </ul>
-      <h3 class="subhead reveal">Accounts I run</h3>
-      <ul class="grid three reveal">
-        {
-          social.accounts.map((a) => (
-            <li class="card account">
-              <h3>{a.name}</h3>
-              <div class="org">{a.handle}</div>
-              <p>{a.body}</p>
-              <ul class="platforms">
-                {a.platforms.map((pl) => (
-                  <li>
-                    <a href={pl.url}>{pl.name}</a>
-                    {pl.stat && <span class="muted"> · {pl.stat}</span>}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
-  <section id="speaking">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="pill">Speaking</span>
-        <h2>On stage, <span class="grad">on the record</span></h2>
-        <p>
-          I talk about accessibility, Swift on hardware, and what it takes to
-          ship an app as a small team.
-        </p>
-      </div>
-      <ul class="grid one reveal">
-        {
-          talks.map((t) => (
-            <li class="card talk">
-              <div class="when">{t.when}</div>
-              <div>
-                <h3>{t.title}</h3>
-                <div class="org">
-                  {t.event} · {t.where}
-                </div>
-                <p>{t.body}</p>
-                {t.links.length > 0 && (
-                  <p class="links">
-                    {t.links.map((l) => (
-                      <a href={l.url}>{l.label}</a>
-                    ))}
-                  </p>
+              <div class={`box ${e.image ? "" : "empty"}`}>
+                {e.image && (
+                  <img
+                    src={e.image}
+                    alt={`${e.app}: ${e.title}`}
+                    loading="lazy"
+                  />
                 )}
               </div>
+              <div class="cap">
+                <strong>{e.app}</strong>
+                {e.title}
+              </div>
             </li>
           ))
         }
       </ul>
-      <div class="card reveal" style="margin-top: 1.25rem">
-        <h3>Apple and community</h3>
-        <ul class="plain">
-          {community.map((c) => <li>{c}</li>)}
-        </ul>
-      </div>
     </div>
   </section>
 
-  <section id="experience">
+  <section id="more">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="pill">Where I've worked</span>
-        <h2>Ten years of <span class="grad">building things</span></h2>
-        <p>
-          From FPGA design to native apps to running an engineering training
-          program, and now a company of my own.
-        </p>
+        <h2 class="display">More work</h2>
+        <p>Take a scroll, stay a while</p>
       </div>
-      <ol class="timeline">
+      <ul class="work-grid stagger">
         {
-          experience.map((job) => (
-            <li class="card reveal">
-              <div class="when">
-                {job.start} to {job.end}
-              </div>
-              <div>
-                <h3>{job.role}</h3>
-                <div class="org">{job.org}</div>
-                <p>{job.body}</p>
+          moreWork.map((w) => (
+            <li>
+              <div class={`box ${w.image ? "" : "empty"}`}>
+                {w.image && <img src={w.image} alt={w.title} loading="lazy" />}
               </div>
             </li>
           ))
         }
-      </ol>
+      </ul>
     </div>
   </section>
 
   <section id="about">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="pill">About me</span>
-        <h2>Engineer, designer, <span class="grad">founder</span></h2>
+        <h2 class="display">About</h2>
+        <p>{profile.headline}</p>
       </div>
       <div class="about-copy reveal">
         {profile.about.map((para) => <p>{para}</p>)}
       </div>
-      <ul class="grid two reveal">
-        <li class="card">
-          <h3>Education</h3>
+      <div class="text-cols reveal">
+        <div>
+          <h3>Speaking</h3>
           <ul class="plain">
-            <li>{education.degree}</li>
-            <li>{education.school}, {education.years}</li>
-            <li class="muted">{education.notes}</li>
+            {
+              talks.map((t) => (
+                <li>
+                  <strong>{t.title}</strong>
+                  <br />
+                  <span class="muted">
+                    {t.event}, {t.when}
+                  </span>
+                  {t.links.length > 0 && (
+                    <>
+                      <br />
+                      {t.links.map((l, i) => (
+                        <>
+                          {i > 0 && " · "}
+                          <a href={l.url}>{l.label}</a>
+                        </>
+                      ))}
+                    </>
+                  )}
+                </li>
+              ))
+            }
           </ul>
-        </li>
-        <li class="card">
-          <h3>What I work on</h3>
-          <ul class="tags">
-            {services.map((s) => <li>{s}</li>)}
+        </div>
+        <div>
+          <h3>Experience</h3>
+          <ul class="plain">
+            {
+              experience.map((job) => (
+                <li>
+                  <strong>{job.role}</strong>
+                  <br />
+                  <span class="muted">
+                    {job.org}, {job.start} to {job.end}
+                  </span>
+                </li>
+              ))
+            }
           </ul>
-        </li>
-      </ul>
+        </div>
+        <div>
+          <h3>Social</h3>
+          <ul class="plain">
+            {
+              social.accounts.map((a) => (
+                <li>
+                  <strong>{a.name}</strong>{" "}
+                  <span class="muted">{a.handle}</span>
+                  <br />
+                  {a.platforms.map((pl, i) => (
+                    <>
+                      {i > 0 && " · "}
+                      <a href={pl.url}>{pl.name}</a>
+                      {pl.stat && <span class="muted"> {pl.stat}</span>}
+                    </>
+                  ))}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="cta" id="contact">
-    <div class="wrap">
-      <div class="card reveal">
-        <h2>Let's <span class="grad">connect</span></h2>
-        <p>
-          Happy to talk about accessibility, iOS, Swift on hardware, or speaking
-          at your event.
-        </p>
-        <div class="actions" style="justify-content: center">
-          <a class="btn" href={`mailto:${profile.email}`}>{profile.email}</a>
-          <a class="btn ghost" href={profile.links.linkedin}>LinkedIn</a>
-        </div>
+  <section id="contact" class="contact">
+    <div class="wrap reveal">
+      <h2 class="display" style="font-size: clamp(2.6rem, 6vw, 4.2rem)">
+        Contact
+      </h2>
+      <div class="links">
+        <a class="pill-link" href={`mailto:${profile.email}`}>{profile.email}</a
+        >
+        <a class="pill-link ghost" href={profile.links.linkedin}>LinkedIn</a>
+        <a class="pill-link ghost" href="https://www.instagram.com/lillyseay/"
+          >Instagram</a
+        >
+        <a class="pill-link ghost" href="https://www.tiktok.com/@lillyseay"
+          >TikTok</a
+        >
       </div>
     </div>
   </section>

@@ -297,3 +297,51 @@ export const services = [
   "Influencer campaigns",
   "UGC and ad creative",
 ];
+
+// Placeholder work. Swap `image` for a real path under public/ when ready.
+export const featuredWork = [
+  {
+    title: "Hearing Buddy",
+    kind: "iOS app · design and engineering",
+    image: "",
+  },
+  { title: "Tappily", kind: "iOS and Android app · founder", image: "" },
+  { title: "JavaSwift Academy", kind: "Courses · founder", image: "" },
+  { title: "Jet & Nova", kind: "Short-form video · 74K on TikTok", image: "" },
+  {
+    title: "Social campaigns",
+    kind: "Carousels, UGC, and influencer work",
+    image: "",
+  },
+];
+
+export const inAppEvents = [
+  { app: "Hearing Buddy", title: "In-app event", image: "" },
+  { app: "Hearing Buddy", title: "In-app event", image: "" },
+  { app: "Hearing Buddy", title: "In-app event", image: "" },
+  { app: "Tappily", title: "In-app event", image: "" },
+  { app: "Tappily", title: "In-app event", image: "" },
+  { app: "Tappily", title: "In-app event", image: "" },
+];
+
+export const moreWork = Array.from({ length: 9 }, (_, i) => ({
+  title: `Work ${i + 1}`,
+  image: "",
+}));
+
+export const recognition = [
+  "Apple Design Award finalist 2026",
+  "Apple Entrepreneur Camp",
+  "FOSDEM speaker",
+  "Apple International Women's Day speaker",
+  "WWDC 2024, 2025, and 2026",
+];
+
+export const servicesLine = [
+  "iOS and Android apps",
+  "App and brand design",
+  "Social media marketing",
+  "Short-form video and carousels",
+  "Influencer campaigns",
+  "UGC and ad creative",
+];
