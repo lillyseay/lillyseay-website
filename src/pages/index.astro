@@ -6,6 +6,7 @@ import {
   highlights,
   apps,
   moreApps,
+  social,
   talks,
   community,
   experience,
@@ -106,6 +107,46 @@ import {
                 </span>
               </h3>
               <p>{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="social">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="pill">Social media</span>
+        <h2>Marketing apps <span class="grad">on social</span></h2>
+        <p>{social.intro}</p>
+      </div>
+      <ul class="grid two reveal">
+        {
+          social.services.map((s) => (
+            <li class="card">
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <h3 class="subhead reveal">Accounts I run</h3>
+      <ul class="grid three reveal">
+        {
+          social.accounts.map((a) => (
+            <li class="card account">
+              <h3>{a.name}</h3>
+              <div class="org">{a.handle}</div>
+              <p>{a.body}</p>
+              <ul class="platforms">
+                {a.platforms.map((pl) => (
+                  <li>
+                    <a href={pl.url}>{pl.name}</a>
+                    {pl.stat && <span class="muted"> · {pl.stat}</span>}
+                  </li>
+                ))}
+              </ul>
             </li>
           ))
         }

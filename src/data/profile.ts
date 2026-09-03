@@ -6,7 +6,7 @@ export const profile = {
   location: "Portland, Oregon",
   email: "team@lillyseay.co",
   headline:
-    "iOS engineer, designer, and founder. Apple Design Award finalist, FOSDEM speaker, and Apple Entrepreneur Camp alum.",
+    "iOS engineer, designer, and founder. Apple Design Award finalist, FOSDEM speaker, and Apple Entrepreneur Camp alum. I also help startups market their apps on social media.",
   about: [
     "I've spent over ten years building native apps and the hardware they talk to. I started as an electrical engineer working on FPGAs and embedded systems, moved into iOS and Android, led an engineering training program, and now run my own studio.",
     "I'm hard of hearing, and the apps I care about most come from problems I've lived with. I like hard problems, beautiful software, and teams that ship.",
@@ -115,6 +115,106 @@ export const talks = [
   },
 ];
 
+export const social = {
+  intro:
+    "I help startups market their apps on social media. I've grown my own accounts to more than 115,000 followers across TikTok and Instagram, and I use the same playbook for clients: carousels, short-form video, influencer campaigns, and a creative pipeline for UGC and ads.",
+  services: [
+    {
+      title: "Short-form video",
+      body: "TikTok and Reels that explain an app in seconds. Hooks, scripts, on-camera talent, and editing, tuned to what the platform rewards.",
+    },
+    {
+      title: "Carousels",
+      body: "Swipeable posts that walk through features, launches, and stories. Designed to match your brand and built to be saved and shared.",
+    },
+    {
+      title: "Influencer campaigns",
+      body: "Finding the right creators for your niche, briefing them, and running the campaign from outreach to results.",
+    },
+    {
+      title: "UGC and ad creative pipeline",
+      body: "A repeatable system for producing user-generated content and paid ad creative so you always have fresh variations to test.",
+    },
+  ],
+  accounts: [
+    {
+      name: "Lilly Seay",
+      handle: "@lillyseay",
+      body: "My personal account. Building in public as a founder, engineer, and dog mom in the Pacific Northwest.",
+      platforms: [
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/lillyseay/",
+          stat: "24.8K followers",
+        },
+        {
+          name: "TikTok",
+          url: "https://www.tiktok.com/@lillyseay",
+          stat: "12.3K followers",
+        },
+      ],
+    },
+    {
+      name: "Jet & Nova",
+      handle: "@blacklabtv",
+      body: "The black lab adventure duo. A pet and outdoors channel I grew from zero with short-form video.",
+      platforms: [
+        {
+          name: "TikTok",
+          url: "https://www.tiktok.com/@blacklabtv",
+          stat: "74K followers, 2.3M likes",
+        },
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/blacklabtv/",
+          stat: "",
+        },
+      ],
+    },
+    {
+      name: "Hearing Buddy",
+      handle: "@hearingbuddy",
+      body: "Accessibility content and launch marketing for the app, including the campaigns behind its App Store features.",
+      platforms: [
+        {
+          name: "TikTok",
+          url: "https://www.tiktok.com/@hearingbuddy",
+          stat: "1.6K followers",
+        },
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/hearingbuddy/",
+          stat: "",
+        },
+      ],
+    },
+    {
+      name: "Tappily",
+      handle: "@tappilyapp",
+      body: "Mental health content and carousels for the app.",
+      platforms: [
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/tappilyapp/",
+          stat: "2.9K followers",
+        },
+      ],
+    },
+    {
+      name: "JavaSwift Academy",
+      handle: "@javaswift",
+      body: "Beginner app development tips and course launches.",
+      platforms: [
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/javaswift/",
+          stat: "1.5K followers",
+        },
+      ],
+    },
+  ],
+};
+
 export const community = [
   "WWDC attendee in 2024, 2025, and 2026, the last as an Apple Design Award finalist",
   "Apple Entrepreneur Camp alum",
@@ -185,4 +285,8 @@ export const services = [
   "On-device machine learning",
   "Engineering management",
   "Product strategy",
+  "Social media marketing",
+  "Short-form video",
+  "Influencer campaigns",
+  "UGC and ad creative",
 ];
