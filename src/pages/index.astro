@@ -1,12 +1,144 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Caption from "../components/Caption.astro";
+import {
+  profile,
+  hearingBuddy,
+  experience,
+  projects,
+  education,
+  recognition,
+  services,
+} from "../data/profile";
 ---
 
-<Layout title="Lilly Seay">
-  <h1>Hi, I'm Lilly.</h1>
-  <p class="muted">This site is built with Astro and hosted on GitHub Pages.</p>
-  <p>
-    Edit <code>src/pages/index.astro</code> to change this page. Every push to
-    <code>main</code> rebuilds and redeploys the site automatically.
-  </p>
+<Layout title={`${profile.name}, iOS engineer and designer`}>
+  <section class="hero">
+    <div class="wrap">
+      <Caption
+        text="I couldn't hear the room. So I built the app that captions it."
+      />
+      <p class="lede">{profile.headline}</p>
+      <p class="muted">{profile.location}</p>
+      <ul class="links">
+        <li>
+          <a class="button" href={profile.links.appStore}>Get Hearing Buddy</a>
+        </li>
+        <li><a href={profile.links.linkedin}>LinkedIn</a></li>
+        <li><a href="#about">About me</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="hearing-buddy">
+    <div class="wrap feature">
+      <div>
+        <h2>{hearingBuddy.name}</h2>
+        <p class="lede">{hearingBuddy.tagline}</p>
+        <p>{hearingBuddy.description}</p>
+        <ul class="feature-list">
+          {
+            hearingBuddy.features.map((f) => (
+              <li>
+                <h3>{f.title}</h3>
+                <p>{f.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+        <ul class="recognition">
+          {hearingBuddy.recognition.map((r) => <li>{r}</li>)}
+        </ul>
+        <p style="margin-top: 2rem">
+          <a class="button" href={profile.links.appStore}
+            >Download on the App Store</a
+          >
+        </p>
+      </div>
+      <div class="transcript" aria-label="Example of shared captions">
+        <p>
+          <span class="speaker">Teacher</span> Open your books to chapter four. We're
+          starting with the water cycle today.
+        </p>
+        <p>
+          <span class="speaker">Student, back row</span> Can you go over evaporation
+          again?
+        </p>
+        <p>
+          <span class="speaker">Teacher</span> Sure. Water heats up, turns into vapor,
+          and rises. <span class="live">Then it cools and</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <ol class="timeline">
+        {
+          experience.map((job) => (
+            <li>
+              <div class="when">
+                {job.start} to {job.end}
+              </div>
+              <div>
+                <h3>{job.role}</h3>
+                <div class="org">{job.org}</div>
+                <p>{job.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <ul class="projects">
+        {
+          projects.map((p) => (
+            <li>
+              <h3>
+                {p.name}
+                <span class="years">{p.years}</span>
+              </h3>
+              <p>{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      {profile.about.map((para) => <p>{para}</p>)}
+      <div class="cols" style="margin-top: 3rem">
+        <div>
+          <h2>Education</h2>
+          <ul class="plain">
+            <li>{education.degree}</li>
+            <li>{education.school}, {education.years}</li>
+            <li class="muted">{education.notes}</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Recognition</h2>
+          <ul class="plain">
+            {recognition.map((r) => <li>{r}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h2>What I work on</h2>
+          <ul class="tags">
+            {services.map((s) => <li>{s}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
