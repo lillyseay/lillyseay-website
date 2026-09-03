@@ -50,7 +50,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
           <a href="https://www.tiktok.com/@lillyseay">TikTok</a>
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
         </div>
-        <a class="totop" href="#top">Back to the trailhead</a>
+        <a class="totop" href="#top">Back to top</a>
       </div>
     </footer>
     <script>
@@ -137,8 +137,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
       // Ridgeline parallax and trail drawing tied to scroll
       const ridge = document.querySelector<HTMLElement>(".ridge");
-      const far = ridge?.querySelector<SVGElement>(".ridge-far");
-      const mid = ridge?.querySelector<SVGElement>(".ridge-mid");
+      const far = ridge?.querySelector<SVGElement>(".layer-1");
+      const mid = ridge?.querySelector<SVGElement>(".layer-2");
       const onScroll = () => {
         const y = window.scrollY;
         if (!reduce && far && mid) {

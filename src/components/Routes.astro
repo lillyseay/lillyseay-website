@@ -1,7 +1,7 @@
 ---
 import { routes } from "../data/profile";
 const icon = (d: string) =>
-  d === "Expedition" ? "▲▲▲" : d === "Overnight" ? "▲▲" : "▲";
+  d === "Full project" ? "▲▲▲" : d === "Campaign" ? "▲▲" : "▲";
 ---
 
 <ul class="routes stagger">
@@ -21,7 +21,7 @@ const icon = (d: string) =>
         </div>
         <h3>{r.name}</h3>
         <p>{r.body}</p>
-        <p class="eyebrow packed-label">Packed in</p>
+        <p class="eyebrow packed-label">Includes</p>
         <ul class="tags">
           {r.packed.map((t) => (
             <li>{t}</li>

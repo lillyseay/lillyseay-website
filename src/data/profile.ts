@@ -532,16 +532,16 @@ export const summits = [
   { year: "2026", label: "Apple Design Award finalist", x: 85, height: 92 },
 ];
 
-// Services framed as guided routes. Difficulty is the scope of the trip, length the typical timeline.
+// Services. Adventure-flavored names, plain descriptions.
 export const routes = {
   intro:
-    "I've hiked every stretch of this trail myself: circuits, native apps, App Store features, and the marketing that gets people to download. Pick a route and I'll guide your team through it.",
+    "I've done every part of this myself: built the apps, earned the App Store features, and grown the audience. Here's how I work with startups.",
   list: [
     {
-      name: "Summit the App Store",
-      difficulty: "Expedition",
+      name: "App design and development",
+      difficulty: "Full project",
       length: "8 to 16 weeks",
-      body: "Design and build a native iOS or Android app from idea to launch, with App Store screenshots, in-app events, and a feature pitch ready for Apple's editorial team.",
+      body: "I design and build native iOS and Android apps from idea to launch, including App Store screenshots, in-app events, and a pitch ready for Apple's editorial team.",
       packed: [
         "SwiftUI and Swift",
         "Android",
@@ -551,10 +551,10 @@ export const routes = {
       ],
     },
     {
-      name: "The launch traverse",
-      difficulty: "Overnight",
+      name: "Social media launch",
+      difficulty: "Campaign",
       length: "4 to 6 weeks",
-      body: "A social launch for your app: content strategy, carousels, and short-form video for TikTok, Reels, and Shorts, built around the hooks your audience actually stops for.",
+      body: "A launch plan for your app on TikTok, Instagram, and YouTube: content strategy, carousels, and short-form video built around hooks your audience actually stops for.",
       packed: [
         "Short-form video",
         "Carousels",
@@ -563,10 +563,10 @@ export const routes = {
       ],
     },
     {
-      name: "Creator ridge",
-      difficulty: "Overnight",
+      name: "Influencer and UGC campaigns",
+      difficulty: "Campaign",
       length: "4 to 8 weeks",
-      body: "Influencer campaigns end to end: finding the right creators, briefs, contracts, and a repeatable UGC and ad creative pipeline so you always have fresh variations to test.",
+      body: "Creator campaigns from start to finish: finding the right influencers, writing briefs, handling contracts, and setting up a repeatable pipeline for UGC and paid ad creative.",
       packed: [
         "Influencer sourcing",
         "Creator briefs",
@@ -575,12 +575,12 @@ export const routes = {
       ],
     },
     {
-      name: "Trail crew training",
-      difficulty: "Day hike",
-      length: "Ongoing",
-      body: "Mentoring and technical training for early-career engineers and small app teams, drawn from the six-month program I designed and ran for new hires.",
+      name: "Engineering mentoring",
+      difficulty: "Ongoing",
+      length: "Monthly",
+      body: "Mentoring and technical training for early-career engineers and small app teams, based on the six-month program I designed and ran for new hires.",
       packed: [
-        "Engineering mentoring",
+        "1:1 mentoring",
         "Training curriculum",
         "Code review",
         "Hiring help",
