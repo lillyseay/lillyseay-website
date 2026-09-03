@@ -293,13 +293,13 @@ h1 em,
 .ridge {
   position: relative;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 4.5rem;
   line-height: 0;
 }
 
 .ridge svg {
   width: 100%;
-  height: clamp(180px, 30vw, 420px);
+  height: auto;
   display: block;
 }
 
@@ -1225,5 +1225,145 @@ footer .wrap {
   }
   .card:hover {
     transform: none;
+  }
+}
+
+/* ---------- Summit flags and labels ---------- */
+.summit-flag line {
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.summit-flag path {
+  fill: var(--brand);
+}
+
+.summit-flag circle {
+  fill: var(--surface);
+  stroke: var(--brand);
+  stroke-width: 3;
+}
+
+.summit-flag {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flag-plant 0.7s var(--ease-out) both;
+  animation-delay: calc(1.2s + var(--i) * 0.25s);
+}
+
+@keyframes flag-plant {
+  from {
+    opacity: 0;
+    scale: 0.2;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.summit-labels {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.summit-label {
+  position: absolute;
+  left: var(--x);
+  bottom: var(--y);
+  transform: translate(-50%, calc(-100% - 2.9rem));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  text-align: center;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.9rem;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--line);
+  pointer-events: auto;
+  white-space: nowrap;
+  opacity: 0;
+  animation: label-in 0.7s var(--ease-out) forwards;
+  animation-delay: calc(1.5s + var(--i) * 0.25s);
+}
+
+.summit-label::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 1px;
+  height: 1.2rem;
+  background: var(--faint);
+}
+
+.summit-label .year {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--brand-text);
+}
+
+.summit-label .name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+@keyframes label-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 2.3rem));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 2.9rem));
+  }
+}
+
+.summit-list {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto 0;
+  width: min(var(--container), 100% - 2.5rem);
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.summit-list li + li {
+  margin-top: 0.35rem;
+}
+
+.summit-list .year {
+  font-weight: 700;
+  color: var(--brand-text);
+  margin-right: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px) {
+  .summit-labels {
+    display: none;
+  }
+  .summit-list {
+    display: block;
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summit-flag,
+  .summit-label {
+    animation: none;
+    opacity: 1;
   }
 }

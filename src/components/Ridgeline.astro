@@ -1,60 +1,115 @@
 ---
-// Layered Pacific Northwest ridgeline with evergreens and drifting fog.
-// Drawn in neutrals and pale magenta so it sits under the brand colors.
+// Pacific Northwest ridgeline where each summit is a career accomplishment.
+// Peaks are generated from `summits` so their heights rise left to right.
+import { summits } from "../data/profile";
+
+const W = 1440;
+const H = 460;
+const baseY = 400; // valley floor
+const peakY = (h: number) => baseY - (h / 100) * 300; // 0..100 -> 400..100
+
+// Build the main ridge as a polyline: valley, peak, valley, peak...
+const pts: [number, number][] = [[0, baseY - 20]];
+summits.forEach((s, i) => {
+  const px = (s.x / 100) * W;
+  const py = peakY(s.height);
+  const prevX = i === 0 ? 0 : (summits[i - 1].x / 100) * W;
+  const valleyX = (prevX + px) / 2;
+  const valleyY = baseY - 40 - Math.random() * 0; // flat-ish valleys
+  if (i > 0) pts.push([valleyX, valleyY]);
+  // shoulder before and after the peak for a more natural silhouette
+  pts.push([px - 70, py + 90]);
+  pts.push([px, py]);
+  pts.push([px + 60, py + 80]);
+});
+pts.push([W, baseY - 30]);
+const ridgePath =
+  "M" +
+  pts.map(([x, y]) => `${x.toFixed(0)} ${y.toFixed(0)}`).join(" L ") +
+  ` L ${W} ${H} L 0 ${H} Z`;
+
+// Far range: softer, lower, offset peaks
+const farPath =
+  `M0 330 L120 270 L230 300 L340 220 L450 280 L560 200 L680 270 L800 210 L920 280 ` +
+  `L1040 190 L1160 260 L1280 210 L1380 270 L${W} 240 L${W} ${H} L0 ${H} Z`;
+
+// Trail: dashed path from the left edge climbing peak to peak
+const trailPts = summits.map(
+  (s) => `${((s.x / 100) * W).toFixed(0)} ${(peakY(s.height) + 6).toFixed(0)}`,
+);
+const trailPath =
+  `M-20 ${baseY - 10} C 120 ${baseY - 20} 160 ${peakY(summits[0].height) + 40} ${trailPts[0]} ` +
+  summits
+    .slice(1)
+    .map((s, i) => {
+      const prev = summits[i];
+      const x1 = ((prev.x + s.x) / 2 / 100) * W;
+      return `C ${x1.toFixed(0)} ${baseY - 30} ${x1.toFixed(0)} ${(peakY(s.height) + 60).toFixed(0)} ${trailPts[i + 1]}`;
+    })
+    .join(" ");
 ---
 
-<div class="ridge" aria-hidden="true">
-  <svg viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice">
-    <defs>
-      <clipPath id="ridge-clip"
-        ><rect width="1440" height="420"></rect></clipPath
-      >
-    </defs>
-    <g clip-path="url(#ridge-clip)">
-      <!-- far range, alpenglow -->
+<div class="ridge" aria-label="Career summits">
+  <svg
+    viewBox={`0 0 ${W} ${H}`}
+    preserveAspectRatio="xMidYMax meet"
+    aria-hidden="true"
+  >
+    <path class="ridge-far" d={farPath}></path>
+    <ellipse class="fog fog-a" cx="420" cy="330" rx="380" ry="30"></ellipse>
+    <ellipse class="fog fog-b" cx="1080" cy="310" rx="420" ry="28"></ellipse>
+    <path class="ridge-mid" d={ridgePath}></path>
+    <g class="trees">
       <path
-        class="ridge-far"
-        d="M0 300 L120 210 L210 250 L330 150 L420 200 L520 120 L640 220 L760 160 L880 230 L1000 140 L1120 210 L1240 170 L1340 230 L1440 190 L1440 420 L0 420 Z"
+        d="M60 460 L60 402 M60 402 L44 430 L76 430 Z M60 414 L48 438 L72 438 Z"
       ></path>
-      <!-- fog band -->
-      <ellipse class="fog fog-a" cx="420" cy="290" rx="380" ry="34"></ellipse>
-      <ellipse class="fog fog-b" cx="1080" cy="270" rx="420" ry="30"></ellipse>
-      <!-- mid range -->
       <path
-        class="ridge-mid"
-        d="M0 340 L90 290 L180 320 L300 240 L390 290 L470 250 L560 300 L680 230 L790 300 L900 260 L1010 320 L1110 270 L1220 320 L1320 280 L1440 330 L1440 420 L0 420 Z"
-      ></path>
-      <!-- near treeline -->
-      <g class="trees">
-        <path
-          d="M60 420 L60 372 M60 372 L44 400 L76 400 Z M60 384 L48 408 L72 408 Z"
-        ></path>
-        <path
-          d="M130 420 L130 350 M130 350 L108 392 L152 392 Z M130 366 L112 404 L148 404 Z"
-        ></path>
-        <path
-          d="M210 420 L210 380 M210 380 L196 402 L224 402 Z M210 390 L198 412 L222 412 Z"
-        ></path>
-        <path
-          d="M1240 420 L1240 360 M1240 360 L1220 398 L1260 398 Z M1240 376 L1224 408 L1256 408 Z"
-        ></path>
-        <path
-          d="M1320 420 L1320 380 M1320 380 L1304 404 L1336 404 Z M1320 392 L1308 412 L1332 412 Z"
-        ></path>
-        <path
-          d="M1400 420 L1400 350 M1400 350 L1378 392 L1422 392 Z M1400 366 L1382 404 L1418 404 Z"
-        ></path>
-      </g>
-      <!-- ground -->
-      <path
-        class="ground"
-        d="M0 420 L0 400 C200 380 380 392 560 388 C760 384 980 396 1200 384 C1300 378 1380 384 1440 392 L1440 420 Z"
-      ></path>
-      <!-- dashed trail winding up the near ridge -->
-      <path
-        class="trail"
-        d="M-20 410 C160 396 220 372 330 372 C440 372 470 350 560 348 C660 346 690 320 760 318 C840 316 880 296 940 288 C1010 280 1060 262 1120 258"
+        d="M1380 460 L1380 396 M1380 396 L1360 432 L1400 432 Z M1380 410 L1364 442 L1396 442 Z"
       ></path>
     </g>
+    <path
+      class="ground"
+      d={`M0 ${H} L0 ${baseY + 10} C300 ${baseY - 6} 700 ${baseY + 14} 1100 ${baseY - 2} C1250 ${baseY - 8} 1360 ${baseY + 6} ${W} ${baseY + 2} L${W} ${H} Z`}
+    ></path>
+    <path class="trail" d={trailPath}></path>
+    {
+      summits.map((s, i) => {
+        const px = (s.x / 100) * W;
+        const py = peakY(s.height);
+        return (
+          <g
+            class="summit-flag"
+            style={`--i: ${i}`}
+            transform={`translate(${px.toFixed(0)} ${py.toFixed(0)})`}
+          >
+            <line x1="0" y1="0" x2="0" y2="-42" />
+            <path d="M0 -42 L26 -34 L0 -26 Z" />
+            <circle cx="0" cy="0" r="5" />
+          </g>
+        );
+      })
+    }
   </svg>
+  <ol class="summit-labels">
+    {
+      summits.map((s, i) => (
+        <li
+          class="summit-label"
+          style={`--x: ${s.x}%; --y: ${((H - peakY(s.height)) / H) * 100}%; --i: ${i}`}
+        >
+          <span class="year">{s.year}</span>
+          <span class="name">{s.label}</span>
+        </li>
+      ))
+    }
+  </ol>
+  <ol class="summit-list">
+    {
+      summits.map((s) => (
+        <li>
+          <span class="year">{s.year}</span> {s.label}
+        </li>
+      ))
+    }
+  </ol>
 </div>

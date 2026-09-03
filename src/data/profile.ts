@@ -224,6 +224,7 @@ export const social = {
 
 export const community = [
   "WWDC attendee in 2024, 2025, and 2026, the last as an Apple Design Award finalist",
+  "RevenueCat Shipaton 2025: Hearing Buddy placed 2nd for the Peace Prize",
   "Apple Entrepreneur Camp alum",
   "Society of Women Engineers member",
   "IEEE student chapter president at the University of Central Oklahoma",
@@ -401,6 +402,7 @@ export const moreWork = Array.from({ length: 9 }, (_, i) => ({
 export const recognition = [
   "Apple Design Award finalist 2026",
   "Apple Entrepreneur Camp",
+  "RevenueCat Shipaton 2025 Peace Prize",
   "FOSDEM speaker",
   "Apple International Women's Day speaker",
   "WWDC 2024, 2025, and 2026",
@@ -447,6 +449,7 @@ export const trail = {
         "Tappily, JavaSwift Academy, Guess a Number, Erupt",
         "Engineering manager, Hyster-Yale Group",
         "Co-founder and designer, Hearing Buddy",
+        "RevenueCat Shipaton 2025 Peace Prize, 2nd place",
         "Apple Design Award finalist, Inclusivity, 2026",
       ],
       skills: [
@@ -518,4 +521,13 @@ export const journey = [
     when: "2012 to 2016",
   },
   { what: "Young explorer", where: "Oklahoma", when: "Before that" },
+];
+
+// Summits: career accomplishments drawn as peaks on the hero ridgeline, left to right,
+// each higher than the last. x is the horizontal position (0 to 100), height the peak height (0 to 100).
+export const summits = [
+  { year: "2016", label: "B.S. Electrical Engineering", x: 14, height: 38 },
+  { year: "2023", label: "Apple Entrepreneur Camp", x: 38, height: 54 },
+  { year: "2025", label: "Shipaton Peace Prize, 2nd place", x: 62, height: 70 },
+  { year: "2026", label: "Apple Design Award finalist", x: 85, height: 92 },
 ];
