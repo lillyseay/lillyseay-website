@@ -8,8 +8,9 @@ export const profile = {
   headline:
     "iOS engineer, designer, and founder. Apple Design Award finalist, FOSDEM speaker, and Apple Entrepreneur Camp alum. I also help startups market their apps on social media.",
   about: [
-    "I've spent over ten years building native apps and the hardware they talk to. I started as an electrical engineer working on FPGAs and embedded systems, moved into iOS and Android, led an engineering training program, and now run my own studio.",
-    "I'm hard of hearing, and the apps I care about most come from problems I've lived with. I like hard problems, beautiful software, and teams that ship.",
+    "I grew up in Oklahoma taking things apart to see how they worked. I studied electrical engineering, then followed the work west to Portland, where the trails are long and the ideas are big.",
+    "For ten years I've built native apps and the hardware they talk to. Then I built the one I needed. I'm hard of hearing, and Hearing Buddy became a 2026 Apple Design Award finalist.",
+    "Now I help startups design, build, and market their apps. Off the clock you'll find me on a paddleboard or a trail with my two black labs, Jet and Nova.",
   ],
   links: {
     linkedin: "https://www.linkedin.com/in/lillyseay",
@@ -486,21 +487,21 @@ export const trail = {
 // Journey table, most recent first: what I was doing, where, when, and the LinkedIn description.
 export const journey = [
   {
-    what: "Founder, designer, and iOS engineer",
+    what: "Founder, Designer, and iOS Engineer",
     where: "Hearing Buddy",
-    when: "2026 to now",
+    when: "2026 to Now",
     details:
       "I'm the co-founder and designer of the Hearing Buddy app and brand. I specialize in app design, SwiftUI, branding, and marketing.",
   },
   {
-    what: "Marketing apps on social media",
-    where: "Startups and my own apps",
-    when: "2023 to now",
+    what: "Founder",
+    where: "Lilly Seay & Co",
+    when: "2019 to Now",
     details:
-      "I help startups market their apps on social media with carousels, short-form video, influencer campaigns, and a creative pipeline for UGC and ads. I've grown my own accounts to more than 115,000 followers across TikTok and Instagram.",
+      "I work with app startups to market, design, and develop their apps. That covers brand and app design, native iOS and Android development, App Store features, and social media marketing with short-form video, carousels, influencer campaigns, and UGC.",
   },
   {
-    what: "Engineering manager",
+    what: "Engineering Manager",
     where: "Hyster-Yale Group",
     when: "2023 to 2025",
     details:
@@ -514,32 +515,25 @@ export const journey = [
       "I created multiple native apps of my own and worked as an independent contractor with startups and software development firms on native app projects. I specialized in native Android and iOS Bluetooth, IoT, and machine learning apps.",
   },
   {
-    what: "Electrical engineer",
+    what: "Electrical Engineer",
     where: "Honeywell FM&T",
     when: "2016 to 2017",
     details:
       "As an electrical engineer at Honeywell FM&T, I focused on FPGA design, FPGA development, hardware design, Windows application development, and maintaining complex IoT systems.",
   },
   {
-    what: "Senior design project",
+    what: "Senior Design Project",
     where: "Federal Aviation Administration",
     when: "2015 to 2016",
     details:
       "I did my senior design project with the Federal Aviation Administration in Oklahoma, working alongside full-time engineers and engineering management to create a high-speed RS-232/RS-422 to TCP/IP converter. My team successfully created a prototype that was one fourth the cost of the technologies available at the time.",
   },
   {
-    what: "Student of electrical engineering",
+    what: "Student of Electrical Engineering",
     where: "University of Central Oklahoma",
     when: "2012 to 2016",
     details:
       "I earned my bachelor's in electrical engineering with a 3.67 GPA in May 2016. I was president of the IEEE club during my senior year, organizing a staff of officers, coordinating meetings, presenting budgets to the local chapter, and raising funding. As the printed circuit board machine technician, I created PCBs for other engineering students and maintained the machine, using NI Multisim, Ultiboard, and BoardMaster to simulate circuits. I was also a STEM peer mentor and engineering tutor, and a research assistant who designed a data acquisition system on an Arduino, converting analog sensor signals into usable data and milling my own circuit boards.",
-  },
-  {
-    what: "Young explorer",
-    where: "Oklahoma",
-    when: "Before that",
-    details:
-      "Taking things apart to see how they worked, and occasionally putting them back together.",
   },
 ];
 
@@ -558,14 +552,14 @@ export const statements = [
     key: "design",
     headline: "I design brands that make apps stand out.",
     support:
-      "The brand and the app become one experience, with the design flowing through every screen, screenshot, and logo. Nothing else on the App Store looks like it.",
+      "The brand and the app feel like one thing. The same design runs through every screen, screenshot, and logo. Nothing else on the App Store looks like it.",
     tags: ["App design", "Branding", "App Store screenshots", "Logos"],
   },
   {
     key: "social",
     headline: "I get apps seen on social.",
     support:
-      "Short-form video, carousels, influencer and UGC campaigns, and paid ad creative. I've grown my own channels past 115,000 followers.",
+      "Short-form video and carousels. Influencer and UGC campaigns. Paid ad creative. My own channels have passed 115,000 followers.",
     tags: [
       "Short-form video",
       "Carousels",
@@ -577,7 +571,7 @@ export const statements = [
     key: "software",
     headline: "I build software end to end.",
     support:
-      "IoT and embedded systems, native iOS and Android, web, and AI and ML integrations, from circuit board to App Store.",
+      "Native iOS and Android. Web. IoT and embedded systems. AI and ML integrations. From the circuit board to the App Store.",
     tags: [
       "IoT and embedded",
       "iOS and Android",
@@ -589,7 +583,7 @@ export const statements = [
     key: "teams",
     headline: "I build teams that ship.",
     support:
-      "Training programs, hiring processes that actually find great engineers, and the habits that keep a team productive.",
+      "Training programs. Hiring processes that find great engineers. Habits that keep a team productive.",
     tags: ["Training programs", "Hiring process", "Team building"],
   },
 ];
