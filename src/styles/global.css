@@ -1149,10 +1149,11 @@ footer .wrap {
 }
 
 .summit-label {
+  --tx: -50%;
   position: absolute;
   left: var(--x);
   bottom: var(--y);
-  transform: translate(-50%, calc(-100% - 2.9rem));
+  transform: translate(var(--tx), calc(-100% - 2.9rem));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1197,12 +1198,28 @@ footer .wrap {
 @keyframes label-in {
   from {
     opacity: 0;
-    transform: translate(-50%, calc(-100% - 2.3rem));
+    transform: translate(var(--tx), calc(-100% - 2.3rem));
   }
   to {
     opacity: 1;
-    transform: translate(-50%, calc(-100% - 2.9rem));
+    transform: translate(var(--tx), calc(-100% - 2.9rem));
   }
+}
+
+.summit-label:first-child {
+  --tx: -18%;
+}
+
+.summit-label:last-child {
+  --tx: -82%;
+}
+
+.summit-label:first-child::after {
+  left: 18%;
+}
+
+.summit-label:last-child::after {
+  left: 82%;
 }
 
 .summit-list {

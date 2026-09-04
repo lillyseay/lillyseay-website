@@ -28,20 +28,27 @@ function ruggedRidge(
   step = 18,
 ): string {
   const r = rng(seed);
-  const anchors: Pt[] = [[-40, valleyY - 10 - r() * 20]];
+  const anchors: Pt[] = [[-40, valleyY - 20 - r() * 20]];
   peaks.forEach((p, i) => {
     const prev = anchors[anchors.length - 1];
     // a valley between peaks, offset a little so slopes are asymmetric
     if (i > 0) {
       const vx = (prev[0] + p.x) / 2 + (r() - 0.5) * 60;
-      anchors.push([vx, valleyY + (r() - 0.5) * 30]);
+      // valleys never drop below valleyY, so the layer behind always stays covered
+      anchors.push([vx, valleyY - r() * 24]);
     }
-    // sub-peak on the way up gives the "shoulder" look
-    anchors.push([p.x - 90 - r() * 40, p.y + 70 + r() * 50]);
+    // sub-peak on the way up gives the "shoulder" look, kept above the valley line
+    anchors.push([
+      p.x - 90 - r() * 40,
+      Math.min(valleyY - 12, p.y + 70 + r() * 50),
+    ]);
     anchors.push([p.x, p.y]);
-    anchors.push([p.x + 60 + r() * 40, p.y + 55 + r() * 45]);
+    anchors.push([
+      p.x + 60 + r() * 40,
+      Math.min(valleyY - 12, p.y + 55 + r() * 45),
+    ]);
   });
-  anchors.push([W + 40, valleyY - r() * 30]);
+  anchors.push([W + 40, valleyY - 20 - r() * 20]);
 
   // Interpolate between anchors with small jitter so slopes read as rock, not straight lines.
   const pts: Pt[] = [];
@@ -92,9 +99,9 @@ const frontPeaks = summits.map((s) => ({
 }));
 const frontPath = ruggedRidge(11, frontPeaks, baseY - 20, 16, 16);
 const layers = [
-  backgroundRidge(2, 6, 60, 150, 250, 10),
-  backgroundRidge(3, 5, 120, 200, 285, 12),
-  backgroundRidge(5, 7, 190, 250, 310, 12),
+  backgroundRidge(2, 8, 40, 120, 200, 10),
+  backgroundRidge(3, 7, 100, 175, 240, 12),
+  backgroundRidge(5, 9, 165, 225, 280, 12),
 ];
 const groundPath = `M-40 ${H + 10} L-40 ${baseY + 12} C 200 ${baseY} 480 ${baseY + 22} 760 ${baseY + 6} C 1000 ${baseY - 8} 1240 ${baseY + 18} ${W + 40} ${baseY + 4} L ${W + 40} ${H + 10} Z`;
 ---

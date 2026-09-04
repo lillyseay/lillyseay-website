@@ -532,48 +532,44 @@ export const summits = [
   { year: "2026", label: "Apple Design Award finalist", x: 85, height: 92 },
 ];
 
-// Services as statements: one bold sentence, one supporting line, a few tags, and a graphic key.
+// Services as statements: one bold sentence, one supporting line, tags, and a graphic key.
 export const statements = [
   {
-    key: "apps",
-    headline: "I build apps people love.",
-    support:
-      "Native iOS and Android, designed and coded by me, from first sketch to App Store feature.",
-    tags: ["SwiftUI", "Android", "App Store features"],
-  },
-  {
     key: "design",
-    headline: "I design apps that feel like Apple made them.",
+    headline: "I design apps people want to open.",
     support:
-      "Interfaces, icons, and brand systems that follow Apple's guidelines and still feel like yours.",
-    tags: ["UI and UX", "App icons", "Brand systems"],
-  },
-  {
-    key: "appstore",
-    headline: "I get apps featured on the App Store.",
-    support:
-      "In-app events, screenshots, and editorial pitches. Hearing Buddy has been featured three times this year.",
-    tags: ["In-app events", "Screenshots", "Editorial pitches"],
+      "App design, branding, App Store screenshots, and logos, all following Apple's guidelines and still unmistakably yours.",
+    tags: ["App design", "Branding", "App Store screenshots", "Logos"],
   },
   {
     key: "social",
-    headline: "I grow audiences on social.",
+    headline: "I get apps seen on social.",
     support:
-      "Short-form video and carousels that stop the scroll. I've grown my own channels past 115,000 followers.",
-    tags: ["TikTok and Reels", "Carousels", "Launch campaigns"],
+      "Short-form video, carousels, influencer and UGC campaigns, and paid ad creative. I've grown my own channels past 115,000 followers.",
+    tags: [
+      "Short-form video",
+      "Carousels",
+      "Influencer and UGC campaigns",
+      "Paid ad creative",
+    ],
   },
   {
-    key: "creators",
-    headline: "I run creator campaigns.",
+    key: "software",
+    headline: "I build software end to end.",
     support:
-      "Influencers, UGC, and ad creative on a repeatable pipeline, so you always have something new to test.",
-    tags: ["Influencer sourcing", "UGC", "Ad creative"],
+      "IoT and embedded systems, native iOS and Android, web, and AI and ML integrations, from circuit board to App Store.",
+    tags: [
+      "IoT and embedded",
+      "iOS and Android",
+      "Web",
+      "AI and ML integrations",
+    ],
   },
   {
     key: "teams",
-    headline: "I grow engineering teams.",
+    headline: "I build teams that ship.",
     support:
-      "Mentoring and training for early-career engineers, built from the program I ran for new hires.",
-    tags: ["Mentoring", "Training", "Code review"],
+      "Training programs, hiring processes that actually find great engineers, and the habits that keep a team productive.",
+    tags: ["Training programs", "Hiring process", "Team building"],
   },
 ];
