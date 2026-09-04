@@ -6,6 +6,8 @@ import {
   profile,
   journey,
   featuredWork,
+  apps,
+  moreApps,
   appStoreFeatures,
   moreWork,
   talks,
@@ -71,6 +73,60 @@ import {
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Projects</p>
+        <h2>Apps I've <em>shipped</em></h2>
+      </div>
+      <ul class="grid one stagger">
+        {
+          apps.map((app) => (
+            <li class="card app">
+              <div class="app-head">
+                <div>
+                  <h3>
+                    <a href={app.url}>{app.name}</a>
+                  </h3>
+                  <div class="org">
+                    {app.role} · {app.year}
+                  </div>
+                </div>
+                <a class="pill-link ghost small" href={app.url}>
+                  Visit site
+                </a>
+              </div>
+              <p class="tagline">{app.tagline}</p>
+              <p>{app.body}</p>
+              {app.badges.length > 0 && (
+                <ul class="tags">
+                  {app.badges.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="grid two stagger" style="margin-top: 1.25rem">
+        {
+          moreApps.map((p) => (
+            <li class="card">
+              <h3>
+                {p.name}{" "}
+                <span class="muted" style="font-weight: 500">
+                  {p.years}
+                </span>
+              </h3>
+              <p>{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 

@@ -2310,3 +2310,44 @@ footer .wrap {
     animation: none;
   }
 }
+
+/* ---------- Projects ---------- */
+.grid.one {
+  grid-template-columns: 1fr;
+}
+
+.app-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.app h3 {
+  font-size: 1.35rem;
+}
+
+.app h3 a {
+  color: var(--ink);
+}
+
+.app h3 a:hover {
+  color: var(--brand-text);
+}
+
+.app .tagline {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-top: 1rem;
+}
+
+.app .tags {
+  margin-top: 1rem;
+}
+
+.pill-link.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
