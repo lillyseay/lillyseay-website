@@ -1,0 +1,37 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { posts } from "../../data/blog";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BlogLayout
+  title="Blog, Lilly Seay"
+  description="Writing on apps, design, marketing, and the road in between."
+>
+  <section class="blog-index">
+    <div class="wrap">
+      <div class="section-head left">
+        <p class="eyebrow">Blog</p>
+        <h2>Notes from <em>the trail</em></h2>
+      </div>
+      <ul class="post-list stagger">
+        {
+          posts.map((p) => (
+            <li class="card post-card">
+              <a href={`${base}/blog/${p.slug}/`}>
+                <img src={`${base}${p.cover}`} alt="" loading="lazy" />
+                <div class="post-card-body">
+                  <div class="org">
+                    {p.date} · {p.readTime}
+                  </div>
+                  <h3>{p.title}</h3>
+                  <p>{p.description}</p>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BlogLayout>

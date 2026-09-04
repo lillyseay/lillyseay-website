@@ -36,7 +36,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             <path class="smile" d="M16 29 C19 34 29 34 32 29"></path>
           </svg>
         </a>
-        <a class="cta" href={`mailto:${profile.email}`}>Get in touch</a>
+        <nav class="topnav">
+          <a class="navlink" href={`${base}/blog/`}>Blog</a>
+          <a class="cta" href={`mailto:${profile.email}`}>Get in touch</a>
+        </nav>
       </div>
     </header>
     <main>

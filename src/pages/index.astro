@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Ridgeline from "../components/Ridgeline.astro";
+import { posts } from "../data/blog";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 import Statements from "../components/Statements.astro";
 import {
   profile,
@@ -310,6 +312,33 @@ import {
       <div class="notes">
         {profile.about.map((para) => <p>{para}</p>)}
       </div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="wrap">
+      <div class="section-head left reveal">
+        <p class="eyebrow">Writing</p>
+        <h2>From <em>the blog</em></h2>
+      </div>
+      <ul class="post-list stagger">
+        {
+          posts.map((p) => (
+            <li class="card post-card">
+              <a href={`${base}/blog/${p.slug}/`}>
+                <img src={`${base}${p.cover}`} alt="" loading="lazy" />
+                <div class="post-card-body">
+                  <div class="org">
+                    {p.date} · {p.readTime}
+                  </div>
+                  <h3>{p.title}</h3>
+                  <p>{p.description}</p>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 

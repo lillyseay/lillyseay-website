@@ -1,0 +1,89 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { posts, topPosts } from "../../data/blog";
+import { profile } from "../../data/profile";
+const post = posts.find((p) => p.slug === "top-10-linkedin-posts")!;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BlogLayout
+  title={`${post.title}, Lilly Seay`}
+  description={post.description}
+  image={post.cover}
+>
+  <article class="post">
+    <header class="post-head wrap">
+      <p class="eyebrow">Blog</p>
+      <h1>{post.title}</h1>
+      <p class="post-meta">
+        By {profile.name} · {post.date} · {post.readTime}
+      </p>
+      <p class="lede">
+        I post on LinkedIn the way I build apps: ship it, see what people
+        respond to, and learn from it. These are the ten posts that reached the
+        most people, ranked by impressions where LinkedIn still shows them and
+        by reactions for the older ones. For each I've included the original
+        post, what was going on behind it, and the skill it points to. If you're
+        thinking about working with me, this is the fastest way to see how I
+        think.
+      </p>
+    </header>
+
+    <div class="wrap">
+      <ol class="entries">
+        {
+          topPosts.map((e) => (
+            <li class="entry reveal" id={`post-${e.rank}`}>
+              <div class="entry-rank" aria-hidden="true">
+                {String(e.rank).padStart(2, "0")}
+              </div>
+              <div class="entry-body">
+                <p class="eyebrow">{e.when}</p>
+                <h2>{e.title}</h2>
+                <ul class="stat-pills">
+                  {e.stats.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+                <figure class="entry-figure">
+                  <img src={`${base}${e.image}`} alt={e.alt} loading="lazy" />
+                </figure>
+                <blockquote>
+                  <p>{e.quote}</p>
+                  <cite>
+                    <a href={e.link}>Read the post on LinkedIn</a>
+                  </cite>
+                </blockquote>
+                {e.body.map((para) => (
+                  <p>{para}</p>
+                ))}
+                <ul class="tags">
+                  {e.skills.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
+      <section class="post-outro reveal">
+        <h2>What the list adds up to</h2>
+        <p>
+          Read together, these ten posts cover the whole trail: an electrical
+          engineering background that still shows up in embedded Swift projects,
+          a decade of native app design and development, a brand strong enough
+          to get noticed by Apple's editorial team, the marketing habits that
+          get apps seen, and the management work of hiring and training
+          engineers. That combination is what I bring to every project.
+        </p>
+        <p>
+          If any of it is useful for your app, <a
+            href={`mailto:${profile.email}`}>send me a note</a
+          > or follow along on <a href={profile.links.linkedin}>LinkedIn</a>.
+        </p>
+      </section>
+    </div>
+  </article>
+</BlogLayout>
