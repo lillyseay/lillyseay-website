@@ -54,17 +54,23 @@ import {
         <p class="eyebrow">Recent adventures</p>
         <h2>Where I've been, <em>and when</em></h2>
       </div>
-      <ol class="journey stagger">
+      <div class="journey stagger">
         {
           journey.map((j) => (
-            <li>
-              <span class="what">{j.what}</span>
-              <span class="where">{j.where}</span>
-              <span class="when">{j.when}</span>
-            </li>
+            <details class="journey-item">
+              <summary>
+                <span class="what">{j.what}</span>
+                <span class="where">{j.where}</span>
+                <span class="when">{j.when}</span>
+                <span class="chev" aria-hidden="true" />
+              </summary>
+              <div class="journey-body">
+                <p>{j.details}</p>
+              </div>
+            </details>
           ))
         }
-      </ol>
+      </div>
     </div>
   </section>
 

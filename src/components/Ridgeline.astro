@@ -19,41 +19,35 @@ const rng = (seed: number) => () => {
 
 type Pt = [number, number];
 
-// A rugged ridge: broad peaks placed at `peaks` (x, y) with jittered slopes between them.
+// A ridge: broad peaks at `peaks`, rounded valleys between them, and rock texture only near the tops.
 function ruggedRidge(
   seed: number,
   peaks: { x: number; y: number }[],
   valleyY: number,
   jitter: number,
-  step = 18,
+  step = 16,
 ): string {
   const r = rng(seed);
-  const anchors: Pt[] = [[-40, valleyY - 16]];
+  const anchors: Pt[] = [[-40, valleyY - 30 - r() * 30]];
   peaks.forEach((p, i) => {
-    const prev = anchors[anchors.length - 1];
-    // a valley between peaks, offset a little so slopes are asymmetric
     if (i > 0) {
-      const vx = (prev[0] + p.x) / 2 + (r() - 0.5) * 60;
-      const vy = valleyY - r() * 24;
-      // a wide, gentle valley floor: the layer behind stays covered and the base reads smooth
-      anchors.push([vx - 70, vy - 10]);
-      anchors.push([vx, vy]);
-      anchors.push([vx + 70, vy - 10]);
+      const prev = peaks[i - 1];
+      const vx = (prev.x + p.x) / 2 + (r() - 0.5) * 80;
+      anchors.push([vx, valleyY - 20 - r() * 40]);
     }
-    // sub-peak on the way up gives the "shoulder" look, kept above the valley line
-    anchors.push([
-      p.x - 90 - r() * 40,
-      Math.min(valleyY - 12, p.y + 70 + r() * 50),
-    ]);
+    const left = anchors[anchors.length - 1];
+    // shoulders sit between the valley and the summit for a natural, stepped profile
+    const shL = p.y + (left[1] - p.y) * (0.35 + r() * 0.2);
+    anchors.push([p.x - 70 - r() * 50, shL]);
     anchors.push([p.x, p.y]);
-    anchors.push([
-      p.x + 60 + r() * 40,
-      Math.min(valleyY - 12, p.y + 55 + r() * 45),
-    ]);
+    const nextValley = valleyY - 20 - r() * 40;
+    const shR = p.y + (nextValley - p.y) * (0.3 + r() * 0.2);
+    anchors.push([p.x + 50 + r() * 50, shR]);
   });
-  anchors.push([W + 40, valleyY - 16]);
+  anchors.push([W + 40, valleyY - 30 - r() * 30]);
 
-  // Interpolate between anchors with small jitter so slopes read as rock, not straight lines.
+  // Smooth (cosine) interpolation between anchors gives rounded valleys.
+  // Jitter fades out near the valley floor so only the upper slopes look rocky.
   const pts: Pt[] = [];
   for (let i = 0; i < anchors.length - 1; i++) {
     const [x0, y0] = anchors[i];
@@ -61,13 +55,11 @@ function ruggedRidge(
     const n = Math.max(2, Math.round((x1 - x0) / step));
     for (let k = 0; k < n; k++) {
       const t = k / n;
+      const e = (1 - Math.cos(t * Math.PI)) / 2;
       const x = x0 + (x1 - x0) * t;
-      const y = y0 + (y1 - y0) * t;
-      // keep the exact apex sharp: no jitter at anchor points
-      const j =
-        k === 0
-          ? 0
-          : (r() - 0.5) * jitter * Math.min(1, Math.abs(y1 - y0) / 60 + 0.4);
+      const y = y0 + (y1 - y0) * e;
+      const rugged = Math.min(1, Math.max(0, (valleyY - 40 - y) / 120));
+      const j = k === 0 ? 0 : (r() - 0.5) * jitter * rugged;
       pts.push([x, y + j]);
     }
   }
@@ -79,7 +71,7 @@ function ruggedRidge(
   );
 }
 
-// Background ranges: random peaks, lower and softer the farther back.
+// Background ranges: a few broad peaks, lower and softer the farther back.
 function backgroundRidge(
   seed: number,
   count: number,
@@ -90,21 +82,21 @@ function backgroundRidge(
 ) {
   const r = rng(seed);
   const peaks = Array.from({ length: count }, (_, i) => ({
-    x: ((i + 0.5 + (r() - 0.5) * 0.6) / count) * W,
+    x: ((i + 0.5 + (r() - 0.5) * 0.5) / count) * W,
     y: minY + r() * (maxY - minY),
   }));
-  return ruggedRidge(seed * 7 + 1, peaks, valleyY, jitter, 22);
+  return ruggedRidge(seed * 7 + 1, peaks, valleyY, jitter, 20);
 }
 
 const frontPeaks = summits.map((s) => ({
   x: (s.x / 100) * W,
   y: peakY(s.height),
 }));
-const frontPath = ruggedRidge(11, frontPeaks, baseY - 20, 16, 16);
+const frontPath = ruggedRidge(11, frontPeaks, baseY - 10, 14, 14);
 const layers = [
-  backgroundRidge(2, 8, 40, 120, 200, 10),
-  backgroundRidge(3, 7, 100, 175, 240, 12),
-  backgroundRidge(5, 9, 165, 225, 280, 12),
+  backgroundRidge(2, 4, 70, 130, 235, 8),
+  backgroundRidge(3, 4, 120, 180, 270, 10),
+  backgroundRidge(5, 5, 175, 230, 300, 10),
 ];
 const groundPath = `M-40 ${H + 10} L-40 ${baseY + 12} C 200 ${baseY} 480 ${baseY + 22} 760 ${baseY + 6} C 1000 ${baseY - 8} 1240 ${baseY + 18} ${W + 40} ${baseY + 4} L ${W + 40} ${H + 10} Z`;
 ---

@@ -483,44 +483,64 @@ export const trail = {
   ],
 };
 
-// Journey table, most recent first: what I was doing, where, when.
+// Journey table, most recent first: what I was doing, where, when, and the LinkedIn description.
 export const journey = [
   {
     what: "Founder, designer, and iOS engineer",
     where: "Hearing Buddy",
     when: "2026 to now",
+    details:
+      "I'm the co-founder and designer of the Hearing Buddy app and brand. I specialize in app design, SwiftUI, branding, and marketing.",
   },
   {
     what: "Marketing apps on social media",
     where: "Startups and my own apps",
     when: "2023 to now",
+    details:
+      "I help startups market their apps on social media with carousels, short-form video, influencer campaigns, and a creative pipeline for UGC and ads. I've grown my own accounts to more than 115,000 followers across TikTok and Instagram.",
   },
   {
     what: "Engineering manager",
     where: "Hyster-Yale Group",
     when: "2023 to 2025",
+    details:
+      "I mentored, trained, and managed entry-level engineers to help them discover which software team best fit their interests and passions. Every year I hired 5 to 10 software engineers, led them through a 6-month technical training program, mentored the team on technical projects, and made sure they were prepared for their role. I designed and managed the training program itself, which included creating technical courses, working with third parties to coordinate trainings, and collecting feedback from the team to improve the program.",
   },
   {
     what: "Founder and CEO",
     where: "Dalton Technologies",
     when: "2017 to 2023",
+    details:
+      "I created multiple native apps of my own and worked as an independent contractor with startups and software development firms on native app projects. I specialized in native Android and iOS Bluetooth, IoT, and machine learning apps.",
   },
   {
     what: "Electrical engineer",
     where: "Honeywell FM&T",
     when: "2016 to 2017",
+    details:
+      "As an electrical engineer at Honeywell FM&T, I focused on FPGA design, FPGA development, hardware design, Windows application development, and maintaining complex IoT systems.",
   },
   {
     what: "Senior design project",
     where: "Federal Aviation Administration",
     when: "2015 to 2016",
+    details:
+      "I did my senior design project with the Federal Aviation Administration in Oklahoma, working alongside full-time engineers and engineering management to create a high-speed RS-232/RS-422 to TCP/IP converter. My team successfully created a prototype that was one fourth the cost of the technologies available at the time.",
   },
   {
     what: "Student of electrical engineering",
     where: "University of Central Oklahoma",
     when: "2012 to 2016",
+    details:
+      "I earned my bachelor's in electrical engineering with a 3.67 GPA in May 2016. I was president of the IEEE club during my senior year, organizing a staff of officers, coordinating meetings, presenting budgets to the local chapter, and raising funding. As the printed circuit board machine technician, I created PCBs for other engineering students and maintained the machine, using NI Multisim, Ultiboard, and BoardMaster to simulate circuits. I was also a STEM peer mentor and engineering tutor, and a research assistant who designed a data acquisition system on an Arduino, converting analog sensor signals into usable data and milling my own circuit boards.",
   },
-  { what: "Young explorer", where: "Oklahoma", when: "Before that" },
+  {
+    what: "Young explorer",
+    where: "Oklahoma",
+    when: "Before that",
+    details:
+      "Taking things apart to see how they worked, and occasionally putting them back together.",
+  },
 ];
 
 // Summits: career accomplishments drawn as peaks on the hero ridgeline, left to right,
@@ -536,9 +556,9 @@ export const summits = [
 export const statements = [
   {
     key: "design",
-    headline: "I design apps people want to open.",
+    headline: "I design brands that make apps stand out.",
     support:
-      "App design, branding, App Store screenshots, and logos, all following Apple's guidelines and still unmistakably yours.",
+      "The brand and the app become one experience, with the design flowing through every screen, screenshot, and logo. Nothing else on the App Store looks like it.",
     tags: ["App design", "Branding", "App Store screenshots", "Logos"],
   },
   {
