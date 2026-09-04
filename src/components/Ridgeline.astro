@@ -28,14 +28,17 @@ function ruggedRidge(
   step = 18,
 ): string {
   const r = rng(seed);
-  const anchors: Pt[] = [[-40, valleyY - 20 - r() * 20]];
+  const anchors: Pt[] = [[-40, valleyY - 16]];
   peaks.forEach((p, i) => {
     const prev = anchors[anchors.length - 1];
     // a valley between peaks, offset a little so slopes are asymmetric
     if (i > 0) {
       const vx = (prev[0] + p.x) / 2 + (r() - 0.5) * 60;
-      // valleys never drop below valleyY, so the layer behind always stays covered
-      anchors.push([vx, valleyY - r() * 24]);
+      const vy = valleyY - r() * 24;
+      // a wide, gentle valley floor: the layer behind stays covered and the base reads smooth
+      anchors.push([vx - 70, vy - 10]);
+      anchors.push([vx, vy]);
+      anchors.push([vx + 70, vy - 10]);
     }
     // sub-peak on the way up gives the "shoulder" look, kept above the valley line
     anchors.push([
@@ -48,7 +51,7 @@ function ruggedRidge(
       Math.min(valleyY - 12, p.y + 55 + r() * 45),
     ]);
   });
-  anchors.push([W + 40, valleyY - 20 - r() * 20]);
+  anchors.push([W + 40, valleyY - 16]);
 
   // Interpolate between anchors with small jitter so slopes read as rock, not straight lines.
   const pts: Pt[] = [];
