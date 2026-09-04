@@ -428,6 +428,15 @@ section {
 
 .journey .where {
   color: var(--text);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.journey .where small {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
 }
 
 .journey .when {
