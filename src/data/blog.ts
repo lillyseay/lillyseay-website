@@ -2,9 +2,9 @@
 export const posts = [
   {
     slug: "apple-design-award-finalist-wwdc26",
-    title: "Apple Design Award finalist: my WWDC26",
+    title: "Apple Design Award Finalist: my WWDC26",
     description:
-      "Hearing Buddy was a 2026 Apple Design Award finalist for Inclusivity. Here is the whole week in Cupertino, from the announcement to the Observatory, in my own posts, photos, and the vlog.",
+      "Hearing Buddy was a 2026 Apple Design Award Finalist for Inclusivity. The story of that week in Cupertino, from the announcement to demoing in the Observatory at Apple Park.",
     date: "September 7, 2026",
     readTime: "6 min read",
     cover: "/blog/wwdc26/finalists-group.jpg",
