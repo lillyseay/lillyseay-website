@@ -2767,3 +2767,9 @@ footer .wrap {
 .video-figure.small video {
   max-height: 22rem;
 }
+
+/* Figure captions centered */
+.post-figure figcaption,
+.video-figure figcaption {
+  text-align: center;
+}
