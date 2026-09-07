@@ -507,7 +507,7 @@ export const journey = [
       "I'm the co-founder and designer of the Hearing Buddy app and brand. Hearing Buddy helps Deaf and hard of hearing people hear with on-device live captions. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 8 times this year.",
   },
   {
-    what: "Independent Contractor",
+    what: "Founder and CEO",
     where: "Lilly Seay & Co",
     type: "Self-employed",
     when: "May 2019 to Now",
