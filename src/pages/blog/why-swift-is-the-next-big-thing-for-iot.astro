@@ -54,12 +54,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         more interactive. Take a simple example: a smart light that turns on
         when it detects motion and integrates seamlessly with the Home app.
       </p>
-      <figure class="post-figure">
-        <img
-          src={`${base}/blog/swift-iot/when-your-code-works.jpg`}
-          alt="A circuit board in hand at the lab bench, captioned when your code works"
-          loading="lazy"
-        />
+      <figure class="video-figure small">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster={`${base}/blog/swift-iot/when-your-code-works.jpg`}
+        >
+          <source
+            src={`${base}/blog/swift-iot/when-your-code-works.mp4`}
+            type="video/mp4"
+          />
+        </video>
         <figcaption>Hardware days. When your code works.</figcaption>
       </figure>
       <p>
