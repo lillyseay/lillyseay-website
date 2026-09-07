@@ -6,7 +6,7 @@ export const posts = [
     description:
       "My FOSDEM 2025 talk, word for word, with the demo video and the code: a motion-activated smart light built with Embedded Swift, an ESP32-C6, and Matter.",
     date: "September 7, 2026",
-    readTime: "8 min read",
+    readTime: "4 min read",
     cover: "/blog/swift-iot/motion-light-poster.jpg",
   },
   {
