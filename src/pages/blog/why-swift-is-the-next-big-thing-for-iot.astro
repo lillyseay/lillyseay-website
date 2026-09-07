@@ -54,6 +54,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         more interactive. Take a simple example: a smart light that turns on
         when it detects motion and integrates seamlessly with the Home app.
       </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/swift-iot/when-your-code-works.jpg`}
+          alt="A circuit board in hand at the lab bench, captioned when your code works"
+          loading="lazy"
+        />
+        <figcaption>Hardware days. When your code works.</figcaption>
+      </figure>
       <p>
         While this type of engineering was rewarding, I was eager to expand my
         skills into modern software development, specifically iOS. My days were
@@ -68,11 +76,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         management, and interoperability with C—even more exciting, hinting at
         its potential to bring these two worlds together.
       </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/swift-iot/two-worlds.jpg`}
+          alt="Lilly holding a mug that reads Eat Sleep Code Repeat"
+          loading="lazy"
+        />
+        <figcaption>Two worlds, one engineer.</figcaption>
+      </figure>
       <p>
         Now if we fast forward to 2024, Embedded Swift was announced, and
         suddenly, my two worlds in engineering didn’t just overlap—they
         intersected.
       </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/swift-iot/wwdc24.jpg`}
+          alt="Lilly waving beside the WWDC24 sign on the lawn at Apple Park"
+          loading="lazy"
+        />
+        <figcaption>WWDC24, the year Embedded Swift was announced.</figcaption>
+      </figure>
       <p>
         Traditionally, developers relied on C/C++ — precise, powerful languages
         that offers full control over hardware. However, that precision comes
@@ -97,14 +121,59 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         interested in the rest of the Matter &amp; LED implementation, go
         checkout the repo.
       </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/swift-iot/go-small.jpg`}
+          alt="WWDC24 session title card: Go small with Embedded Swift, Kuba Mracek, Swift Compiler Engineer"
+          loading="lazy"
+        />
+        <figcaption>
+          The WWDC24 session the Matter example comes from.
+        </figcaption>
+      </figure>
       <p>
         I’m using Embedded Swift, an ESP32C6 board, a motion sensor, and the
         Matter protocol.
       </p>
+      <figure class="post-figure two">
+        <div>
+          <img
+            src={`${base}/blog/swift-iot/esp32-c6.jpg`}
+            alt="An ESP32-C6 development board"
+            loading="lazy"
+          />
+          <img
+            src={`${base}/blog/swift-iot/motion-sensor.jpg`}
+            alt="A PIR motion sensor module"
+            loading="lazy"
+          />
+        </div>
+        <figcaption>The ESP32-C6 board and the motion sensor.</figcaption>
+      </figure>
+      <p>
+        Here's a quick close up of what my circuit is looking like for the
+        motion sensor.
+      </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/swift-iot/wiring.jpg`}
+          alt="Close-up of the motion sensor wired to the ESP32-C6 on a breadboard"
+          loading="lazy"
+        />
+        <figcaption>Motion sensor wiring.</figcaption>
+      </figure>
       <p>
         The result is a fully functional smart light that responds to motion and
         stays synced with Home app.
       </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/swift-iot/home-app.jpg`}
+          alt="The Home app showing the Matter accessory light at 25 percent in the Office room"
+          loading="lazy"
+        />
+        <figcaption>The light in the Home app.</figcaption>
+      </figure>
       <h2>Conclusion</h2>
       <p>
         Embedded Swift has changed the way I do IoT Development. It prevents
