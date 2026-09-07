@@ -1,0 +1,291 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { posts } from "../../data/blog";
+import { profile } from "../../data/profile";
+const post = posts.find(
+  (p) => p.slug === "why-swift-is-the-next-big-thing-for-iot",
+)!;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BlogLayout
+  title={`${post.title}, Lilly Seay`}
+  description={post.description}
+  image={post.cover}
+>
+  <article class="post prose-post">
+    <header class="post-head wrap">
+      <p class="eyebrow">Blog · From my FOSDEM 2025 talk</p>
+      <h1>{post.title}</h1>
+      <p class="post-meta">
+        By {profile.name} · {post.date} · {post.readTime}
+      </p>
+      <p class="lede">
+        I gave this talk in the Swift devroom at FOSDEM 2025 in Brussels. This
+        is the written version, with the demo video and the code, for anyone who
+        would rather read it than watch it. The short version: Embedded Swift
+        let me write firmware for a microcontroller in the same language I use
+        to build iOS apps, and that changes what a small team can build.
+      </p>
+    </header>
+
+    <div class="wrap post-body">
+      <figure class="video-figure reveal">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster={`${base}/blog/swift-iot/motion-light-poster.jpg`}
+        >
+          <source
+            src={`${base}/blog/swift-iot/motion-light-demo.mp4`}
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>
+          The demo: walk past the sensor and the LED turns on. The Home app
+          updates at the same moment, and it works the other way too.
+        </figcaption>
+      </figure>
+
+      <h2>Two worlds that felt miles apart</h2>
+      <p>
+        In 2016 I graduated with a degree in electrical engineering and started
+        working full time in hardware design and embedded systems. That is where
+        I started working on IoT, the Internet of Things, which connects
+        everyday objects to the internet to make them smarter and more
+        interactive. Take a simple example: a smart light that turns on when it
+        detects motion and integrates seamlessly with the Home app.
+      </p>
+      <p>
+        That kind of engineering was rewarding, but I wanted to expand into
+        modern software development, specifically iOS. My days were spent
+        writing low-level C for embedded systems. At night I was writing Swift,
+        building my first iOS app.
+      </p>
+      <p>
+        At the time, those two worlds felt miles apart. I remember coding in C
+        and worrying that a single typo could crash my program or even damage my
+        hardware. That constant caution made Swift's modern features, type
+        safety, automatic memory management, and interoperability with C, even
+        more exciting. They hinted at a language that could bring the two worlds
+        together.
+      </p>
+      <p>
+        Fast forward to 2024. Embedded Swift was announced, and suddenly my two
+        worlds didn't just overlap. They intersected.
+      </p>
+
+      <h2>What Embedded Swift is</h2>
+      <p>
+        Traditionally, embedded developers rely on C and C++. They are precise,
+        powerful languages that offer full control over hardware. That precision
+        comes with challenges: manual memory management, complex error handling,
+        and a steep learning curve.
+      </p>
+      <p>
+        Embedded Swift is a compilation mode of Swift built for
+        microcontrollers. It keeps the parts of the language that make code safe
+        and readable, value and reference types, optionals, error handling,
+        generics, and drops the parts that need a large runtime. The result has
+        a small enough footprint to run on a chip, and it is already used inside
+        Apple's own devices for kernel-level and security-critical code. For
+        hardware work it brings modern, safe, and scalable code to a place that
+        has rarely had it.
+      </p>
+
+      <h2>The build</h2>
+      <p>
+        I built a motion-activated smart light. A motion sensor detects movement
+        and sends a high signal to an ESP32-C6. That signal flips the LED on or
+        off, and the change shows up in the Home app.
+      </p>
+      <ul class="kit">
+        <li><strong>Board:</strong> ESP32-C6</li>
+        <li><strong>Sensor:</strong> a PIR motion sensor on GPIO pin 5</li>
+        <li>
+          <strong>Protocol:</strong> Matter, so the Home app can see the device no
+          matter who made it
+        </li>
+        <li>
+          <strong>Language:</strong> Embedded Swift, on top of the ESP-IDF C libraries
+        </li>
+      </ul>
+      <p>
+        I started from Apple's Matter example in Swift, the one featured in the
+        WWDC24 session
+        <a href="https://developer.apple.com/videos/play/wwdc2024/10197/"
+          >Go small with Embedded Swift</a
+        >. Everything below is the part I added for the motion sensor. The LED
+        and Matter setup come from that example, and the full project is in the
+        <a href="https://github.com/apple/swift-matter-examples"
+          >swift-matter-examples</a
+        > repo.
+      </p>
+
+      <h2>Reading the sensor</h2>
+      <p>
+        The first step happens in the bridging header. I added the GPIO driver
+        for the sensor, the interrupt headers, and a Matter C++ call that
+        updates the Home app. That is the C and C++ interoperability doing its
+        job: the ESP-IDF drivers stay in C, and I call them from Swift.
+      </p>
+      <p>
+        The core of the sensor lives in a MotionSensor class. The initializer
+        does two things: it configures the GPIO pin so the board can receive
+        input whenever motion is detected, and it sets up a thread-safe
+        interrupt handler for that pin. When the interrupt fires, the LED state
+        updates. That is the whole connection between sensor input and hardware
+        output.
+      </p>
+      <pre><code>final class MotionSensor &#123;
+    fileprivate let pin: Int32
+    private var motionDetectedCallback: (() -&gt; Void)?
+    fileprivate var interruptQueue: OpaquePointer?
+
+    init(pin: Int32, onMotionDetected: @escaping () -&gt; Void) &#123;
+        self.pin = pin
+        self.motionDetectedCallback = onMotionDetected
+
+        if let error = setupGPIO() &#123;
+            print("GPIO setup failed: \(error.description)")
+            esp_restart()
+        &#125;
+
+        if let error = setupTask() &#123;
+            print("Task setup failed: \(error.description)")
+            esp_restart()
+        &#125;
+    &#125;
+&#125;</code></pre>
+      <p>
+        Configuring the pin is a call into the C driver with a Swift struct. The
+        pin is set as an input with a pull-down resistor, and the interrupt
+        fires on the rising edge, which is the moment the sensor sees motion.
+      </p>
+      <pre><code>private func setupGPIO() -&gt; GPIOError? &#123;
+    var config = gpio_config_t(
+        pin_bit_mask: 1 &lt;&lt; UInt64(pin),
+        mode: gpio_mode_t(GPIO_MODE_INPUT.rawValue),
+        pull_up_en: gpio_pullup_t(GPIO_PULLUP_DISABLE.rawValue),
+        pull_down_en: gpio_pulldown_t(GPIO_PULLDOWN_ENABLE.rawValue),
+        intr_type: gpio_int_type_t(GPIO_INTR_POSEDGE.rawValue)
+    )
+
+    if gpio_config(&amp;config) != ESP_OK &#123;
+        return GPIOError(code: .configurationFailed(pin: pin))
+    &#125;
+    if gpio_install_isr_service(0) != ESP_OK &#123;
+        return GPIOError(code: .isrServiceInstallationFailed)
+    &#125;
+    if gpio_isr_handler_add(
+        gpio_num_t(pin),
+        globalGPIOISRHandler,
+        UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
+    ) != ESP_OK &#123;
+        return GPIOError(code: .isrHandlerAdditionFailed(pin: pin))
+    &#125;
+    return nil
+&#125;</code></pre>
+
+      <h2>Error handling that reads like Swift</h2>
+      <p>
+        One thing I appreciate about Swift is its structured approach to error
+        handling. If any part of the configuration fails, setting up the pin,
+        installing the interrupt service, creating the queue, the function
+        returns a specific error instead of a status code you have to remember
+        to check. I defined those cases in a small extension.
+      </p>
+      <pre><code>extension MotionSensor &#123;
+    struct GPIOError &#123;
+        enum Code &#123;
+            case configurationFailed(pin: Int32)
+            case isrServiceInstallationFailed
+            case isrHandlerAdditionFailed(pin: Int32)
+            case interruptQueueCreationFailed
+            case interruptTaskCreationFailed
+        &#125;
+
+        let code: Code
+
+        var description: String &#123;
+            switch code &#123;
+            case .configurationFailed(let pin):
+                return "Failed to configure GPIO pin \(pin)."
+            case .isrServiceInstallationFailed:
+                return "Failed to install GPIO ISR service."
+            case .isrHandlerAdditionFailed(let pin):
+                return "Failed to add ISR handler for GPIO pin \(pin)."
+            case .interruptQueueCreationFailed:
+                return "Failed to create interrupt queue."
+            case .interruptTaskCreationFailed:
+                return "Failed to create interrupt task."
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
+      <p>
+        Back in the initializer, an <code>if let</code> catches any of those errors
+        and restarts the ESP32 to recover. On a device that has to run unattended,
+        handling failures at runtime instead of hoping they never happen is the difference
+        between a demo and a product.
+      </p>
+
+      <h2>Keeping the Home app in sync</h2>
+      <p>
+        After the sensor detects motion, the LED state has to reach the Home
+        app. In Matter.swift I extended the existing Matter code with a
+        function, <code>reportLightState</code>, that takes the current LED
+        state and pushes it into the Matter stack. Then in Main.swift I created
+        the MotionSensor on GPIO pin 5 and gave it a closure. A closure keeps
+        the detection logic easy to read: when the interrupt fires, the LED
+        toggles and the new state is reported.
+      </p>
+      <pre><code>let motionSensor = MotionSensor(pin: 5) &#123;
+    led.enabled.toggle()
+    lightEndpoint.reportLightState(to: led.enabled)
+&#125;</code></pre>
+      <p>
+        Set the board target, build, flash it to the ESP32-C6, and monitor.
+        Every LED state change shows up in the terminal logs, and the light in
+        the Home app flips with it. The result is a fully functional smart light
+        that responds to motion and stays in sync with the Home app.
+      </p>
+
+      <h2>Why this matters</h2>
+      <p>
+        Embedded Swift has changed the way I do IoT development. It prevents
+        memory leaks with automatic memory management, avoids error-prone code
+        with built-in safety features, and it is easier for me to read. Its
+        small memory footprint makes it a fit for IoT devices.
+      </p>
+      <p>
+        Swift's potential doesn't stop at the microcontroller. It now connects
+        every part of an IoT product: the embedded system, the back end, and the
+        apps. One language across the stack simplifies development, removes
+        barriers for startups and indie developers, and makes efficient,
+        scalable, user-friendly products possible for small teams.
+      </p>
+      <p>And that is why Swift is the next big thing for IoT.</p>
+
+      <section class="post-outro reveal">
+        <h2>Watch the talk</h2>
+        <p>
+          The recording and slides are on the FOSDEM archive:
+          <a
+            href="https://archive.fosdem.org/2025/schedule/event/fosdem-2025-6148-why-swift-is-the-next-big-thing-for-iot/"
+            >talk page</a
+          > and
+          <a
+            href="https://video.fosdem.org/2025/k4401/fosdem-2025-6148-why-swift-is-the-next-big-thing-for-iot.mp4"
+            >video</a
+          >. If you are building something that needs an app and a device to
+          talk to each other, <a href={`mailto:${profile.email}`}
+            >send me a note</a
+          >.
+        </p>
+      </section>
+    </div>
+  </article>
+</BlogLayout>
