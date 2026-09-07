@@ -512,12 +512,12 @@ export const journey = [
     type: "Self-employed",
     when: "May 2019 to Now",
     details:
-      "I work with app startups to design, develop, and market their apps.",
+      "I help app startups design, build, and market their apps.",
     bullets: [
-      "Designed and developed native iOS and Android apps for startups, specializing in IoT apps with a hardware component and AI apps.",
-      "Helped startups get featured on the App Store by designing fun App Store campaigns, in-app events, in-app marketing screens, and writing creative nomination pitches to Apple.",
-      "Helped startups with social media marketing, including follower growth, high converting short form video, influencer campaigns, UGC, ad campaigns, and developing creative pipelines for ad content.",
-      "Grew my own social media accounts in many different niches to over 115k followers and have done over 30 collaborations with brands for my profiles.",
+      "I design and build native iOS and Android apps for startups. My specialty is IoT apps that talk to hardware and apps with AI features.",
+      "I help apps get featured on the App Store with in-app events, marketing screens, and creative pitches to Apple.",
+      "I run social media marketing for apps: short-form video, influencer campaigns, UGC, and ad creative that converts.",
+      "I have grown my own accounts past 115,000 followers and done more than 30 brand collaborations.",
     ],
   },
   {
@@ -526,10 +526,11 @@ export const journey = [
     type: "Full-time",
     when: "July 2023 to March 2025",
     details:
-      "I hired and trained the next generation of engineers at Hyster-Yale.",
+      "I hired and trained new engineers at Hyster-Yale.",
     bullets: [
-      "Hired 20 engineers of different disciplines and took them through a 6 month technical training program that I designed to teach the engineers automotive technologies like CAN, Embedded C, Simulink, Hydraulics, and the electrical systems on a forklift.",
-      "Designed a concise but effective hiring process that included over 10 engineers and 5 managers where we met after every interview, scored the candidate as a group, and made a group hiring decision.",
+      "I hired 20 engineers across several disciplines.",
+      "I designed a six-month technical training program and led every new hire through it. It covered CAN, Embedded C, Simulink, hydraulics, and the electrical systems on a forklift.",
+      "I built a simple, effective hiring process. Ten engineers and five managers met after each interview, scored the candidate together, and made the decision as a group.",
     ],
   },
   {
