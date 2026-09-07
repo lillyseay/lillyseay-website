@@ -4,7 +4,7 @@ export const posts = [
     slug: "why-swift-is-the-next-big-thing-for-iot",
     title: "Why Swift is the next big thing for IoT",
     description:
-      "My FOSDEM 2025 talk as a blog post: how Embedded Swift brought my two worlds together, with the code and a demo of a motion-activated smart light that syncs to the Home app.",
+      "My FOSDEM 2025 talk, word for word, with the demo video and the code: a motion-activated smart light built with Embedded Swift, an ESP32-C6, and Matter.",
     date: "September 7, 2026",
     readTime: "8 min read",
     cover: "/blog/swift-iot/motion-light-poster.jpg",
