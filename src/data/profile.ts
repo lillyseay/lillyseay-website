@@ -6,10 +6,10 @@ export const profile = {
   location: "Portland, Oregon",
   email: "team@lillyseay.co",
   headline:
-    "iOS engineer, designer, and founder. Apple Design Award finalist, FOSDEM speaker, and Apple Entrepreneur Camp alum. I also help startups market their apps on social media.",
+    "iOS engineer, designer, and founder. Apple Design Award Finalist, FOSDEM speaker, and Apple Entrepreneur Camp alum. I also help startups market their apps on social media.",
   about: [
     "I grew up in Oklahoma taking things apart to see how they worked. I studied electrical engineering, then followed the work west to Portland, where the trails are long and the ideas are big.",
-    "For ten years I've built native apps and the hardware they talk to. Then I built the one I needed. I'm hard of hearing, and Hearing Buddy became a 2026 Apple Design Award finalist.",
+    "For ten years I've built native apps and the hardware they talk to. Then I built the one I needed. I'm hard of hearing, and Hearing Buddy became a 2026 Apple Design Award Finalist.",
     "Now I help startups design, build, and market their apps. Off the clock you'll find me on a paddleboard or a trail with my two black labs, Jet and Nova.",
   ],
   links: {
@@ -18,7 +18,7 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "2026", label: "Apple Design Award finalist" },
+  { value: "2026", label: "Apple Design Award Finalist" },
   { value: "115K+", label: "followers across TikTok and Instagram" },
   { value: "10+", label: "years building native apps" },
   { value: "3", label: "products founded and still running" },
@@ -27,7 +27,7 @@ export const stats = [
 export const highlights = [
   {
     year: "2026",
-    text: "Apple Design Award finalist for Inclusivity with Hearing Buddy",
+    text: "Apple Design Award Finalist for Inclusivity with Hearing Buddy",
   },
   {
     year: "2026",
@@ -43,56 +43,70 @@ export const apps = [
     name: "Hearing Buddy",
     role: "Co-founder, designer, and iOS engineer",
     url: "https://hearingbuddyapp.com",
-    tagline: "Free, unlimited live captions for people with hearing loss.",
-    body: "Built from my own experience being hard of hearing. Caption sharing lets several people caption a large room and everyone sees the best result. Everything runs on device with no servers and no internet required.",
-    badges: [
-      "2026 Apple Design Award finalist",
-      "Featured in Apps We Love",
-      "Logo in the WWDC26 State of the Union",
-    ],
-    year: "2025 to now",
+    icon: "/apps/hearing-buddy.jpg",
+    platforms: "iOS",
+    tagline: "Live captions that help Deaf and hard of hearing people hear.",
+    body: "iOS app that helps Deaf/HoH people hear with on-device live captions. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 8 times this year.",
+    badges: ["Apple Design Award Finalist", "Featured 8 times", "Apps We Love"],
+    year: "2026",
+  },
+  {
+    name: "Hiking Passport",
+    role: "Designer and iOS engineer",
+    url: "",
+    icon: "",
+    platforms: "iOS",
+    tagline: "See your hiking goals as a picture, not a chart.",
+    body: "iOS app that helps people complete their hiking goals, displaying progress and goals in a beautiful image versus using charts.",
+    badges: ["New in 2026"],
+    year: "2026",
   },
   {
     name: "Tappily",
     role: "Founder and developer",
     url: "https://tappilyapp.com",
+    icon: "/apps/tappily.jpg",
+    platforms: "iOS and Android",
     tagline: "Fun activities for your mental health.",
-    body: "Game-like activities based on cognitive behavioral therapy that help reduce anxiety and build positive habits. Free on iOS, iPad, and Android.",
+    body: "iOS/Android app that has fun mental health activities. The app was accepted into Apple Entrepreneur Camp in 2023 for its simplistic design and creative fullscreen animations.",
     badges: ["Apple Entrepreneur Camp 2023"],
-    year: "2019 to now",
+    year: "2019",
   },
   {
     name: "JavaSwift Academy",
     role: "Founder and instructor",
     url: "https://javaswiftacademy.com",
-    tagline: "Learn to build your first app in seven days.",
-    body: "Seven-day challenges that teach beginners, especially women, to ship an iOS or Android app they can put on a portfolio, plus resume and cover letter templates for landing app developer work.",
+    icon: "",
+    platforms: "Courses",
+    tagline: "Build your first app in seven days.",
+    body: "Created 7 day app development courses and resume templates for app developers.",
     badges: [],
-    year: "2019 to now",
+    year: "2019",
   },
 ];
 
 export const moreApps = [
   {
+    name: "Erupt",
+    years: "2017",
+    body: "iOS/Android social media app with user profiles, social feed, and ability to upload photos/videos and edit them in app.",
+  },
+  {
     name: "Guess a Number",
     years: "2021",
     body: "A two-player Bluetooth game for iOS and iPad that works fully offline.",
   },
-  {
-    name: "Erupt",
-    years: "2017 to 2018",
-    body: "A location-based social app for sharing photos and videos of favorite places, with in-app drawing and scaling on media. iOS and Android.",
-  },
 ];
 
 export const talks = [
-  ,
   {
     title: "Hearing Buddy pitch",
-    event: "WWDC26 Apple Design Award finalist showcase",
+    event: "WWDC26 Apple Design Award Finalist showcase",
     where: "The Observatory, Apple Park",
     when: "June 2026",
     body: "Demoed and pitched Hearing Buddy to Apple and fellow finalists as part of the Apple Design Awards week.",
+    image: "/blog/wwdc26/showing-hearing-buddy.jpg",
+    post: "apple-design-award-finalist-wwdc26",
     links: [],
   },
   {
@@ -101,6 +115,8 @@ export const talks = [
     where: "Brussels, Belgium",
     when: "February 2025",
     body: "A talk on bringing Swift to embedded devices, Bluetooth, and wearables, drawing on my background bridging hardware and software.",
+    image: "/blog/swift-iot/desk-demo.jpg",
+    post: "why-swift-is-the-next-big-thing-for-iot",
     links: [
       {
         label: "Talk page",
@@ -112,13 +128,14 @@ export const talks = [
       },
     ],
   },
-  ,
   {
     title: "A Force Together: Women in App Development",
     event: "Apple's International Women's Day event",
     where: "Big Sur theater, Apple Developer Center, Cupertino",
     when: "March 2024",
     body: "Spoke alongside founders Aurelia Edwards and Bria Sullivan about technology, entrepreneurship, and community in app development.",
+    image: "/blog/iwd/lilly.jpg",
+    post: "a-force-together",
     links: [],
   },
 ];
@@ -224,7 +241,7 @@ export const social = {
 };
 
 export const community = [
-  "WWDC attendee in 2024, 2025, and 2026, the last as an Apple Design Award finalist",
+  "WWDC attendee in 2024, 2025, and 2026, the last as an Apple Design Award Finalist",
   "RevenueCat Shipaton 2025: Hearing Buddy placed 2nd for the Peace Prize",
   "Apple Entrepreneur Camp alum",
   "Society of Women Engineers member",
@@ -395,13 +412,8 @@ export const appStoreFeatures = [
   },
 ];
 
-export const moreWork = Array.from({ length: 9 }, (_, i) => ({
-  title: `Work ${i + 1}`,
-  image: "",
-}));
-
 export const recognition = [
-  "Apple Design Award finalist 2026",
+  "Apple Design Award Finalist 2026",
   "Apple Entrepreneur Camp",
   "RevenueCat Shipaton 2025 Peace Prize",
   "FOSDEM speaker",
@@ -444,14 +456,14 @@ export const trail = {
       place: "Portland, Oregon",
       elevation: "The long climb",
       story:
-        "I started Dalton Technologies and built native iOS and Android apps for startups and for myself: Bluetooth, wearables, on-device machine learning. I led a training program for new engineers at Hyster-Yale. Then I built the app I needed as someone who is hard of hearing, and Hearing Buddy became a 2026 Apple Design Award finalist.",
+        "I started Dalton Technologies and built native iOS and Android apps for startups and for myself: Bluetooth, wearables, on-device machine learning. I led a training program for new engineers at Hyster-Yale. Then I built the app I needed as someone who is hard of hearing, and Hearing Buddy became a 2026 Apple Design Award Finalist.",
       stops: [
         "Founder, Dalton Technologies",
         "Tappily, JavaSwift Academy, Guess a Number, Erupt",
         "Engineering manager, Hyster-Yale Group",
         "Co-founder and designer, Hearing Buddy",
         "RevenueCat Shipaton 2025 Peace Prize, 2nd place",
-        "Apple Design Award finalist, Inclusivity, 2026",
+        "Apple Design Award Finalist, Inclusivity, 2026",
       ],
       skills: [
         "Swift and SwiftUI",
@@ -487,28 +499,38 @@ export const trail = {
 // Journey table, most recent first: what I was doing, where, when, and the LinkedIn description.
 export const journey = [
   {
-    what: "Founder, Designer, and iOS Engineer",
+    what: "Co-founder, Designer, and iOS Engineer",
     where: "Hearing Buddy",
     type: "Self-employed",
     when: "2026 to Now",
     details:
-      "I'm the co-founder and designer of the Hearing Buddy app and brand. I specialize in app design, SwiftUI, branding, and marketing.",
+      "I'm the co-founder and designer of the Hearing Buddy app and brand. Hearing Buddy helps Deaf and hard of hearing people hear with on-device live captions. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 8 times this year.",
   },
   {
-    what: "Founder and CEO",
+    what: "Independent Contractor",
     where: "Lilly Seay & Co",
     type: "Self-employed",
-    when: "2019 to Now",
+    when: "May 2019 to Now",
     details:
-      "I work with app startups to market, design, and develop their apps. That covers brand and app design, native iOS and Android development, App Store features, and social media marketing with short-form video, carousels, influencer campaigns, and UGC.",
+      "I work with app startups to design, develop, and market their apps.",
+    bullets: [
+      "Designed and developed native iOS and Android apps for startups, specializing in IoT apps with a hardware component and AI apps.",
+      "Helped startups get featured on the App Store by designing fun App Store campaigns, in-app events, in-app marketing screens, and writing creative nomination pitches to Apple.",
+      "Helped startups with social media marketing, including follower growth, high converting short form video, influencer campaigns, UGC, ad campaigns, and developing creative pipelines for ad content.",
+      "Grew my own social media accounts in many different niches to over 115k followers and have done over 30 collaborations with brands for my profiles.",
+    ],
   },
   {
     what: "Engineering Manager",
     where: "Hyster-Yale Group",
     type: "Full-time",
-    when: "2023 to 2025",
+    when: "July 2023 to March 2025",
     details:
-      "I mentored, trained, and managed entry-level engineers to help them discover which software team best fit their interests and passions. Every year I hired 5 to 10 software engineers, led them through a 6-month technical training program, mentored the team on technical projects, and made sure they were prepared for their role. I designed and managed the training program itself, which included creating technical courses, working with third parties to coordinate trainings, and collecting feedback from the team to improve the program.",
+      "I hired and trained the next generation of engineers at Hyster-Yale.",
+    bullets: [
+      "Hired 20 engineers of different disciplines and took them through a 6 month technical training program that I designed to teach the engineers automotive technologies like CAN, Embedded C, Simulink, Hydraulics, and the electrical systems on a forklift.",
+      "Designed a concise but effective hiring process that included over 10 engineers and 5 managers where we met after every interview, scored the candidate as a group, and made a group hiring decision.",
+    ],
   },
   {
     what: "Founder and CEO",
@@ -550,7 +572,7 @@ export const summits = [
   { year: "2016", label: "B.S. Electrical Engineering", x: 14, height: 38 },
   { year: "2023", label: "Apple Entrepreneur Camp", x: 38, height: 54 },
   { year: "2025", label: "Shipaton Peace Prize, 2nd place", x: 62, height: 70 },
-  { year: "2026", label: "Apple Design Award finalist", x: 85, height: 92 },
+  { year: "2026", label: "Apple Design Award Finalist", x: 85, height: 92 },
 ];
 
 // Services as statements: one bold sentence, one supporting line, tags, and a graphic key.
@@ -564,7 +586,7 @@ export const statements = [
   },
   {
     key: "apps",
-    headline: "I design app experiences you won't find anywhere else.",
+    headline: "I create app experiences you won't find anywhere else.",
     support:
       "I am a 2026 Apple Design Award Finalist. I specialize in minimalist, totally unique app experiences your users won't find anywhere else on the App Store. Every screen follows Apple's guidelines and still feels like yours.",
     tags: ["UI and UX", "Liquid Glass", "Accessibility"],
@@ -573,7 +595,7 @@ export const statements = [
     key: "social",
     headline: "I get apps downloaded.",
     support:
-      "Short-form video, carousels, and influencer campaigns turn views into downloads and trial starts. I have grown my own channels past 115,000 followers. Hearing Buddy has been featured on the App Store three times this year.",
+      "Short-form video, carousels, and influencer campaigns turn views into downloads and trial starts. I have grown my own channels past 115,000 followers. Hearing Buddy has been featured on the App Store eight times this year.",
     tags: [
       "Short-form video",
       "Carousels",
@@ -590,9 +612,9 @@ export const statements = [
   },
   {
     key: "teams",
-    headline: "I build teams that ship.",
+    headline: "I grow teams that ship.",
     support:
-      "I designed and ran a six-month training program for new engineers at Hyster-Yale. I hired five to ten engineers a year. I set up hiring processes and habits that keep a team productive.",
+      "I hired 20 engineers at Hyster-Yale and took them through a six-month technical training program I designed. I set up a hiring process where the whole team scores every candidate together.",
     tags: ["Training programs", "Hiring process", "Team building"],
   },
 ];

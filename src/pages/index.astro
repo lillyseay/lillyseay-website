@@ -11,7 +11,6 @@ import {
   apps,
   moreApps,
   appStoreFeatures,
-  moreWork,
   talks,
   community,
   education,
@@ -73,6 +72,13 @@ import {
               </summary>
               <div class="journey-body">
                 <p>{j.details}</p>
+                {"bullets" in j && j.bullets && (
+                  <ul class="journey-bullets">
+                    {j.bullets.map((b) => (
+                      <li>{b}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </details>
           ))
@@ -87,47 +93,67 @@ import {
         <p class="eyebrow">Projects</p>
         <h2>Apps I've <em>shipped</em></h2>
       </div>
-      <ul class="grid one stagger">
+      <ul class="apps-grid stagger">
         {
           apps.map((app) => (
-            <li class="card app">
-              <div class="app-head">
-                <div>
+            <li class="card app-card tilt">
+              <div class="app-top">
+                {app.icon ? (
+                  <img
+                    class="app-icon"
+                    src={`${base}${app.icon}`}
+                    alt=""
+                    width="72"
+                    height="72"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="app-icon placeholder" aria-hidden="true">
+                    {app.name.charAt(0)}
+                  </div>
+                )}
+                <div class="app-meta">
                   <h3>
-                    <a href={app.url}>{app.name}</a>
+                    {app.url ? <a href={app.url}>{app.name}</a> : app.name}
                   </h3>
                   <div class="org">
-                    {app.role} · {app.year}
+                    {app.year} · {app.platforms}
                   </div>
                 </div>
-                <a class="pill-link ghost small" href={app.url}>
-                  Visit site
-                </a>
               </div>
               <p class="tagline">{app.tagline}</p>
               <p>{app.body}</p>
-              {app.badges.length > 0 && (
-                <ul class="tags">
-                  {app.badges.map((b) => (
-                    <li>{b}</li>
-                  ))}
-                </ul>
-              )}
+              <div class="app-foot">
+                {app.badges.length > 0 && (
+                  <ul class="tags">
+                    {app.badges.map((b) => (
+                      <li>{b}</li>
+                    ))}
+                  </ul>
+                )}
+                {app.url && (
+                  <a class="arrow-link" href={app.url}>
+                    Visit site
+                  </a>
+                )}
+              </div>
             </li>
           ))
         }
       </ul>
-      <ul class="grid two stagger" style="margin-top: 1.25rem">
+      <ul class="apps-more stagger">
         {
           moreApps.map((p) => (
-            <li class="card">
-              <h3>
-                {p.name}{" "}
-                <span class="muted" style="font-weight: 500">
-                  {p.years}
-                </span>
-              </h3>
-              <p>{p.body}</p>
+            <li>
+              <div class="app-icon placeholder small" aria-hidden="true">
+                {p.name.charAt(0)}
+              </div>
+              <div>
+                <h3>
+                  {p.name} <span class="muted">{p.years}</span>
+                </h3>
+                <p>{p.body}</p>
+              </div>
             </li>
           ))
         }
@@ -201,26 +227,6 @@ import {
     </div>
   </section>
 
-  <section id="more">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">More work</p>
-        <h2>Take a scroll, <em>stay a while</em></h2>
-      </div>
-      <ul class="work-grid stagger">
-        {
-          moreWork.map((w) => (
-            <li>
-              <div class={`box ${w.image ? "" : "empty"}`}>
-                {w.image && <img src={w.image} alt={w.title} loading="lazy" />}
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
   <section id="social" class="band-soft">
     <div class="wrap">
       <div class="section-head reveal">
@@ -271,30 +277,38 @@ import {
           a small team
         </p>
       </div>
-      <ul class="timeline stagger">
+      <ul class="talks stagger">
         {
           talks.map((t) => (
-            <li class="card talk">
-              <div class="when">{t.when}</div>
-              <div>
+            <li class="talk-feature">
+              <div class="talk-photo tilt">
+                <img src={`${base}${t.image}`} alt="" loading="lazy" />
+              </div>
+              <div class="talk-copy">
+                <span class="chip">{t.when}</span>
                 <h3>{t.title}</h3>
                 <div class="org">
                   {t.event} · {t.where}
                 </div>
                 <p>{t.body}</p>
-                {t.links.length > 0 && (
-                  <p class="links">
-                    {t.links.map((l) => (
-                      <a href={l.url}>{l.label}</a>
-                    ))}
-                  </p>
-                )}
+                <div class="talk-links">
+                  {t.post && (
+                    <a class="pill-link small" href={`${base}/blog/${t.post}/`}>
+                      Read the story
+                    </a>
+                  )}
+                  {t.links.map((l) => (
+                    <a class="pill-link ghost small" href={l.url}>
+                      {l.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </li>
           ))
         }
       </ul>
-      <div class="card reveal" style="margin-top: 1.25rem">
+      <div class="card reveal community">
         <h3>Apple and community</h3>
         <ul class="plain-list">
           {community.map((c) => <li>{c}</li>)}
