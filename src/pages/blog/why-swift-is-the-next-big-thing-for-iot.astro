@@ -23,6 +23,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </header>
 
     <div class="wrap post-body">
+      <figure class="video-figure">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster={`${base}/blog/swift-iot/motion-light-poster.jpg`}
+        >
+          <source
+            src={`${base}/blog/swift-iot/motion-light-demo.mp4`}
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>
+          Motion-activated smart light: Embedded Swift on an ESP32-C6, synced to
+          the Home app over Matter.
+        </figcaption>
+      </figure>
       <h2>Introduction</h2>
       <p>
         Hello. My name is Lilly Seay, and today I’ll be sharing why Swift is the
@@ -66,6 +84,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         scalable code to hardware development, and today, I’m going to show you
         how I used it to create a smart light with motion detection.
       </p>
+      <h2>The build</h2>
       <p>
         I have a motion sensor that detects motion and sends a high signal to
         the ESP32C6. This signal updates the LED state to either ON or OFF, and
@@ -81,203 +100,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       <p>
         I’m using Embedded Swift, an ESP32C6 board, a motion sensor, and the
         Matter protocol.
-      </p>
-      <p>
-        Here's a quick close up of what my circuit is looking like for the
-        motion sensor.
-      </p>
-      <h2>Demo</h2>
-      <p>I have my motion sensor smart light here with me today</p>
-      <figure class="video-figure reveal">
-        <video
-          controls
-          playsinline
-          preload="metadata"
-          poster={`${base}/blog/swift-iot/motion-light-poster.jpg`}
-        >
-          <source
-            src={`${base}/blog/swift-iot/motion-light-demo.mp4`}
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-      </figure>
-      <p>
-        I have my program running in VSCode and the log statements are showing
-        up in the terminal.
-      </p>
-      <p>
-        First, I added the GPIO driver for the motion sensor, interrupt headers,
-        and a Matter C++ call that updates Home app inside the BridgingHeader.h,
-        enabling C/C++ interoperability.
-      </p>
-      <p>
-        Now we can move on to the core functionality of the sensor in
-        MotionSensor class. In the initializer, I added two main functions:
-        setupGPIO and setupTask.
-      </p>
-      <pre><code>final class MotionSensor &#123;
-    fileprivate let pin: Int32
-    private var motionDetectedCallback: (() -&gt; Void)?
-    fileprivate var interruptQueue: OpaquePointer?
-
-    init(pin: Int32, onMotionDetected: @escaping () -&gt; Void) &#123;
-        self.pin = pin
-        self.motionDetectedCallback = onMotionDetected
-
-        if let error = setupGPIO() &#123;
-            print("GPIO setup failed: \(error.description)")
-            esp_restart() // Restart the ESP32 system
-        &#125;
-
-        if let error = setupTask() &#123;
-            print("Task setup failed: \(error.description)")
-            esp_restart() // Restart the ESP32 system
-        &#125;
-    &#125;
-&#125;</code></pre>
-      <p>
-        The setupGPIO function is responsible for configuring the GPIO pin to
-        interface with the motion sensor, ensuring it can properly receive input
-        signals whenever motion is detected.
-      </p>
-      <pre><code>private func setupGPIO() -&gt; GPIOError? &#123;
-    print("Configuring GPIO pin \(pin)...")
-
-    var config = gpio_config_t(
-        pin_bit_mask: 1 &lt;&lt; UInt64(pin),
-        mode: gpio_mode_t(GPIO_MODE_INPUT.rawValue),
-        pull_up_en: gpio_pullup_t(GPIO_PULLUP_DISABLE.rawValue),
-        pull_down_en: gpio_pulldown_t(GPIO_PULLDOWN_ENABLE.rawValue),
-        intr_type: gpio_int_type_t(GPIO_INTR_POSEDGE.rawValue)
-    )
-
-    if gpio_config(&amp;config) != ESP_OK &#123;
-        return GPIOError(code: .configurationFailed(pin: pin))
-    &#125;
-    if gpio_install_isr_service(0) != ESP_OK &#123;
-        return GPIOError(code: .isrServiceInstallationFailed)
-    &#125;
-    if gpio_isr_handler_add(
-        gpio_num_t(pin),
-        globalGPIOISRHandler,
-        UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
-    ) != ESP_OK &#123;
-        return GPIOError(code: .isrHandlerAdditionFailed(pin: pin))
-    &#125;
-    return nil
-&#125;</code></pre>
-      <p>
-        The second function, setupTask, establishes a thread-safe interrupt
-        handler for the GPIO pin. This interrupt is triggered whenever the
-        motion sensor detects activity, allowing the system to respond in
-        real-time. When the interrupt fires, the LED state is updated, creating
-        a seamless connection between sensor input and hardware output.
-      </p>
-      <pre><code>private func setupTask() -&gt; GPIOError? &#123;
-    interruptQueue = xQueueGenericCreate(10, UBaseType_t(MemoryLayout&lt;Int32&gt;.size), UInt8(queueQUEUE_TYPE_BASE))
-    guard let interruptQueue else &#123;
-        return GPIOError(code: .interruptQueueCreationFailed)
-    &#125;
-
-    let result = xTaskCreate(&#123; arg in
-        guard let arg = arg else &#123; return &#125;
-        let instance = Unmanaged&lt;MotionSensor&gt;.fromOpaque(arg).takeUnretainedValue()
-        instance.processInterrupts()
-    &#125;, "InterruptTask", 2048, Unmanaged.passUnretained(self).toOpaque(), 1, nil)
-
-    guard result == pdPASS else &#123;
-        return GPIOError(code: .interruptTaskCreationFailed)
-    &#125;
-    return nil
-&#125;
-
-private func processInterrupts() &#123;
-    var pin: Int32 = 0
-    while true &#123;
-        if xQueueReceive(interruptQueue, &amp;pin, portMAX_DELAY) == pdTRUE &#123;
-            print("Motion detected on GPIO \(pin)!")
-            motionDetectedCallback?()
-        &#125;
-    &#125;
-&#125;</code></pre>
-      <p>
-        One thing I appreciate about Swift is its structured approach to error
-        handling If any part of this configuration fails—like setting up the pin
-        or installing the interrupt service—the function throws a specific
-        error. And here’s a great example for my GPIO pin
-      </p>
-      <p>
-        I implemented a custom extension that leverages Swift’s robust
-        error-handling features. The extension defines specific error cases that
-        can be managed using Swift’s do-catch or if let blocks.
-      </p>
-      <pre><code>extension MotionSensor &#123;
-    struct GPIOError &#123;
-        enum Code &#123;
-            case configurationFailed(pin: Int32)
-            case isrServiceInstallationFailed
-            case isrHandlerAdditionFailed(pin: Int32)
-            case interruptQueueCreationFailed
-            case interruptTaskCreationFailed
-        &#125;
-
-        let code: Code
-
-        var description: String &#123;
-            switch code &#123;
-            case .configurationFailed(let pin):
-                return "Failed to configure GPIO pin \(pin)."
-            case .isrServiceInstallationFailed:
-                return "Failed to install GPIO ISR service."
-            case .isrHandlerAdditionFailed(let pin):
-                return "Failed to add ISR handler for GPIO pin \(pin)."
-            case .interruptQueueCreationFailed:
-                return "Failed to create interrupt queue."
-            case .interruptTaskCreationFailed:
-                return "Failed to create interrupt task."
-            &#125;
-        &#125;
-    &#125;
-&#125;</code></pre>
-      <p>
-        If any of my functions throw an error, I use an if let block to
-        gracefully catch the issue and immediately restart the ESP device to
-        recover from the error. This approach improves the reliability of the
-        system by ensuring potential issues are handled effectively at runtime.
-      </p>
-      <p>
-        After my sensor detects motion, I needed to sync the LED state with the
-        Home app. Let’s head over to Matter.swift where I extended pre-existing
-        Matter functionality to include a function that reports changes in the
-        LED state triggered by either the motion sensor or the Home ap. Here we
-        have reportLightState(). This function takes the current state of the
-        LED and updates the Matter protocol.
-      </p>
-      <p>
-        Next, in Main.swift, I created an instance of the MotionSensor class to
-        handle motion detection, initializing it on GPIO pin 5. I decided to use
-        a closure in Swift because it makes my motion sensor detection logic
-        easy to read. When my interrupt fires, I’ve setup a callback to execute
-        the code in this closure.
-      </p>
-      <p>
-        I have a variable led.enabled that was already setup for the LED; it
-        updates the state of the LED. I make sure to toggle this when my motion
-        sensor is triggered so the LED will turn on or off. After that, I use my
-        reportLightState function to update the Matter stack so the Home app
-        will stay in sync with the LED’s current state.
-      </p>
-      <pre><code>// Add the motion sensor
-let motionSensor = MotionSensor(pin: 5) &#123;
-    // update LED state
-    led.enabled.toggle()
-    lightEndpoint.reportLightState(to: led.enabled)
-&#125;</code></pre>
-      <p>
-        To wrap up, I set the board target, built the project, flashed it to the
-        ESP32C6, and monitor the program. If we go back to the terminal, we can
-        see logs for every LED state change.
       </p>
       <p>
         The result is a fully functional smart light that responds to motion and
@@ -302,7 +124,8 @@ let motionSensor = MotionSensor(pin: 5) &#123;
       <section class="post-outro reveal">
         <h2>Watch the talk</h2>
         <p>
-          The recording is on the FOSDEM archive:
+          The full recording, including the code walkthrough, is on the FOSDEM
+          archive:
           <a
             href="https://archive.fosdem.org/2025/schedule/event/fosdem-2025-6148-why-swift-is-the-next-big-thing-for-iot/"
             >talk page</a
@@ -313,10 +136,7 @@ let motionSensor = MotionSensor(pin: 5) &#123;
           >. The project starts from Apple's <a
             href="https://github.com/apple/swift-matter-examples"
             >swift-matter-examples</a
-          > repo and the WWDC24 session
-          <a href="https://developer.apple.com/videos/play/wwdc2024/10197/"
-            >Go small with Embedded Swift</a
-          >. Building something that needs an app and a device to talk to each
+          > repo. Building something that needs an app and a device to talk to each
           other? <a href={`mailto:${profile.email}`}>Send me a note</a>.
         </p>
       </section>
