@@ -2811,3 +2811,127 @@ footer .wrap {
   color: var(--muted);
   text-align: center;
 }
+
+/* Software: a terminal where lines of code type themselves, and a small chip */
+.art-code {
+  position: relative;
+  width: 14rem;
+  height: 13rem;
+}
+
+.art-code .term {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1rem;
+  padding: 0.9rem 1rem 1.1rem;
+  border-radius: 1rem;
+  background: #1d1224;
+  box-shadow: var(--shadow-float);
+}
+
+.art-code .dots {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.art-code .dots span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.art-code .line {
+  height: 0.55rem;
+  border-radius: 0.3rem;
+  background: var(--brand-soft);
+  margin: 0.55rem 0;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.art-code .l1 {
+  width: 55%;
+}
+.art-code .l2 {
+  width: 80%;
+  background: var(--brand);
+  margin-left: 1rem;
+}
+.art-code .l3 {
+  width: 65%;
+  margin-left: 1rem;
+}
+.art-code .l4 {
+  width: 40%;
+}
+
+.is-visible .art-code .line {
+  animation: line-draw 0.5s var(--ease-out) forwards;
+}
+
+.is-visible .art-code .l1 {
+  animation-delay: 0.2s;
+}
+.is-visible .art-code .l2 {
+  animation-delay: 0.45s;
+}
+.is-visible .art-code .l3 {
+  animation-delay: 0.7s;
+}
+.is-visible .art-code .l4 {
+  animation-delay: 0.95s;
+}
+
+.art-code .caret {
+  width: 0.5rem;
+  height: 0.7rem;
+  background: var(--brand);
+  margin-top: 0.5rem;
+  animation: blink 1s steps(1) infinite;
+}
+
+.art-code .chip {
+  position: absolute;
+  right: -0.6rem;
+  bottom: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.6rem;
+  background: var(--brand-soft);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-card);
+  transform: scale(0);
+}
+
+.art-code .chip span {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 0.3rem;
+  background: var(--brand);
+}
+
+.is-visible .art-code .chip {
+  animation: pop 0.6s var(--ease-out) 1.2s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art-code .line,
+  .art-code .chip {
+    transform: none;
+  }
+  .is-visible .art-code .line,
+  .is-visible .art-code .chip,
+  .art-code .caret {
+    animation: none;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

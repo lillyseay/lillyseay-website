@@ -19,7 +19,7 @@ import { statements } from "../data/profile";
           </ul>
         </div>
         <div class="statement-art" aria-hidden="true">
-          {s.key === "software" && (
+          {s.key === "apps" && (
             <div class="art-phone">
               <div class="phone">
                 <div class="notch" />
@@ -30,7 +30,7 @@ import { statements } from "../data/profile";
                   <div class="row" />
                 </div>
               </div>
-              <div class="badge-featured">Shipped</div>
+              <div class="badge-featured">Finalist</div>
               <div class="star s1">★</div>
               <div class="star s2">★</div>
             </div>
@@ -67,6 +67,25 @@ import { statements } from "../data/profile";
               <div class="heart h1">♥</div>
               <div class="heart h2">♥</div>
               <div class="heart h3">♥</div>
+            </div>
+          )}
+          {s.key === "software" && (
+            <div class="art-code">
+              <div class="term">
+                <div class="dots">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <div class="line l1" />
+                <div class="line l2" />
+                <div class="line l3" />
+                <div class="line l4" />
+                <div class="caret" />
+              </div>
+              <div class="chip">
+                <span />
+              </div>
             </div>
           )}
           {s.key === "teams" && (
