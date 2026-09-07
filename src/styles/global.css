@@ -2656,3 +2656,59 @@ footer .wrap {
   padding: 0.1em 0.4em;
   border-radius: 0.35em;
 }
+
+/* Slide callouts and figures in prose posts */
+.post-body p.slide-stat {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--brand-text);
+  margin: 2.5rem 0 0.75rem;
+}
+
+.post-figure {
+  margin: 1.5rem 0 2rem;
+}
+
+.post-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1.1rem;
+  box-shadow: var(--shadow-card);
+  background: var(--box);
+}
+
+.post-figure.two > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.post-figure.two img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.hero-figure {
+  margin-top: 0;
+}
+
+.hero-figure img {
+  max-height: 32rem;
+  object-fit: cover;
+}
+
+@media (max-width: 560px) {
+  .post-figure.two > div {
+    grid-template-columns: 1fr;
+  }
+}

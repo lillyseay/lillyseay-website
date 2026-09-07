@@ -1,0 +1,348 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { posts } from "../../data/blog";
+import { profile } from "../../data/profile";
+const post = posts.find((p) => p.slug === "a-force-together")!;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BlogLayout
+  title={`${post.title}, Lilly Seay`}
+  description={post.description}
+  image={post.cover}
+>
+  <article class="post prose-post">
+    <header class="post-head wrap">
+      <p class="eyebrow">
+        Blog · My talk at Apple's International Women's Day event, Cupertino,
+        March 2024
+      </p>
+      <h1>{post.title}</h1>
+      <p class="post-meta">
+        By {profile.name} · {post.date} · {post.readTime}
+      </p>
+    </header>
+
+    <div class="wrap post-body">
+      <figure class="post-figure hero-figure">
+        <img src={`${base}/blog/iwd/lilly.jpg`} alt="Lilly Seay" />
+      </figure>
+      <p class="slide-stat">$2,000,000</p>
+      <p>
+        Two million dollars. That's the amount of money I've saved utilizing my
+        technical skillset over the past 7 years. So how did I do it?
+      </p>
+      <p>
+        Well, my parents were entrepreneurs. I already had the entrepreneurial
+        bones, and it wasn’t until I was a teenager that I began connecting with
+        software engineers, which ignited a passion inside of me.
+      </p>
+      <p>
+        I decided to study engineering in college. After college I pursued my
+        career as a software engineer at a big name company. I did that for
+        about a year before deciding to learn iOS Development – which ultimately
+        led me down the path of creating my own app and starting a company.
+      </p>
+      <p class="slide-stat">My superpower</p>
+      <p>
+        That’s when I realized the superpower I had unleashed: being a technical
+        founder.
+      </p>
+      <h2>Back to the drawing board</h2>
+      <p>
+        So I quit my job. What was I gonna do with my time? Back to the drawing
+        board I went. For months, I daydreamed about developing a location-based
+        social media app called Erupt. I couldn't wait to learn how to code this
+        iOS app; I had never done app development before.
+      </p>
+      <figure class="post-figure two">
+        <div>
+          <img
+            src={`${base}/blog/iwd/whiteboard-checklist.jpg`}
+            alt="Whiteboard checklist of features for the Erupt app, dated Monday, March 6"
+            loading="lazy"
+          />
+          <img
+            src={`${base}/blog/iwd/whiteboard-wireframes.jpg`}
+            alt="Whiteboard wireframes for Erupt: profile, feed, and camera screens"
+            loading="lazy"
+          />
+        </div>
+        <figcaption>
+          The whiteboards from the first months of building Erupt.
+        </figcaption>
+      </figure>
+      <p>
+        Since I had my software engineering experience, I was able to teach
+        myself iOS development and start coding Erupt from scratch. It took our
+        team three months to code the iOS app and launch on the App Store.
+      </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/iwd/first-erupt-post.jpg`}
+          alt="The first post on Erupt, launched May 27, 2017"
+          loading="lazy"
+        />
+        <figcaption>The first Erupt post. Launched May 27, 2017.</figcaption>
+      </figure>
+      <p>
+        Starting with no funding, I quickly realized how hard it was going to be
+        to market a social media app, and even worse, try to keep up with large
+        tech giants like Snapchat and Instagram. Towards the end of my journey
+        building Erupt, I started learning how to create animations.
+      </p>
+      <h2>Design</h2>
+      <p>
+        I wanted to push our user experience and marketing to the max by
+        mastering my design skillset. So I'm spending my days fiddling with
+        animation designs and I realized I wanted to create an app that revolves
+        around fullscreen animations.
+      </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/iwd/designing-animations.jpg`}
+          alt="Lilly at her desk designing animations in Photoshop"
+          loading="lazy"
+        />
+      </figure>
+      <p>
+        I rolled that into an idea which had purpose, using my colorful
+        animations to create game-like mental health activities.
+      </p>
+      <p>
+        At the time, I was dealing with anxiety and Tappily was not only my
+        creative brainchild but my outlet for stress. So in 2017, I couldn't
+        wait to dig into Apple's frameworks to figure out how to get my
+        animations from the drawing board to an iOS app.
+      </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/iwd/tappily-maze.jpg`}
+          alt="A Tappily activity screen: a yellow maze with numbered checkpoints leading to a lightbulb"
+          loading="lazy"
+        />
+        <figcaption>
+          One of the game-like mental health activities in Tappily.
+        </figcaption>
+      </figure>
+      <p class="slide-stat">
+        You can have an idea and start building, or you can start building and
+        have an idea.
+      </p>
+      <p>
+        I came up with Tappily by allowing myself to start building a skill.
+        What’s powerful about being a technical founder is you can have an idea
+        and start building, or you can start building and have an idea.
+      </p>
+      <p class="slide-stat">Zero funding</p>
+      <p>
+        I had an idea, and I started building it, using my superpower as a
+        technical founder to push through the obstacles of my apps. I was able
+        to start my ideas with zero funding and successfully execute my vision.
+      </p>
+      <h2>Adapt with change</h2>
+      <p>
+        Suppose you have a great app, and your users are loving it... And then
+        all of the sudden, something happens, let's say a pandemic or what
+        sometimes feels like an act of god, and the market is no longer stable.
+        What do you do?
+      </p>
+      <p>
+        Let me tell you something... you adapt and go with the change. As a
+        technical founder, I had to shift my mindset, ideas, approach many times
+        on my journey with Tappily.
+      </p>
+      <p class="slide-stat">200</p>
+      <p>
+        It started during beta testing. I had enough features fleshed out to
+        release the app on TestFlight. I got over 200 people to beta test
+        Tappily. During this time, I received feedback that helped me validate
+        the app as I was developing it.
+      </p>
+      <figure class="post-figure two">
+        <div>
+          <img
+            src={`${base}/blog/iwd/beta-feedback-1.jpg`}
+            alt="A beta tester message praising the Tappily layout and asking to help spread the word"
+            loading="lazy"
+          />
+          <img
+            src={`${base}/blog/iwd/beta-feedback-2.jpg`}
+            alt="A message thanking Lilly for building a mental health app"
+            loading="lazy"
+          />
+        </div>
+        <figcaption>Messages from Tappily beta testers.</figcaption>
+      </figure>
+      <p>
+        My favorite part of this experience was to translate my vision at every
+        level of my business, seamlessly integrating customer feedback into
+        design and development, which quickly turned into App Store updates. I
+        was free of the communication bottleneck of a large team.
+      </p>
+      <h2>Apple Entrepreneur Camp</h2>
+      <p>
+        Another opportunity which challenged Tappily's value proposition was
+        Apple Entrepreneur Camp. During the camp, I got to meet with Apple's
+        design and technology evangelists. They gave me detailed and actionable
+        feedback that I was able to digest and implement in the same week.
+      </p>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/iwd/entrepreneur-camp-email.jpg`}
+          alt="Email from Apple welcoming Lilly to cohort 18 of Apple Entrepreneur Camp for female founders"
+          loading="lazy"
+        />
+        <figcaption>
+          Cohort 18 of Apple Entrepreneur Camp, dedicated to female founders.
+        </figcaption>
+      </figure>
+      <p class="slide-stat">Pivot ideas immediately</p>
+      <p>
+        Pivoting doesn't have to make a big splash in your business; it's more
+        like skipping a rock across a pond. Making ripples of progress as each
+        attempt is more calculated than the last.
+      </p>
+      <h2>Sourcing my technical skillset</h2>
+      <p>
+        Like I mentioned earlier, the pandemic made me shift my mindset
+        entirely. I adapted using my technical skills to create a backup income,
+        ensuring my business survived an unstable tech market. I did what a lot
+        of technical founders do; I started looking for software contracts with
+        other startups so I could pay myself to work on Tappily.
+      </p>
+      <p>
+        In a few months, I landed my very first contract to build an iOS app for
+        another female founder. I was so excited to establish this income
+        source.The coolest part of this venture was that I was getting paid to
+        fine tune my app development expertise.
+      </p>
+      <figure class="post-figure two">
+        <div>
+          <img
+            src={`${base}/blog/iwd/contract-work-1.jpg`}
+            alt="Lilly working on a laptop at a dining table"
+            loading="lazy"
+          />
+          <img
+            src={`${base}/blog/iwd/contract-work-2.jpg`}
+            alt="Lilly standing at a desk with the Tappily app on a monitor behind her"
+            loading="lazy"
+          />
+        </div>
+        <figcaption>
+          Contract work for other startups paid for the time to build Tappily.
+        </figcaption>
+      </figure>
+      <p class="slide-stat">
+        Millions in mistakes learned, without paying the price myself.
+      </p>
+      <p>
+        As a contracted app developer, I got to work inside many startups,
+        learning from their cultures, processes, teams, technical decisions, and
+        mistakes. I learned millions of dollars worth of technical mistakes,
+        without paying the price myself.
+      </p>
+      <p>
+        It's common for startups with non-technical founders to hire the wrong
+        developer, especially in the beginning. I've had the opportunity to help
+        founders in this position navigate challenges to get on track. Despite
+        my best efforts, these startups still incur losses.
+      </p>
+      <p class="slide-stat">$50k to $100k</p>
+      <p>
+        I’ve seen startups lose 50k-100k on the initial development of their MVP
+        and some startups paying 10k-20k a month in maintenance costs.
+      </p>
+      <p>
+        Technical founders have a more focused hiring gauge and tend to avoid
+        these costs, greatly. We know how to hire an engineer and guide them
+        with best practices.
+      </p>
+      <p>
+        These experiences really showed how much I saved my company in
+        development costs and technical debt. My best advice is to become an
+        expert in your domain so you can hire better, which is something is
+        built into the process of being a great technical founder.
+      </p>
+      <p class="slide-stat">$350k</p>
+      <p>
+        I decided to estimate how much money I’d saved my company by creating
+        Tappily myself. I estimated that the founding team put around 350k worth
+        of work into the MVP.
+      </p>
+      <p>
+        And when I migrated Tappily from Storyboard to SwiftUI, I saved the
+        company about 75k on the re-design and development. This was the cost
+        savings for just one of my apps!
+      </p>
+      <figure class="post-figure two">
+        <div>
+          <img
+            src={`${base}/blog/iwd/swiftui-migration-1.jpg`}
+            alt="Tappily before the SwiftUI migration"
+            loading="lazy"
+          />
+          <img
+            src={`${base}/blog/iwd/swiftui-migration-2.jpg`}
+            alt="Tappily after the SwiftUI migration"
+            loading="lazy"
+          />
+        </div>
+        <figcaption>Migrating Tappily from Storyboard to SwiftUI.</figcaption>
+      </figure>
+      <h2>More work. Less time.</h2>
+      <p>
+        But as technical founder of a startup with no funding, you have to be
+        creative enough to bootstrap your app. With limited resources, my
+        creativity is put to the test to get more work done in less time. Over
+        the years, I've successfully implemented many technical business
+        strategies.
+      </p>
+      <p class="slide-stat">Process automation</p>
+      <p>
+        The first process I automated was getting users for Tappily. I decided
+        to build a bot that would recommend people in my target audience and
+        create a custom DM.
+      </p>
+      <p class="slide-stat">533%</p>
+      <p>
+        This bot took an 8 hour per day marketing process and cut it down to 1.5
+        hours, a 533% improvement in time efficiency, and we were also able to
+        increase the downloads by fine tuning the bot.
+      </p>
+      <p class="slide-stat">Control over timeline, budget, and quality.</p>
+      <p>
+        Technical founders have at least one thing on their side: control.
+        Through the chaos of wearing many hats, you have control of the
+        timeline, budget, and quality of your app products.
+      </p>
+      <p>
+        To sum it up, the founding team saved our company money in many
+        categories: design, development, automation, and marketing.
+      </p>
+      <p>
+        Between all of this, we saved around 2 million dollars over 7 years,
+      </p>
+      <p class="slide-stat">We are a force together.</p>
+      <p>
+        Through my experience creating many apps, I feel grateful to have
+        unleashed my super power of being a technical founder and want to
+        support other founders unleashing theirs. Being both technical as well
+        as entrepreneurial has truly made me the force I am today.
+      </p>
+
+      <section class="post-outro reveal">
+        <h2>About this talk</h2>
+        <p>
+          I gave this talk at "A Force Together: Women in App Development,"
+          Apple's International Women's Day event at the Apple Developer Center
+          in Cupertino, alongside founders Aurelia Edwards and Bria Sullivan. If
+          you're a founder deciding whether to build it yourself, <a
+            href={`mailto:${profile.email}`}>send me a note</a
+          >.
+        </p>
+      </section>
+    </div>
+  </article>
+</BlogLayout>

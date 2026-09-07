@@ -1,6 +1,15 @@
 // Blog posts. Each post page lives in src/pages/blog/<slug>.astro.
 export const posts = [
   {
+    slug: "a-force-together",
+    title: "How being a technical founder saved my company $2,000,000",
+    description:
+      "My talk from Apple's International Women's Day event in Cupertino: building Erupt and Tappily with zero funding, Apple Entrepreneur Camp, contract work, and the numbers behind seven years of doing it myself.",
+    date: "September 7, 2026",
+    readTime: "10 min read",
+    cover: "/blog/iwd/lilly.jpg",
+  },
+  {
     slug: "why-swift-is-the-next-big-thing-for-iot",
     title: "Why Swift is the next big thing for IoT",
     description:
