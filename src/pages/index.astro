@@ -171,7 +171,7 @@ import {
         featuredWork.map((w) => (
           <div class="feature-item" role="listitem">
             <div class={`box ${w.image ? "" : "empty"}`}>
-              {w.image && <img src={w.image} alt={w.title} loading="lazy" />}
+              {w.image && <img src={`${base}${w.image}`} alt={w.title} loading="lazy" />}
             </div>
             <span class="label">{w.title}</span>
             <p class="kind">{w.kind}</p>
@@ -197,7 +197,7 @@ import {
                 <div class={`box ${art ? "" : "empty"}`}>
                   {art && (
                     <img
-                      src={art}
+                      src={`${base}${art}`}
                       alt={`${f.app}: ${f.title}`}
                       loading="lazy"
                     />

@@ -344,7 +344,7 @@ export const appStoreFeatures = [
     kind: "Editorial feature",
     date: "August 2026",
     link: "https://apps.apple.com/us/story/id6790991028",
-    image: "",
+    image: "/appstore/apps-we-love.jpg",
     screenshot: "",
   },
   {
@@ -353,7 +353,7 @@ export const appStoreFeatures = [
     kind: "Featured on the App Store",
     date: "August 2026",
     link: "",
-    image: "",
+    image: "/appstore/caption-sharing-launch.jpg",
     screenshot: "",
   },
   {
