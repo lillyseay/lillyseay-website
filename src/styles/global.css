@@ -2773,3 +2773,41 @@ footer .wrap {
 .video-figure figcaption {
   text-align: center;
 }
+
+/* Post entries: a LinkedIn post quoted in full */
+.post-entry {
+  margin: 0 0 1.5rem;
+}
+
+.post-entry .eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.post-entry .eyebrow a {
+  color: var(--brand-text);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+/* LinkedIn embed */
+.li-embed {
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.li-embed iframe {
+  max-width: 100%;
+  border: 0;
+  border-radius: 1.1rem;
+  box-shadow: var(--shadow-card);
+}
+
+.li-embed figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-align: center;
+}

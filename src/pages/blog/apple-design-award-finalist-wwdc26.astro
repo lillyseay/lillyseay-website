@@ -1,0 +1,276 @@
+---
+import BlogLayout from "../../layouts/BlogLayout.astro";
+import { posts } from "../../data/blog";
+import { profile } from "../../data/profile";
+const post = posts.find(
+  (p) => p.slug === "apple-design-award-finalist-wwdc26",
+)!;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<BlogLayout
+  title={`${post.title}, Lilly Seay`}
+  description={post.description}
+  image={post.cover}
+>
+  <article class="post prose-post">
+    <header class="post-head wrap">
+      <p class="eyebrow">
+        Blog · Apple Design Awards 2026 and WWDC26, as I posted it
+      </p>
+      <h1>{post.title}</h1>
+      <p class="post-meta">
+        By {profile.name} · {post.date} · {post.readTime}
+      </p>
+    </header>
+
+    <div class="wrap post-body">
+      <figure class="li-embed">
+        <iframe
+          src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7471272537973252096?compact=1"
+          height="399"
+          width="504"
+          frameborder="0"
+          allowfullscreen=""
+          title="WWDC26 vlog as an Apple Design Award finalist, embedded from LinkedIn"
+        ></iframe>
+        <figcaption>
+          My WWDC26 vlog as an Apple Design Award finalist.
+        </figcaption>
+      </figure>
+      <h2>The announcement</h2>
+      <div class="post-entry">
+        <p class="eyebrow">
+          May 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7462194542281142272/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>
+          My app Hearing Buddy is an Apple Design Award Finalist in Inclusivity!
+          🎉🦻🌈 This is a dream I’ve had for the last decade of designing apps.
+          What’s most special to me is that Hearing Buddy is a finalist in
+          Inclusivity. As a disabled female founder, inclusivity and
+          accessibility are the backbone of everything I do. The Hearing Buddy
+          brand is a colorful expression of my disability pride and commitment
+          to making hearing solutions accessible to all. Lastly, going through
+          my hearing loss journey with my real-life Hearing Buddy Scott Krager,
+          building an app together, and now being Apple Design Award Finalists
+          together is bittersweet. He’s my biggest supporter in all aspects of
+          my life. Cheers to my best Liquid Glass designs yet. I put my heart
+          and soul into the UI/UX. (Download the app, and let me know what you
+          think of my designs🩵💙) Thank you to my partnership manager
+          Christopher Tan and everyone at Apple that has rooted for Hearing
+          Buddy! I wouldn’t be here without you👏 We will be at WWDC26!!!!!! I’m
+          so excited to go with Scott. Now, time to celebrate!!🥳
+        </p>
+      </div>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/wwdc26/../top-linkedin-posts/02-ada-finalist.jpg`}
+          alt="Apple Design Awards 2026 finalist graphic for Hearing Buddy"
+          loading="lazy"
+        />
+        <figcaption>Apple Design Awards 2026 finalist, Inclusivity.</figcaption>
+      </figure>
+      <div class="post-entry">
+        <p class="eyebrow">
+          June 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7467948824699850752/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>
+          A huge congratulations to Guitar Wiz for winning an Apple Design Award
+          in Inclusivity! 🎉👏
+        </p>
+      </div>
+      <h2>Getting to Cupertino</h2>
+      <div class="post-entry">
+        <p class="eyebrow">
+          June 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7468819513220743168/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>
+          Officially in Cupertino for WWDC26!! I’m soooo excited to go as an ADA
+          finalist. Of course, I had to take a Waymo🔥
+        </p>
+      </div>
+      <div class="post-entry">
+        <p class="eyebrow">
+          June 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7469474755620917248/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>
+          Picking up my badge in a few hours!! Can’t wait to see the WWDC26
+          swag😍
+        </p>
+      </div>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/wwdc26/hello-selfie.jpg`}
+          alt="Lilly and Scott in front of the hello sculpture at the Apple Developer Center"
+          loading="lazy"
+        />
+        <figcaption>Badge pickup at the Developer Center.</figcaption>
+      </figure>
+      <h2>WWDC26</h2>
+      <div class="post-entry">
+        <p class="eyebrow">
+          June 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7469759272524910592/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>We are at WWDC26 today!!! 🎉🔥</p>
+      </div>
+      <div class="post-entry">
+        <p class="eyebrow">
+          June 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7469837105968435201/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>
+          All of the ADA Finalists and Winners at the WWDC26 badge event
+          yesterday!🎉 so much excellence in one photo👏 We got to showcase
+          Hearing Buddy and talk to a bunch of people!! I’ve loved sharing how
+          Apple’s latest technologies have changed my life if the most positive
+          way by helping me hear better in conversations. Of course, I take a
+          pic with the ADA award every time I go to WWDC. It’s my dream to win
+          one🥹 Apple had a wonderful reception for all the ADA finalists. I had
+          so much fun yesterday with Scott Krager! Apple really thought through
+          every detail to make our ADA WWDC experience special. More to come on
+          what WWDC26 announcements were my fave and what we will be integrating
+          into Hearing Buddy! 🙂
+        </p>
+      </div>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/wwdc26/finalists-group.jpg`}
+          alt="The 2026 Apple Design Award finalists and winners gathered around the WWDC26 sign at Apple Park"
+          loading="lazy"
+        />
+        <figcaption>
+          All of the Apple Design Award finalists and winners at the WWDC26
+          badge event.
+        </figcaption>
+      </figure>
+      <figure class="post-figure two">
+        <div>
+          <img
+            src={`${base}/blog/wwdc26/caption-with-pride.jpg`}
+            alt="Lilly and two friends in caption with pride shirts"
+            loading="lazy"
+          />
+          <img
+            src={`${base}/blog/wwdc26/showing-hearing-buddy.jpg`}
+            alt="Lilly holding up Hearing Buddy on her iPhone"
+            loading="lazy"
+          />
+        </div>
+        <figcaption>Showing Hearing Buddy at Apple Park.</figcaption>
+      </figure>
+      <figure class="video-figure small">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster={`${base}/blog/wwdc26/inclusivity-display-poster.jpg`}
+        >
+          <source
+            src={`${base}/blog/wwdc26/inclusivity-display.mp4`}
+            type="video/mp4"
+          />
+        </video>
+        <figcaption>
+          Hearing Buddy on the Inclusivity finalists display at WWDC26.
+        </figcaption>
+      </figure>
+      <div class="post-entry">
+        <p class="eyebrow">
+          June 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7470243318669447168/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>
+          WWDC26 was so fun! I can’t believe the Hearing Buddy logo was in the
+          State of the Union😍🦻 A few things I REALLY loved: 1️⃣ Apple
+          Intelligence, SiriAI, and CoreAI. We are following Apple’s lead in the
+          AI space and cannot wait to use these in Hearing Buddy! 2️⃣ Child
+          Safety Features, which would help us to make a version of Hearing
+          Buddy for kids🥹 3️⃣ Liquid Glass improvements. We’ve got a Hearing
+          Buddy build in iOS27 and no coding needed to see a difference! I’m
+          very impressed at Apple’s dedication to taking feedback from
+          developers and making awesome improvements. We can’t wait to start
+          coding iOS27 features😏 and dive even deeper into our Liquid Glass
+          designs! What was your fave WWDC26 announcement?
+        </p>
+      </div>
+      <h2>The Observatory</h2>
+      <div class="post-entry">
+        <p class="eyebrow">
+          June 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7470542551654195200/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>
+          A peak WWDC26 experience was demoing Hearing Buddy in The Observatory
+          at Apple Park😍 It’s the most beautiful architecture I’ve ever
+          experienced! We also met the founding team of Tiimo, who won App of
+          the Year in 2025💅👑 It’s been the best week ever!
+        </p>
+      </div>
+      <figure class="post-figure">
+        <img
+          src={`${base}/blog/wwdc26/developer-center-table.jpg`}
+          alt="Lilly at a table at Apple Park with her phone"
+          loading="lazy"
+        />
+        <figcaption>Between demos at Apple Park.</figcaption>
+      </figure>
+      <h2>The vlog</h2>
+      <div class="post-entry">
+        <p class="eyebrow">
+          June 2026 · <a
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7471272647054606336/"
+            >on LinkedIn</a
+          >
+        </p>
+        <p>WWDC26 Vlog as an ADA Finalist😍👏</p>
+      </div>
+
+      <section class="post-outro reveal">
+        <h2>Apple's 2026 Apple Design Awards</h2>
+        <p>
+          Hearing Buddy is listed as a finalist in the Inclusivity category on
+          <a href="https://developer.apple.com/design/awards/"
+            >Apple's Design Awards page</a
+          >, in
+          <a
+            href="https://www.apple.com/newsroom/2026/06/apple-reveals-winners-of-the-2026-apple-design-awards/"
+            >Apple's newsroom announcement of the 2026 winners</a
+          >, and in the App Store story
+          <a href="https://apps.apple.com/us/iphone/story/id1896567319"
+            >Meet the 2026 Apple Design Award Finalists</a
+          >. Apple's description: "Created by a solo developer with hearing
+          loss, Hearing Buddy is shaped by experience. The thoughtful app uses
+          the Foundation Models framework and on-device speech-to-text features
+          to quickly generate real-time captions and summaries of spoken
+          conversations."
+        </p>
+        <p>
+          Building something for the App Store and want it to stand out? <a
+            href={`mailto:${profile.email}`}>Send me a note</a
+          >.
+        </p>
+      </section>
+    </div>
+  </article>
+</BlogLayout>
