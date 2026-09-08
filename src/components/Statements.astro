@@ -158,7 +158,7 @@ import { statements } from "../data/profile";
       const t0 = performance.now();
       const rise = (now: number) => {
         const t = Math.min(1, (now - t0) / 1400);
-        count = Math.round(1200 * (1 - Math.pow(1 - t, 3)));
+        count = Math.round(10240 * (1 - Math.pow(1 - t, 3)));
         render();
         if (t < 1) requestAnimationFrame(rise);
         else timer = window.setTimeout(tick, 600);
@@ -170,7 +170,7 @@ import { statements } from "../data/profile";
       timer = undefined;
     };
     if (reduce || !("IntersectionObserver" in window)) {
-      count = 1200;
+      count = 10240;
       render();
     } else {
       new IntersectionObserver(
