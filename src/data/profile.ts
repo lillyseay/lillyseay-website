@@ -380,11 +380,34 @@ export const appStoreFeatures = [
 // events that shipped with it. Event copy is from App Store Connect (2026-09-08). Newest first.
 export const campaigns = [
   {
+    "slug": "ios-27",
+    "name": "iOS 27 launch",
+    "month": "September 2026",
+    "type": "App enhancements",
+    "result": "Featured on the App Store",
+    "summary": "Smarter summaries on Private Cloud Compute, hands-free Siri, and an interface rebuilt for iOS 27, pitched for launch day.",
+    "pitch": [
+      "iOS 27 was the moment to show what a Hearing Buddy can do beyond captions. Enhanced summaries built on Private Cloud Compute turn a conversation into decisions, action items, and sectioned notes, and they drag straight into Notes and Reminders.",
+      "Siri and App Intents make it hands-free: start a listening session by voice and search past conversations without touching the screen. The whole interface was rebuilt for iOS 27 adaptivity and drag and drop, which shines on iPad in landscape during long meetings and lectures. The pitch came from a two-person team that had worked with the Evaluations Framework and the new Siri, and it earned a feature for the iOS 27 launch."
+    ],
+    "events": [
+      {
+        "name": "iOS27: Smarter summaries",
+        "badge": "Major update",
+        "when": "Sep 14 to Oct 15, 2026",
+        "short": "Your Buddy takes detailed notes and action items.",
+        "long": "Buddy summarizes your meeting or lecture with key points and action items you can add to your Reminders.",
+        "image": "/appstore/events/ios27.jpg",
+        "note": "Designed for the iOS 27 launch"
+      }
+    ]
+  },
+  {
     "slug": "deaf-awareness-month",
     "name": "Deaf Awareness Month",
     "month": "September 2026",
     "type": "New content",
-    "result": "",
+    "result": "Featured on the App Store",
     "summary": "Launched Celeste, the first Deaf buddy, timed to Deaf Awareness Month and the International Day of Sign Languages.",
     "pitch": [
       "September is Deaf Awareness Month and includes the International Week of Deaf People and the International Day of Sign Languages. The campaign tied Hearing Buddy's newest character launch to those dates so the app had a clear reason to be featured that month.",
@@ -488,7 +511,7 @@ export const campaigns = [
     "name": "Deaf Awareness Week, GAAD, and NSLHM",
     "month": "May 2026",
     "type": "App enhancements",
-    "result": "",
+    "result": "Featured on the App Store",
     "summary": "Four new buddies, a Vision Pro app, and Apple Health hearing test support across NSLHM, Deaf Awareness Week, and GAAD.",
     "pitch": [
       "May stacks three moments for the hearing loss community: National Speech-Language-Hearing Month, Deaf Awareness Week, and Global Accessibility Awareness Day. The campaign gave each one its own in-app event so the app had fresh content on the App Store all month.",

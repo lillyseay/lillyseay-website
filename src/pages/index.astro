@@ -284,7 +284,9 @@ import {
                         </div>
                         <div class="event-copy">
                           <p class="event-long">{ev.long}</p>
-                          <p class="event-when muted">Ran {ev.when}</p>
+                          <p class="event-when muted">
+                            {"note" in ev && ev.note ? ev.note : `Ran ${ev.when}`}
+                          </p>
                         </div>
                       </div>
                     ))}
