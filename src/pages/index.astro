@@ -54,42 +54,6 @@ import {
     </div>
   </section>
 
-  <section id="journey">
-    <div class="wrap">
-      <div class="section-head left reveal">
-        <p class="eyebrow">Recent adventures</p>
-        <h2>Where I've been, <em>and when</em></h2>
-      </div>
-      <div class="journey stagger">
-        {
-          journey.map((j) => (
-            <details class="journey-item">
-              <summary>
-                <span class="what">{j.what}</span>
-                <span class="where">
-                  {j.where}
-                  <small>{j.type}</small>
-                </span>
-                <span class="when">{j.when}</span>
-                <span class="chev" aria-hidden="true" />
-              </summary>
-              <div class="journey-body">
-                <p>{j.details}</p>
-                {"bullets" in j && j.bullets && (
-                  <ul class="journey-bullets">
-                    {j.bullets.map((b) => (
-                      <li>{b}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </details>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
   <section id="projects">
     <div class="wrap">
       <div class="section-head reveal">
@@ -398,6 +362,42 @@ import {
       </div>
       <div class="notes">
         {profile.about.map((para) => <p>{para}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <div class="section-head left reveal">
+        <p class="eyebrow">CV</p>
+        <h2>Where I've been, <em>and when</em></h2>
+      </div>
+      <div class="journey stagger">
+        {
+          journey.map((j) => (
+            <details class="journey-item">
+              <summary>
+                <span class="what">{j.what}</span>
+                <span class="where">
+                  {j.where}
+                  <small>{j.type}</small>
+                </span>
+                <span class="when">{j.when}</span>
+                <span class="chev" aria-hidden="true" />
+              </summary>
+              <div class="journey-body">
+                <p>{j.details}</p>
+                {"bullets" in j && j.bullets && (
+                  <ul class="journey-bullets">
+                    {j.bullets.map((b) => (
+                      <li>{b}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </details>
+          ))
+        }
       </div>
     </div>
   </section>
