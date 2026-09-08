@@ -72,14 +72,16 @@ import { statements } from "../data/profile";
                 </div>
               </div>
               <div class="counter">
-                <span class="num" data-target="115000">
-                  0
-                </span>
-                <span class="lbl">followers</span>
+                <span class="dl-num" data-downloads>0</span>
+                <span class="lbl">downloads</span>
+                <span class="plus" aria-hidden="true">+1</span>
               </div>
               <div class="heart h1">♥</div>
               <div class="heart h2">♥</div>
               <div class="heart h3">♥</div>
+              <div class="bubble b1">I love this app</div>
+              <div class="bubble b2">Just downloaded it</div>
+              <div class="bubble b3">Started my trial</div>
             </div>
           )}
           {s.key === "software" && (
@@ -128,3 +130,55 @@ import { statements } from "../data/profile";
     ))
   }
 </div>
+
+<script>
+  // "I get apps downloaded": the counter keeps ticking up while it is on screen,
+  // with a small +1 pop on every tick.
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const num = document.querySelector<HTMLElement>("[data-downloads]");
+  const plus = document.querySelector<HTMLElement>(".counter .plus");
+  if (num) {
+    let count = 0;
+    let timer: number | undefined;
+    const render = () => (num.textContent = count.toLocaleString());
+    const tick = () => {
+      const step = 1 + Math.floor(Math.random() * 3);
+      count += step;
+      render();
+      if (plus) {
+        plus.textContent = `+${step}`;
+        plus.classList.remove("show");
+        void plus.offsetWidth;
+        plus.classList.add("show");
+      }
+      timer = window.setTimeout(tick, 700 + Math.random() * 900);
+    };
+    const start = () => {
+      if (timer !== undefined) return;
+      const t0 = performance.now();
+      const rise = (now: number) => {
+        const t = Math.min(1, (now - t0) / 1400);
+        count = Math.round(1200 * (1 - Math.pow(1 - t, 3)));
+        render();
+        if (t < 1) requestAnimationFrame(rise);
+        else timer = window.setTimeout(tick, 600);
+      };
+      requestAnimationFrame(rise);
+    };
+    const stop = () => {
+      if (timer !== undefined) window.clearTimeout(timer);
+      timer = undefined;
+    };
+    if (reduce || !("IntersectionObserver" in window)) {
+      count = 1200;
+      render();
+    } else {
+      new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) e.isIntersecting ? start() : stop();
+        },
+        { threshold: 0.4 },
+      ).observe(num);
+    }
+  }
+</script>

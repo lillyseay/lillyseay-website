@@ -44,7 +44,10 @@ import {
       </div>
       <Statements />
       <p class="routes-cta reveal">
-        <a class="pill-link" href={`mailto:${profile.email}`}>Start a project</a
+        <a
+          class="pill-link"
+          href={`mailto:${profile.email}?subject=${encodeURIComponent("Start a project")}`}
+          >Start a project</a
         >
       </p>
     </div>
