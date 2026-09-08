@@ -558,13 +558,23 @@ export const campaigns = [
     "name": "World Hearing Day",
     "month": "March 2026",
     "type": "App enhancements",
-    "result": "",
-    "summary": "The first featuring pitch: free unlimited captions on device, timed to World Hearing Day and a RevenueCat Shipaton win.",
+    "result": "Best New Apps and Updates",
+    "summary": "The first featuring pitch: free unlimited captions on device, timed to World Hearing Day. It landed Hearing Buddy in Best New Apps and Updates.",
     "pitch": [
       "World Hearing Day on March 3 was the hook for Hearing Buddy's first nomination. With 1.5 billion people living with hearing loss, the pitch argued this was the moment to put the right tool in front of them.",
-      "It introduced the app's core: free unlimited live captions on Apple's on-device speech recognition, name and question alerts through Live Activities and Apple Watch haptics, and four buddy personalities users can name. The recent RevenueCat Shipaton prize gave it outside validation."
+      "It introduced the app's core: free unlimited live captions on Apple's on-device speech recognition, name and question alerts through Live Activities and Apple Watch haptics, and four buddy personalities users can name. The recent RevenueCat Shipaton prize gave it outside validation.",
+      "The pitch and the World Hearing Day in-app event landed Hearing Buddy on the App Store's Best New Apps and Updates list, the first feature for the app."
     ],
-    "events": []
+    "events": [
+      {
+        "name": "World Hearing Day 2026",
+        "badge": "Special event",
+        "when": "March 2026",
+        "short": "Celebrate World Hearing Day with live captions",
+        "long": "Join millions raising awareness for hearing health. Try Hearing Buddy's real-time captions and never miss a word again.",
+        "image": "/appstore/events/world-hearing-day.jpg"
+      }
+    ]
   }
 ];
 
