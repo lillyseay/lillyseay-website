@@ -4,6 +4,7 @@ import Ridgeline from "../components/Ridgeline.astro";
 import { posts } from "../data/blog";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 import Statements from "../components/Statements.astro";
+import SocialCase from "../components/SocialCase.astro";
 import {
   profile,
   journey,
@@ -267,20 +268,15 @@ import {
   <section id="social" class="band-soft">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Social media marketing</p>
-        <h2>Marketing apps <em>on social</em></h2>
-        <p class="sub">{social.intro}</p>
+        <p class="eyebrow">Social media case study</p>
+        <h2>SEO-driven video, <em>tested and scaled</em></h2>
+        <p class="sub">
+          How I grew Hearing Buddy's social accounts from zero: find topics
+          people already search for, test them as short-form video, and turn
+          the winners into series.
+        </p>
       </div>
-      <ul class="grid two stagger">
-        {
-          social.services.map((s) => (
-            <li class="card">
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </li>
-          ))
-        }
-      </ul>
+      <SocialCase />
       <h3 class="subhead reveal">Accounts I run</h3>
       <ul class="grid three stagger">
         {

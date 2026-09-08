@@ -1,0 +1,320 @@
+---
+import { socialCase as c } from "../data/profile";
+
+const nets = [
+  { key: "tiktok", label: "TikTok" },
+  { key: "instagram", label: "Instagram" },
+  { key: "youtube", label: "YouTube Shorts" },
+] as const;
+
+const fmt = (n: number) =>
+  n >= 1000 ? `${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}K` : `${n}`;
+const full = (n: number) => n.toLocaleString("en-US");
+
+// Bar chart geometry (viewBox units)
+const W = 320;
+const H = 150;
+const padL = 6;
+const padR = 6;
+const padT = 22;
+const padB = 22;
+const viewsMax = Math.max(...nets.flatMap((n) => c.views[n.key]));
+const barW = (W - padL - padR) / c.months.length;
+
+function bars(key: (typeof nets)[number]["key"]) {
+  const vals = c.views[key];
+  return vals.map((v, i) => {
+    const h = ((H - padT - padB) * v) / viewsMax;
+    const x = padL + i * barW + barW * 0.18;
+    const y = H - padB - h;
+    return { x, y, w: barW * 0.64, h, v, m: c.months[i] };
+  });
+}
+
+function line(key: (typeof nets)[number]["key"]) {
+  const f = c.followers[key];
+  const max = Math.max(...f.series);
+  const n = f.series.length;
+  const pts = f.series.map((v, i) => ({
+    x: padL + 8 + (i * (W - padL - padR - 16)) / (n - 1),
+    y: H - padB - ((H - padT - padB) * v) / max,
+    v,
+    m: f.months[i],
+  }));
+  const d = pts.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
+  const area = `${d} L${pts[pts.length - 1].x.toFixed(1)} ${H - padB} L${pts[0].x.toFixed(1)} ${H - padB} Z`;
+  return { pts, d, area, f };
+}
+---
+
+<div class="case">
+  <ul class="case-stats stagger">
+    {
+      c.stats.map((s) => (
+        <li>
+          <span
+            class="case-num"
+            data-count={s.value}
+            data-decimals={"decimals" in s ? s.decimals : 0}
+          >
+            {"decimals" in s ? s.value.toFixed(s.decimals) : full(s.value)}
+          </span>
+          <span class="case-label">{s.label}</span>
+          <span class="case-sub">{s.sub}</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="case-method stagger">
+    {
+      c.method.map((m, i) => (
+        <div class="method-step">
+          <span class="step-no">{i + 1}</span>
+          <p class="step-kind">{m.step}</p>
+          <h4>{m.title}</h4>
+          <p>{m.body}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="case-block reveal">
+    <div class="case-block-head">
+      <h4>The keyword sheet</h4>
+      <p>
+        Nine of the fifteen topic clusters, ranked by monthly searches. Every
+        cluster became a batch of test videos.
+      </p>
+    </div>
+    <ul class="cluster-list">
+      {
+        c.clusters.map((k) => (
+          <li>
+            <span class="cluster-name">{k.name}</span>
+            <span
+              class="cluster-bar"
+              style={`--w:${(k.volume / c.clusters[0].volume) * 100}%`}
+            />
+            <span class="cluster-val">{fmt(k.volume)} searches</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div class="case-block reveal">
+    <div class="case-block-head">
+      <h4>Monthly views by platform</h4>
+      <p>
+        Views per publish month, {c.period}. Same videos on all three. August is
+        when the series strategy took over.
+      </p>
+    </div>
+    <div class="chart-row">
+      {
+        nets.map((n) => {
+          const b = bars(n.key);
+          const total = c.views[n.key].reduce((a, v) => a + v, 0);
+          const last = b[b.length - 1];
+          return (
+            <figure class="chart">
+              <figcaption>
+                <strong>{n.label}</strong>
+                <span class="muted">{full(total)} views</span>
+              </figcaption>
+              <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${n.label} monthly views`}>
+                <line class="axis" x1={padL} x2={W - padR} y1={H - padB} y2={H - padB} />
+                {b.map((r) => (
+                  <g class="bar">
+                    <rect
+                      x={r.x}
+                      y={r.y}
+                      width={r.w}
+                      height={Math.max(r.h, 1)}
+                      rx="3"
+                    />
+                    <rect
+                      class="hit"
+                      x={r.x - barW * 0.18}
+                      y={padT - 10}
+                      width={barW}
+                      height={H - padT - padB + 10}
+                    >
+                      <title>{`${r.m} 2026: ${full(r.v)} views`}</title>
+                    </rect>
+                    <text class="tick" x={r.x + r.w / 2} y={H - padB + 14} text-anchor="middle">
+                      {r.m}
+                    </text>
+                  </g>
+                ))}
+                <text class="label" x={last.x + last.w / 2} y={last.y - 6} text-anchor="middle">
+                  {fmt(last.v)}
+                </text>
+              </svg>
+            </figure>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <div class="case-block reveal">
+    <div class="case-block-head">
+      <h4>Follower growth</h4>
+      <p>
+        Followers at the end of each month. Instagram grew eight times in August
+        alone, the month the POV series landed.
+      </p>
+    </div>
+    <div class="chart-row">
+      {
+        nets.map((n) => {
+          const l = line(n.key);
+          const lastP = l.pts[l.pts.length - 1];
+          const firstP = l.pts[0];
+          return (
+            <figure class="chart">
+              <figcaption>
+                <strong>{n.label}</strong>
+                <span class="muted">
+                  {full(l.f.start)} to {full(l.f.end)}
+                </span>
+              </figcaption>
+              <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${n.label} followers over time`}>
+                <line class="axis" x1={padL} x2={W - padR} y1={H - padB} y2={H - padB} />
+                <path class="area" d={l.area} />
+                <path class="line" d={l.d} />
+                {l.pts.map((p) => (
+                  <g class="pt">
+                    <circle cx={p.x} cy={p.y} r="4" />
+                    <rect
+                      class="hit"
+                      x={p.x - (W - 16) / (l.pts.length * 2)}
+                      y={padT - 10}
+                      width={(W - 16) / l.pts.length}
+                      height={H - padT - padB + 10}
+                    >
+                      <title>{`${p.m} 2026: ${full(p.v)} followers`}</title>
+                    </rect>
+                  </g>
+                ))}
+                <text class="tick" x={firstP.x} y={H - padB + 14} text-anchor="start">
+                  {l.f.months[0]}
+                </text>
+                <text class="tick" x={lastP.x} y={H - padB + 14} text-anchor="end">
+                  {l.f.months[l.f.months.length - 1]}
+                </text>
+                <text class="label" x={lastP.x} y={lastP.y - 9} text-anchor="end">
+                  {full(lastP.v)}
+                </text>
+              </svg>
+            </figure>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <div class="case-block reveal">
+    <div class="case-block-head">
+      <h4>The series that won</h4>
+      <p>
+        Recurring titles the audience recognizes. Together they are 57% of all
+        views from 17 of the 210 videos.
+      </p>
+    </div>
+    <ul class="series-list">
+      {
+        c.series.map((s) => (
+          <li class="series-row">
+            <div class="series-main">
+              <h5>{s.name}</h5>
+              <p class="series-hook">{s.hook}</p>
+              <p class="series-note">{s.note}</p>
+            </div>
+            <dl class="series-stats">
+              <div>
+                <dt>Views</dt>
+                <dd>{full(s.views)}</dd>
+              </div>
+              <div>
+                <dt>Best video</dt>
+                <dd>
+                  {full(s.best)} <small>{s.bestOn}</small>
+                </dd>
+              </div>
+              <div>
+                <dt>Videos</dt>
+                <dd>{s.videos}</dd>
+              </div>
+              <div>
+                <dt>Since</dt>
+                <dd>{s.since}</dd>
+              </div>
+            </dl>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <details class="case-table">
+    <summary>View the monthly numbers as a table</summary>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            {nets.map((n) => <th>{n.label} views</th>)}
+            <th>TikTok followers</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            c.months.map((m, i) => (
+              <tr>
+                <td>{m} 2026</td>
+                {nets.map((n) => <td>{full(c.views[n.key][i])}</td>)}
+                <td>{full(c.followers.tiktok.series[i])}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
+
+<script>
+  // Count up the case study stat tiles when they scroll into view.
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const nums = document.querySelectorAll<HTMLElement>(".case-num[data-count]");
+  const render = (el: HTMLElement, v: number, dec: number) => {
+    el.textContent = dec
+      ? v.toFixed(dec)
+      : Math.round(v).toLocaleString("en-US");
+  };
+  if (!reduce && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const el = e.target as HTMLElement;
+          const target = Number(el.dataset.count ?? "0");
+          const dec = Number(el.dataset.decimals ?? "0");
+          const t0 = performance.now();
+          const tick = (now: number) => {
+            const t = Math.min(1, (now - t0) / 1500);
+            render(el, target * (1 - Math.pow(1 - t, 3)), dec);
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          io.unobserve(el);
+        }
+      },
+      { threshold: 0.5 },
+    );
+    nums.forEach((el) => io.observe(el));
+  }
+</script>

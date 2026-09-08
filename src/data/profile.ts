@@ -578,6 +578,105 @@ export const campaigns = [
   }
 ];
 
+// Social media case study: Hearing Buddy, Feb to Aug 2026. Numbers pulled from Metricool on
+// 2026-09-08 (TikTok, Instagram, YouTube; LinkedIn excluded). Views are per post; monthly views
+// are grouped by publish month. Follower counts are the last reading in each month.
+export const socialCase = {
+  app: "Hearing Buddy",
+  period: "February to August 2026",
+  stats: [
+    { value: 210, label: "videos", sub: "cross-posted to 3 platforms" },
+    { value: 730072, label: "views", sub: "TikTok, Instagram, YouTube" },
+    { value: 1603, label: "TikTok followers", sub: "from zero in 7 months" },
+    { value: 3.4, label: "x more views", sub: "series videos vs one-offs", decimals: 1 },
+  ],
+  method: [
+    {
+      step: "Research",
+      title: "Start from search, not vibes",
+      body: "I built a keyword sheet for hearing loss: 100 video topics across 15 clusters, each with monthly search volume and difficulty. Topics like hearing age tests, AirPods as hearing aids, and signs of hearing loss have tens of thousands of searches a month.",
+    },
+    {
+      step: "Test",
+      title: "Post everything, watch what moves",
+      body: "Every topic became a short-form video posted to TikTok, Instagram, and YouTube Shorts on the same day. Around 30 videos a month for six months. Same hook, same caption, three audiences.",
+    },
+    {
+      step: "Scale",
+      title: "Turn winners into series",
+      body: "Formats that broke out got a title people recognize and a weekly slot. Series videos average 3.4 times the views of one-offs, and they are where the follower growth came from.",
+    },
+  ],
+  clusters: [
+    { name: "OTC Hearing Aids", topics: 10, volume: 55800 },
+    { name: "Hearing Loss Simulator", topics: 5, volume: 35600 },
+    { name: "AirPods as Hearing Aids", topics: 7, volume: 30650 },
+    { name: "How Old Are Your Ears", topics: 10, volume: 22700 },
+    { name: "How Hearing Aids Work", topics: 4, volume: 17400 },
+    { name: "Sudden Hearing Loss", topics: 8, volume: 13000 },
+    { name: "Types of Hearing Loss", topics: 10, volume: 11500 },
+    { name: "Partner Perspective", topics: 7, volume: 10500 },
+    { name: "Signs and Symptoms", topics: 8, volume: 9100 },
+  ],
+  months: ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
+  views: {
+    tiktok: [36261, 44304, 57823, 69860, 76297, 78066, 102673],
+    instagram: [19758, 12996, 3189, 5543, 14820, 13315, 49637],
+    youtube: [196, 243, 11767, 23128, 21496, 15409, 73134],
+  },
+  followers: {
+    tiktok: { start: 1, end: 1603, series: [65, 220, 243, 741, 1056, 1439, 1590, 1603], months: ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"] },
+    instagram: { start: 26, end: 520, series: [26, 42, 46, 373, 520], months: ["May", "Jun", "Jul", "Aug", "Sep"] },
+    youtube: { start: 67, end: 100, series: [67, 78, 86, 99, 100], months: ["May", "Jun", "Jul", "Aug", "Sep"] },
+  },
+  series: [
+    {
+      name: "POV: when my ears actually work",
+      hook: "The relief of hearing something correctly, for once.",
+      videos: 4,
+      posts: 12,
+      views: 229636,
+      best: 64025,
+      bestOn: "TikTok",
+      since: "July 2026",
+      note: "31% of all views from four videos. It drove the August jump, when Instagram followers went from 46 to 373.",
+    },
+    {
+      name: "Things people with hearing loss are tired of explaining",
+      hook: "The same five conversations, every week.",
+      videos: 5,
+      posts: 31,
+      views: 85835,
+      best: 22645,
+      bestOn: "TikTok",
+      since: "May 2026",
+      note: "The most repeatable format: five versions posted across the summer, with the top one at 22,645 views on TikTok.",
+    },
+    {
+      name: "Hearing loss signs",
+      hook: "Straight from the Signs and Symptoms keyword cluster.",
+      videos: 6,
+      posts: 45,
+      views: 100023,
+      best: 30486,
+      bestOn: "TikTok",
+      since: "March 2026",
+      note: "The SEO cluster that worked. Six versions between March and July, each pairing search demand with a relatable hook.",
+    },
+    {
+      name: "Things I thought were normal but actually hearing loss",
+      hook: "Realizing the workarounds were symptoms.",
+      videos: 2,
+      posts: 4,
+      views: 3807,
+      best: 1592,
+      bestOn: "TikTok",
+      since: "May 2026",
+      note: "The newest series, two videos so far. Small numbers, but it fits the format that works, so it stays in rotation.",
+    },
+  ],
+};
+
 export const recognition = [
   "Apple Design Award Finalist 2026",
   "Apple Entrepreneur Camp",
