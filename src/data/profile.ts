@@ -481,11 +481,12 @@ export const campaigns = [
     "name": "Pride Month",
     "month": "June 2026",
     "type": "New content",
-    "result": "",
-    "summary": "Pride buddies for the queer Deaf and hard-of-hearing community, with a Caption with Pride challenge.",
+    "result": "Apple Design Award Finalist",
+    "summary": "Pride buddies for the queer Deaf and hard-of-hearing community. Not featured, but a big part of the Apple Design Award Finalist story.",
     "pitch": [
       "The campaign connected Pride to the conversations people most want to catch every word of: coming out, sharing new pronouns, a family member finally saying the words out loud. New Pride buddies let users caption with color all June.",
-      "Two events ran together, a Premiere for the new characters and a Caption with Pride challenge. The nomination spoke as a queer, hard-of-hearing founder and highlighted that live captions stay free and unlimited."
+      "Two events ran together, a Premiere for the new characters and a Caption with Pride challenge. The nomination spoke as a queer, hard-of-hearing founder and highlighted that live captions stay free and unlimited.",
+      "This one didn't land a feature. It did put Hearing Buddy's inclusivity work in front of Apple weeks before the Apple Design Awards, and in June the app was named a 2026 Finalist in the Inclusivity category."
     ],
     "events": [
       {
