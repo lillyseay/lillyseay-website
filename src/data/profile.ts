@@ -495,8 +495,7 @@ export const campaigns = [
     "result": "",
     "pitch": [
       "May is a huge month for the hearing loss community. It's National Speech-Hearing-Language Month and includes both Global Accessibility Awareness Day (May 21) and Deaf Awareness Week. To celebrate, Hearing Buddy is launching four new buddy characters tied to these moments, giving users fresh companions that reflect the diversity and spirit of the community we serve.",
-      "Alongside the new characters, we're launching our Vision Pro app, bringing live captions, summaries, and custom alerts to a new platform. We're also introducing hearing test support integrated with Apple Health, guiding users to take Apple's hearing test and displaying their results directly in the app.",
-      "Some of our in-app events are still in review, but we have a Spring hearing test challenge in-app event live now."
+      "Alongside the new characters, we're launching our Vision Pro app, bringing live captions, summaries, and custom alerts to a new platform. We're also introducing hearing test support integrated with Apple Health, guiding users to take Apple's hearing test and displaying their results directly in the app."
     ],
     "note": "I'm the co-founder of Hearing Buddy, an Apple Entrepreneur Camp alum, and I've had hearing loss my whole life. Hearing Buddy is built around my real-life hearing buddy, my partner who always helps me hear in social situations. Every Buddy is designed to feel like that trusted companion, not just a utility. Since we run on Apple's on-device models, we offer unlimited free captions to every user, and our premium tier has no usage caps either.",
     "events": [
