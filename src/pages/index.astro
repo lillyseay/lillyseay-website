@@ -10,7 +10,7 @@ import {
   apps,
   moreApps,
   appStoreFeatures,
-  inAppEvents,
+  campaigns,
   talks,
   community,
   education,
@@ -207,31 +207,82 @@ import {
           })
         }
       </ul>
-      <h3 class="subhead reveal">Hearing Buddy in-app events</h3>
-      <p class="sub center reveal">
-        Every event ran on the App Store with its own campaign, artwork, and
-        featuring pitch to Apple.
-      </p>
-      <ul class="events-grid stagger">
+    </div>
+  </section>
+
+  <section id="campaigns">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">App Store campaigns</p>
+        <h2>How I get apps <em>featured</em></h2>
+        <p class="sub">
+          Every campaign is a pitch to Apple's editorial team plus the in-app
+          events, artwork, and copy that ship with it. These are the ones I ran
+          for Hearing Buddy this year.
+        </p>
+      </div>
+      <div class="campaign-list">
         {
-          inAppEvents.map((ev) => (
-            <li>
-              <div class="box">
-                <img src={`${base}${ev.image}`} alt={ev.name} loading="lazy" />
-                <span class="kind-tag">{ev.badge}</span>
-              </div>
-              <div class="cap">
-                <strong>{ev.name}</strong>
-                {ev.short}
-                <span class="muted when-line">{ev.when}</span>
-                {ev.campaign && (
-                  <span class="campaign">Campaign: {ev.campaign}</span>
+          campaigns.map((c) => (
+            <article class="campaign reveal" id={`campaign-${c.slug}`}>
+              <header class="campaign-head">
+                <div>
+                  <p class="campaign-month">{c.month}</p>
+                  <h3>{c.name}</h3>
+                </div>
+                <ul class="tags">
+                  <li>{c.type}</li>
+                  {c.events.length > 0 && (
+                    <li>
+                      {c.events.length} in-app event
+                      {c.events.length > 1 ? "s" : ""}
+                    </li>
+                  )}
+                  {c.result && <li class="win">{c.result}</li>}
+                </ul>
+              </header>
+              <div class="campaign-body">
+                <div class="pitch">
+                  <p class="pitch-label">The pitch to Apple</p>
+                  {c.pitch.map((para) => (
+                    <p>{para}</p>
+                  ))}
+                  {c.note && (
+                    <blockquote class="pitch-note">
+                      <p>{c.note}</p>
+                      <cite>From the founder notes on the nomination</cite>
+                    </blockquote>
+                  )}
+                </div>
+                {c.events.length > 0 && (
+                  <div class={`campaign-events ${c.events.length > 2 ? "many" : ""}`}>
+                    {c.events.map((ev) => (
+                      <div class="event-card">
+                        <div class="box">
+                          <img
+                            src={`${base}${ev.image}`}
+                            alt={ev.name}
+                            loading="lazy"
+                          />
+                        </div>
+                        <div class="event-copy">
+                          <div class="event-meta">
+                            <span class="event-badge">{ev.badge}</span>
+                            <span class="muted">{ev.when}</span>
+                          </div>
+                          <h4>{ev.name}</h4>
+                          <p class="event-short">{ev.short}</p>
+                          <p class="event-long">{ev.long}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
-            </li>
+            </article>
           ))
         }
-      </ul>
+      </div>
     </div>
   </section>
 

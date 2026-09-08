@@ -3527,24 +3527,162 @@ footer .wrap {
   }
 }
 
-/* In-app events */
-.section-head .sub.center,
-.sub.center {
-  text-align: center;
-  color: var(--muted);
-  margin: -0.5rem auto 1.5rem;
-  max-width: 34rem;
+/* ---------- App Store campaigns ---------- */
+.campaign-list {
+  display: grid;
+  gap: 2rem;
 }
 
-.events-grid .cap .when-line {
-  display: block;
-  margin-top: 0.2rem;
+.campaign {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
 }
 
-.events-grid .cap .campaign {
-  display: block;
-  margin-top: 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 600;
+.campaign-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.campaign-month {
+  margin: 0 0 0.25rem;
   color: var(--brand-text);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.campaign-head h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--ink);
+}
+
+.campaign-head .tags {
+  margin: 0.2rem 0 0;
+}
+
+.campaign-head .tags .win {
+  background: var(--brand);
+}
+
+.campaign-body {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.pitch-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pitch p {
+  color: var(--text);
+  font-size: 0.97rem;
+  margin: 0 0 0.9rem;
+}
+
+.pitch-note {
+  margin: 1.4rem 0 0;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--brand);
+  background: var(--brand-soft);
+  border-radius: 0 1rem 1rem 0;
+}
+
+.pitch-note p {
+  margin: 0;
+  color: #1d1224;
+  font-size: 0.95rem;
+}
+
+.pitch-note cite {
+  display: block;
+  margin-top: 0.6rem;
+  font-style: normal;
+  font-size: 0.78rem;
+  color: #5a4a68;
+}
+
+.campaign-events {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.campaign-events.many {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.event-card .box {
+  aspect-ratio: 16 / 9;
+  border-radius: 0.9rem;
+}
+
+.event-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+}
+
+.event-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  background: var(--brand-soft);
+  color: #1d1224;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.event-copy h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.2rem;
+  color: var(--ink);
+}
+
+.event-short {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+.event-long {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 760px) {
+  .campaign {
+    padding: 1.4rem;
+  }
+  .campaign-body {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .campaign-events.many {
+    grid-template-columns: 1fr;
+  }
 }
