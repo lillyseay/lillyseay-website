@@ -582,21 +582,21 @@ export const statements = [
     key: "design",
     headline: "I design brands that stand out.",
     support:
-      "Your logo, colors, and App Store screenshots become one system. The brand and the app feel like the same thing. The Hearing Buddy brand earned a spot in the App Store's Apps We Love.",
+      "Your logo, colors, and App Store screenshots become one system. The brand and the app feel like the same thing.",
     tags: ["Branding", "Logos", "App Store screenshots"],
   },
   {
     key: "apps",
     headline: "I create app experiences you won't find anywhere else.",
     support:
-      "I am a 2026 Apple Design Award Finalist. I specialize in minimalist, totally unique app experiences your users won't find anywhere else on the App Store. Every screen follows Apple's guidelines and still feels like yours.",
+      "I specialize in minimalist, totally unique app experiences your users won't find anywhere else on the App Store. Every screen follows Apple's guidelines and still feels like yours.",
     tags: ["UI and UX", "Liquid Glass", "Accessibility"],
   },
   {
     key: "social",
     headline: "I get apps downloaded.",
     support:
-      "Short-form video, carousels, and influencer campaigns turn views into downloads and trial starts. I have grown my own channels past 115,000 followers. Hearing Buddy has been featured on the App Store eight times this year.",
+      "Short-form video, carousels, and influencer campaigns turn views into downloads and trial starts.",
     tags: [
       "Short-form video",
       "Carousels",
@@ -608,14 +608,14 @@ export const statements = [
     key: "software",
     headline: "I build software end to end.",
     support:
-      "Native iOS and Android, web, IoT and embedded systems, and AI and ML integrations. I have ten years of shipping products from the circuit board to the App Store. I spoke on Swift for IoT at FOSDEM 2025.",
+      "Native iOS and Android, web, IoT and embedded systems, and AI and ML integrations. From the circuit board to the App Store.",
     tags: ["iOS and Android", "Web", "IoT and embedded", "AI and ML"],
   },
   {
     key: "teams",
     headline: "I grow teams that ship.",
     support:
-      "I hired 20 engineers at Hyster-Yale and took them through a six-month technical training program I designed. I set up a hiring process where the whole team scores every candidate together.",
+      "Technical training programs for new engineers. A hiring process where the whole team scores every candidate together. Habits that keep a team shipping.",
     tags: ["Training programs", "Hiring process", "Team building"],
   },
 ];
