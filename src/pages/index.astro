@@ -221,38 +221,42 @@ import {
           for Hearing Buddy this year.
         </p>
       </div>
-      <div class="campaign-list">
+      <div class="campaign-list stagger">
         {
           campaigns.map((c) => (
-            <article class="campaign reveal" id={`campaign-${c.slug}`}>
-              <header class="campaign-head">
-                <div>
+            <details class="campaign" id={`campaign-${c.slug}`}>
+              <summary>
+                <div class="campaign-thumbs" aria-hidden="true">
+                  {c.events.slice(0, 3).map((ev) => (
+                    <img src={`${base}${ev.image}`} alt="" loading="lazy" />
+                  ))}
+                  {c.events.length === 0 && (
+                    <span class="thumb-empty">Pitch only</span>
+                  )}
+                </div>
+                <div class="campaign-title">
                   <p class="campaign-month">{c.month}</p>
                   <h3>{c.name}</h3>
+                  <p class="campaign-summary">{c.summary}</p>
+                  <ul class="tags">
+                    <li>{c.type}</li>
+                    {c.events.length > 0 && (
+                      <li>
+                        {c.events.length} in-app event
+                        {c.events.length > 1 ? "s" : ""}
+                      </li>
+                    )}
+                    {c.result && <li class="win">{c.result}</li>}
+                  </ul>
                 </div>
-                <ul class="tags">
-                  <li>{c.type}</li>
-                  {c.events.length > 0 && (
-                    <li>
-                      {c.events.length} in-app event
-                      {c.events.length > 1 ? "s" : ""}
-                    </li>
-                  )}
-                  {c.result && <li class="win">{c.result}</li>}
-                </ul>
-              </header>
+                <span class="chev" aria-hidden="true" />
+              </summary>
               <div class="campaign-body">
                 <div class="pitch">
-                  <p class="pitch-label">The pitch to Apple</p>
+                  <p class="pitch-label">The campaign pitch</p>
                   {c.pitch.map((para) => (
                     <p>{para}</p>
                   ))}
-                  {c.note && (
-                    <blockquote class="pitch-note">
-                      <p>{c.note}</p>
-                      <cite>From the founder notes on the nomination</cite>
-                    </blockquote>
-                  )}
                 </div>
                 {c.events.length > 0 && (
                   <div class={`campaign-events ${c.events.length > 2 ? "many" : ""}`}>
@@ -279,7 +283,7 @@ import {
                   </div>
                 )}
               </div>
-            </article>
+            </details>
           ))
         }
       </div>

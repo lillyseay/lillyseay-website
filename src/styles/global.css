@@ -3530,49 +3530,133 @@ footer .wrap {
 /* ---------- App Store campaigns ---------- */
 .campaign-list {
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .campaign {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 24px;
-  padding: 2rem;
   box-shadow: var(--shadow-card);
+  transition: box-shadow 0.4s var(--ease-out);
 }
 
-.campaign-head {
+.campaign:hover,
+.campaign[open] {
+  box-shadow: var(--shadow-float);
+}
+
+.campaign summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) 1.5rem;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.4rem 1.6rem;
+}
+
+.campaign summary::-webkit-details-marker {
+  display: none;
+}
+
+.campaign-thumbs {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
+  align-items: center;
+  width: 8.5rem;
+  min-height: 3.6rem;
+}
+
+.campaign-thumbs img {
+  width: 5rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 2px solid var(--card);
+  box-shadow: var(--shadow-card);
+  margin-left: -1.6rem;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.campaign-thumbs img:first-child {
+  margin-left: 0;
+}
+
+.campaign-thumbs img:nth-child(2) {
+  transform: rotate(3deg);
+}
+
+.campaign-thumbs img:nth-child(3) {
+  transform: rotate(-3deg);
+}
+
+.campaign:hover .campaign-thumbs img {
+  transform: rotate(0) translateY(-2px);
+}
+
+.thumb-empty {
+  padding: 0.35rem 0.7rem;
+  border-radius: 100px;
+  background: var(--box);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .campaign-month {
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.15rem;
   color: var(--brand-text);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
-.campaign-head h3 {
+.campaign-title h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.15;
   margin: 0;
   color: var(--ink);
 }
 
-.campaign-head .tags {
-  margin: 0.2rem 0 0;
+.campaign-summary {
+  margin: 0.35rem 0 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  max-width: 40rem;
 }
 
-.campaign-head .tags .win {
+.campaign-title .tags {
+  margin-top: 0.7rem;
+}
+
+.campaign-title .tags .win {
   background: var(--brand);
+}
+
+.campaign .chev {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.campaign .chev::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 0.35rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.campaign[open] .chev::before {
+  transform: rotate(225deg);
+  top: 0.6rem;
 }
 
 .campaign-body {
@@ -3580,6 +3664,8 @@ footer .wrap {
   grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
   gap: 2.5rem;
   align-items: start;
+  padding: 0.25rem 1.6rem 1.8rem;
+  animation: body-in 0.5s var(--ease-out);
 }
 
 .pitch-label {
@@ -3595,28 +3681,6 @@ footer .wrap {
   color: var(--text);
   font-size: 0.97rem;
   margin: 0 0 0.9rem;
-}
-
-.pitch-note {
-  margin: 1.4rem 0 0;
-  padding: 1rem 1.2rem;
-  border-left: 3px solid var(--brand);
-  background: var(--brand-soft);
-  border-radius: 0 1rem 1rem 0;
-}
-
-.pitch-note p {
-  margin: 0;
-  color: #1d1224;
-  font-size: 0.95rem;
-}
-
-.pitch-note cite {
-  display: block;
-  margin-top: 0.6rem;
-  font-style: normal;
-  font-size: 0.78rem;
-  color: #5a4a68;
 }
 
 .campaign-events {
@@ -3675,12 +3739,17 @@ footer .wrap {
 }
 
 @media (max-width: 760px) {
-  .campaign {
-    padding: 1.4rem;
+  .campaign summary {
+    grid-template-columns: minmax(0, 1fr) 1.5rem;
+    padding: 1.2rem 1.2rem;
+  }
+  .campaign-thumbs {
+    display: none;
   }
   .campaign-body {
     grid-template-columns: 1fr;
     gap: 1.75rem;
+    padding: 0 1.2rem 1.4rem;
   }
   .campaign-events.many {
     grid-template-columns: 1fr;

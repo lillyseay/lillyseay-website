@@ -376,8 +376,8 @@ export const appStoreFeatures = [
   },
 ];
 
-// Hearing Buddy App Store campaigns: featuring pitches (verbatim, minus attachment notes) and the
-// in-app events that shipped with them. Pulled from App Store Connect on 2026-09-08. Newest first.
+// Hearing Buddy App Store campaigns: a written summary of each featuring pitch and the in-app
+// events that shipped with it. Event copy is from App Store Connect (2026-09-08). Newest first.
 export const campaigns = [
   {
     "slug": "deaf-awareness-month",
@@ -385,12 +385,11 @@ export const campaigns = [
     "month": "September 2026",
     "type": "New content",
     "result": "",
+    "summary": "Launched Celeste, the first Deaf buddy, timed to Deaf Awareness Month and the International Day of Sign Languages.",
     "pitch": [
-      "September is Deaf Awareness Month, and it includes the International Week of Deaf People (September 21 to 27) and the International Day of Sign Languages (September 23). To celebrate, Hearing Buddy is launching Celeste, our first Deaf buddy character!",
-      "Celeste is about going after what you want in your own way. She cheers users on as they build careers, chase goals, and take up space on their own terms.",
-      "Our Celeste in-app event runs September 1 through 30."
+      "September is Deaf Awareness Month and includes the International Week of Deaf People and the International Day of Sign Languages. The campaign tied Hearing Buddy's newest character launch to those dates so the app had a clear reason to be featured that month.",
+      "Celeste is the app's first Deaf buddy, shaped by feedback from Deaf users. Features like sharing captions from the speaker's mic and haptic name and question alerts came from that community. The nomination framed the launch as a community-built update, backed by a demo video and a month-long in-app event."
     ],
-    "note": "I am hard of hearing, so I relate to a lot of the Deaf experience but not all of it. That gap is exactly why feedback from our Deaf users has been the most fun part of building Hearing Buddy. They have shaped what we build next, like sharing captions from the speaker's mic to improve accuracy in large rooms, and how we design it, like visual cues with haptics for name and question alerts. We are excited to launch a buddy that’s inclusive of the Deaf experience.",
     "events": [
       {
         "name": "Happy Deaf Awareness Month!",
@@ -408,11 +407,11 @@ export const campaigns = [
     "month": "August 2026",
     "type": "App enhancements",
     "result": "Featured on the App Store",
+    "summary": "Two new buddies and a caption sharing feature for classrooms, pitched as accessibility for students who can't hear the lesson.",
     "pitch": [
-      "Hearing Buddy is launching two new buddies, Chalkie and Paige, alongside a back-to-school accessibility update. Teachers can now share their captions securely so the entire class can read along. We are running two In-App Events: Back to School Buddies, introducing the characters, and Learning for All, spotlighting our caption sharing feature.",
-      "Back to school is when accessibility barriers hit the hardest. A student who cannot understand the lesson falls behind on day one. With caption sharing, a teacher uses their mic for caption dictation and shares with the class, with live translations for multilingual students. Our goal is an accessible classroom where no language barrier or disability means missing out on learning."
+      "Back to school is when accessibility barriers hit hardest, so the campaign led with the classroom. A teacher captions from their own mic and shares to the whole class, with live translation for multilingual students.",
+      "Two in-app events split the story. Learning for All spotlighted caption sharing, and Back to School Buddies introduced Chalkie and Paige. The pitch drew on my own experience of falling behind in school because I couldn't hear, and it earned a feature on the App Store."
     ],
-    "note": "This nomination comes straight from my own lived experience. Growing up with hearing loss, I struggled to hear in the classroom, and every word I missed was knowledge I never got. I fell behind not because I couldn't learn, but because I couldn't hear the lesson. Caption sharing is the tool I wish I had. I engineered this feature with the goal of bringing accessibility to the classroom, in a way that is private and secure.",
     "events": [
       {
         "name": "Learning for All",
@@ -438,12 +437,11 @@ export const campaigns = [
     "month": "July 2026",
     "type": "App enhancements",
     "result": "",
+    "summary": "New buddies Lumi and Luna plus VoiceOver and Dynamic Type support, pitched as an accessibility update for Disability Pride Month.",
     "pitch": [
-      "Hearing Buddy is launching two new buddy characters, Lumi and Luna, alongside a major accessibility update.",
-      "July is Disability Pride Month, and we are expanding our accessibility support to celebrate!",
-      "Disability Pride Month is about being seen exactly as you are. That's why this update brings VoiceOver and Dynamic Type support, so users who navigate the world with low vision or blindness can use Hearing Buddy. One of the new buddies, Luna, is all about helping people hear in low light environments."
+      "Disability Pride Month is about being seen as you are, so the update expanded who Hearing Buddy works for. It added VoiceOver and Dynamic Type support for people with low vision or blindness, and Luna, a buddy built for hearing in low-light settings.",
+      "The pitch positioned the brand itself as disability pride, an app that teaches allyship as much as it captions, and pointed to the Apple Design Award Finalist recognition as the bar the team wanted to keep raising."
     ],
-    "note": "What makes Hearing Buddy stand out is that the brand itself reps disability pride. We don't just caption conversations, we promote allyship and teach people how to lift the burden off someone with hearing loss using the latest technology. I built Hearing Buddy by combining my love of tech with the need to make everyday spaces more inclusive and accessible to me. Being an Apple Design Award Finalist this year inspires us to raise the bar on how inclusive and accessible we can be.",
     "events": [
       {
         "name": "Happy Disability Pride Month!",
@@ -461,13 +459,11 @@ export const campaigns = [
     "month": "June 2026",
     "type": "New content",
     "result": "",
+    "summary": "Pride buddies for the queer Deaf and hard-of-hearing community, with a Caption with Pride challenge.",
     "pitch": [
-      "Hearing Buddy is celebrating Pride Month with new buddy characters designed for the queer Deaf and hard-of-hearing community.",
-      "I'm Lilly Seay, co-founder of Hearing Buddy and a queer, hard-of-hearing software engineer. With this Pride update, I wanted users to feel the colorful intersection of accessibility and inclusion in an app they already love.",
-      "Pride Month is full of conversations that matter: someone coming out for the first time, a friend sharing their new pronouns, a family member finally saying the words out loud. These are the moments our users never want to miss a single word of.",
-      "Hearing Buddy is the app that captures all of them: clearly, lovingly, and right in the moment they happen. We are encouraging our users to Caption with Pride this June to never miss a word of the conversations that matter most."
+      "The campaign connected Pride to the conversations people most want to catch every word of: coming out, sharing new pronouns, a family member finally saying the words out loud. New Pride buddies let users caption with color all June.",
+      "Two events ran together, a Premiere for the new characters and a Caption with Pride challenge. The nomination spoke as a queer, hard-of-hearing founder and highlighted that live captions stay free and unlimited."
     ],
-    "note": "Hearing Buddy began as a quiet act of love. My boyfriend is my real-life hearing buddy, the safe person who helps me hear without judgment. He wanted me to have that support even when he couldn't be there, so we built Hearing Buddy together. Unlike competitors, we provide unlimited live captions for free. People with hearing loss often struggle to find work and a tool this essential should be accessible to all. This Pride, we're launching new buddies to make the app feel even more inclusive.",
     "events": [
       {
         "name": "Happy Pride Month!",
@@ -493,11 +489,11 @@ export const campaigns = [
     "month": "May 2026",
     "type": "App enhancements",
     "result": "",
+    "summary": "Four new buddies, a Vision Pro app, and Apple Health hearing test support across NSLHM, Deaf Awareness Week, and GAAD.",
     "pitch": [
-      "May is a huge month for the hearing loss community. It's National Speech-Hearing-Language Month and includes both Global Accessibility Awareness Day (May 21) and Deaf Awareness Week. To celebrate, Hearing Buddy is launching four new buddy characters tied to these moments, giving users fresh companions that reflect the diversity and spirit of the community we serve.",
-      "Alongside the new characters, we're launching our Vision Pro app, bringing live captions, summaries, and custom alerts to a new platform. We're also introducing hearing test support integrated with Apple Health, guiding users to take Apple's hearing test and displaying their results directly in the app."
+      "May stacks three moments for the hearing loss community: National Speech-Language-Hearing Month, Deaf Awareness Week, and Global Accessibility Awareness Day. The campaign gave each one its own in-app event so the app had fresh content on the App Store all month.",
+      "Alongside four new buddy characters, the update launched a Vision Pro app and hearing test support integrated with Apple Health. The pitch leaned on Apple's on-device models as the reason captions can be free and unlimited for everyone."
     ],
-    "note": "I'm the co-founder of Hearing Buddy, an Apple Entrepreneur Camp alum, and I've had hearing loss my whole life. Hearing Buddy is built around my real-life hearing buddy, my partner who always helps me hear in social situations. Every Buddy is designed to feel like that trusted companion, not just a utility. Since we run on Apple's on-device models, we offer unlimited free captions to every user, and our premium tier has no usage caps either.",
     "events": [
       {
         "name": "Deaf Awareness Week",
@@ -539,10 +535,11 @@ export const campaigns = [
     "month": "March 2026",
     "type": "App enhancements",
     "result": "",
+    "summary": "The first featuring pitch: free unlimited captions on device, timed to World Hearing Day and a RevenueCat Shipaton win.",
     "pitch": [
-      "Hearing Buddy helps people with hearing disabilities follow conversations in real time using accurate, private captions powered by Apple’s on-device speech recognition in iOS 26. Winner of RevenueCat’s Shippie Award, it was recognized for its advanced technology, mission, and deeply personal origin. I’m Lilly Seay, co-founder and someone living with hearing loss. A hearing buddy is what I’ve always called the person who helps me hear: someone patient, kind, and never judgmental. I built this app to bring that same support to anyone, anytime, anywhere. The app offers free unlimited live captions, intelligent question and name alerts through Live Activities and Apple Watch haptics, and four supportive personalities users can name and make their own. With 1.5 billion people living with hearing loss and World Hearing Day on March 3rd, this is the moment to put the right tools in front of the people who need them. No one should have to miss what matters."
+      "World Hearing Day on March 3 was the hook for Hearing Buddy's first nomination. With 1.5 billion people living with hearing loss, the pitch argued this was the moment to put the right tool in front of them.",
+      "It introduced the app's core: free unlimited live captions on Apple's on-device speech recognition, name and question alerts through Live Activities and Apple Watch haptics, and four buddy personalities users can name. The recent RevenueCat Shipaton prize gave it outside validation."
     ],
-    "note": "As an Apple Entrepreneur Camp alumni with a hearing disability (Lilly Seay), I designed Hearing Buddy so anyone can benefit from the latest AI technologies without needing to understand it. The tech runs quietly under the hood, branded as a buddy so it feels human, not robotic. The app is inspired by my boyfriend: my real-life hearing buddy and safe person that helps me hear without any judgement. We built it together so support is always there even when he can't be.",
     "events": []
   }
 ];
