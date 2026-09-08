@@ -259,7 +259,7 @@ import {
                 </div>
                 <span class="chev" aria-hidden="true" />
               </summary>
-              <div class="campaign-body">
+              <div class={`campaign-body ${c.events.length > 2 ? "stacked" : ""}`}>
                 <div class="pitch">
                   <p class="pitch-label">The campaign pitch</p>
                   {c.pitch.map((para) => (
