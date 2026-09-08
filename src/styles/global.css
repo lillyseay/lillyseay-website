@@ -2984,18 +2984,18 @@ footer .wrap {
   text-align: center;
 }
 
-/* Software: a terminal where lines of code type themselves, and a small chip */
+/* Software: terminal (web), mini phone (mobile), chip (IoT), AI badge */
 .art-code {
   position: relative;
-  width: 14rem;
-  height: 13rem;
+  width: 17rem;
+  height: 15rem;
 }
 
 .art-code .term {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  top: 1.6rem;
   padding: 0.9rem 1rem 1.1rem;
   border-radius: 1rem;
   background: #1d1224;
@@ -3065,25 +3065,125 @@ footer .wrap {
   animation: blink 1s steps(1) infinite;
 }
 
+/* Mini phone, bottom left */
+.art-code .mini-phone {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3.4rem;
+  height: 6.2rem;
+  border-radius: 0.8rem;
+  background: var(--ink);
+  padding: 0.3rem;
+  box-shadow: var(--shadow-float);
+  border: 2px solid var(--surface);
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(1.2rem) rotate(-6deg);
+}
+
+.is-visible .art-code .mini-phone {
+  animation: rise-in 0.7s var(--ease-out) 1.2s forwards;
+}
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-6deg);
+  }
+}
+
+.art-code .mp-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.55rem;
+  background: var(--card);
+  padding: 0.6rem 0.35rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.art-code .mp-row {
+  height: 0.35rem;
+  border-radius: 0.2rem;
+  background: var(--brand-soft);
+}
+
+.art-code .mp-row.hero {
+  height: 1.4rem;
+  border-radius: 0.35rem;
+  background: var(--brand);
+}
+
+.art-code .mp-row.short {
+  width: 60%;
+}
+
+/* Chip, bottom right, pins on all four sides */
 .art-code .chip {
   position: absolute;
-  right: -1.6rem;
-  bottom: -1.4rem;
-  width: 3.4rem;
-  height: 3.4rem;
+  right: -0.2rem;
+  bottom: 0.2rem;
+  width: 4.2rem;
+  height: 4.2rem;
   z-index: 1;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+  transform: scale(0);
+}
+
+.art-code .chip::before {
+  content: none;
+}
+
+.art-code .chip .pins {
+  position: absolute;
+  display: block;
+}
+
+.art-code .chip .pins.v {
+  left: 0.72rem;
+  right: 0.72rem;
+  top: 0.1rem;
+  bottom: 0.1rem;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0 0.28rem,
+    #1d1224 0.28rem 0.56rem,
+    transparent 0.56rem 0.84rem
+  );
+}
+
+.art-code .chip .pins.h {
+  top: 0.72rem;
+  bottom: 0.72rem;
+  left: 0.1rem;
+  right: 0.1rem;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 0.28rem,
+    #1d1224 0.28rem 0.56rem,
+    transparent 0.56rem 0.84rem
+  );
+}
+
+.art-code .chip .body {
+  position: absolute;
+  inset: 0.5rem;
   border-radius: 0.45rem;
   background: var(--brand);
   border: 2px solid var(--surface);
   display: grid;
   place-items: center;
-  box-shadow: var(--shadow-float);
-  transform: scale(0);
+  box-shadow: var(--shadow-card);
 }
 
 .art-code .chip span {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
   border-radius: 0.2rem;
   background: #1d1224;
   box-shadow:
@@ -3091,39 +3191,68 @@ footer .wrap {
     inset 0 0 0 0.35rem var(--brand-soft);
 }
 
-.art-code .chip::before,
-.art-code .chip::after {
-  content: "";
-  position: absolute;
-  top: 0.35rem;
-  bottom: 0.35rem;
-  width: 0.45rem;
-  background: repeating-linear-gradient(
-    to bottom,
-    #1d1224 0 0.22rem,
-    transparent 0.22rem 0.5rem
-  );
-}
-
-.art-code .chip::before {
-  left: -0.55rem;
-}
-
-.art-code .chip::after {
-  right: -0.55rem;
-}
-
 .is-visible .art-code .chip {
-  animation: pop 0.6s var(--ease-out) 1.2s forwards;
+  animation: pop 0.6s var(--ease-out) 1.5s forwards;
+}
+
+/* AI badge, top right */
+.art-code .ai {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0.35rem 0.7rem;
+  border-radius: 100px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-float);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transform: scale(0);
+}
+
+.art-code .ai .spark {
+  color: var(--brand);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.is-visible .art-code .ai {
+  animation: pop 0.6s var(--ease-out) 1.9s forwards;
+}
+
+.is-visible .art-code .ai .spark {
+  animation: spark-pulse 1.8s ease-in-out 2.5s infinite;
+}
+
+@keyframes spark-pulse {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.35) rotate(20deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .art-code .line,
-  .art-code .chip {
+  .art-code .chip,
+  .art-code .ai,
+  .art-code .mini-phone {
     transform: none;
+    opacity: 1;
   }
   .is-visible .art-code .line,
   .is-visible .art-code .chip,
+  .is-visible .art-code .ai,
+  .is-visible .art-code .ai .spark,
+  .is-visible .art-code .mini-phone,
   .art-code .caret {
     animation: none;
   }
