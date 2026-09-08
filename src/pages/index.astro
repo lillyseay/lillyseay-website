@@ -7,7 +7,6 @@ import Statements from "../components/Statements.astro";
 import {
   profile,
   journey,
-  featuredWork,
   apps,
   moreApps,
   appStoreFeatures,
@@ -31,7 +30,7 @@ import {
       </h1>
       <div class="hero-actions fade-up" style="--delay: 0.9s">
         <a class="pill-link" href="#routes">Work with me</a>
-        <a class="pill-link ghost" href="#work">See my work</a>
+        <a class="pill-link ghost" href="#projects">See my work</a>
       </div>
     </div>
     <Ridgeline />
@@ -158,26 +157,6 @@ import {
           ))
         }
       </ul>
-    </div>
-  </section>
-
-  <section id="work" class="featured">
-    <div class="wrap section-head reveal">
-      <p class="eyebrow">Work</p>
-      <h2>Apps, channels, <em>and campaigns</em></h2>
-    </div>
-    <div class="featured-track stagger" role="list">
-      {
-        featuredWork.map((w) => (
-          <div class="feature-item" role="listitem">
-            <div class={`box ${w.image ? "" : "empty"}`}>
-              {w.image && <img src={`${base}${w.image}`} alt={w.title} loading="lazy" />}
-            </div>
-            <span class="label">{w.title}</span>
-            <p class="kind">{w.kind}</p>
-          </div>
-        ))
-      }
     </div>
   </section>
 
