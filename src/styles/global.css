@@ -3526,3 +3526,25 @@ footer .wrap {
     aspect-ratio: 5 / 4;
   }
 }
+
+/* In-app events */
+.section-head .sub.center,
+.sub.center {
+  text-align: center;
+  color: var(--muted);
+  margin: -0.5rem auto 1.5rem;
+  max-width: 34rem;
+}
+
+.events-grid .cap .when-line {
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.events-grid .cap .campaign {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--brand-text);
+}

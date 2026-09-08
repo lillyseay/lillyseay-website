@@ -10,6 +10,7 @@ import {
   apps,
   moreApps,
   appStoreFeatures,
+  inAppEvents,
   talks,
   community,
   education,
@@ -168,7 +169,7 @@ import {
       <div class="section-head reveal">
         <p class="eyebrow">App Store</p>
         <h2>Featured on the <em>App Store</em></h2>
-        <p class="sub">In-app events, feature graphics, and placements</p>
+        <p class="sub">Feature graphics, placements, and in-app events</p>
       </div>
       <ul class="events-grid stagger">
         {
@@ -204,6 +205,31 @@ import {
               </li>
             );
           })
+        }
+      </ul>
+      <h3 class="subhead reveal">Hearing Buddy in-app events</h3>
+      <p class="sub center reveal">
+        Every event ran on the App Store with its own campaign, artwork, and
+        featuring pitch to Apple.
+      </p>
+      <ul class="events-grid stagger">
+        {
+          inAppEvents.map((ev) => (
+            <li>
+              <div class="box">
+                <img src={`${base}${ev.image}`} alt={ev.name} loading="lazy" />
+                <span class="kind-tag">{ev.badge}</span>
+              </div>
+              <div class="cap">
+                <strong>{ev.name}</strong>
+                {ev.short}
+                <span class="muted when-line">{ev.when}</span>
+                {ev.campaign && (
+                  <span class="campaign">Campaign: {ev.campaign}</span>
+                )}
+              </div>
+            </li>
+          ))
         }
       </ul>
     </div>
