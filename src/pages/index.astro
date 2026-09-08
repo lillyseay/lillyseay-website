@@ -226,11 +226,19 @@ import {
           campaigns.map((c) => (
             <details class="campaign" id={`campaign-${c.slug}`}>
               <summary>
-                <div class="campaign-thumbs" aria-hidden="true">
-                  {c.events.slice(0, 3).map((ev) => (
-                    <img src={`${base}${ev.image}`} alt="" loading="lazy" />
-                  ))}
-                  {c.events.length === 0 && (
+                <div class="campaign-preview" aria-hidden="true">
+                  {c.events.length > 0 ? (
+                    <>
+                      <img
+                        src={`${base}${c.events[0].image}`}
+                        alt=""
+                        loading="lazy"
+                      />
+                      {c.events.length > 1 && (
+                        <span class="more">+{c.events.length - 1}</span>
+                      )}
+                    </>
+                  ) : (
                     <span class="thumb-empty">Pitch only</span>
                   )}
                 </div>
@@ -262,21 +270,21 @@ import {
                   <div class={`campaign-events ${c.events.length > 2 ? "many" : ""}`}>
                     {c.events.map((ev) => (
                       <div class="event-card">
-                        <div class="box">
+                        <div class="store-card">
                           <img
                             src={`${base}${ev.image}`}
-                            alt={ev.name}
+                            alt=""
                             loading="lazy"
                           />
+                          <div class="store-overlay">
+                            <span class="store-badge">{ev.badge}</span>
+                            <h4>{ev.name}</h4>
+                            <p>{ev.short}</p>
+                          </div>
                         </div>
                         <div class="event-copy">
-                          <div class="event-meta">
-                            <span class="event-badge">{ev.badge}</span>
-                            <span class="muted">{ev.when}</span>
-                          </div>
-                          <h4>{ev.name}</h4>
-                          <p class="event-short">{ev.short}</p>
                           <p class="event-long">{ev.long}</p>
+                          <p class="event-when muted">Ran {ev.when}</p>
                         </div>
                       </div>
                     ))}
