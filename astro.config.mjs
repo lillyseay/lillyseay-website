@@ -1,14 +1,10 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
-// GitHub Actions sets GITHUB_REPOSITORY to "owner/repo". From that we derive:
-//   site: https://<owner>.github.io
-//   base: "/" for a user site (repo named <owner>.github.io), otherwise "/<repo>"
-// Locally (no env var) the site builds at "/" so `npm run dev` just works.
-const [owner, repo] = (process.env.GITHUB_REPOSITORY ?? "").split("/");
-const isUserSite = repo?.toLowerCase() === `${owner?.toLowerCase()}.github.io`;
-
+// The site is served from the custom domain lillyseay.com (GitHub Pages, deployed by
+// .github/workflows/deploy.yml), so everything lives at the root. public/CNAME keeps the
+// domain attached to each deployment.
 export default defineConfig({
-  site: owner ? `https://${owner}.github.io` : undefined,
-  base: repo && !isUserSite ? `/${repo}` : "/",
+  site: "https://lillyseay.com",
+  base: "/",
 });
