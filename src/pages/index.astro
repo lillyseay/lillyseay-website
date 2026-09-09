@@ -284,6 +284,12 @@ import {
             <li class="card account">
               <h3>{a.name}</h3>
               <div class="org">{a.handle}</div>
+              {"total" in a && a.total && (
+                <p class="account-total">
+                  <strong>{a.total.toLocaleString("en-US")}</strong> followers
+                  across platforms
+                </p>
+              )}
               <p>{a.body}</p>
               <ul class="platforms">
                 {a.platforms.map((pl) => (

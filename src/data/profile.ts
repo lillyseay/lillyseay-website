@@ -142,7 +142,7 @@ export const talks = [
 
 export const social = {
   intro:
-    "I help startups market their apps on social media. I've grown my own accounts to more than 115,000 followers across TikTok and Instagram, and I use the same playbook for clients: carousels, short-form video, influencer campaigns, and a creative pipeline for UGC and ads.",
+    "I help startups market their apps on social media. I've grown my own accounts to more than 113,000 followers across TikTok, Instagram, and YouTube, and I use the same playbook for clients: carousels, short-form video, influencer campaigns, and a creative pipeline for UGC and ads.",
   services: [
     {
       title: "Short-form video",
@@ -165,6 +165,7 @@ export const social = {
     {
       name: "Lilly Seay",
       handle: "@lillyseay",
+      total: 37172,
       body: "My personal account. Building in public as a founder, engineer, and dog mom in the Pacific Northwest.",
       platforms: [
         {
@@ -177,11 +178,17 @@ export const social = {
           url: "https://www.tiktok.com/@lillyseay",
           stat: "12.3K followers",
         },
+        {
+          name: "YouTube",
+          url: "https://www.youtube.com/@lillyseay",
+          stat: "37 subscribers",
+        },
       ],
     },
     {
       name: "Jet & Nova",
       handle: "@blacklabtv",
+      total: 74353,
       body: "The black lab adventure duo. A pet and outdoors channel I grew from zero with short-form video.",
       platforms: [
         {
@@ -192,13 +199,19 @@ export const social = {
         {
           name: "YouTube",
           url: "https://www.youtube.com/@blacklabtv",
-          stat: "146K Shorts views this year",
+          stat: "221 subscribers",
+        },
+        {
+          name: "Instagram",
+          url: "https://www.instagram.com/blacklabtv/",
+          stat: "31 followers",
         },
       ],
     },
     {
       name: "Hearing Buddy",
       handle: "@hearingbuddy",
+      total: 2304,
       body: "Accessibility content and launch marketing for the app, including the campaigns behind its App Store features.",
       platforms: [
         {
@@ -210,6 +223,16 @@ export const social = {
           name: "Instagram",
           url: "https://www.instagram.com/hearingbuddy/",
           stat: "520 followers",
+        },
+        {
+          name: "YouTube",
+          url: "https://www.youtube.com/@hearingbuddy",
+          stat: "100 subscribers",
+        },
+        {
+          name: "Facebook",
+          url: "https://www.facebook.com/hearingbuddyapp",
+          stat: "81 followers",
         },
       ],
     },
