@@ -224,43 +224,6 @@ const kBars = k.views.map((v, i) => {
     </div>
   </div>
 
-  <div class="case-block reveal">
-    <div class="case-block-head">
-      <h4>Formats tested</h4>
-      <p>{k.takeaway}</p>
-    </div>
-    <ul class="series-list">
-      {
-        k.formats.map((f) => (
-          <li class="series-row">
-            <div class="series-main">
-              <h5>{f.name}</h5>
-              <p class="series-hook">{f.example}</p>
-            </div>
-            <dl class="series-stats">
-              <div>
-                <dt>Carousels</dt>
-                <dd>{f.n}</dd>
-              </div>
-              <div>
-                <dt>Views</dt>
-                <dd>{full(f.views)}</dd>
-              </div>
-              <div>
-                <dt>Avg</dt>
-                <dd>{full(f.avg)}</dd>
-              </div>
-              <div>
-                <dt>Best</dt>
-                <dd>{full(f.best)}</dd>
-              </div>
-            </dl>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-
   <details class="case-table">
     <summary>View the monthly numbers as a table</summary>
     <div class="table-wrap">
