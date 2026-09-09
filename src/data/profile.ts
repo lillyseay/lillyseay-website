@@ -178,7 +178,6 @@ export const social = {
           stat: "12.3K followers",
         },
       ],
-      topVideo: { title: "Paddleboarding in the PNW", net: "TikTok", views: 79792, url: "https://www.tiktok.com/@lillyseay/video/7613179514193038623" },
     },
     {
       name: "Jet & Nova",
@@ -196,7 +195,6 @@ export const social = {
           stat: "146K Shorts views this year",
         },
       ],
-      topVideo: { title: "Cutting my lab's nails is drama", net: "YouTube", views: 10599, url: "https://www.youtube.com/watch?v=Dk_Ioz_rFxE" },
     },
     {
       name: "Hearing Buddy",
@@ -214,7 +212,6 @@ export const social = {
           stat: "520 followers",
         },
       ],
-      topVideo: { title: "I love when I hear correctly", net: "TikTok", views: 64033, url: "https://www.tiktok.com/@hearingbuddy/video/7673964722194107662" },
     },
     {
       name: "Tappily",

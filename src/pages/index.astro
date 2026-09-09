@@ -293,18 +293,6 @@ import {
                   </li>
                 ))}
               </ul>
-              {"topVideo" in a && a.topVideo && (
-                <div class="top-videos">
-                  <p class="top-label">Top video</p>
-                  <a class="top-video" href={a.topVideo.url}>
-                    <span>{a.topVideo.title}</span>
-                    <span class="muted">
-                      {a.topVideo.views.toLocaleString("en-US")} views ·{" "}
-                      {a.topVideo.net}
-                    </span>
-                  </a>
-                </div>
-              )}
             </li>
           ))
         }
