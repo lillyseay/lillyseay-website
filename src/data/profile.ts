@@ -178,13 +178,7 @@ export const social = {
           stat: "12.3K followers",
         },
       ],
-      topVideos: [
-        { title: "Paddleboarding in the PNW", net: "TikTok", views: 79792, url: "https://www.tiktok.com/@lillyseay" },
-        { title: "Sleeping on a backpacking trip be like", net: "YouTube", views: 27932, url: "https://www.youtube.com/watch?v=5B2W8AJhgAQ" },
-        { title: "Petroglyphs in Oregon", net: "TikTok", views: 19951, url: "https://www.tiktok.com/@lillyseay/video/7639113683402099981" },
-        { title: "This sleeping pad may as well be the ground", net: "TikTok", views: 13551, url: "https://www.tiktok.com/@lillyseay/video/7611308688980200734" },
-        { title: "Going to WWDC26 today", net: "TikTok", views: 9139, url: "https://www.tiktok.com/@lillyseay/video/7649032906848881950" },
-      ],
+      topVideo: { title: "Paddleboarding in the PNW", net: "TikTok", views: 79792, url: "https://www.tiktok.com/@lillyseay/video/7613179514193038623" },
     },
     {
       name: "Jet & Nova",
@@ -202,13 +196,7 @@ export const social = {
           stat: "146K Shorts views this year",
         },
       ],
-      topVideos: [
-        { title: "Cutting my lab's nails is drama", net: "YouTube", views: 10599, url: "https://www.youtube.com/watch?v=Dk_Ioz_rFxE" },
-        { title: "My Labrador being naughty per usual", net: "YouTube", views: 7420, url: "https://www.youtube.com/watch?v=AqNrQjO8spc" },
-        { title: "Training my Labrador", net: "YouTube", views: 7119, url: "https://www.youtube.com/watch?v=yNNh8K8-OSY" },
-        { title: "I may have spoiled him too much as a puppy", net: "YouTube", views: 5697, url: "https://www.youtube.com/watch?v=yajyBeba6gA" },
-        { title: "Your majesty needs to go potty at 6 AM", net: "TikTok", views: 5045, url: "https://www.tiktok.com/@blacklabtv/video/7602019499134422302" },
-      ],
+      topVideo: { title: "Cutting my lab's nails is drama", net: "YouTube", views: 10599, url: "https://www.youtube.com/watch?v=Dk_Ioz_rFxE" },
     },
     {
       name: "Hearing Buddy",
@@ -226,6 +214,7 @@ export const social = {
           stat: "520 followers",
         },
       ],
+      topVideo: { title: "I love when I hear correctly", net: "TikTok", views: 64033, url: "https://www.tiktok.com/@hearingbuddy/video/7673964722194107662" },
     },
     {
       name: "Tappily",

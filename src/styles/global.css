@@ -4329,26 +4329,19 @@ section[id] {
   color: var(--muted);
 }
 
-.top-videos ol {
-  margin: 0;
-  padding-left: 1.2rem;
-  font-size: 0.86rem;
-}
-
-.top-videos li {
-  margin: 0.25rem 0;
-}
-
-.top-videos li a {
+.top-video {
+  display: block;
   color: var(--ink);
   font-weight: 500;
+  font-size: 0.92rem;
 }
 
-.top-videos li a:hover {
+.top-video:hover {
   color: var(--brand-text);
 }
 
-.top-videos li .muted {
+.top-video .muted {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  font-weight: 400;
 }
