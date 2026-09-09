@@ -279,14 +279,26 @@ export const community = [
   {
     mark: "SWE",
     title: "Society of Women Engineers",
-    detail: "Member. I go for the community and the conference, and I bring other women engineers with me.",
+    detail: "Member. I volunteer at SWE resume workshops, reviewing resumes for college students heading into engineering.",
     when: "Member",
+  },
+  {
+    mark: "UP",
+    title: "University of Portland",
+    detail: "Board of advisors for the Computer Science department.",
+    when: "Advisor",
   },
   {
     mark: "IEEE",
     title: "IEEE student chapter president",
     detail: "Led the chapter at the University of Central Oklahoma my senior year: officers, meetings, budgets, and fundraising.",
     when: "2015 to 2016",
+  },
+  {
+    mark: "@",
+    title: "Advice on social media",
+    detail: "I share what I learn about shipping apps, App Store featuring, and building with hearing loss with more than 113,000 followers across my accounts.",
+    when: "Ongoing",
   },
 ];
 
