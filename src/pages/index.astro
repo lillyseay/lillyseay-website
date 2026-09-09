@@ -293,6 +293,21 @@ import {
                   </li>
                 ))}
               </ul>
+              {"topVideos" in a && a.topVideos && (
+                <div class="top-videos">
+                  <p class="top-label">Top videos this year</p>
+                  <ol>
+                    {a.topVideos.map((v) => (
+                      <li>
+                        <a href={v.url}>{v.title}</a>
+                        <span class="muted">
+                          {v.views.toLocaleString("en-US")} · {v.net}
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
             </li>
           ))
         }

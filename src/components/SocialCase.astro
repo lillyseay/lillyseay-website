@@ -1,5 +1,5 @@
 ---
-import { socialCase as c } from "../data/profile";
+import { socialCase as c, carouselCase as k } from "../data/profile";
 
 const nets = [
   { key: "tiktok", label: "TikTok" },
@@ -31,6 +31,12 @@ function bars(key: (typeof nets)[number]["key"]) {
   });
 }
 
+const kMax = Math.max(...k.views);
+const kBarW = (W - padL - padR) / k.months.length;
+const kBars = k.views.map((v, i) => {
+  const h = ((H - padT - padB) * v) / kMax;
+  return { x: padL + i * kBarW + kBarW * 0.18, y: H - padB - h, w: kBarW * 0.64, h, v, m: k.months[i], n: k.posts[i] };
+});
 ---
 
 <div class="case">
@@ -164,6 +170,97 @@ function bars(key: (typeof nets)[number]["key"]) {
     </ul>
   </div>
 
+  <div class="case-divider reveal">
+    <h3>Carousels: the same method, <em>no camera</em></h3>
+    <p>
+      For accounts that can't shoot video every day, I run the test on TikTok
+      photo carousels instead. Hearing Buddy's Dash account is the example: a
+      character account that only posts carousels.
+    </p>
+  </div>
+
+  <ul class="case-stats stagger">
+    {
+      k.stats.map((s) => (
+        <li>
+          <span class="case-num" data-count={s.value} data-decimals="0" data-suffix={"suffix" in s ? s.suffix : ""}>
+            {full(s.value)}{"suffix" in s ? s.suffix : ""}
+          </span>
+          <span class="case-label">{s.label}</span>
+          <span class="case-sub">{s.sub}</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="case-block reveal">
+    <div class="case-block-head">
+      <h4>Carousel views by month</h4>
+      <p>
+        {k.period}, {k.account} on TikTok. March is one list that took off.
+        July and August are the volume test: 123 carousels in two months.
+      </p>
+    </div>
+    <div class="chart-row one">
+      <figure class="chart">
+        <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Carousel views by month">
+          <line class="axis" x1={padL} x2={W - padR} y1={H - padB} y2={H - padB} />
+          {kBars.map((r) => (
+            <g class="bar">
+              <rect x={r.x} y={r.y} width={r.w} height={Math.max(r.h, 1)} rx="3" />
+              <rect class="hit" x={r.x - kBarW * 0.18} y={padT - 10} width={kBarW} height={H - padT - padB + 10}>
+                <title>{`${r.m} 2026: ${full(r.v)} views from ${r.n} carousels`}</title>
+              </rect>
+              <text class="tick" x={r.x + r.w / 2} y={H - padB + 14} text-anchor="middle">
+                {r.m}
+              </text>
+            </g>
+          ))}
+          <text class="label" x={kBars[0].x + kBars[0].w / 2} y={kBars[0].y - 6} text-anchor="middle">
+            {fmt(kBars[0].v)}
+          </text>
+        </svg>
+      </figure>
+    </div>
+  </div>
+
+  <div class="case-block reveal">
+    <div class="case-block-head">
+      <h4>Formats tested</h4>
+      <p>{k.takeaway}</p>
+    </div>
+    <ul class="series-list">
+      {
+        k.formats.map((f) => (
+          <li class="series-row">
+            <div class="series-main">
+              <h5>{f.name}</h5>
+              <p class="series-hook">{f.example}</p>
+            </div>
+            <dl class="series-stats">
+              <div>
+                <dt>Carousels</dt>
+                <dd>{f.n}</dd>
+              </div>
+              <div>
+                <dt>Views</dt>
+                <dd>{full(f.views)}</dd>
+              </div>
+              <div>
+                <dt>Avg</dt>
+                <dd>{full(f.avg)}</dd>
+              </div>
+              <div>
+                <dt>Best</dt>
+                <dd>{full(f.best)}</dd>
+              </div>
+            </dl>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
   <details class="case-table">
     <summary>View the monthly numbers as a table</summary>
     <div class="table-wrap">
@@ -194,9 +291,9 @@ function bars(key: (typeof nets)[number]["key"]) {
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const nums = document.querySelectorAll<HTMLElement>(".case-num[data-count]");
   const render = (el: HTMLElement, v: number, dec: number) => {
-    el.textContent = dec
-      ? v.toFixed(dec)
-      : Math.round(v).toLocaleString("en-US");
+    el.textContent =
+      (dec ? v.toFixed(dec) : Math.round(v).toLocaleString("en-US")) +
+      (el.dataset.suffix ?? "");
   };
   if (!reduce && "IntersectionObserver" in window) {
     const io = new IntersectionObserver(

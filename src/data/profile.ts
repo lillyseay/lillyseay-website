@@ -170,13 +170,20 @@ export const social = {
         {
           name: "Instagram",
           url: "https://www.instagram.com/lillyseay/",
-          stat: "24.8K followers",
+          stat: "24.9K followers",
         },
         {
           name: "TikTok",
           url: "https://www.tiktok.com/@lillyseay",
           stat: "12.3K followers",
         },
+      ],
+      topVideos: [
+        { title: "Paddleboarding in the PNW", net: "TikTok", views: 79792, url: "https://www.tiktok.com/@lillyseay" },
+        { title: "Sleeping on a backpacking trip be like", net: "YouTube", views: 27932, url: "https://www.youtube.com/watch?v=5B2W8AJhgAQ" },
+        { title: "Petroglyphs in Oregon", net: "TikTok", views: 19951, url: "https://www.tiktok.com/@lillyseay/video/7639113683402099981" },
+        { title: "This sleeping pad may as well be the ground", net: "TikTok", views: 13551, url: "https://www.tiktok.com/@lillyseay/video/7611308688980200734" },
+        { title: "Going to WWDC26 today", net: "TikTok", views: 9139, url: "https://www.tiktok.com/@lillyseay/video/7649032906848881950" },
       ],
     },
     {
@@ -187,13 +194,20 @@ export const social = {
         {
           name: "TikTok",
           url: "https://www.tiktok.com/@blacklabtv",
-          stat: "74K followers, 2.3M likes",
+          stat: "74.1K followers, 2.3M likes",
         },
         {
-          name: "Instagram",
-          url: "https://www.instagram.com/blacklabtv/",
-          stat: "",
+          name: "YouTube",
+          url: "https://www.youtube.com/@blacklabtv",
+          stat: "146K Shorts views this year",
         },
+      ],
+      topVideos: [
+        { title: "Cutting my lab's nails is drama", net: "YouTube", views: 10599, url: "https://www.youtube.com/watch?v=Dk_Ioz_rFxE" },
+        { title: "My Labrador being naughty per usual", net: "YouTube", views: 7420, url: "https://www.youtube.com/watch?v=AqNrQjO8spc" },
+        { title: "Training my Labrador", net: "YouTube", views: 7119, url: "https://www.youtube.com/watch?v=yNNh8K8-OSY" },
+        { title: "I may have spoiled him too much as a puppy", net: "YouTube", views: 5697, url: "https://www.youtube.com/watch?v=yajyBeba6gA" },
+        { title: "Your majesty needs to go potty at 6 AM", net: "TikTok", views: 5045, url: "https://www.tiktok.com/@blacklabtv/video/7602019499134422302" },
       ],
     },
     {
@@ -209,7 +223,7 @@ export const social = {
         {
           name: "Instagram",
           url: "https://www.instagram.com/hearingbuddy/",
-          stat: "",
+          stat: "520 followers",
         },
       ],
     },
@@ -648,6 +662,31 @@ export const socialCase = {
       note: "The most repeatable format: five versions posted across the summer, with the top one at 22,645 views on TikTok.",
     },
   ],
+};
+
+// Carousel case study: Hearing Buddy Dash on TikTok (photo carousels), Mar to Sep 2026.
+// Pulled from Metricool on 2026-09-09.
+export const carouselCase = {
+  account: "@hearingbuddy.dash",
+  period: "March to September 2026",
+  stats: [
+    { value: 190, label: "carousels", sub: "TikTok photo posts, no video" },
+    { value: 150796, label: "views", sub: "in six months" },
+    { value: 50102, label: "views, best carousel", sub: "a 50-item list" },
+    { value: 95, label: "from For You", sub: "reach beyond followers", suffix: "%" },
+  ],
+  months: ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+  views: [62039, 19504, 4745, 6440, 29439, 22003, 6626],
+  posts: [9, 24, 6, 11, 63, 60, 17],
+  formats: [
+    { name: "Numbered lists", example: "50 ADHD-friendly plans that require zero willpower", n: 25, views: 60269, avg: 2411, best: 50102 },
+    { name: "ADHD crossover", example: "50 little shifts that finally made mornings work", n: 16, views: 19871, avg: 1242, best: 8560 },
+    { name: "Hearing loss at work", example: "My boss mumbles. I still catch it all.", n: 32, views: 21749, avg: 680, best: 5379 },
+    { name: "Hearing aid pricing", example: "The $4,800 shocker: one hidden line ate half the bill", n: 23, views: 15012, avg: 653, best: 2265 },
+    { name: "Everything else", example: "One-off topics used to test new angles", n: 94, views: 33895, avg: 361, best: 1963 },
+  ],
+  takeaway:
+    "Numbered lists average almost seven times the views of a one-off topic, and the ADHD crossover found a second audience with the same hearing loss problem. Those two formats are now the backbone of the carousel accounts.",
 };
 
 export const recognition = [
