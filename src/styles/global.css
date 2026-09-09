@@ -4647,3 +4647,94 @@ section[id] {
     animation: none;
   }
 }
+
+/* ---------- Phone polish ---------- */
+@media (max-width: 640px) {
+  section {
+    padding: 3.75rem 0;
+  }
+
+  .statements {
+    gap: 2.25rem;
+  }
+
+  .statement-art {
+    min-height: 0;
+  }
+
+  .section-head {
+    margin-bottom: 1.75rem;
+  }
+
+  /* CV rows: title, company, then date, with the chevron on the right */
+  .journey-item summary {
+    grid-template-columns: minmax(0, 1fr) 1.5rem;
+    gap: 0.15rem 0.75rem;
+    align-items: start;
+    padding: 1rem 0;
+  }
+
+  .journey .what {
+    grid-column: 1;
+  }
+
+  .journey .chev {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+  }
+
+  .journey .where {
+    grid-column: 1;
+    margin-top: 0.1rem;
+    color: var(--text);
+    font-size: 0.92rem;
+  }
+
+  .journey .when {
+    grid-column: 1;
+    text-align: left;
+    font-size: 0.82rem;
+    margin-top: 0.15rem;
+  }
+
+  .journey-item summary:hover {
+    padding-left: 0;
+  }
+
+  /* Campaign rows */
+  .campaign-summary {
+    font-size: 0.9rem;
+  }
+
+  .campaign-title .tags {
+    gap: 0.35rem;
+  }
+
+  .campaign-title .tags li {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Talks */
+  .talk-copy h3 {
+    font-size: 1.45rem;
+  }
+
+  .talk-links {
+    gap: 0.45rem;
+  }
+
+  /* Closing line */
+  .closing .big {
+    font-size: 1.9rem;
+  }
+
+  .accounts {
+    gap: 1rem;
+  }
+
+  .community-grid {
+    gap: 1rem;
+  }
+}
