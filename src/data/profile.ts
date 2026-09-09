@@ -19,7 +19,7 @@ export const profile = {
 
 export const stats = [
   { value: "2026", label: "Apple Design Award Finalist" },
-  { value: "115K+", label: "followers across TikTok and Instagram" },
+  { value: "113K+", label: "followers across my accounts" },
   { value: "10+", label: "years building native apps" },
   { value: "3", label: "products founded and still running" },
 ];
@@ -765,7 +765,7 @@ export const trail = {
       place: "Everywhere the trail goes",
       elevation: "The view from up here",
       story:
-        "Building apps taught me that shipping is only half the trip. I grew my own accounts past 115,000 followers with short-form video and carousels, ran influencer campaigns and a creative pipeline for UGC and ads, and now I help other startups do the same for their apps.",
+        "Building apps taught me that shipping is only half the trip. I grew my own accounts past 113,000 followers with short-form video and carousels, ran influencer campaigns and a creative pipeline for UGC and ads, and now I help other startups do the same for their apps.",
       stops: [
         "Apple Entrepreneur Camp with Tappily",
         "Jet & Nova to 74K on TikTok",
@@ -803,7 +803,7 @@ export const journey = [
       "I design and build native iOS and Android apps for startups. My specialty is IoT apps that talk to hardware and apps with AI features.",
       "I help apps get featured on the App Store with in-app events, marketing screens, and creative pitches to Apple.",
       "I run social media marketing for apps: short-form video, influencer campaigns, UGC, and ad creative that converts.",
-      "I have grown my own accounts past 115,000 followers and done more than 30 brand collaborations.",
+      "I have grown my own accounts past 113,000 followers and done more than 30 brand collaborations.",
     ],
   },
   {
