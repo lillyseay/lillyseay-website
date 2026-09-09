@@ -239,6 +239,7 @@ export const social = {
     {
       name: "Tappily",
       handle: "@tappilyapp",
+      total: 2900,
       body: "Mental health content and carousels for the app.",
       platforms: [
         {
@@ -251,6 +252,7 @@ export const social = {
     {
       name: "JavaSwift Academy",
       handle: "@javaswift",
+      total: 1500,
       body: "Beginner app development tips and course launches.",
       platforms: [
         {

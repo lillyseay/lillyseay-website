@@ -1,0 +1,82 @@
+---
+import { social } from "../data/profile";
+const accounts = social.accounts;
+const max = Math.max(...accounts.map((a) => ("total" in a && a.total) || 0));
+const R = 26;
+const C = 2 * Math.PI * R;
+---
+
+<ul class="accounts stagger">
+  {
+    accounts.map((a) => {
+      const total = ("total" in a && a.total) || 0;
+      const share = total / max;
+      return (
+        <li class="account-card tilt">
+          <div class="account-top">
+            <svg class="ring" viewBox="0 0 64 64" aria-hidden="true">
+              <circle class="track" cx="32" cy="32" r={R} />
+              <circle
+                class="fill"
+                cx="32"
+                cy="32"
+                r={R}
+                style={`--c:${C.toFixed(1)};--o:${(C * (1 - share)).toFixed(1)}`}
+              />
+              <circle class="dot" cx="32" cy="32" r="9" />
+            </svg>
+            <div>
+              <p class="account-total">
+                <strong class="acct-num" data-count={total}>
+                  {total.toLocaleString("en-US")}
+                </strong>
+                <span>followers</span>
+              </p>
+              <h3>{a.name}</h3>
+              <div class="org">{a.handle}</div>
+            </div>
+          </div>
+          <p class="account-body">{a.body}</p>
+          <ul class="platform-chips">
+            {a.platforms.map((pl) => (
+              <li>
+                <a href={pl.url}>
+                  {pl.name}
+                  {pl.stat && <span>{pl.stat}</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<script>
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const nums = document.querySelectorAll<HTMLElement>(".acct-num[data-count]");
+  if (!reduce && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const el = e.target as HTMLElement;
+          const target = Number(el.dataset.count ?? "0");
+          const t0 = performance.now();
+          const tick = (now: number) => {
+            const t = Math.min(1, (now - t0) / 1600);
+            el.textContent = Math.round(
+              target * (1 - Math.pow(1 - t, 3)),
+            ).toLocaleString("en-US");
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          io.unobserve(el);
+        }
+      },
+      { threshold: 0.5 },
+    );
+    nums.forEach((el) => io.observe(el));
+  }
+</script>

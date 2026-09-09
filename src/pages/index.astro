@@ -4,6 +4,7 @@ import Ridgeline from "../components/Ridgeline.astro";
 import { posts } from "../data/blog";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 import Statements from "../components/Statements.astro";
+import Accounts from "../components/Accounts.astro";
 import {
   profile,
   journey,
@@ -264,38 +265,14 @@ import {
     </div>
   </section>
 
-  <section id="social" class="band-soft">
+  <section id="social">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Social media</p>
         <h2>Accounts I've <em>grown</em></h2>
         <p class="sub">{social.intro}</p>
       </div>
-      <ul class="grid three stagger">
-        {
-          social.accounts.map((a) => (
-            <li class="card account">
-              <h3>{a.name}</h3>
-              <div class="org">{a.handle}</div>
-              {"total" in a && a.total && (
-                <p class="account-total">
-                  <strong>{a.total.toLocaleString("en-US")}</strong> followers
-                  across platforms
-                </p>
-              )}
-              <p>{a.body}</p>
-              <ul class="platforms">
-                {a.platforms.map((pl) => (
-                  <li>
-                    <a href={pl.url}>{pl.name}</a>
-                    {pl.stat && <span class="muted"> · {pl.stat}</span>}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))
-        }
-      </ul>
+      <Accounts />
     </div>
   </section>
 
@@ -314,7 +291,7 @@ import {
   <section id="journey">
     <div class="wrap">
       <div class="section-head left reveal">
-        <p class="eyebrow">CV</p>
+        <p class="eyebrow">Recent adventures</p>
         <h2>Where I've been, <em>and when</em></h2>
       </div>
       <div class="journey stagger">
