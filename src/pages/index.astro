@@ -353,12 +353,19 @@ import {
           ))
         }
       </ul>
-      <div class="card reveal community">
-        <h3>Apple and community</h3>
-        <ul class="plain-list">
-          {community.map((c) => <li>{c}</li>)}
-        </ul>
-      </div>
+      <h3 class="subhead reveal community-head">Community involvement</h3>
+      <ul class="community-grid stagger">
+        {
+          community.map((c) => (
+            <li class="card community-card">
+              <span class="community-mark">{c.mark}</span>
+              <h4>{c.title}</h4>
+              <p>{c.detail}</p>
+              <span class="community-when">{c.when}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 

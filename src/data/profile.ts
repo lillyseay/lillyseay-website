@@ -270,11 +270,24 @@ export const social = {
 };
 
 export const community = [
-  "WWDC attendee in 2024, 2025, and 2026, the last as an Apple Design Award Finalist",
-  "RevenueCat Shipaton 2025: Hearing Buddy placed 2nd for the Peace Prize",
-  "Apple Entrepreneur Camp alum",
-  "Society of Women Engineers member",
-  "IEEE student chapter president at the University of Central Oklahoma",
+  {
+    mark: "WWDC",
+    title: "WWDC attendee",
+    detail: "Apple Park in 2024, 2025, and 2026, the last one as an Apple Design Award Finalist.",
+    when: "2024 to 2026",
+  },
+  {
+    mark: "SWE",
+    title: "Society of Women Engineers",
+    detail: "Member. I go for the community and the conference, and I bring other women engineers with me.",
+    when: "Member",
+  },
+  {
+    mark: "IEEE",
+    title: "IEEE student chapter president",
+    detail: "Led the chapter at the University of Central Oklahoma my senior year: officers, meetings, budgets, and fundraising.",
+    when: "2015 to 2016",
+  },
 ];
 
 export const experience = [
