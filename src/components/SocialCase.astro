@@ -31,20 +31,6 @@ function bars(key: (typeof nets)[number]["key"]) {
   });
 }
 
-function line(key: (typeof nets)[number]["key"]) {
-  const f = c.followers[key];
-  const max = Math.max(...f.series);
-  const n = f.series.length;
-  const pts = f.series.map((v, i) => ({
-    x: padL + 8 + (i * (W - padL - padR - 16)) / (n - 1),
-    y: H - padB - ((H - padT - padB) * v) / max,
-    v,
-    m: f.months[i],
-  }));
-  const d = pts.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
-  const area = `${d} L${pts[pts.length - 1].x.toFixed(1)} ${H - padB} L${pts[0].x.toFixed(1)} ${H - padB} Z`;
-  return { pts, d, area, f };
-}
 ---
 
 <div class="case">
@@ -81,34 +67,10 @@ function line(key: (typeof nets)[number]["key"]) {
 
   <div class="case-block reveal">
     <div class="case-block-head">
-      <h4>The keyword sheet</h4>
-      <p>
-        Nine of the fifteen topic clusters, ranked by monthly searches. Every
-        cluster became a batch of test videos.
-      </p>
-    </div>
-    <ul class="cluster-list">
-      {
-        c.clusters.map((k) => (
-          <li>
-            <span class="cluster-name">{k.name}</span>
-            <span
-              class="cluster-bar"
-              style={`--w:${(k.volume / c.clusters[0].volume) * 100}%`}
-            />
-            <span class="cluster-val">{fmt(k.volume)} searches</span>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-
-  <div class="case-block reveal">
-    <div class="case-block-head">
       <h4>Monthly views by platform</h4>
       <p>
         Views per publish month, {c.period}. Same videos on all three. August is
-        when the series strategy took over.
+        when the series took over.
       </p>
     </div>
     <div class="chart-row">
@@ -161,67 +123,10 @@ function line(key: (typeof nets)[number]["key"]) {
 
   <div class="case-block reveal">
     <div class="case-block-head">
-      <h4>Follower growth</h4>
-      <p>
-        Followers at the end of each month. Instagram grew eight times in August
-        alone, the month the POV series landed.
-      </p>
-    </div>
-    <div class="chart-row">
-      {
-        nets.map((n) => {
-          const l = line(n.key);
-          const lastP = l.pts[l.pts.length - 1];
-          const firstP = l.pts[0];
-          return (
-            <figure class="chart">
-              <figcaption>
-                <strong>{n.label}</strong>
-                <span class="muted">
-                  {full(l.f.start)} to {full(l.f.end)}
-                </span>
-              </figcaption>
-              <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${n.label} followers over time`}>
-                <line class="axis" x1={padL} x2={W - padR} y1={H - padB} y2={H - padB} />
-                <path class="area" d={l.area} />
-                <path class="line" d={l.d} />
-                {l.pts.map((p) => (
-                  <g class="pt">
-                    <circle cx={p.x} cy={p.y} r="4" />
-                    <rect
-                      class="hit"
-                      x={p.x - (W - 16) / (l.pts.length * 2)}
-                      y={padT - 10}
-                      width={(W - 16) / l.pts.length}
-                      height={H - padT - padB + 10}
-                    >
-                      <title>{`${p.m} 2026: ${full(p.v)} followers`}</title>
-                    </rect>
-                  </g>
-                ))}
-                <text class="tick" x={firstP.x} y={H - padB + 14} text-anchor="start">
-                  {l.f.months[0]}
-                </text>
-                <text class="tick" x={lastP.x} y={H - padB + 14} text-anchor="end">
-                  {l.f.months[l.f.months.length - 1]}
-                </text>
-                <text class="label" x={lastP.x} y={lastP.y - 9} text-anchor="end">
-                  {full(lastP.v)}
-                </text>
-              </svg>
-            </figure>
-          );
-        })
-      }
-    </div>
-  </div>
-
-  <div class="case-block reveal">
-    <div class="case-block-head">
       <h4>The series that won</h4>
       <p>
         Recurring titles the audience recognizes. Together they are 57% of all
-        views from 17 of the 210 videos.
+        views from 17 of the 210 videos. This is what I look for in your niche.
       </p>
     </div>
     <ul class="series-list">
@@ -267,7 +172,6 @@ function line(key: (typeof nets)[number]["key"]) {
           <tr>
             <th>Month</th>
             {nets.map((n) => <th>{n.label} views</th>)}
-            <th>TikTok followers</th>
           </tr>
         </thead>
         <tbody>
@@ -276,7 +180,6 @@ function line(key: (typeof nets)[number]["key"]) {
               <tr>
                 <td>{m} 2026</td>
                 {nets.map((n) => <td>{full(c.views[n.key][i])}</td>)}
-                <td>{full(c.followers.tiktok.series[i])}</td>
               </tr>
             ))
           }
