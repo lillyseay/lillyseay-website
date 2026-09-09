@@ -2547,8 +2547,18 @@ footer .wrap {
   gap: 0.15rem;
   padding: 0.3rem;
   border-radius: 100px;
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  transition:
+    background 0.35s,
+    border-color 0.35s,
+    box-shadow 0.35s;
+}
+
+.topbar.scrolled .navpill {
   background: var(--card);
-  border: 1px solid var(--line);
+  border-color: var(--line);
   box-shadow: var(--shadow-card);
 }
 
@@ -2578,9 +2588,13 @@ footer .wrap {
   cursor: pointer;
   padding: 0.7rem 1.1rem;
   border-radius: 100px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-card);
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  transition:
+    background 0.35s,
+    border-color 0.35s,
+    box-shadow 0.35s;
   font-weight: 500;
   font-size: 0.9rem;
   color: var(--text);
@@ -2588,6 +2602,12 @@ footer .wrap {
 
 .navmenu summary::-webkit-details-marker {
   display: none;
+}
+
+.topbar.scrolled .navmenu summary {
+  background: var(--card);
+  border-color: var(--line);
+  box-shadow: var(--shadow-card);
 }
 
 .navmenu-list {
