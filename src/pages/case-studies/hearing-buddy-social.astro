@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SocialCase from "../../components/SocialCase.astro";
+import { social } from "../../data/profile";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<Layout title="Case study: how I get apps downloaded, Lilly Seay">
+  <section class="case-page">
+    <div class="wrap">
+      <div class="section-head left reveal">
+        <p class="eyebrow">Case study</p>
+        <h1>Find the series that <em>converts</em></h1>
+        <p class="sub">
+          For app startups I find the keywords people already search in your
+          niche, test them as short-form video, and double down on the series
+          that convert. Here is how that played out for Hearing Buddy in 2026.
+        </p>
+      </div>
+      <SocialCase />
+      <p class="routes-cta reveal">
+        <a class="pill-link" href={`${base}/#routes`}>Back to services</a>
+        <a class="pill-link ghost" href={`mailto:team@lillyseay.co?subject=${encodeURIComponent("Start a project")}`}>Start a project</a>
+      </p>
+    </div>
+  </section>
+</Layout>

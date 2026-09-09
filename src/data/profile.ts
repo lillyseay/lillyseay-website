@@ -881,6 +881,7 @@ export const statements = [
   {
     key: "social",
     headline: "I get apps downloaded.",
+    cta: { label: "Read a case study", href: "/case-studies/hearing-buddy-social/" },
     support:
       "Short-form video, carousels, and influencer campaigns turn views into downloads and trial starts.",
     tags: [

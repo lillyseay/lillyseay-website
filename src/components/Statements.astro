@@ -1,5 +1,6 @@
 ---
 import { statements } from "../data/profile";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <div class="statements">
@@ -17,6 +18,11 @@ import { statements } from "../data/profile";
               <li>{t}</li>
             ))}
           </ul>
+          {"cta" in s && s.cta && (
+            <a class="pill-link small statement-cta" href={`${base}${s.cta.href}`}>
+              {s.cta.label}
+            </a>
+          )}
         </div>
         <div class="statement-art" aria-hidden="true">
           {s.key === "apps" && (

@@ -4,7 +4,6 @@ import Ridgeline from "../components/Ridgeline.astro";
 import { posts } from "../data/blog";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 import Statements from "../components/Statements.astro";
-import SocialCase from "../components/SocialCase.astro";
 import {
   profile,
   journey,
@@ -133,7 +132,7 @@ import {
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">App Store</p>
-        <h2>Featured on the <em>App Store</em></h2>
+        <h2>Where I've been <em>featured</em></h2>
         <p class="sub">Feature graphics, placements, and in-app events</p>
       </div>
       <ul class="events-grid stagger">
@@ -179,7 +178,7 @@ import {
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">App Store campaigns</p>
-        <h2>How I get apps <em>featured</em></h2>
+        <h2>Campaigns I've <em>pitched to Apple</em></h2>
         <p class="sub">
           Every campaign is a pitch to Apple's editorial team plus the in-app
           events, artwork, and copy that ship with it. These are the ones I ran
@@ -268,16 +267,10 @@ import {
   <section id="social" class="band-soft">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Social media case study</p>
-        <h2>Find the series that <em>converts</em></h2>
-        <p class="sub">
-          For app startups I find the keywords people already search in your
-          niche, test them as short-form video, and double down on the series
-          that convert. Here is how that played out for Hearing Buddy in 2026.
-        </p>
+        <p class="eyebrow">Social media</p>
+        <h2>Accounts I've <em>grown</em></h2>
+        <p class="sub">{social.intro}</p>
       </div>
-      <SocialCase />
-      <h3 class="subhead reveal">Accounts I run</h3>
       <ul class="grid three stagger">
         {
           social.accounts.map((a) => (
@@ -310,7 +303,7 @@ import {
     <div class="wrap about-grid reveal">
       <div>
         <p class="eyebrow">About</p>
-        <h2>Born in Oklahoma, <em>at home in the PNW</em></h2>
+        <h2>Where I'm from, <em>and where I am</em></h2>
       </div>
       <div class="notes">
         {profile.about.map((para) => <p>{para}</p>)}
@@ -408,7 +401,7 @@ import {
     <div class="wrap">
       <div class="section-head left reveal">
         <p class="eyebrow">Writing</p>
-        <h2>From <em>the blog</em></h2>
+        <h2>Things I've <em>written</em></h2>
       </div>
       <ul class="post-list stagger">
         {
