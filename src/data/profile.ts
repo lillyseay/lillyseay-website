@@ -164,6 +164,7 @@ export const social = {
   accounts: [
     {
       name: "Lilly Seay",
+      avatar: "/social/lillyseay.jpg",
       handle: "@lillyseay",
       total: 37172,
       body: "My personal account. Building in public as a founder, engineer, and dog mom in the Pacific Northwest.",
@@ -187,6 +188,7 @@ export const social = {
     },
     {
       name: "Jet & Nova",
+      avatar: "/social/blacklabtv.jpg",
       handle: "@blacklabtv",
       total: 74353,
       body: "The black lab adventure duo. A pet and outdoors channel I grew from zero with short-form video.",
@@ -210,6 +212,7 @@ export const social = {
     },
     {
       name: "Hearing Buddy",
+      avatar: "/apps/hearing-buddy.jpg",
       handle: "@hearingbuddy",
       total: 2304,
       body: "Accessibility content and launch marketing for the app, including the campaigns behind its App Store features.",
@@ -238,6 +241,7 @@ export const social = {
     },
     {
       name: "Tappily",
+      avatar: "/apps/tappily.jpg",
       handle: "@tappilyapp",
       total: 2900,
       body: "Mental health content and carousels for the app.",

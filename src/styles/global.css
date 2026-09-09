@@ -4447,47 +4447,31 @@ section[id] {
   gap: 1rem;
 }
 
-.ring {
+.avatar {
   width: 4.5rem;
   height: 4.5rem;
   flex: none;
-  transform: rotate(-90deg);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-card);
+  border: 3px solid var(--card);
+  outline: 2px solid var(--brand-soft);
+  transform: scale(0.6);
+  opacity: 0;
 }
 
-.ring .track {
-  fill: none;
-  stroke: var(--brand-soft);
-  stroke-width: 6;
+.is-visible .avatar {
+  animation: chip-in 0.6s var(--ease-out) 0.1s forwards;
 }
 
-.ring .fill {
-  fill: none;
-  stroke: var(--brand);
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-dasharray: var(--c);
-  stroke-dashoffset: var(--c);
-}
-
-.is-visible .ring .fill {
-  animation: ring-draw 1.4s var(--ease-out) 0.2s forwards;
-}
-
-@keyframes ring-draw {
-  to {
-    stroke-dashoffset: var(--o);
-  }
-}
-
-.ring .dot {
-  fill: var(--brand);
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: scale(0);
-}
-
-.is-visible .ring .dot {
-  animation: pop-node 0.5s var(--ease-out) 0.9s forwards;
+.avatar.placeholder {
+  display: grid;
+  place-items: center;
+  background: var(--brand-soft);
+  color: #1d1224;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.8rem;
 }
 
 .account-top .account-total {
@@ -4583,11 +4567,7 @@ section[id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ring .fill {
-    stroke-dashoffset: var(--o);
-    animation: none;
-  }
-  .ring .dot,
+  .avatar,
   .platform-chips li {
     transform: none;
     opacity: 1;
