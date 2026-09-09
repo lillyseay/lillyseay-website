@@ -1436,13 +1436,16 @@ footer .wrap {
 @media (max-width: 720px) {
   .statement {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
-  .statement.flip .statement-text {
+  .statement .statement-art {
+    order: -1;
+    min-height: 0;
+    padding-bottom: 0.5rem;
+  }
+  .statement.flip .statement-text,
+  .statement .statement-text {
     order: 0;
-  }
-  .statement-art {
-    min-height: 12rem;
   }
 }
 
@@ -4736,5 +4739,29 @@ section[id] {
 
   .community-grid {
     gap: 1rem;
+  }
+}
+
+/* Ridgeline on phones: zoom in on the last summit */
+.ridge .ridge-mobile {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .ridge {
+    margin-top: 2.5rem;
+  }
+  .ridge .ridge-desktop {
+    display: none;
+  }
+  .ridge .ridge-mobile {
+    display: block;
+  }
+  .summit-list li:not(:last-child) {
+    display: none;
+  }
+  .summit-list {
+    font-size: 1rem;
+    margin-top: 0.9rem;
   }
 }

@@ -115,6 +115,7 @@ const groundPath = `M-40 ${H + 10} L-40 ${baseY + 12} C 200 ${baseY} 480 ${baseY
 
 <div class="ridge" aria-label="Career summits">
   <svg
+    class="ridge-desktop"
     viewBox={`0 0 ${W} ${H}`}
     preserveAspectRatio="xMidYMax meet"
     aria-hidden="true"
@@ -142,6 +143,37 @@ const groundPath = `M-40 ${H + 10} L-40 ${baseY + 12} C 200 ${baseY} 480 ${baseY
           </g>
         );
       })
+    }
+  </svg>
+  <svg
+    class="ridge-mobile"
+    viewBox="880 30 560 370"
+    preserveAspectRatio="xMidYMax slice"
+    aria-hidden="true"
+  >
+    <path class="layer layer-1" d={layers[0]}></path>
+    <path class="layer layer-2" d={layers[1]}></path>
+    <ellipse class="fog fog-b" cx="1080" cy="290" rx="420" ry="24"></ellipse>
+    <path class="layer layer-3" d={layers[2]}></path>
+    <path class="layer layer-front" d={frontPath}></path>
+    <path class="ground" d={groundPath}></path>
+    {
+      (() => {
+        const s = summits[summits.length - 1];
+        const px = (s.x / 100) * W;
+        const py = peakY(s.height);
+        return (
+          <g
+            class="summit-flag"
+            style="--i: 0"
+            transform={`translate(${px.toFixed(0)} ${py.toFixed(0)})`}
+          >
+            <line x1="0" y1="0" x2="0" y2="-42" />
+            <path d="M0 -42 L26 -34 L0 -26 Z" />
+            <circle cx="0" cy="0" r="5" />
+          </g>
+        );
+      })()
     }
   </svg>
   <ol class="summit-labels">
