@@ -294,12 +294,6 @@ export const community = [
     detail: "Led the chapter at the University of Central Oklahoma my senior year: officers, meetings, budgets, and fundraising.",
     when: "2015 to 2016",
   },
-  {
-    mark: "@",
-    title: "Advice on social media",
-    detail: "I share what I learn about shipping apps, App Store featuring, and building with hearing loss with more than 113,000 followers across my accounts.",
-    when: "Ongoing",
-  },
 ];
 
 export const experience = [
