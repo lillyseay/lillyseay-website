@@ -276,18 +276,6 @@ import {
     </div>
   </section>
 
-  <section id="about" class="about">
-    <div class="wrap about-grid reveal">
-      <div>
-        <p class="eyebrow">About</p>
-        <h2>Where I'm from, <em>and where I am</em></h2>
-      </div>
-      <div class="notes">
-        {profile.about.map((para) => <p>{para}</p>)}
-      </div>
-    </div>
-  </section>
-
   <section id="journey">
     <div class="wrap">
       <div class="section-head left reveal">
@@ -374,11 +362,23 @@ import {
     </div>
   </section>
 
+  <section id="about" class="about">
+    <div class="wrap about-grid reveal">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Where I'm from, <em>and where I am</em></h2>
+      </div>
+      <div class="notes">
+        {profile.about.map((para) => <p>{para}</p>)}
+      </div>
+    </div>
+  </section>
+
   <section id="writing">
     <div class="wrap">
       <div class="section-head left reveal">
         <p class="eyebrow">Writing</p>
-        <h2>Things I've <em>written</em></h2>
+        <h2>From <em>the blog</em></h2>
       </div>
       <ul class="post-list stagger">
         {
