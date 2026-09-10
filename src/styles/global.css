@@ -4765,3 +4765,19 @@ section[id] {
     margin-top: 0.9rem;
   }
 }
+
+/* Hero headline on phones: the greeting leads, the rest becomes subtext */
+@media (max-width: 720px) {
+  .hero h1 {
+    max-width: none;
+  }
+
+  .hero h1 .hero-rest {
+    display: block;
+    margin-top: 0.7rem;
+    font-size: 0.6em;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--text);
+  }
+}
