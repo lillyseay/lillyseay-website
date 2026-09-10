@@ -1214,10 +1214,11 @@ footer .wrap {
 
 .summit-label {
   --tx: -50%;
+  --lift: 2.9rem;
   position: absolute;
   left: var(--x);
   bottom: var(--y);
-  transform: translate(var(--tx), calc(-100% - 2.9rem));
+  transform: translate(var(--tx), calc(-100% - var(--lift)));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1262,11 +1263,11 @@ footer .wrap {
 @keyframes label-in {
   from {
     opacity: 0;
-    transform: translate(var(--tx), calc(-100% - 2.3rem));
+    transform: translate(var(--tx), calc(-100% - var(--lift) + 0.6rem));
   }
   to {
     opacity: 1;
-    transform: translate(var(--tx), calc(-100% - 2.9rem));
+    transform: translate(var(--tx), calc(-100% - var(--lift)));
   }
 }
 
@@ -4757,12 +4758,8 @@ section[id] {
   .ridge .ridge-mobile {
     display: block;
   }
-  .summit-list li:not(:last-child) {
-    display: none;
-  }
   .summit-list {
-    font-size: 1rem;
-    margin-top: 0.9rem;
+    display: none;
   }
 }
 
@@ -4779,5 +4776,44 @@ section[id] {
     font-weight: 500;
     line-height: 1.45;
     color: var(--text);
+  }
+}
+
+/* One summit card on the phone peak */
+.summit-label-mobile {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .summit-label-mobile {
+    display: flex;
+    --tx: -50%;
+    /* the flag sits about 1.8rem above the peak, so drop the card to just clear its tip */
+    --lift: -0.15rem;
+    padding: 0.45rem 0.75rem 0.5rem;
+    animation-delay: 1.1s;
+  }
+
+  .summit-label-mobile .name {
+    font-size: 0.8rem;
+  }
+
+  .summit-label-mobile::after {
+    height: 0.55rem;
+  }
+
+  .ridge {
+    margin-top: 3.25rem;
+  }
+}
+
+/* Phones: highlighted words read as magenta text, not highlighter bars */
+@media (max-width: 720px) {
+  .hero h1 .hero-rest mark {
+    background: none;
+    color: var(--brand-text);
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
   }
 }

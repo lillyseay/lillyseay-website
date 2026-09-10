@@ -110,6 +110,14 @@ const layers = [
   backgroundRange(3, 6, 110, 180, 270, 8),
   backgroundRange(5, 7, 170, 230, 300, 8),
 ];
+// Phones show a cropped view of the right side of the range, so the last summit's label needs
+// its own position inside that viewBox.
+const mob = { x: 880, y: 30, w: 560, h: 370 };
+const lastSummit = summits[summits.length - 1];
+const mobileLabel = {
+  left: (((lastSummit.x / 100) * W - mob.x) / mob.w) * 100,
+  bottom: ((mob.y + mob.h - peakY(lastSummit.height)) / mob.h) * 100,
+};
 const groundPath = `M-40 ${H + 10} L-40 ${baseY + 12} C 200 ${baseY} 480 ${baseY + 22} 760 ${baseY + 6} C 1000 ${baseY - 8} 1240 ${baseY + 18} ${W + 40} ${baseY + 4} L ${W + 40} ${H + 10} Z`;
 ---
 
@@ -147,7 +155,7 @@ const groundPath = `M-40 ${H + 10} L-40 ${baseY + 12} C 200 ${baseY} 480 ${baseY
   </svg>
   <svg
     class="ridge-mobile"
-    viewBox="880 30 560 370"
+    viewBox={`${mob.x} ${mob.y} ${mob.w} ${mob.h}`}
     preserveAspectRatio="xMidYMax slice"
     aria-hidden="true"
   >
@@ -176,6 +184,13 @@ const groundPath = `M-40 ${H + 10} L-40 ${baseY + 12} C 200 ${baseY} 480 ${baseY
       })()
     }
   </svg>
+  <div
+    class="summit-label summit-label-mobile"
+    style={`--x: ${mobileLabel.left.toFixed(1)}%; --y: ${mobileLabel.bottom.toFixed(1)}%; --i: 0`}
+  >
+    <span class="year">{lastSummit.year}</span>
+    <span class="name">{lastSummit.label}</span>
+  </div>
   <ol class="summit-labels">
     {
       summits.map((s, i) => (
