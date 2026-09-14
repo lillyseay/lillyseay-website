@@ -138,37 +138,46 @@ import {
         <p class="eyebrow">App Store</p>
         <h2>Where I've been <em>featured</em></h2>
         <p class="sub">
-          Every feature, announced the day it happened, with the graphic I
-          designed for it
+          The graphics I designed, and the posts I shared the day each one
+          happened
         </p>
       </div>
-      <ul class="feature-posts stagger">
+      <ul class="feature-cards stagger">
         {
           appStoreFeatures.map((f) => (
-            <li class="feature-post">
-              <div class="feature-post-head">
-                <div>
-                  <h3>{f.title}</h3>
-                  <p class="org">
-                    {f.app} · {f.date}
-                  </p>
+            <li class="feature-card tilt">
+              {f.image ? (
+                <div class="feature-art">
+                  <img src={`${base}${f.image}`} alt="" loading="lazy" />
+                  <span class="kind-pill">{f.kind}</span>
                 </div>
-                <span class="kind-pill">{f.kind}</span>
-              </div>
-              <div class="li-embed">
-                <iframe
-                  src={`https://www.linkedin.com/embed/feed/update/urn:li:activity:${f.post}`}
-                  title={`${f.title}, announced on LinkedIn`}
-                  frameborder="0"
-                  loading="lazy"
-                  allowfullscreen=""
-                />
-              </div>
-              {f.link && (
-                <a class="arrow-link" href={f.link}>
-                  View on the App Store
-                </a>
+              ) : (
+                <div class="feature-art press">
+                  <span class="kind-pill">{f.kind}</span>
+                  <p class="press-headline">{"headline" in f && f.headline}</p>
+                  <p class="press-source">{"source" in f && f.source}</p>
+                </div>
               )}
+              <div class="feature-body">
+                <h3>{f.title}</h3>
+                <p class="org">
+                  {f.app} · {f.date}
+                </p>
+                <blockquote class="feature-quote">{f.quote}</blockquote>
+                <div class="feature-links">
+                  <a
+                    class="arrow-link"
+                    href={`https://www.linkedin.com/feed/update/urn:li:activity:${f.post}/`}
+                  >
+                    Read the post
+                  </a>
+                  {f.link && (
+                    <a class="arrow-link" href={f.link}>
+                      View on the App Store
+                    </a>
+                  )}
+                </div>
+              </div>
             </li>
           ))
         }

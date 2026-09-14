@@ -391,6 +391,9 @@ export const appStoreFeatures = [
     title: "Apps We Love",
     kind: "Editorial feature",
     date: "August 2026",
+    image: "/appstore/apps-we-love.jpg",
+    quote:
+      "Hearing Buddy is getting featured today for Apps We Love. I'm on a camping trip with no service, and there's no better time to get this news.",
     post: "7494087747696173057",
     link: "https://apps.apple.com/us/story/id6790991028",
   },
@@ -399,15 +402,10 @@ export const appStoreFeatures = [
     title: "Caption sharing launch",
     kind: "Featured on the App Store",
     date: "August 2026",
+    image: "/appstore/caption-sharing-launch.jpg",
+    quote:
+      "Two months of hard work to launch our newest feature, caption sharing. Now you can get accurate captions even if you're far away from the speaker.",
     post: "7491237275914395648",
-    link: "",
-  },
-  {
-    app: "Hearing Buddy",
-    title: "Apple Design Awards week",
-    kind: "Press feature",
-    date: "July 2026",
-    post: "7486149390164779008",
     link: "",
   },
   {
@@ -415,7 +413,23 @@ export const appStoreFeatures = [
     title: "Deaf Awareness Week",
     kind: "Featured on the App Store",
     date: "May 2026",
+    image: "/appstore/events/deaf-awareness-week-2026.jpg",
+    quote:
+      "It was so much fun to design an ASL-themed hearing buddy that's inclusive to the Deaf community. This was also my first time designing promotional graphics for the App Store.",
     post: "7457102406200475649",
+    link: "",
+  },
+  {
+    app: "Hearing Buddy",
+    title: "Apple Design Awards week",
+    kind: "Press feature",
+    date: "July 2026",
+    image: "",
+    headline: "Two Portland apps recognized by Apple Design Awards 2026",
+    source: "Silicon Florist",
+    quote:
+      "Hearing Buddy got featured this week. There were multiple Apple Design Award Finalists from Portland, Oregon this year.",
+    post: "7486149390164779008",
     link: "",
   },
 ];
