@@ -137,42 +137,40 @@ import {
       <div class="section-head reveal">
         <p class="eyebrow">App Store</p>
         <h2>Where I've been <em>featured</em></h2>
-        <p class="sub">Feature graphics, placements, and in-app events</p>
+        <p class="sub">
+          Every feature, announced the day it happened, with the graphic I
+          designed for it
+        </p>
       </div>
-      <ul class="events-grid stagger">
+      <ul class="feature-posts stagger">
         {
-          appStoreFeatures.map((f) => {
-            const art = f.image || f.screenshot;
-            return (
-              <li>
-                <div class={`box ${art ? "" : "empty"}`}>
-                  {art && (
-                    <img
-                      src={`${base}${art}`}
-                      alt={`${f.app}: ${f.title}`}
-                      loading="lazy"
-                    />
-                  )}
-                  <span class="kind-tag">{f.kind}</span>
+          appStoreFeatures.map((f) => (
+            <li class="feature-post">
+              <div class="feature-post-head">
+                <div>
+                  <h3>{f.title}</h3>
+                  <p class="org">
+                    {f.app} · {f.date}
+                  </p>
                 </div>
-                <div class="cap">
-                  <strong>{f.app}</strong>
-                  {f.title}
-                  {f.date && <span class="muted"> · {f.date}</span>}
-                  {f.link && (
-                    <>
-                      <br />
-                      <a class="cap-link" href={f.link}>
-                        {f.link.includes("apps.apple.com")
-                          ? "View on the App Store"
-                          : "View feature"}
-                      </a>
-                    </>
-                  )}
-                </div>
-              </li>
-            );
-          })
+                <span class="kind-pill">{f.kind}</span>
+              </div>
+              <div class="li-embed">
+                <iframe
+                  src={`https://www.linkedin.com/embed/feed/update/urn:li:activity:${f.post}`}
+                  title={`${f.title}, announced on LinkedIn`}
+                  frameborder="0"
+                  loading="lazy"
+                  allowfullscreen=""
+                />
+              </div>
+              {f.link && (
+                <a class="arrow-link" href={f.link}>
+                  View on the App Store
+                </a>
+              )}
+            </li>
+          ))
         }
       </ul>
     </div>
