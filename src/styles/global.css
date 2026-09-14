@@ -19,11 +19,22 @@
   --ground: #cf82d6;
   --fog: rgba(255, 255, 255, 0.7);
   --band-soft: #f8d8fa;
-  /* Accents that sit beside the magenta: cotton candy blue and candy pink */
-  --accent-blue: #5cb8dd;
-  --accent-blue-soft: #d3ecf7;
-  --accent-pink: #f87fb0;
-  --accent-pink-soft: #fdd9e7;
+  /* Accents derived from the brand magenta in OKLCH, same chroma family:
+     cornflower blue (H265), golden yellow (H88), rose pink (H8). */
+  --accent-blue: #5b8bfe;
+  --accent-blue-soft: #dde8fe;
+  --accent-blue-text: #2e5bda;
+  --accent-yellow: #ffc921;
+  --accent-yellow-soft: #fae6b7;
+  --accent-yellow-text: #826407;
+  --accent-pink: #ff6b8f;
+  --accent-pink-soft: #fedfe3;
+  --accent-pink-text: #be1253;
+  /* Chip tints. Like --brand-soft these stay pale in both themes, because every
+     chip, pill, and monogram on the site is dark ink on a pale tint. */
+  --chip-blue: #dde8fe;
+  --chip-yellow: #fae6b7;
+  --chip-pink: #fedfe3;
   --shadow-card:
     0 10px 30px rgba(29, 18, 36, 0.07), 0 2px 6px rgba(29, 18, 36, 0.04);
   --shadow-float:
@@ -56,14 +67,15 @@
     --ground: #2a1430;
     --fog: rgba(255, 255, 255, 0.05);
     --band-soft: #2a1430;
-  --accent-blue: #6ec6e8;
-  --accent-blue-soft: #123645;
-  --accent-pink: #ff93bd;
-  --accent-pink-soft: #3d1626;
-    --accent-blue: #6ec6e8;
-    --accent-blue-soft: #123645;
-    --accent-pink: #ff93bd;
-    --accent-pink-soft: #3d1626;
+    --accent-blue: #8caffe;
+    --accent-blue-soft: #1a294e;
+    --accent-blue-text: #8caffe;
+    --accent-yellow: #d9aa0f;
+    --accent-yellow-soft: #372901;
+    --accent-yellow-text: #d9aa0f;
+    --accent-pink: #fe869f;
+    --accent-pink-soft: #471a25;
+    --accent-pink-text: #fe869f;
     --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.4);
     --shadow-float:
       0 24px 60px rgba(0, 0, 0, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4);
@@ -87,10 +99,15 @@
   --ground: #2a1430;
   --fog: rgba(255, 255, 255, 0.05);
   --band-soft: #2a1430;
-  --accent-blue: #6ec6e8;
-  --accent-blue-soft: #123645;
-  --accent-pink: #ff93bd;
-  --accent-pink-soft: #3d1626;
+  --accent-blue: #8caffe;
+  --accent-blue-soft: #1a294e;
+  --accent-blue-text: #8caffe;
+  --accent-yellow: #d9aa0f;
+  --accent-yellow-soft: #372901;
+  --accent-yellow-text: #d9aa0f;
+  --accent-pink: #fe869f;
+  --accent-pink-soft: #471a25;
+  --accent-pink-text: #fe869f;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.4);
   --shadow-float: 0 24px 60px rgba(0, 0, 0, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4);
 }
@@ -1570,6 +1587,7 @@ footer .wrap {
 .star.s1 {
   top: 0.4rem;
   left: 0.4rem;
+  color: var(--accent-yellow);
 }
 
 .star.s2 {
@@ -1957,6 +1975,10 @@ footer .wrap {
   fill: var(--accent-pink);
 }
 
+.art-network .n5 {
+  fill: var(--accent-yellow);
+}
+
 .is-visible .art-network .n1 {
   animation-delay: 0.7s;
 }
@@ -2202,7 +2224,7 @@ footer .wrap {
 
 .art-design .swatch.c {
   left: 4.6rem;
-  background: var(--ink);
+  background: var(--accent-yellow);
 }
 
 .is-visible .art-design .swatch {
@@ -3114,6 +3136,7 @@ section[id] {
 .art-code .l3 {
   width: 65%;
   margin-left: 1rem;
+  background: var(--accent-yellow-soft);
 }
 .art-code .l4 {
   width: 40%;
@@ -4144,6 +4167,16 @@ section[id] {
   --chart-ink: #ee86f3;
 }
 
+/* Each platform's small multiple gets its own hue so the row is not three
+   identical magenta charts. The -text tokens already flip for dark mode. */
+.chart-row .chart:nth-child(2) {
+  --chart-ink: var(--accent-blue-text);
+}
+
+.chart-row .chart:nth-child(3) {
+  --chart-ink: var(--accent-pink-text);
+}
+
 /* series */
 .series-list {
   list-style: none;
@@ -4800,6 +4833,26 @@ section[id] {
   }
 }
 
+/* Dark mode: a pale highlighter bar under white text is unreadable, so the
+   highlighted words become magenta text the same way they do on phones. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero h1 mark {
+    background: none;
+    color: var(--brand-text);
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+:root[data-theme="dark"] .hero h1 mark {
+  background: none;
+  color: var(--brand-text);
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
+
 /* ---------- App Store features ---------- */
 .feature-cards {
   display: grid;
@@ -4965,4 +5018,109 @@ section[id] {
 
 .legal .post-body li {
   margin: 0.4rem 0;
+}
+
+/* ---------- Accents across the site ---------- */
+/* A pale sky behind the ridgeline so the hero is not wall-to-wall magenta.
+   This sits on .hero itself: a z-index:-1 pseudo-element would fall behind the
+   body background and never show. */
+.hero {
+  background: linear-gradient(
+    180deg,
+    var(--surface) 10%,
+    color-mix(in srgb, var(--accent-blue-soft) 70%, var(--surface)) 68%
+  );
+}
+
+/* Case study steps cycle through the brand and its accents */
+.method-step:nth-child(2) .step-no {
+  background: var(--accent-blue);
+  color: #1d1224;
+}
+
+.method-step:nth-child(3) .step-no {
+  background: var(--accent-pink);
+  color: #1d1224;
+}
+
+.method-step:nth-child(2) .step-kind {
+  color: var(--accent-blue-text);
+}
+
+.method-step:nth-child(3) .step-kind {
+  color: var(--accent-pink-text);
+}
+
+/* Service tag pills take the row's accent */
+.statement:nth-child(2) .tags li {
+  background: var(--chip-blue);
+}
+
+.statement:nth-child(3) .tags li {
+  background: var(--chip-pink);
+}
+
+.statement:nth-child(4) .tags li {
+  background: var(--chip-yellow);
+}
+
+/* App cards: letter placeholders cycle the accents */
+.apps-grid li:nth-child(2) .app-icon.placeholder {
+  background: var(--chip-blue);
+}
+
+.apps-grid li:nth-child(4) .app-icon.placeholder {
+  background: var(--chip-yellow);
+}
+
+.apps-more li:nth-child(2) .app-icon.placeholder {
+  background: var(--chip-pink);
+}
+
+/* Feature pills are coloured by the kind of feature. Without one of these the
+   pill falls back to the card colour, which disappears in dark mode. */
+.kind-pill[data-kind="featured-on-the-app-store"] {
+  background: var(--brand-soft);
+}
+
+.kind-pill[data-kind="editorial-feature"] {
+  background: var(--chip-yellow);
+}
+
+.kind-pill[data-kind="press-feature"] {
+  background: var(--chip-blue);
+}
+
+.kind-pill[data-kind="featured-by-apple"] {
+  background: var(--chip-pink);
+}
+
+/* Community monograms cycle the four colours */
+.community-grid li:nth-child(2) .community-mark {
+  background: var(--chip-blue);
+}
+
+.community-grid li:nth-child(3) .community-mark {
+  background: var(--chip-yellow);
+}
+
+.community-grid li:nth-child(4) .community-mark {
+  background: var(--chip-pink);
+}
+
+/* Account avatars get a ring in the accent colours */
+.accounts li:nth-child(2) .avatar {
+  outline-color: var(--chip-blue);
+}
+
+.accounts li:nth-child(3) .avatar {
+  outline-color: var(--chip-yellow);
+}
+
+.accounts li:nth-child(4) .avatar {
+  outline-color: var(--chip-pink);
+}
+
+.accounts li:nth-child(5) .avatar {
+  outline-color: var(--chip-blue);
 }
