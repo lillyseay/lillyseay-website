@@ -173,7 +173,9 @@ import {
                   </a>
                   {f.link && (
                     <a class="arrow-link" href={f.link}>
-                      View on the App Store
+                      {f.link.includes("developer.apple.com")
+                        ? "See it on Apple's site"
+                        : "View on the App Store"}
                     </a>
                   )}
                 </div>

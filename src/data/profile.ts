@@ -410,6 +410,30 @@ export const appStoreFeatures = [
   },
   {
     app: "Hearing Buddy",
+    title: "Apple Design Awards week",
+    kind: "Press feature",
+    date: "July 2026",
+    image: "",
+    headline: "Two Portland apps recognized by Apple Design Awards 2026",
+    source: "Silicon Florist",
+    quote:
+      "Hearing Buddy got featured this week. There were multiple Apple Design Award Finalists from Portland, Oregon this year.",
+    post: "7486149390164779008",
+    link: "",
+  },
+  {
+    app: "Hearing Buddy",
+    title: "Apple Design Award Finalist",
+    kind: "Featured by Apple",
+    date: "May 2026",
+    image: "/appstore/apple-finalists-page.jpg",
+    quote:
+      "This is a dream I've had for the last decade of designing apps. What's most special to me is that Hearing Buddy is a Finalist in Inclusivity.",
+    post: "7462194542281142272",
+    link: "https://developer.apple.com/design/awards/",
+  },
+  {
+    app: "Hearing Buddy",
     title: "Deaf Awareness Week",
     kind: "Featured on the App Store",
     date: "May 2026",
@@ -421,15 +445,13 @@ export const appStoreFeatures = [
   },
   {
     app: "Hearing Buddy",
-    title: "Apple Design Awards week",
-    kind: "Press feature",
-    date: "July 2026",
-    image: "",
-    headline: "Two Portland apps recognized by Apple Design Awards 2026",
-    source: "Silicon Florist",
+    title: "Best New Apps and Updates",
+    kind: "Editorial feature",
+    date: "March 2026",
+    image: "/appstore/best-new-apps.jpg",
     quote:
-      "Hearing Buddy got featured this week. There were multiple Apple Design Award Finalists from Portland, Oregon this year.",
-    post: "7486149390164779008",
+      "Hearing Buddy was included in the Best New Apps and Updates section on the App Store this weekend. Sending a huge thank you to the App Store Editorial team and my partnership manager at Apple.",
+    post: "7436834625211232256",
     link: "",
   },
 ];
