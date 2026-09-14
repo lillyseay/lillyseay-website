@@ -1,0 +1,172 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { profile } from "../../data/profile";
+
+// Unlisted on purpose: this page is linked from App Store Connect, not from the site.
+// Layout emits noindex, and public/robots.txt disallows /hiking-passport/.
+const updated = "September 14, 2026";
+---
+
+<Layout
+  title="Privacy Policy, Hiking Passport"
+  description="How Hiking Passport handles your Apple Health data, your training plans, and your purchases."
+  noindex={true}
+>
+  <section class="post legal">
+    <div class="wrap">
+      <div class="post-head">
+        <p class="eyebrow">Hiking Passport</p>
+        <h1>Privacy Policy</h1>
+        <p class="lede">
+          Your health data stays between you and Apple. This page spells out
+          exactly what Hiking Passport reads, what leaves your iPhone, and how
+          to turn any of it off.
+        </p>
+        <p class="org">Last updated: {updated}</p>
+      </div>
+
+      <div class="post-body">
+        <h2>Overview</h2>
+        <p>
+          Hiking Passport is an iOS app that builds a personal training plan for
+          the hike you are working toward, and shows your progress as a picture
+          instead of a chart. To do that it reads some of your Apple Health
+          data, with your permission, and uses Apple Intelligence to turn it
+          into a plan.
+        </p>
+        <p>
+          There is no account to create and no login. I do not run a server that
+          stores your health data, and I never sell anyone's personal
+          information.
+        </p>
+
+        <h2>What the app reads from Apple Health</h2>
+        <p>
+          The first time you open Hiking Passport it asks permission to read the
+          following from Apple Health. You choose what to allow, and you can
+          change your mind at any time.
+        </p>
+        <ul>
+          <li>
+            Workouts, steps, distance, flights climbed, and active energy, so
+            the plan knows what you already do in a week
+          </li>
+          <li>
+            Heart rate, resting heart rate, and cardio fitness, so the plan
+            matches your current conditioning
+          </li>
+          <li>Sleep, so the plan can ease off on low energy days</li>
+        </ul>
+        <p>
+          The app reads this data. It does not change anything in Apple Health,
+          and it does not read anything outside the list above. If you decline a
+          category, the app still works, the plan is just less tailored.
+        </p>
+
+        <h2>How your plan is generated</h2>
+        <p>
+          Plans are generated with Apple Intelligence. Simple requests run
+          entirely on your iPhone. Longer ones are sent to Apple's Private Cloud
+          Compute, which is Apple's own infrastructure built for exactly this.
+        </p>
+        <p>
+          When a request goes to Private Cloud Compute, Apple uses it only to
+          return your plan. It is not stored afterwards, it is not accessible to
+          Apple, and it is not used to train any model. You can read Apple's
+          description of how that works on{" "}
+          <a href="https://security.apple.com/documentation/private-cloud-compute/"
+            >Apple's Private Cloud Compute page</a
+          >.
+        </p>
+        <p>
+          What gets sent is the context the plan needs, such as a summary of
+          your recent activity and the goal and constraints you entered. Your
+          name, your email, and your raw Apple Health history are not sent.
+        </p>
+
+        <h2>What you tell the app directly</h2>
+        <p>
+          You can tell Hiking Passport about trail access, a disability, an
+          injury, a busy schedule, or anything else that shapes how you train.
+          That is sensitive information and it is treated that way. It is stored
+          on your iPhone, it is included in a plan request only when the plan
+          depends on it, and it is never sent anywhere else.
+        </p>
+
+        <h2>Purchases</h2>
+        <p>
+          Subscriptions are handled by Apple and by{" "}
+          <a href="https://www.revenuecat.com/privacy/">RevenueCat</a>, which
+          keeps track of whether your subscription is active. RevenueCat
+          receives an anonymous identifier for your install, your purchase and
+          receipt status, and basic device and platform information. It does not
+          receive your name, your email, your Apple Health data, or your plans.
+        </p>
+        <p>
+          Apple handles the payment itself. I never see your card details.
+        </p>
+
+        <h2>Analytics and crash reports</h2>
+        <p>
+          The app collects anonymous, aggregated usage metrics and crash reports
+          so I can find bugs and see which features people actually use. This
+          data cannot be used to identify you, and it never includes your Apple
+          Health data, your plans, or anything you typed about your body, your
+          health, or your schedule.
+        </p>
+
+        <h2>What never leaves your iPhone</h2>
+        <ul>
+          <li>Your raw Apple Health history</li>
+          <li>The photos you use for your progress image</li>
+          <li>Anything you wrote about an injury, a disability, or your energy</li>
+          <li>Your saved plans and your completed hikes</li>
+        </ul>
+
+        <h2>Your choices</h2>
+        <ul>
+          <li>
+            <strong>Turn off Health access.</strong> Open the Health app, tap your
+            picture, then Privacy, then Apps, then Hiking Passport. Turn off any
+            category, or all of them.
+          </li>
+          <li>
+            <strong>Turn off Apple Intelligence.</strong> In iOS Settings, under
+            Apple Intelligence. The app keeps working, and plans fall back to
+            what you set yourself.
+          </li>
+          <li>
+            <strong>Delete everything.</strong> Deleting the app removes the data
+            it stored on your iPhone. Your Apple Health data belongs to Apple
+            Health and stays there.
+          </li>
+          <li>
+            <strong>Ask me to delete a purchase record.</strong> Email me and I
+            will have RevenueCat delete the record tied to your install.
+          </li>
+        </ul>
+
+        <h2>Children</h2>
+        <p>
+          Hiking Passport is not directed to children under 13, and I do not
+          knowingly collect their information. If you think a child gave me
+          theirs, email me and I will delete it.
+        </p>
+
+        <h2>Changes to this policy</h2>
+        <p>
+          If the app starts handling your information differently, I will update
+          this page and change the date at the top. The version you are reading
+          was last updated on {updated}.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions, deletion requests, or anything else about your privacy:{" "}
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>. Hiking
+          Passport is made by Lilly Seay in Portland, Oregon.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

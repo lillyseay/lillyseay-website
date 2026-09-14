@@ -5,9 +5,14 @@ import { profile } from "../data/profile";
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
 }
 
-const { title, description = profile.headline } = Astro.props;
+const {
+  title,
+  description = profile.headline,
+  noindex = false,
+} = Astro.props;
 // BASE_URL is "/" for a user site or "/<repo>" (no trailing slash) for a project site.
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const sections = [
@@ -27,6 +32,7 @@ const sections = [
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

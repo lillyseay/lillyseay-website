@@ -4942,3 +4942,27 @@ section[id] {
     grid-template-columns: 1fr;
   }
 }
+
+/* Unlisted legal pages (privacy policies linked from App Store Connect) */
+.legal .post-head {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2rem;
+}
+
+.legal .post-head .org {
+  margin-top: 1rem;
+}
+
+.legal .post-body h2 {
+  margin-top: 2.5rem;
+}
+
+.legal .post-body ul {
+  margin: 0 0 1.1rem;
+  padding-left: 1.2rem;
+  color: var(--text);
+}
+
+.legal .post-body li {
+  margin: 0.4rem 0;
+}
