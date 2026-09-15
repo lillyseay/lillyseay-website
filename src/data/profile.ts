@@ -8,9 +8,9 @@ export const profile = {
   headline:
     "iOS engineer, designer, and founder. Apple Design Award Finalist, FOSDEM speaker, and Apple Entrepreneur Camp alum. I also help startups market their apps on social media.",
   about: [
-    "I have spent my life chasing the most beautiful places I can find, and I have travelled a long way to stand in them. When I got to the Pacific Northwest in 2020 I knew immediately that I was home.",
-    "The same restlessness runs through my work. For ten years I have built native apps and the hardware they talk to. Then I built the one I needed. I am hard of hearing, and Hearing Buddy became a 2026 Apple Design Award Finalist.",
-    "Now I help startups design, build, and market their apps. Off the clock you will find me on a paddleboard or a trail with my two black labs, Jet and Nova.",
+    "Hi, I'm Lilly. The adventure isn't just the career. I've travelled all over looking for the most beautiful places outside, and when I got to the Pacific Northwest in 2020 I knew right away I was home.",
+    "I've spent ten years building native apps and the hardware they talk to. Then I built the one I needed. I'm hard of hearing, and Hearing Buddy ended up a 2026 Apple Design Award Finalist.",
+    "Now I help startups design, build, and market their apps. The rest of the time I'm on a paddleboard or a trail with my two black labs, Jet and Nova.",
   ],
   links: {
     linkedin: "https://www.linkedin.com/in/lillyseay",
@@ -46,9 +46,9 @@ export const apps = [
     icon: "/apps/hearing-buddy.jpg",
     platforms: "iPhone, iPad, Mac, Watch, and Vision Pro",
     tagline: "Live captions that help Deaf and hard of hearing people hear.",
-    body: "Helps Deaf and hard of hearing people hear, with on-device live captions on every Apple platform. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 8 times this year.",
-    badges: ["Apple Design Award Finalist", "Featured 8 times", "Apps We Love"],
-    year: "2026",
+    body: "Helps Deaf and hard of hearing people hear, with on-device live captions on every Apple platform. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 7 times this year.",
+    badges: ["Apple Design Award Finalist", "Featured 7 times", "Apps We Love"],
+    year: "2025",
   },
   {
     name: "Hiking Passport",
@@ -858,7 +858,7 @@ export const journey = [
     type: "Self-employed",
     when: "2026 to Now",
     details:
-      "I'm the co-founder and designer of the Hearing Buddy app and brand. Hearing Buddy helps Deaf and hard of hearing people hear with on-device live captions. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 8 times this year.",
+      "I'm the co-founder and designer of the Hearing Buddy app and brand. Hearing Buddy helps Deaf and hard of hearing people hear with on-device live captions. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 7 times this year.",
   },
   {
     what: "Founder and CEO",

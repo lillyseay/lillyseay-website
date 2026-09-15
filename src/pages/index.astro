@@ -34,7 +34,11 @@ import {
         </span>
       </h1>
       <div class="hero-actions fade-up" style="--delay: 0.9s">
-        <a class="pill-link" href="#routes">Work with me</a>
+        <a
+          class="pill-link"
+          href={`mailto:${profile.email}?subject=${encodeURIComponent("Hello from your website")}`}
+          >Contact me</a
+        >
         <a class="pill-link ghost" href="#projects">See my work</a>
       </div>
     </div>
@@ -294,6 +298,11 @@ import {
         <p class="sub">{social.intro}</p>
       </div>
       <Accounts />
+      <p class="routes-cta reveal">
+        <a class="pill-link" href={`${base}/case-studies/hearing-buddy-social/`}
+          >Read a case study</a
+        >
+      </p>
     </div>
   </section>
 
