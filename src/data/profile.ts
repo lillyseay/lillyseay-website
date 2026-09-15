@@ -972,6 +972,26 @@ export const hikingPassport = {
   tagline: "See your training as a picture, not a chart.",
   lede: "Hiking Passport builds a training plan for the hike you are working toward, then shows how far you have come as an image you actually want to look at.",
   status: "Coming to the App Store",
+  shots: [
+    {
+      image: "/hiking-passport/scene-day.jpg",
+      alt: "The passport scene: a named season, a goal hike stamped on the summit, and milestone signposts along a trail through a meadow.",
+      title: "Your season, your name for it",
+      body: "The goal hike is a stamp on the summit. Milestones line the trail below it.",
+    },
+    {
+      image: "/hiking-passport/scene-two-hikes.jpg",
+      alt: "Two goal hikes stamped and dated on separate peaks, with locked mile markers along the trail.",
+      title: "Every finished hike gets stamped",
+      body: "Dated, on its own peak. The markers ahead stay locked until you reach them.",
+    },
+    {
+      image: "/hiking-passport/scene-night.jpg",
+      alt: "The same scene at night, with a moon, stars, and flags planted on the peaks already climbed.",
+      title: "It follows the time of day",
+      body: "Same trail after dark, with flags on the summits you have already reached.",
+    },
+  ],
   steps: [
     {
       kind: "Pick the hike",

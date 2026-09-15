@@ -4991,85 +4991,52 @@ section[id] {
   margin: 1.5rem 0 0;
 }
 
-/* The phone mock: a summit photo filling in as the plan is completed */
-.app-art {
+/* Real screenshots in phone frames */
+.app-shots {
   display: grid;
-  place-items: center;
-  margin: 3rem 0 4rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: end;
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0 1rem;
 }
 
-.pp-phone {
-  width: 15rem;
-  padding: 0.6rem;
-  border-radius: 2.4rem;
+.app-shots li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.app-shots li:nth-child(2) {
+  margin-bottom: 1.75rem;
+}
+
+.shot {
+  border-radius: 1.8rem;
+  padding: 0.45rem;
   background: var(--ink);
   box-shadow: var(--shadow-float);
 }
 
-.pp-screen {
-  border-radius: 1.9rem;
-  overflow: hidden;
-  background: var(--card);
-  padding-bottom: 1rem;
-}
-
-.pp-peak {
-  position: relative;
-  background: linear-gradient(
-    180deg,
-    var(--brand-soft),
-    color-mix(in srgb, var(--brand-soft) 35%, var(--card))
-  );
-}
-
-.pp-peak svg {
+.shot img {
   display: block;
   width: 100%;
+  border-radius: 1.45rem;
 }
 
-.pp-far {
-  fill: color-mix(in srgb, var(--brand) 45%, var(--card));
+.app-shots figcaption,
+.app-shots .shot-cap {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
-.pp-near {
-  fill: var(--brand);
-}
-
-.pp-sun {
-  fill: var(--layer-2);
-}
-
-/* The unfinished part of the picture is still greyed out */
-.pp-fill {
-  position: absolute;
-  inset: 0 0 0 50%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--card) 86%, transparent) 22%
-  );
-  backdrop-filter: saturate(0.15);
-}
-
-.pp-rows {
-  display: grid;
-  gap: 0.5rem;
-  padding: 1rem 1.1rem 0;
-}
-
-.pp-row {
-  height: 0.55rem;
-  border-radius: 0.3rem;
-  background: var(--brand-soft);
-}
-
-.pp-row.b {
-  width: 72%;
-}
-
-.pp-row.c {
-  width: 48%;
-  background: var(--layer-2);
+.app-shots .shot-cap strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .app-steps {
@@ -5178,8 +5145,16 @@ section[id] {
     grid-template-columns: 1fr;
   }
 
-  .app-art {
-    margin: 2rem 0 3rem;
+  /* One phone at a time, centred, on a narrow screen */
+  .app-shots {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    max-width: 17rem;
+    margin: 2rem auto 1rem;
+  }
+
+  .app-shots li:nth-child(2) {
+    margin-bottom: 0;
   }
 }
 
