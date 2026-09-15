@@ -2,7 +2,7 @@
 :root {
   color-scheme: light dark;
   --brand: #ee86f3;
-  --brand-soft: #f8d8fa;
+  --brand-soft: #fcd5ff;
   --brand-text: #b933c4;
   --surface: #ffffff;
   --ink: #1d1224;
@@ -19,22 +19,24 @@
   --ground: #cf82d6;
   --fog: rgba(255, 255, 255, 0.7);
   --band-soft: #f8d8fa;
-  /* Accents derived from the brand magenta in OKLCH, same chroma family:
-     cornflower blue (H265), golden yellow (H88), rose pink (H8). */
-  --accent-blue: #5b8bfe;
-  --accent-blue-soft: #dde8fe;
-  --accent-blue-text: #2e5bda;
-  --accent-yellow: #ffc921;
-  --accent-yellow-soft: #fae6b7;
-  --accent-yellow-text: #826407;
-  --accent-pink: #ff6b8f;
-  --accent-pink-soft: #fedfe3;
-  --accent-pink-text: #be1253;
+  /* Accents derived from the brand magenta (L 0.77, C 0.184, H 325) in OKLCH.
+     Each one sits at the edge of sRGB at its hue, so it is as saturated as the
+     magenta rather than a tinted version of it: electric azure (H235), vivid
+     yellow (H95), hot rose (H8). */
+  --accent-blue: #00b8ff;
+  --accent-blue-soft: #ccecff;
+  --accent-blue-text: #0078a7;
+  --accent-yellow: #fdd500;
+  --accent-yellow-soft: #f7e399;
+  --accent-yellow-text: #836d00;
+  --accent-pink: #ff5c87;
+  --accent-pink-soft: #ffd7dd;
+  --accent-pink-text: #e00060;
   /* Chip tints. Like --brand-soft these stay pale in both themes, because every
      chip, pill, and monogram on the site is dark ink on a pale tint. */
-  --chip-blue: #dde8fe;
-  --chip-yellow: #fae6b7;
-  --chip-pink: #fedfe3;
+  --chip-blue: #c5e9ff;
+  --chip-yellow: #f7e399;
+  --chip-pink: #ffd7dd;
   --shadow-card:
     0 10px 30px rgba(29, 18, 36, 0.07), 0 2px 6px rgba(29, 18, 36, 0.04);
   --shadow-float:
@@ -67,15 +69,15 @@
     --ground: #2a1430;
     --fog: rgba(255, 255, 255, 0.05);
     --band-soft: #2a1430;
-    --accent-blue: #8caffe;
-    --accent-blue-soft: #1a294e;
-    --accent-blue-text: #8caffe;
-    --accent-yellow: #d9aa0f;
-    --accent-yellow-soft: #372901;
-    --accent-yellow-text: #d9aa0f;
-    --accent-pink: #fe869f;
-    --accent-pink-soft: #471a25;
-    --accent-pink-text: #fe869f;
+    --accent-blue: #00b8ff;
+    --accent-blue-soft: #003249;
+    --accent-blue-text: #69caff;
+    --accent-yellow: #fdd500;
+    --accent-yellow-soft: #382d00;
+    --accent-yellow-text: #fdd500;
+    --accent-pink: #ff5c87;
+    --accent-pink-soft: #570823;
+    --accent-pink-text: #ff8ba4;
     --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.4);
     --shadow-float:
       0 24px 60px rgba(0, 0, 0, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4);
@@ -99,15 +101,15 @@
   --ground: #2a1430;
   --fog: rgba(255, 255, 255, 0.05);
   --band-soft: #2a1430;
-  --accent-blue: #8caffe;
-  --accent-blue-soft: #1a294e;
-  --accent-blue-text: #8caffe;
-  --accent-yellow: #d9aa0f;
-  --accent-yellow-soft: #372901;
-  --accent-yellow-text: #d9aa0f;
-  --accent-pink: #fe869f;
-  --accent-pink-soft: #471a25;
-  --accent-pink-text: #fe869f;
+  --accent-blue: #00b8ff;
+  --accent-blue-soft: #003249;
+  --accent-blue-text: #69caff;
+  --accent-yellow: #fdd500;
+  --accent-yellow-soft: #382d00;
+  --accent-yellow-text: #fdd500;
+  --accent-pink: #ff5c87;
+  --accent-pink-soft: #570823;
+  --accent-pink-text: #ff8ba4;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.4);
   --shadow-float: 0 24px 60px rgba(0, 0, 0, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4);
 }
@@ -5123,4 +5125,307 @@ section[id] {
 
 .accounts li:nth-child(5) .avatar {
   outline-color: var(--chip-blue);
+}
+
+/* ---------- Hiking Passport: marketing and support ---------- */
+.app-page {
+  padding: 2rem 0 5rem;
+}
+
+.app-hero {
+  max-width: 46rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.app-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0.4rem 0 1rem;
+}
+
+.app-hero h1 em {
+  font-style: italic;
+  color: var(--brand-text);
+}
+
+.app-hero .lede {
+  font-size: 1.15rem;
+  color: var(--text);
+  margin: 0 auto;
+  max-width: 34rem;
+}
+
+.app-status {
+  margin: 1.5rem 0 0;
+}
+
+/* The phone mock: a summit photo filling in as the plan is completed */
+.app-art {
+  display: grid;
+  place-items: center;
+  margin: 3rem 0 4rem;
+}
+
+.pp-phone {
+  width: 15rem;
+  padding: 0.6rem;
+  border-radius: 2.4rem;
+  background: var(--ink);
+  box-shadow: var(--shadow-float);
+}
+
+.pp-screen {
+  border-radius: 1.9rem;
+  overflow: hidden;
+  background: var(--card);
+  padding-bottom: 1rem;
+}
+
+.pp-peak {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    var(--accent-blue-soft),
+    color-mix(in srgb, var(--accent-blue-soft) 35%, var(--card))
+  );
+}
+
+.pp-peak svg {
+  display: block;
+  width: 100%;
+}
+
+.pp-far {
+  fill: color-mix(in srgb, var(--brand) 45%, var(--card));
+}
+
+.pp-near {
+  fill: var(--brand);
+}
+
+.pp-sun {
+  fill: var(--accent-yellow);
+}
+
+/* The unfinished part of the picture is still greyed out */
+.pp-fill {
+  position: absolute;
+  inset: 0 0 0 50%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--card) 86%, transparent) 22%
+  );
+  backdrop-filter: saturate(0.15);
+}
+
+.pp-rows {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 1.1rem 0;
+}
+
+.pp-row {
+  height: 0.55rem;
+  border-radius: 0.3rem;
+  background: var(--brand-soft);
+}
+
+.pp-row.b {
+  width: 72%;
+  background: var(--chip-blue);
+}
+
+.pp-row.c {
+  width: 48%;
+  background: var(--chip-yellow);
+}
+
+.app-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 0 0 3rem;
+}
+
+.app-step {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.2rem;
+  padding: 1.5rem 1.5rem 1.6rem;
+  box-shadow: var(--shadow-card);
+}
+
+.app-step h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0.55rem 0 0.6rem;
+  padding-right: 2.5rem;
+}
+
+.app-step p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.app-step .step-kind {
+  color: var(--brand-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.app-step:nth-child(2) .step-no {
+  background: var(--accent-blue);
+}
+
+.app-step:nth-child(2) .step-kind {
+  color: var(--accent-blue-text);
+}
+
+.app-step:nth-child(3) .step-no {
+  background: var(--accent-yellow);
+}
+
+.app-step:nth-child(3) .step-kind {
+  color: var(--accent-yellow-text);
+}
+
+.app-step:nth-child(4) .step-no {
+  background: var(--accent-pink);
+}
+
+.app-step:nth-child(4) .step-kind {
+  color: var(--accent-pink-text);
+}
+
+.app-block {
+  max-width: 44rem;
+  margin: 0 auto 3rem;
+}
+
+.app-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.9rem;
+}
+
+.app-block p {
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.app-block a {
+  color: var(--brand-text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1.5px;
+}
+
+.app-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.app-points li {
+  padding: 1.3rem 1.4rem;
+}
+
+.app-points h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.45rem;
+}
+
+.app-points p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.app-foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .app-steps,
+  .app-points {
+    grid-template-columns: 1fr;
+  }
+
+  .app-art {
+    margin: 2rem 0 3rem;
+  }
+}
+
+/* Support FAQ */
+.faq {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 0 1.5rem;
+}
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item .chev {
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 0.25s var(--ease-out);
+}
+
+.faq-item[open] .chev {
+  transform: rotate(-135deg);
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 1.1rem 1.1rem;
+  color: var(--text);
+  line-height: 1.7;
 }

@@ -53,7 +53,7 @@ export const apps = [
   {
     name: "Hiking Passport",
     role: "Designer and iOS engineer",
-    url: "",
+    url: "/hiking-passport/",
     icon: "",
     platforms: "iOS",
     tagline: "See your hiking goals as a picture, not a chart.",
@@ -963,3 +963,53 @@ export const statements = [
     tags: ["Training programs", "Hiring process", "Team building"],
   },
 ];
+
+// Hiking Passport: the marketing and support pages that back the App Store
+// listing until the app has a site of its own. Everything here is confirmed
+// behaviour, matching /hiking-passport/privacy.
+export const hikingPassport = {
+  name: "Hiking Passport",
+  tagline: "See your training as a picture, not a chart.",
+  lede: "Hiking Passport builds a training plan for the hike you are working toward, then shows how far you have come as an image you actually want to look at.",
+  status: "Coming to the App Store",
+  steps: [
+    {
+      kind: "Pick the hike",
+      title: "Start from the thing you actually want to do",
+      body: "A summit, a rim-to-rim, a long day on a trail you have been circling for years. The hike is the goal, so the plan is built backwards from it.",
+    },
+    {
+      kind: "Connect Health",
+      title: "The plan starts from the week you already have",
+      body: "With your permission the app reads your workouts, your heart rate, and your sleep from Apple Health. It works out what you already do before it asks you to do more.",
+    },
+    {
+      kind: "Train",
+      title: "A plan that adjusts instead of scolding you",
+      body: "Plans are generated with Apple Intelligence. Tell it about an injury, a disability, trail access, or a week where nothing goes to plan, and the next week is built around that.",
+    },
+    {
+      kind: "Watch it fill in",
+      title: "Progress you can see at a glance",
+      body: "Every finished session fills in part of a picture built from your own photos. No dashboard, no seven charts, no streak shouting at you.",
+    },
+  ],
+  points: [
+    {
+      title: "No account, no login",
+      body: "There is nothing to sign up for. Your plans and your completed hikes live on your iPhone.",
+    },
+    {
+      title: "Your health data stays yours",
+      body: "The app reads from Apple Health and never writes to it. Your raw Health history and your photos never leave your phone.",
+    },
+    {
+      title: "Built for real schedules",
+      body: "A busy week, a flare-up, a bad night of sleep. Tell the app and the plan eases off instead of breaking.",
+    },
+    {
+      title: "Works without Apple Intelligence",
+      body: "On a device that does not support it, the app still runs. You set the plan yourself and the picture fills in the same way.",
+    },
+  ],
+};

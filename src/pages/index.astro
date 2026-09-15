@@ -85,7 +85,13 @@ import {
                 )}
                 <div class="app-meta">
                   <h3>
-                    {app.url ? <a href={app.url}>{app.name}</a> : app.name}
+                    {app.url ? (
+                      <a href={app.url.startsWith("/") ? `${base}${app.url}` : app.url}>
+                        {app.name}
+                      </a>
+                    ) : (
+                      app.name
+                    )}
                   </h3>
                   <div class="org">
                     {app.year} · {app.platforms}
@@ -103,8 +109,11 @@ import {
                   </ul>
                 )}
                 {app.url && (
-                  <a class="arrow-link" href={app.url}>
-                    Visit site
+                  <a
+                    class="arrow-link"
+                    href={app.url.startsWith("/") ? `${base}${app.url}` : app.url}
+                  >
+                    {app.url.startsWith("/") ? "See the app" : "Visit site"}
                   </a>
                 )}
               </div>
