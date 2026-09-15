@@ -2,7 +2,7 @@
 :root {
   color-scheme: light dark;
   --brand: #ee86f3;
-  --brand-soft: #fcd5ff;
+  --brand-soft: #f8d8fa;
   --brand-text: #b933c4;
   --surface: #ffffff;
   --ink: #1d1224;
@@ -19,24 +19,6 @@
   --ground: #cf82d6;
   --fog: rgba(255, 255, 255, 0.7);
   --band-soft: #f8d8fa;
-  /* Accents derived from the brand magenta (L 0.77, C 0.184, H 325) in OKLCH.
-     Each one sits at the edge of sRGB at its hue, so it is as saturated as the
-     magenta rather than a tinted version of it: electric azure (H235), vivid
-     yellow (H95), hot rose (H8). */
-  --accent-blue: #00b8ff;
-  --accent-blue-soft: #ccecff;
-  --accent-blue-text: #0078a7;
-  --accent-yellow: #fdd500;
-  --accent-yellow-soft: #f7e399;
-  --accent-yellow-text: #836d00;
-  --accent-pink: #ff5c87;
-  --accent-pink-soft: #ffd7dd;
-  --accent-pink-text: #e00060;
-  /* Chip tints. Like --brand-soft these stay pale in both themes, because every
-     chip, pill, and monogram on the site is dark ink on a pale tint. */
-  --chip-blue: #c5e9ff;
-  --chip-yellow: #f7e399;
-  --chip-pink: #ffd7dd;
   --shadow-card:
     0 10px 30px rgba(29, 18, 36, 0.07), 0 2px 6px rgba(29, 18, 36, 0.04);
   --shadow-float:
@@ -69,15 +51,6 @@
     --ground: #2a1430;
     --fog: rgba(255, 255, 255, 0.05);
     --band-soft: #2a1430;
-    --accent-blue: #00b8ff;
-    --accent-blue-soft: #003249;
-    --accent-blue-text: #69caff;
-    --accent-yellow: #fdd500;
-    --accent-yellow-soft: #382d00;
-    --accent-yellow-text: #fdd500;
-    --accent-pink: #ff5c87;
-    --accent-pink-soft: #570823;
-    --accent-pink-text: #ff8ba4;
     --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.4);
     --shadow-float:
       0 24px 60px rgba(0, 0, 0, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4);
@@ -101,15 +74,6 @@
   --ground: #2a1430;
   --fog: rgba(255, 255, 255, 0.05);
   --band-soft: #2a1430;
-  --accent-blue: #00b8ff;
-  --accent-blue-soft: #003249;
-  --accent-blue-text: #69caff;
-  --accent-yellow: #fdd500;
-  --accent-yellow-soft: #382d00;
-  --accent-yellow-text: #fdd500;
-  --accent-pink: #ff5c87;
-  --accent-pink-soft: #570823;
-  --accent-pink-text: #ff8ba4;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.4);
   --shadow-float: 0 24px 60px rgba(0, 0, 0, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4);
 }
@@ -1522,7 +1486,6 @@ footer .wrap {
 
 .phone .row.short {
   width: 60%;
-  background: var(--accent-blue-soft);
 }
 
 .is-visible .phone .row {
@@ -1589,14 +1552,12 @@ footer .wrap {
 .star.s1 {
   top: 0.4rem;
   left: 0.4rem;
-  color: var(--accent-yellow);
 }
 
 .star.s2 {
   bottom: 2rem;
   left: -0.4rem;
   font-size: 0.9rem;
-  color: var(--accent-pink);
 }
 
 .is-visible .star {
@@ -1691,14 +1652,14 @@ footer .wrap {
 }
 
 .slide.c3 .bar.short {
-  background: var(--accent-blue);
+  background: var(--brand);
 }
 
 .slide .avatar {
   width: 1.8rem;
   height: 1.8rem;
   border-radius: 50%;
-  background: var(--accent-blue);
+  background: var(--brand);
   margin-bottom: auto;
 }
 
@@ -1716,7 +1677,7 @@ footer .wrap {
 }
 
 .slide .dots span:first-child {
-  background: var(--accent-pink);
+  background: var(--brand);
 }
 
 .is-visible .slide.c1 {
@@ -1878,7 +1839,7 @@ footer .wrap {
   position: absolute;
   left: 1rem;
   bottom: 1rem;
-  color: var(--accent-pink);
+  color: var(--brand);
   font-size: 1.1rem;
   opacity: 0;
 }
@@ -1966,19 +1927,6 @@ footer .wrap {
 
 .is-visible .art-network .n {
   animation: pop-node 0.5s var(--ease-out) forwards;
-}
-
-.art-network .n2,
-.art-network .n4 {
-  fill: var(--accent-blue);
-}
-
-.art-network .n3 {
-  fill: var(--accent-pink);
-}
-
-.art-network .n5 {
-  fill: var(--accent-yellow);
 }
 
 .is-visible .art-network .n1 {
@@ -2175,12 +2123,12 @@ footer .wrap {
 }
 
 .art-design .l3 {
-  background: var(--accent-pink-soft);
+  background: var(--brand-soft);
   border: 0;
 }
 
 .art-design .l2 {
-  background: var(--accent-blue-soft);
+  background: var(--box);
   border: 0;
 }
 
@@ -2220,13 +2168,13 @@ footer .wrap {
 
 .art-design .swatch.b {
   left: 2.8rem;
-  background: var(--accent-blue);
+  background: var(--brand-soft);
   box-shadow: inset 0 0 0 1px var(--line);
 }
 
 .art-design .swatch.c {
   left: 4.6rem;
-  background: var(--accent-yellow);
+  background: var(--ink);
 }
 
 .is-visible .art-design .swatch {
@@ -2258,7 +2206,6 @@ footer .wrap {
 .art-design .line.short {
   top: 5rem;
   right: 4rem;
-  background: var(--accent-blue-soft);
 }
 
 .is-visible .art-design .line {
@@ -3128,7 +3075,6 @@ section[id] {
 
 .art-code .l1 {
   width: 55%;
-  background: var(--accent-blue-soft);
 }
 .art-code .l2 {
   width: 80%;
@@ -3138,11 +3084,9 @@ section[id] {
 .art-code .l3 {
   width: 65%;
   margin-left: 1rem;
-  background: var(--accent-yellow-soft);
 }
 .art-code .l4 {
   width: 40%;
-  background: var(--accent-pink-soft);
 }
 
 .is-visible .art-code .line {
@@ -3165,7 +3109,7 @@ section[id] {
 .art-code .caret {
   width: 0.5rem;
   height: 0.7rem;
-  background: var(--accent-blue);
+  background: var(--brand);
   margin-top: 0.5rem;
   animation: blink 1s steps(1) infinite;
 }
@@ -3223,7 +3167,6 @@ section[id] {
 
 .art-code .mp-row.short {
   width: 60%;
-  background: var(--accent-pink-soft);
 }
 
 /* Chip, bottom right, pins on all four sides */
@@ -3323,7 +3266,7 @@ section[id] {
 }
 
 .art-code .ai .spark {
-  color: var(--accent-blue);
+  color: var(--brand);
   font-size: 1rem;
   line-height: 1;
 }
@@ -4169,16 +4112,6 @@ section[id] {
   --chart-ink: #ee86f3;
 }
 
-/* Each platform's small multiple gets its own hue so the row is not three
-   identical magenta charts. The -text tokens already flip for dark mode. */
-.chart-row .chart:nth-child(2) {
-  --chart-ink: var(--accent-blue-text);
-}
-
-.chart-row .chart:nth-child(3) {
-  --chart-ink: var(--accent-pink-text);
-}
-
 /* series */
 .series-list {
   list-style: none;
@@ -4906,7 +4839,7 @@ section[id] {
   position: absolute;
   top: 0.9rem;
   left: 0.9rem;
-  background: var(--card);
+  background: var(--brand-soft);
   box-shadow: var(--shadow-card);
 }
 
@@ -4918,8 +4851,8 @@ section[id] {
   padding: 1.1rem;
   background: linear-gradient(
     140deg,
-    var(--accent-blue-soft),
-    var(--brand-soft)
+    var(--brand-soft),
+    var(--layer-2)
   );
 }
 
@@ -5022,111 +4955,6 @@ section[id] {
   margin: 0.4rem 0;
 }
 
-/* ---------- Accents across the site ---------- */
-/* A pale sky behind the ridgeline so the hero is not wall-to-wall magenta.
-   This sits on .hero itself: a z-index:-1 pseudo-element would fall behind the
-   body background and never show. */
-.hero {
-  background: linear-gradient(
-    180deg,
-    var(--surface) 10%,
-    color-mix(in srgb, var(--accent-blue-soft) 70%, var(--surface)) 68%
-  );
-}
-
-/* Case study steps cycle through the brand and its accents */
-.method-step:nth-child(2) .step-no {
-  background: var(--accent-blue);
-  color: #1d1224;
-}
-
-.method-step:nth-child(3) .step-no {
-  background: var(--accent-pink);
-  color: #1d1224;
-}
-
-.method-step:nth-child(2) .step-kind {
-  color: var(--accent-blue-text);
-}
-
-.method-step:nth-child(3) .step-kind {
-  color: var(--accent-pink-text);
-}
-
-/* Service tag pills take the row's accent */
-.statement:nth-child(2) .tags li {
-  background: var(--chip-blue);
-}
-
-.statement:nth-child(3) .tags li {
-  background: var(--chip-pink);
-}
-
-.statement:nth-child(4) .tags li {
-  background: var(--chip-yellow);
-}
-
-/* App cards: letter placeholders cycle the accents */
-.apps-grid li:nth-child(2) .app-icon.placeholder {
-  background: var(--chip-blue);
-}
-
-.apps-grid li:nth-child(4) .app-icon.placeholder {
-  background: var(--chip-yellow);
-}
-
-.apps-more li:nth-child(2) .app-icon.placeholder {
-  background: var(--chip-pink);
-}
-
-/* Feature pills are coloured by the kind of feature. Without one of these the
-   pill falls back to the card colour, which disappears in dark mode. */
-.kind-pill[data-kind="featured-on-the-app-store"] {
-  background: var(--brand-soft);
-}
-
-.kind-pill[data-kind="editorial-feature"] {
-  background: var(--chip-yellow);
-}
-
-.kind-pill[data-kind="press-feature"] {
-  background: var(--chip-blue);
-}
-
-.kind-pill[data-kind="featured-by-apple"] {
-  background: var(--chip-pink);
-}
-
-/* Community monograms cycle the four colours */
-.community-grid li:nth-child(2) .community-mark {
-  background: var(--chip-blue);
-}
-
-.community-grid li:nth-child(3) .community-mark {
-  background: var(--chip-yellow);
-}
-
-.community-grid li:nth-child(4) .community-mark {
-  background: var(--chip-pink);
-}
-
-/* Account avatars get a ring in the accent colours */
-.accounts li:nth-child(2) .avatar {
-  outline-color: var(--chip-blue);
-}
-
-.accounts li:nth-child(3) .avatar {
-  outline-color: var(--chip-yellow);
-}
-
-.accounts li:nth-child(4) .avatar {
-  outline-color: var(--chip-pink);
-}
-
-.accounts li:nth-child(5) .avatar {
-  outline-color: var(--chip-blue);
-}
-
 /* ---------- Hiking Passport: marketing and support ---------- */
 .app-page {
   padding: 2rem 0 5rem;
@@ -5189,8 +5017,8 @@ section[id] {
   position: relative;
   background: linear-gradient(
     180deg,
-    var(--accent-blue-soft),
-    color-mix(in srgb, var(--accent-blue-soft) 35%, var(--card))
+    var(--brand-soft),
+    color-mix(in srgb, var(--brand-soft) 35%, var(--card))
   );
 }
 
@@ -5208,7 +5036,7 @@ section[id] {
 }
 
 .pp-sun {
-  fill: var(--accent-yellow);
+  fill: var(--layer-2);
 }
 
 /* The unfinished part of the picture is still greyed out */
@@ -5237,12 +5065,11 @@ section[id] {
 
 .pp-row.b {
   width: 72%;
-  background: var(--chip-blue);
 }
 
 .pp-row.c {
   width: 48%;
-  background: var(--chip-yellow);
+  background: var(--layer-2);
 }
 
 .app-steps {
@@ -5283,30 +5110,6 @@ section[id] {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin: 0;
-}
-
-.app-step:nth-child(2) .step-no {
-  background: var(--accent-blue);
-}
-
-.app-step:nth-child(2) .step-kind {
-  color: var(--accent-blue-text);
-}
-
-.app-step:nth-child(3) .step-no {
-  background: var(--accent-yellow);
-}
-
-.app-step:nth-child(3) .step-kind {
-  color: var(--accent-yellow-text);
-}
-
-.app-step:nth-child(4) .step-no {
-  background: var(--accent-pink);
-}
-
-.app-step:nth-child(4) .step-kind {
-  color: var(--accent-pink-text);
 }
 
 .app-block {
