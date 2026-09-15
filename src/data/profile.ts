@@ -44,7 +44,7 @@ export const apps = [
     role: "Co-founder, designer, and iOS engineer",
     url: "https://hearingbuddyapp.com",
     icon: "/apps/hearing-buddy.jpg",
-    platforms: "iOS",
+    platforms: "iOS and iPadOS",
     tagline: "Live captions that help Deaf and hard of hearing people hear.",
     body: "iOS app that helps Deaf/HoH people hear with on-device live captions. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 8 times this year.",
     badges: ["Apple Design Award Finalist", "Featured 8 times", "Apps We Love"],
@@ -386,6 +386,17 @@ export const featuredWork = [
 // `image` is the feature graphic or event card; `screenshot` is a capture of the
 // feature on the App Store; `link` is the App Store story or product page if it exists.
 export const appStoreFeatures = [
+  {
+    app: "Hearing Buddy",
+    title: "Great on iPadOS 27",
+    kind: "Featured on the App Store",
+    date: "September 2026",
+    image: "/appstore/great-on-ipados-27.jpg",
+    quote:
+      "Hearing Buddy got featured yesterday for my new iPad Liquid Glass designs! The app now looks great in any window size or orientation.",
+    post: "7505653693732597760",
+    link: "",
+  },
   {
     app: "Hearing Buddy",
     title: "Apps We Love",
