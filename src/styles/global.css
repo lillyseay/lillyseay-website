@@ -5132,6 +5132,117 @@ section[id] {
   line-height: 1.6;
 }
 
+/* The six hiking buddies */
+.buddy-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.buddy-list li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 0.9rem 1rem;
+}
+
+.buddy-list strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.buddy-who {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.buddy-note {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--brand-text);
+}
+
+/* Free against Pro */
+.app-plans {
+  max-width: 44rem;
+  margin: 0 auto 3rem;
+}
+
+.app-plans h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.1rem;
+}
+
+.plan-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.plan-col {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  padding: 1.3rem 1.4rem;
+}
+
+.plan-col.pro {
+  background: var(--brand-soft);
+  border-color: transparent;
+}
+
+.plan-col h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.7rem;
+}
+
+.plan-col.pro h3 {
+  color: #1d1224;
+}
+
+.plan-col ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.plan-col li {
+  color: var(--text);
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.plan-col.pro li {
+  color: #3a2a4a;
+}
+
+.plan-note {
+  margin: 1.1rem 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.app-made {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 2rem;
+}
+
 .app-foot-links {
   display: flex;
   flex-wrap: wrap;
@@ -5143,6 +5254,14 @@ section[id] {
   .app-steps,
   .app-points {
     grid-template-columns: 1fr;
+  }
+
+  .plan-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .buddy-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   /* One phone at a time, centred, on a narrow screen */

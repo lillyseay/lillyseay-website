@@ -5,15 +5,12 @@ import { profile, hikingPassport as hp } from "../../data/profile";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<Layout
-  title={`${hp.name}, ${hp.tagline}`}
-  description={hp.lede}
->
+<Layout title={`${hp.name}, ${hp.tagline}`} description={hp.lede}>
   <section class="app-page">
     <div class="wrap">
       <header class="app-hero reveal">
         <p class="eyebrow">{hp.name}</p>
-        <h1>See your training as a <em>picture</em>, not a chart.</h1>
+        <h1>Your season, <em>stamped</em>.</h1>
         <p class="lede">{hp.lede}</p>
         <p class="app-status">
           <span class="chip">{hp.status}</span>
@@ -50,21 +47,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       </div>
 
       <div class="app-block reveal">
-        <h2>What it reads, and what it never touches</h2>
-        <p>
-          With your permission Hiking Passport reads your workouts, steps,
-          distance, flights climbed, and active energy, your heart rate and
-          cardio fitness, and your sleep. It reads that data and nothing else,
-          it never writes back to Apple Health, and your raw Health history
-          never leaves your iPhone. Decline a category and the app still works,
-          the plan is just less tailored.
-        </p>
-        <p>
-          Plans are generated with Apple Intelligence. Short requests run on
-          your iPhone, longer ones go to Apple's Private Cloud Compute, which
-          returns your plan and keeps nothing. The full detail is in the{" "}
-          <a href={`${base}/hiking-passport/privacy/`}>privacy policy</a>.
-        </p>
+        <h2>{hp.plan.title}</h2>
+        {hp.plan.body.map((para) => <p>{para}</p>)}
+      </div>
+
+      <div class="app-block reveal">
+        <h2>{hp.buddies.title}</h2>
+        <p>{hp.buddies.body}</p>
+        <ul class="buddy-list">
+          {
+            hp.buddies.list.map((b) => (
+              <li>
+                <strong>{b.name}</strong>
+                <span class="buddy-who">{b.who}</span>
+                <span class="buddy-note">{b.note}</span>
+              </li>
+            ))
+          }
+        </ul>
       </div>
 
       <ul class="app-points stagger">
@@ -78,9 +78,46 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         }
       </ul>
 
+      <div class="app-block reveal">
+        <h2>What it reads from Apple Health</h2>
+        <p>
+          With your permission the app reads five things: your steps, your
+          walking and running distance, your flights climbed, your active
+          energy, and your workouts. That is the whole list. It never writes
+          anything back to Apple Health, and your Health data, your hikes, and
+          your photos stay on your iPhone. The full detail is in the{" "}
+          <a href={`${base}/hiking-passport/privacy/`}>privacy policy</a>.
+        </p>
+        <p>
+          The plan itself is built by rules, not by a model. Apple Intelligence
+          runs on your iPhone and only ever writes words: looking up a trail's
+          stats, naming your plan, and putting your buddy's daily note in their
+          own voice. Turn it off and the plan is exactly the same.
+        </p>
+      </div>
+
+      <div class="app-plans reveal">
+        <h2>{hp.pricing.title}</h2>
+        <div class="plan-cols">
+          <div class="plan-col">
+            <h3>Free</h3>
+            <ul>{hp.pricing.free.map((f) => <li>{f}</li>)}</ul>
+          </div>
+          <div class="plan-col pro">
+            <h3>Pro</h3>
+            <ul>{hp.pricing.pro.map((f) => <li>{f}</li>)}</ul>
+          </div>
+        </div>
+        <p class="plan-note">{hp.requirements}</p>
+      </div>
+
+      <p class="app-made reveal">Made by one hiker, for hikers.</p>
+
       <div class="app-foot-links reveal">
         <a class="pill-link" href={`${base}/hiking-passport/support/`}>Support</a>
-        <a class="pill-link ghost" href={`${base}/hiking-passport/privacy/`}>Privacy policy</a>
+        <a class="pill-link ghost" href={`${base}/hiking-passport/privacy/`}
+          >Privacy policy</a
+        >
         <a class="pill-link ghost" href={`mailto:${profile.email}`}>Email me</a>
       </div>
     </div>

@@ -965,71 +965,111 @@ export const statements = [
 ];
 
 // Hiking Passport: the marketing and support pages that back the App Store
-// listing until the app has a site of its own. Everything here is confirmed
-// behaviour, matching /hiking-passport/privacy.
+// listing until the app has a site of its own. Every claim here was checked
+// against the app source at ~/Developer/Hiking-Passport, and the wording leans
+// on Lilly's own App Store copy.
 export const hikingPassport = {
   name: "Hiking Passport",
-  tagline: "See your training as a picture, not a chart.",
-  lede: "Hiking Passport builds a training plan for the hike you are working toward, then shows how far you have come as an image you actually want to look at.",
+  tagline: "Your season, stamped.",
+  lede: "Add the hikes you're chasing and get a training plan built from what you already do. Stamp every summit. Everything stays on your iPhone, with no account and no cloud.",
   status: "Coming to the App Store",
   shots: [
     {
       image: "/hiking-passport/scene-day.jpg",
-      alt: "The passport scene: a named season, a goal hike stamped on the summit, and milestone signposts along a trail through a meadow.",
-      title: "Your season, your name for it",
-      body: "The goal hike is a stamp on the summit. Milestones line the trail below it.",
+      alt: "A hand-drawn passport scene: a named season, a goal hike stamped on the summit, and milestone signs along a trail through a meadow.",
+      title: "Name your season",
+      body: "The goal hike is a mountain. Milestone signs stand along the trail below it.",
     },
     {
       image: "/hiking-passport/scene-two-hikes.jpg",
       alt: "Two goal hikes stamped and dated on separate peaks, with locked mile markers along the trail.",
-      title: "Every finished hike gets stamped",
-      body: "Dated, on its own peak. The markers ahead stay locked until you reach them.",
+      title: "Summit it and it gets stamped",
+      body: "Dated, on its own peak, with your photo on the stamp if you want.",
     },
     {
       image: "/hiking-passport/scene-night.jpg",
-      alt: "The same scene at night, with a moon, stars, and flags planted on the peaks already climbed.",
-      title: "It follows the time of day",
-      body: "Same trail after dark, with flags on the summits you have already reached.",
+      alt: "The same scene after dark, with a moon, stars, and flags on the peaks already climbed.",
+      title: "The sky follows your clock",
+      body: "Dawn, midday, golden hour, and night, drawn from the time where you are.",
     },
   ],
   steps: [
     {
-      kind: "Pick the hike",
-      title: "Start from the thing you actually want to do",
-      body: "A summit, a rim-to-rim, a long day on a trail you have been circling for years. The hike is the goal, so the plan is built backwards from it.",
+      kind: "Add your hikes",
+      title: "Start from the hikes you are actually chasing",
+      body: "Type in the trail, the distance, the climb, and how many days it takes. On a device that supports Apple Intelligence, it can fill the stats in for you, and it tells you how confident it is so you know when to check a guidebook.",
     },
     {
-      kind: "Connect Health",
+      kind: "Bring in Health",
       title: "The plan starts from the week you already have",
-      body: "With your permission the app reads your workouts, your heart rate, and your sleep from Apple Health. It works out what you already do before it asks you to do more.",
+      body: "With your permission the app reads your steps, distance, flights climbed, active energy, and workouts from Apple Health. Nothing is written back. Skip it and everything still works, logged by hand.",
     },
     {
       kind: "Train",
-      title: "A plan that adjusts instead of scolding you",
-      body: "Plans are generated with Apple Intelligence. Tell it about an injury, a disability, trail access, or a week where nothing goes to plan, and the next week is built around that.",
+      title: "A ladder between here and the summit",
+      body: "Six milestone signs climb the trail, finishing with two dress rehearsals near eighty percent of the goal. Each rung says how to do it in plain words: on a trail, on a treadmill, on a stair machine, or in the small things you already do every day.",
     },
     {
-      kind: "Watch it fill in",
-      title: "Progress you can see at a glance",
-      body: "Every finished session fills in part of a picture built from your own photos. No dashboard, no seven charts, no streak shouting at you.",
+      kind: "Stamp it",
+      title: "Proof you can see from across the room",
+      body: "Log the summit with a date, a rating, a mood, and a photo. The stamp lands on the peak, the camp moves up the meadow behind you, and the boot prints on the trail reach a little further.",
     },
   ],
+  plan: {
+    title: "More than one way up",
+    body: [
+      "Setup asks how you can train, how many days a week, and how long a session is. Then it asks what to work around, and offers fifty-five things to tap: a body that hurts, a schedule that does not bend, no car, no trail nearby, a bad stretch of sleep, an accessibility need, a tight month.",
+      "None of it is a barrier to the goal. It changes what the plan suggests, never whether the mountain is yours to climb. Every milestone comes with a version that matches it, a version sized to your session, a version modified for what you tapped, a low-energy version, and a short-on-time version.",
+    ],
+  },
+  buddies: {
+    title: "Pick someone to hike with",
+    body: "Six forest animals, each from a community that gets told the trail is not for them. They read your workouts and cheer you on. They are friends who hike, not trainers or doctors, and they never scold.",
+    list: [
+      { name: "Aerie", who: "Bald eagle", note: "Disabled, fierce and kind" },
+      { name: "Berry", who: "Black bear", note: "Plus-size and joyful" },
+      { name: "Acorn", who: "Chipmunk", note: "Trains between naps" },
+      { name: "Juniper", who: "Box turtle", note: "Queer, trans and outside" },
+      { name: "Otis", who: "Barred owl", note: "Neurodivergent and clear" },
+      { name: "Biscuit", who: "Barn cat", note: "Funny, warm and on your side" },
+    ],
+  },
   points: [
     {
-      title: "No account, no login",
-      body: "There is nothing to sign up for. Your plans and your completed hikes live on your iPhone.",
+      title: "No account, no cloud",
+      body: "Nothing to sign up for. Your passport, your hikes, and your photos are stored on your iPhone and work with no signal at all.",
     },
     {
-      title: "Your health data stays yours",
-      body: "The app reads from Apple Health and never writes to it. Your raw Health history and your photos never leave your phone.",
+      title: "Apple Health is read only",
+      body: "The app reads five things and writes nothing back. Decline any of them and the plan simply works without it.",
     },
     {
-      title: "Built for real schedules",
-      body: "A busy week, a flare-up, a bad night of sleep. Tell the app and the plan eases off instead of breaking.",
+      title: "On your wrist and your Home Screen",
+      body: "The Apple Watch app draws a miniature passport and lets you cross a milestone off or stamp a summit. Four widgets carry the plan, the next milestone, today's pick, and your stats.",
     },
     {
-      title: "Works without Apple Intelligence",
-      body: "On a device that does not support it, the app still runs. You set the plan yourself and the picture fills in the same way.",
+      title: "Built to be legible",
+      body: "The whole scene is described for VoiceOver, the milestone signs thin out instead of colliding as text grows, and the two-and-a-half-second opening animation skips itself when Reduce Motion is on.",
     },
   ],
+  pricing: {
+    title: "What is free, and what Pro adds",
+    free: [
+      "The passport, the scene, the six milestone signs, and your progress up the trail",
+      "One goal hike per passport",
+      "Logging summits with a date, rating, mood, notes, and a photo",
+      "All six hiking buddies and the Meadow theme",
+      "Hikes, miles, and climb on the Stats tab",
+      "Sharing a picture of your passport",
+    ],
+    pro: [
+      "The training plan behind the milestone signs, built from your hikes and your Apple Health history",
+      "Your buddy's pick for today, sized to how you have actually been training",
+      "Stats insights in your buddy's voice",
+      "Every hike on your list in one passport, with a single ladder across all of them",
+      "Six more park themes, for the passport, the widgets, and your watch",
+    ],
+  },
+  requirements:
+    "iPhone on iOS 26 or later, in portrait. The watch app needs watchOS 26. Apple Intelligence features need a device that supports it; without one, you enter trail stats by hand and the plan is unchanged.",
 };
