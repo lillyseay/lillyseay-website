@@ -4991,52 +4991,68 @@ section[id] {
   margin: 1.5rem 0 0;
 }
 
-/* Real screenshots in phone frames */
+/* The App Store screenshots, in a strip you scroll like the App Store itself */
 .app-shots {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  align-items: end;
   list-style: none;
-  padding: 0;
-  margin: 3rem 0 1rem;
+  padding: 0 0 0.5rem;
+  margin: 3rem 0 0.4rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(14rem, 1fr);
+  gap: 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
 }
 
 .app-shots li {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  scroll-snap-align: start;
 }
 
-.app-shots li:nth-child(2) {
-  margin-bottom: 1.75rem;
-}
-
-.shot {
-  border-radius: 1.8rem;
-  padding: 0.45rem;
-  background: var(--ink);
-  box-shadow: var(--shadow-float);
-}
-
-.shot img {
+.app-shots img {
   display: block;
   width: 100%;
-  border-radius: 1.45rem;
+  height: auto;
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow-card);
 }
 
-.app-shots figcaption,
-.app-shots .shot-cap {
+.shots-hint {
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--muted);
-  line-height: 1.5;
+  margin: 0 0 3rem;
 }
 
-.app-shots .shot-cap strong {
+/* Apple Watch screens */
+.watch-shots {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.watch-frame {
+  border-radius: 1.5rem;
+  padding: 0.35rem;
+  background: var(--ink);
+  box-shadow: var(--shadow-card);
+}
+
+.watch-frame img {
   display: block;
-  color: var(--ink);
-  font-weight: 600;
+  width: 100%;
+  height: auto;
+  border-radius: 1.2rem;
+}
+
+.watch-cap {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0.55rem 0 0;
 }
 
 .app-steps {
@@ -5264,16 +5280,14 @@ section[id] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* One phone at a time, centred, on a narrow screen */
   .app-shots {
-    grid-template-columns: 1fr;
-    gap: 2.25rem;
-    max-width: 17rem;
-    margin: 2rem auto 1rem;
+    grid-auto-columns: minmax(12rem, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
   }
 
-  .app-shots li:nth-child(2) {
-    margin-bottom: 0;
+  .watch-shots {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

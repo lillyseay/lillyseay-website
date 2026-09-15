@@ -17,21 +17,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         </p>
       </header>
 
-      <ul class="app-shots stagger">
+      <ul class="app-shots reveal">
         {
           hp.shots.map((sh) => (
             <li>
-              <div class="shot">
-                <img src={`${base}${sh.image}`} alt={sh.alt} loading="lazy" />
-              </div>
-              <p class="shot-cap">
-                <strong>{sh.title}</strong>
-                {sh.body}
-              </p>
+              <img src={`${base}${sh.image}`} alt={sh.alt} loading="lazy" />
             </li>
           ))
         }
       </ul>
+      <p class="shots-hint reveal">Scroll for more</p>
 
       <div class="app-steps stagger">
         {
@@ -73,6 +68,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             <li class="card">
               <h3>{p.title}</h3>
               <p>{p.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="app-block reveal">
+        <h2>{hp.watch.title}</h2>
+        <p>{hp.watch.body}</p>
+      </div>
+
+      <ul class="watch-shots stagger">
+        {
+          hp.watch.shots.map((w) => (
+            <li>
+              <div class="watch-frame">
+                <img src={`${base}${w.image}`} alt={w.alt} loading="lazy" />
+              </div>
+              <p class="watch-cap">{w.cap}</p>
             </li>
           ))
         }

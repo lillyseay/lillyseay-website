@@ -8,9 +8,9 @@ export const profile = {
   headline:
     "iOS engineer, designer, and founder. Apple Design Award Finalist, FOSDEM speaker, and Apple Entrepreneur Camp alum. I also help startups market their apps on social media.",
   about: [
-    "I grew up in Oklahoma taking things apart to see how they worked. I studied electrical engineering, then followed the work west to Portland, where the trails are long and the ideas are big.",
-    "For ten years I've built native apps and the hardware they talk to. Then I built the one I needed. I'm hard of hearing, and Hearing Buddy became a 2026 Apple Design Award Finalist.",
-    "Now I help startups design, build, and market their apps. Off the clock you'll find me on a paddleboard or a trail with my two black labs, Jet and Nova.",
+    "I have spent my life chasing the most beautiful places I can find, and I have travelled a long way to stand in them. When I got to the Pacific Northwest in 2020 I knew immediately that I was home.",
+    "The same restlessness runs through my work. For ten years I have built native apps and the hardware they talk to. Then I built the one I needed. I am hard of hearing, and Hearing Buddy became a 2026 Apple Design Award Finalist.",
+    "Now I help startups design, build, and market their apps. Off the clock you will find me on a paddleboard or a trail with my two black labs, Jet and Nova.",
   ],
   links: {
     linkedin: "https://www.linkedin.com/in/lillyseay",
@@ -54,10 +54,10 @@ export const apps = [
     name: "Hiking Passport",
     role: "Designer and iOS engineer",
     url: "/hiking-passport/",
-    icon: "",
-    platforms: "iOS",
+    icon: "/apps/hiking-passport.jpg",
+    platforms: "iOS and watchOS",
     tagline: "See your hiking goals as a picture, not a chart.",
-    body: "iOS app that helps people complete their hiking goals, displaying progress and goals in a beautiful image versus using charts.",
+    body: "iPhone and Apple Watch app that turns the hikes you're chasing into a passport. Each goal becomes a mountain, milestone signs line the trail below it, and summiting stamps the peak.",
     badges: ["New in 2026"],
     year: "2026",
   },
@@ -986,24 +986,69 @@ export const hikingPassport = {
   status: "Coming to the App Store",
   shots: [
     {
-      image: "/hiking-passport/scene-day.jpg",
-      alt: "A hand-drawn passport scene: a named season, a goal hike stamped on the summit, and milestone signs along a trail through a meadow.",
-      title: "Name your season",
-      body: "The goal hike is a mountain. Milestone signs stand along the trail below it.",
+      image: "/hiking-passport/shots/01-goal-hikes.jpg",
+      alt: "Track your goal hikes. The passport scene: a goal hike stamped on the summit, milestone signs along a trail, a tent and a buddy where the boot prints end.",
     },
     {
-      image: "/hiking-passport/scene-two-hikes.jpg",
-      alt: "Two goal hikes stamped and dated on separate peaks, with locked mile markers along the trail.",
-      title: "Summit it and it gets stamped",
-      body: "Dated, on its own peak, with your photo on the stamp if you want.",
+      image: "/hiking-passport/shots/02-stamp-the-summit.jpg",
+      alt: "Stamp the summit. Logging South Sister with a date, a five star rating, a mood, and a photo set as the passport stamp.",
     },
     {
-      image: "/hiking-passport/scene-night.jpg",
-      alt: "The same scene after dark, with a moon, stars, and flags on the peaks already climbed.",
-      title: "The sky follows your clock",
-      body: "Dawn, midday, golden hour, and night, drawn from the time where you are.",
+      image: "/hiking-passport/shots/03-train-your-faves.jpg",
+      alt: "Train doing your faves. Picking how you can train: real hikes, walks and runs, treadmill, stair machine, low impact, strength, and everyday habits.",
+    },
+    {
+      image: "/hiking-passport/shots/04-training-for-everyone.jpg",
+      alt: "Training for everyone. The list of things the plan can work around, across family, transportation, and body and health.",
+    },
+    {
+      image: "/hiking-passport/shots/05-hike-with-a-buddy.jpg",
+      alt: "Hike with a buddy. Choosing a hiking buddy, with Aerie the bald eagle at a ninety six percent match and her story underneath.",
+    },
+    {
+      image: "/hiking-passport/shots/06-hiking-insights.jpg",
+      alt: "Hiking insights. The stats tab, with total climb, trail miles, biggest climb, and longest hike, written in your buddy's voice.",
+    },
+    {
+      image: "/hiking-passport/shots/07-passport-themes.jpg",
+      alt: "Passport themes. Picking a theme, with the whole scene recoloured and a row of park themes underneath.",
+    },
+    {
+      image: "/hiking-passport/shots/08-training-widgets.jpg",
+      alt: "Training widgets. Home Screen widgets showing the season, milestones done, and the insights your buddy pulled out.",
     },
   ],
+  watch: {
+    title: "On your wrist",
+    body: "The watch app keeps its own copy, so it opens with your passport whether or not the phone is nearby. You can cross a milestone off or stamp a summit from there.",
+    shots: [
+      {
+        image: "/hiking-passport/watch/1-plan.jpg",
+        alt: "The plan on the watch: fourteen miles and 5,100 feet of gain, two of six milestones done, and the next one is to climb 2,300 feet.",
+        cap: "The plan",
+      },
+      {
+        image: "/hiking-passport/watch/2-todays-pick.jpg",
+        alt: "Today's pick from Aerie: climb 2,300 feet, with a list of other things that also count.",
+        cap: "Today's pick",
+      },
+      {
+        image: "/hiking-passport/watch/3-ways-to-do-it.jpg",
+        alt: "Ways to do it: fifty eight minutes on a stair machine, eighty eight minutes on a treadmill at a ten percent incline, or 230 flights of stairs over the week.",
+        cap: "Ways to do it",
+      },
+      {
+        image: "/hiking-passport/watch/4-passport.jpg",
+        alt: "The passport drawn on the watch, with the mountain, the trail, milestone signs, and the buddy.",
+        cap: "Your passport",
+      },
+      {
+        image: "/hiking-passport/watch/5-insights.jpg",
+        alt: "Aerie took a look: total climb of 78,833 feet, described as the height of Everest twice.",
+        cap: "Insights",
+      },
+    ],
+  },
   steps: [
     {
       kind: "Add your hikes",
