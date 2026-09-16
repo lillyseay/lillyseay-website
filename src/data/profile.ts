@@ -53,7 +53,7 @@ export const apps = [
   {
     name: "Hiking Passport",
     role: "Designer and iOS engineer",
-    url: "/hiking-passport/",
+    url: "https://hikingpassportapp.com",
     icon: "/apps/hiking-passport.png",
     platforms: "iPhone and Apple Watch",
     tagline: "See your hiking goals as a picture, not a chart.",
