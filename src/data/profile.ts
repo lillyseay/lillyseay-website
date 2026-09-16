@@ -1063,7 +1063,7 @@ export const hikingPassport = {
     {
       kind: "Train",
       title: "A ladder between here and the summit",
-      body: "Six milestone signs climb the trail, finishing with two dress rehearsals near eighty percent of the goal. Each rung says how to do it in plain words: on a trail, on a treadmill, on a stair machine, or in the small things you already do every day.",
+      body: "Six milestone signs climb the trail, finishing with two dress rehearsals near eighty percent of the goal. Each sign says how to do it in plain words: on a trail, on a treadmill, on a stair machine, or in the small things you already do every day.",
     },
     {
       kind: "Stamp it",
