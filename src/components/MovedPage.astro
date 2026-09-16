@@ -1,0 +1,30 @@
+---
+// A page that moved to another site. GitHub Pages can't send a server redirect, so this
+// redirects with a meta refresh (and a script, for speed) and tells search engines the
+// new address is canonical. Kept so links already out in the world, like App Store
+// Connect and shipped app builds, still land on the right page.
+interface Props {
+  title: string;
+  to: string;
+}
+
+const { title, to } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="canonical" href={to} />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${to}`} />
+    <script is:inline define:vars={{ to }}>
+      location.replace(to);
+    </script>
+  </head>
+  <body>
+    <p>This page has moved to <a href={to}>{to}</a>.</p>
+  </body>
+</html>

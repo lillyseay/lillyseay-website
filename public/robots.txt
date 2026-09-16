@@ -1,4 +1,2 @@
-# The Hiking Passport privacy policy is linked from App Store Connect, not from
-# the site, and carries a noindex tag as well.
 User-agent: *
-Disallow: /hiking-passport/privacy
+Allow: /
