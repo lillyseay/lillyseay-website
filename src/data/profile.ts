@@ -273,13 +273,15 @@ export const community = [
   {
     mark: "WWDC",
     title: "WWDC attendee",
-    detail: "Apple Park in 2024, 2025, and 2026, the last one as an Apple Design Award Finalist.",
+    detail:
+      "Apple Park in 2024, 2025, and 2026, the last one as an Apple Design Award Finalist.",
     when: "2024 to 2026",
   },
   {
     mark: "SWE",
     title: "Society of Women Engineers",
-    detail: "Member. I volunteer at SWE resume workshops, reviewing resumes for college students heading into engineering.",
+    detail:
+      "Member. I volunteer at SWE resume workshops, reviewing resumes for college students heading into engineering.",
     when: "Member",
   },
   {
@@ -291,7 +293,8 @@ export const community = [
   {
     mark: "IEEE",
     title: "IEEE student chapter president",
-    detail: "Led the chapter at the University of Central Oklahoma my senior year: officers, meetings, budgets, and fundraising.",
+    detail:
+      "Led the chapter at the University of Central Oklahoma my senior year: officers, meetings, budgets, and fundraising.",
     when: "2015 to 2016",
   },
 ];
@@ -471,202 +474,209 @@ export const appStoreFeatures = [
 // events that shipped with it. Event copy is from App Store Connect (2026-09-08). Newest first.
 export const campaigns = [
   {
-    "slug": "ios-27",
-    "name": "iOS 27 launch",
-    "month": "September 2026",
-    "type": "App enhancements",
-    "result": "Featured on the App Store",
-    "summary": "Smarter summaries on Private Cloud Compute, hands-free Siri, and an interface rebuilt for iOS 27, pitched for launch day.",
-    "pitch": [
+    slug: "ios-27",
+    name: "iOS 27 launch",
+    month: "September 2026",
+    type: "App enhancements",
+    result: "Featured on the App Store",
+    summary:
+      "Smarter summaries on Private Cloud Compute, hands-free Siri, and an interface rebuilt for iOS 27, pitched for launch day.",
+    pitch: [
       "iOS 27 was the moment to show what a Hearing Buddy can do beyond captions. Enhanced summaries built on Private Cloud Compute turn a conversation into decisions, action items, and sectioned notes, and they drag straight into Notes and Reminders.",
-      "Siri and App Intents make it hands-free: start a listening session by voice and search past conversations without touching the screen. The whole interface was rebuilt for iOS 27 adaptivity and drag and drop, which shines on iPad in landscape during long meetings and lectures. The pitch came from a two-person team that had worked with the Evaluations Framework and the new Siri, and it earned a feature for the iOS 27 launch."
+      "Siri and App Intents make it hands-free: start a listening session by voice and search past conversations without touching the screen. The whole interface was rebuilt for iOS 27 adaptivity and drag and drop, which shines on iPad in landscape during long meetings and lectures. The pitch came from a two-person team that had worked with the Evaluations Framework and the new Siri, and it earned a feature for the iOS 27 launch.",
     ],
-    "events": [
+    events: [
       {
-        "name": "iOS27: Smarter summaries",
-        "badge": "Major update",
-        "when": "Sep 14 to Oct 15, 2026",
-        "short": "Your Buddy takes detailed notes and action items.",
-        "long": "Buddy summarizes your meeting or lecture with key points and action items you can add to your Reminders.",
-        "image": "/appstore/events/ios27.jpg",
-        "note": "Designed for the iOS 27 launch"
-      }
-    ]
+        name: "iOS27: Smarter summaries",
+        badge: "Major update",
+        when: "Sep 14 to Oct 15, 2026",
+        short: "Your Buddy takes detailed notes and action items.",
+        long: "Buddy summarizes your meeting or lecture with key points and action items you can add to your Reminders.",
+        image: "/appstore/events/ios27.jpg",
+        note: "Designed for the iOS 27 launch",
+      },
+    ],
   },
   {
-    "slug": "deaf-awareness-month",
-    "name": "Deaf Awareness Month",
-    "month": "September 2026",
-    "type": "New content",
-    "result": "Featured on the App Store",
-    "summary": "Launched Celeste, the first Deaf buddy, timed to Deaf Awareness Month and the International Day of Sign Languages.",
-    "pitch": [
+    slug: "deaf-awareness-month",
+    name: "Deaf Awareness Month",
+    month: "September 2026",
+    type: "New content",
+    result: "Featured on the App Store",
+    summary:
+      "Launched Celeste, the first Deaf buddy, timed to Deaf Awareness Month and the International Day of Sign Languages.",
+    pitch: [
       "September is Deaf Awareness Month and includes the International Week of Deaf People and the International Day of Sign Languages. The campaign tied Hearing Buddy's newest character launch to those dates so the app had a clear reason to be featured that month.",
-      "Celeste is the app's first Deaf buddy, shaped by feedback from Deaf users. Features like sharing captions from the speaker's mic and haptic name and question alerts came from that community. The nomination framed the launch as a community-built update, backed by a demo video and a month-long in-app event."
+      "Celeste is the app's first Deaf buddy, shaped by feedback from Deaf users. Features like sharing captions from the speaker's mic and haptic name and question alerts came from that community. The nomination framed the launch as a community-built update, backed by a demo video and a month-long in-app event.",
     ],
-    "events": [
+    events: [
       {
-        "name": "Happy Deaf Awareness Month!",
-        "badge": "Major update",
-        "when": "September 2026",
-        "short": "Meet Celeste - our new Deaf Hearing Buddy.",
-        "long": "Celebrating this month with a new Deaf buddy, improved captions, and smarter summaries.",
-        "image": "/appstore/events/deaf-awareness-month.jpg"
-      }
-    ]
+        name: "Happy Deaf Awareness Month!",
+        badge: "Major update",
+        when: "September 2026",
+        short: "Meet Celeste - our new Deaf Hearing Buddy.",
+        long: "Celebrating this month with a new Deaf buddy, improved captions, and smarter summaries.",
+        image: "/appstore/events/deaf-awareness-month.jpg",
+      },
+    ],
   },
   {
-    "slug": "back-to-school",
-    "name": "Back to School",
-    "month": "August 2026",
-    "type": "App enhancements",
-    "result": "Featured on the App Store",
-    "summary": "Two new buddies and a caption sharing feature for classrooms, pitched as accessibility for students who can't hear the lesson.",
-    "pitch": [
+    slug: "back-to-school",
+    name: "Back to School",
+    month: "August 2026",
+    type: "App enhancements",
+    result: "Featured on the App Store",
+    summary:
+      "Two new buddies and a caption sharing feature for classrooms, pitched as accessibility for students who can't hear the lesson.",
+    pitch: [
       "Back to school is when accessibility barriers hit hardest, so the campaign led with the classroom. A teacher captions from their own mic and shares to the whole class, with live translation for multilingual students.",
-      "Two in-app events split the story. Learning for All spotlighted caption sharing, and Back to School Buddies introduced Chalkie and Paige. The pitch drew on my own experience of falling behind in school because I couldn't hear, and it earned a feature on the App Store."
+      "Two in-app events split the story. Learning for All spotlighted caption sharing, and Back to School Buddies introduced Chalkie and Paige. The pitch drew on my own experience of falling behind in school because I couldn't hear, and it earned a feature on the App Store.",
     ],
-    "events": [
+    events: [
       {
-        "name": "Learning for All",
-        "badge": "Major update",
-        "when": "August 2026",
-        "short": "Teachers share captions the whole class can read.",
-        "long": "Teachers share their captions for everyone to read along. Accessible and private, so no one misses the lesson.",
-        "image": "/appstore/events/back-to-school.jpg"
+        name: "Learning for All",
+        badge: "Major update",
+        when: "August 2026",
+        short: "Teachers share captions the whole class can read.",
+        long: "Teachers share their captions for everyone to read along. Accessible and private, so no one misses the lesson.",
+        image: "/appstore/events/back-to-school.jpg",
       },
       {
-        "name": "Back to School Buddies!",
-        "badge": "Premiere",
-        "when": "Aug 3 to 31, 2026",
-        "short": "Start the school year with Chalkie and Paige.",
-        "long": "Meet Chalkie and Paige, your new buddies for the school year. Two friends here to make every lesson accessible.",
-        "image": "/appstore/events/back-to-school-new-buddies.jpg"
-      }
-    ]
-  },
-  {
-    "slug": "disability-pride-month",
-    "name": "Disability Pride Month",
-    "month": "July 2026",
-    "type": "App enhancements",
-    "result": "",
-    "summary": "New buddies Lumi and Luna plus VoiceOver and Dynamic Type support, pitched as an accessibility update for Disability Pride Month.",
-    "pitch": [
-      "Disability Pride Month is about being seen as you are, so the update expanded who Hearing Buddy works for. It added VoiceOver and Dynamic Type support for people with low vision or blindness, and Luna, a buddy built for hearing in low-light settings.",
-      "The pitch positioned the brand itself as disability pride, an app that teaches allyship as much as it captions, and pointed to the Apple Design Award Finalist recognition as the bar the team wanted to keep raising."
+        name: "Back to School Buddies!",
+        badge: "Premiere",
+        when: "Aug 3 to 31, 2026",
+        short: "Start the school year with Chalkie and Paige.",
+        long: "Meet Chalkie and Paige, your new buddies for the school year. Two friends here to make every lesson accessible.",
+        image: "/appstore/events/back-to-school-new-buddies.jpg",
+      },
     ],
-    "events": [
-      {
-        "name": "Happy Disability Pride Month!",
-        "badge": "Premiere",
-        "when": "July 2026",
-        "short": "New buddies and more accessibility features.",
-        "long": "Celebrate Disability Pride Month with our new buddies, Lumi and Luna! Now with Dynamic Type and VoiceOver support.",
-        "image": "/appstore/events/disability-pride-month.jpg"
-      }
-    ]
   },
   {
-    "slug": "pride-month",
-    "name": "Pride Month",
-    "month": "June 2026",
-    "type": "New content",
-    "result": "Apple Design Award Finalist",
-    "summary": "Pride buddies for the queer Deaf and hard-of-hearing community. Not featured, but a big part of the Apple Design Award Finalist story.",
-    "pitch": [
+    slug: "disability-pride-month",
+    name: "Disability Pride Month",
+    month: "July 2026",
+    type: "App enhancements",
+    result: "",
+    summary:
+      "New buddies Lumi and Luna plus VoiceOver and Dynamic Type support, pitched as an accessibility update for Disability Pride Month.",
+    pitch: [
+      "Disability Pride Month is about being seen as you are, so the update expanded who Hearing Buddy works for. It added VoiceOver and Dynamic Type support for people with low vision or blindness, and Luna, a buddy built for hearing in low-light settings.",
+      "The pitch positioned the brand itself as disability pride, an app that teaches allyship as much as it captions, and pointed to the Apple Design Award Finalist recognition as the bar the team wanted to keep raising.",
+    ],
+    events: [
+      {
+        name: "Happy Disability Pride Month!",
+        badge: "Premiere",
+        when: "July 2026",
+        short: "New buddies and more accessibility features.",
+        long: "Celebrate Disability Pride Month with our new buddies, Lumi and Luna! Now with Dynamic Type and VoiceOver support.",
+        image: "/appstore/events/disability-pride-month.jpg",
+      },
+    ],
+  },
+  {
+    slug: "pride-month",
+    name: "Pride Month",
+    month: "June 2026",
+    type: "New content",
+    result: "Apple Design Award Finalist",
+    summary:
+      "Pride buddies for the queer Deaf and hard-of-hearing community. Not featured, but a big part of the Apple Design Award Finalist story.",
+    pitch: [
       "The campaign connected Pride to the conversations people most want to catch every word of: coming out, sharing new pronouns, a family member finally saying the words out loud. New Pride buddies let users caption with color all June.",
       "Two events ran together, a Premiere for the new characters and a Caption with Pride challenge. The nomination spoke as a queer, hard-of-hearing founder and highlighted that live captions stay free and unlimited.",
-      "This one didn't land a feature. It did put Hearing Buddy's inclusivity work in front of Apple weeks before the Apple Design Awards, and in June the app was named a 2026 Finalist in the Inclusivity category."
+      "This one didn't land a feature. It did put Hearing Buddy's inclusivity work in front of Apple weeks before the Apple Design Awards, and in June the app was named a 2026 Finalist in the Inclusivity category.",
     ],
-    "events": [
+    events: [
       {
-        "name": "Happy Pride Month!",
-        "badge": "Premiere",
-        "when": "June 2026",
-        "short": "Add color to your captions with our Pride buddies.",
-        "long": "Find the rainbow in all your conversations with our new Pride Buddies. Caption with color this June.",
-        "image": "/appstore/events/pride-month-2026.jpg"
+        name: "Happy Pride Month!",
+        badge: "Premiere",
+        when: "June 2026",
+        short: "Add color to your captions with our Pride buddies.",
+        long: "Find the rainbow in all your conversations with our new Pride Buddies. Caption with color this June.",
+        image: "/appstore/events/pride-month-2026.jpg",
       },
       {
-        "name": "Caption with Pride",
-        "badge": "Challenge",
-        "when": "June 2026",
-        "short": "Never miss a word of conversations that matter.",
-        "long": "From coming out to sharing new pronouns, caption the Pride conversations you never want to miss a single word of.",
-        "image": "/appstore/events/pride-month-2026-2.jpg"
-      }
-    ]
+        name: "Caption with Pride",
+        badge: "Challenge",
+        when: "June 2026",
+        short: "Never miss a word of conversations that matter.",
+        long: "From coming out to sharing new pronouns, caption the Pride conversations you never want to miss a single word of.",
+        image: "/appstore/events/pride-month-2026-2.jpg",
+      },
+    ],
   },
   {
-    "slug": "deaf-awareness-week-gaad-and-nslhm",
-    "name": "Deaf Awareness Week, GAAD, and NSLHM",
-    "month": "May 2026",
-    "type": "App enhancements",
-    "result": "Featured on the App Store",
-    "summary": "Four new buddies, a Vision Pro app, and Apple Health hearing test support across NSLHM, Deaf Awareness Week, and GAAD.",
-    "pitch": [
+    slug: "deaf-awareness-week-gaad-and-nslhm",
+    name: "Deaf Awareness Week, GAAD, and NSLHM",
+    month: "May 2026",
+    type: "App enhancements",
+    result: "Featured on the App Store",
+    summary:
+      "Four new buddies, a Vision Pro app, and Apple Health hearing test support across NSLHM, Deaf Awareness Week, and GAAD.",
+    pitch: [
       "May stacks three moments for the hearing loss community: National Speech-Language-Hearing Month, Deaf Awareness Week, and Global Accessibility Awareness Day. The campaign gave each one its own in-app event so the app had fresh content on the App Store all month.",
-      "Alongside four new buddy characters, the update launched a Vision Pro app and hearing test support integrated with Apple Health. The pitch leaned on Apple's on-device models as the reason captions can be free and unlimited for everyone."
+      "Alongside four new buddy characters, the update launched a Vision Pro app and hearing test support integrated with Apple Health. The pitch leaned on Apple's on-device models as the reason captions can be free and unlimited for everyone.",
     ],
-    "events": [
+    events: [
       {
-        "name": "Deaf Awareness Week",
-        "badge": "Special event",
-        "when": "May 4 to 10, 2026",
-        "short": "New: ASL-Inspired Buddy for the Deaf Community",
-        "long": "Celebrating the Deaf community with a new ASL-inspired buddy, Vision Pro live captions & hearing test support.",
-        "image": "/appstore/events/deaf-awareness-week-2026.jpg"
+        name: "Deaf Awareness Week",
+        badge: "Special event",
+        when: "May 4 to 10, 2026",
+        short: "New: ASL-Inspired Buddy for the Deaf Community",
+        long: "Celebrating the Deaf community with a new ASL-inspired buddy, Vision Pro live captions & hearing test support.",
+        image: "/appstore/events/deaf-awareness-week-2026.jpg",
       },
       {
-        "name": "Celebrating GAAD",
-        "badge": "Special event",
-        "when": "May 21, 2026",
-        "short": "Unlimited live captions so you never miss a word.",
-        "long": "Celebrate accessibility with live captions from a Hearing Buddy. Never miss a word, question, or your name again.",
-        "image": "/appstore/events/global-accessibility-awareness-day-2026.jpg"
+        name: "Celebrating GAAD",
+        badge: "Special event",
+        when: "May 21, 2026",
+        short: "Unlimited live captions so you never miss a word.",
+        long: "Celebrate accessibility with live captions from a Hearing Buddy. Never miss a word, question, or your name again.",
+        image: "/appstore/events/global-accessibility-awareness-day-2026.jpg",
       },
       {
-        "name": "Your world, captioned.",
-        "badge": "Challenge",
-        "when": "May 2026",
-        "short": "Join the May caption challenge to catch more words",
-        "long": "It's National Speech-Language-Hearing Month. Caption your world with Hearing Buddy all May long to catch 3X more words.",
-        "image": "/appstore/events/nslhm-2026.jpg"
+        name: "Your world, captioned.",
+        badge: "Challenge",
+        when: "May 2026",
+        short: "Join the May caption challenge to catch more words",
+        long: "It's National Speech-Language-Hearing Month. Caption your world with Hearing Buddy all May long to catch 3X more words.",
+        image: "/appstore/events/nslhm-2026.jpg",
       },
       {
-        "name": "Spring Hearing Check",
-        "badge": "Challenge",
-        "when": "Apr 16 to May 16, 2026",
-        "short": "Check-in on your hearing health with a quick test.",
-        "long": "Not sure how well you hear? This spring, get your hearing baseline in minutes. Take the test & explore results in-app.",
-        "image": "/appstore/events/spring-clean-your-hearing-health.jpg"
-      }
-    ]
+        name: "Spring Hearing Check",
+        badge: "Challenge",
+        when: "Apr 16 to May 16, 2026",
+        short: "Check-in on your hearing health with a quick test.",
+        long: "Not sure how well you hear? This spring, get your hearing baseline in minutes. Take the test & explore results in-app.",
+        image: "/appstore/events/spring-clean-your-hearing-health.jpg",
+      },
+    ],
   },
   {
-    "slug": "world-hearing-day",
-    "name": "World Hearing Day",
-    "month": "March 2026",
-    "type": "App enhancements",
-    "result": "Best New Apps and Updates",
-    "summary": "The first featuring pitch: free unlimited captions on device, timed to World Hearing Day. It landed Hearing Buddy in Best New Apps and Updates.",
-    "pitch": [
+    slug: "world-hearing-day",
+    name: "World Hearing Day",
+    month: "March 2026",
+    type: "App enhancements",
+    result: "Best New Apps and Updates",
+    summary:
+      "The first featuring pitch: free unlimited captions on device, timed to World Hearing Day. It landed Hearing Buddy in Best New Apps and Updates.",
+    pitch: [
       "World Hearing Day on March 3 was the hook for Hearing Buddy's first nomination. With 1.5 billion people living with hearing loss, the pitch argued this was the moment to put the right tool in front of them.",
       "It introduced the app's core: free unlimited live captions on Apple's on-device speech recognition, name and question alerts through Live Activities and Apple Watch haptics, and four buddy personalities users can name. The recent RevenueCat Shipaton prize gave it outside validation.",
-      "The pitch and the World Hearing Day in-app event landed Hearing Buddy on the App Store's Best New Apps and Updates list, the first feature for the app."
+      "The pitch and the World Hearing Day in-app event landed Hearing Buddy on the App Store's Best New Apps and Updates list, the first feature for the app.",
     ],
-    "events": [
+    events: [
       {
-        "name": "World Hearing Day 2026",
-        "badge": "Special event",
-        "when": "March 2026",
-        "short": "Celebrate World Hearing Day with live captions",
-        "long": "Join millions raising awareness for hearing health. Try Hearing Buddy's real-time captions and never miss a word again.",
-        "image": "/appstore/events/world-hearing-day.jpg"
-      }
-    ]
-  }
+        name: "World Hearing Day 2026",
+        badge: "Special event",
+        when: "March 2026",
+        short: "Celebrate World Hearing Day with live captions",
+        long: "Join millions raising awareness for hearing health. Try Hearing Buddy's real-time captions and never miss a word again.",
+        image: "/appstore/events/world-hearing-day.jpg",
+      },
+    ],
+  },
 ];
 
 // Social media case study: Hearing Buddy, Feb to Aug 2026. Numbers pulled from Metricool on
@@ -678,8 +688,17 @@ export const socialCase = {
   stats: [
     { value: 210, label: "videos", sub: "cross-posted to 3 platforms" },
     { value: 730072, label: "views", sub: "TikTok, Instagram, YouTube" },
-    { value: 64025, label: "views, best video", sub: "a series video on TikTok" },
-    { value: 3.4, label: "x more views", sub: "series videos vs one-offs", decimals: 1 },
+    {
+      value: 64025,
+      label: "views, best video",
+      sub: "a series video on TikTok",
+    },
+    {
+      value: 3.4,
+      label: "x more views",
+      sub: "series videos vs one-offs",
+      decimals: 1,
+    },
   ],
   method: [
     {
@@ -750,17 +769,57 @@ export const carouselCase = {
     { value: 190, label: "carousels", sub: "TikTok photo posts, no video" },
     { value: 150796, label: "views", sub: "in six months" },
     { value: 50102, label: "views, best carousel", sub: "a 50-item list" },
-    { value: 95, label: "from For You", sub: "reach beyond followers", suffix: "%" },
+    {
+      value: 95,
+      label: "from For You",
+      sub: "reach beyond followers",
+      suffix: "%",
+    },
   ],
   months: ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
   views: [62039, 19504, 4745, 6440, 29439, 22003, 6626],
   posts: [9, 24, 6, 11, 63, 60, 17],
   formats: [
-    { name: "Numbered lists", example: "50 ADHD-friendly plans that require zero willpower", n: 25, views: 60269, avg: 2411, best: 50102 },
-    { name: "ADHD crossover", example: "50 little shifts that finally made mornings work", n: 16, views: 19871, avg: 1242, best: 8560 },
-    { name: "Hearing loss at work", example: "My boss mumbles. I still catch it all.", n: 32, views: 21749, avg: 680, best: 5379 },
-    { name: "Hearing aid pricing", example: "The $4,800 shocker: one hidden line ate half the bill", n: 23, views: 15012, avg: 653, best: 2265 },
-    { name: "Everything else", example: "One-off topics used to test new angles", n: 94, views: 33895, avg: 361, best: 1963 },
+    {
+      name: "Numbered lists",
+      example: "50 ADHD-friendly plans that require zero willpower",
+      n: 25,
+      views: 60269,
+      avg: 2411,
+      best: 50102,
+    },
+    {
+      name: "ADHD crossover",
+      example: "50 little shifts that finally made mornings work",
+      n: 16,
+      views: 19871,
+      avg: 1242,
+      best: 8560,
+    },
+    {
+      name: "Hearing loss at work",
+      example: "My boss mumbles. I still catch it all.",
+      n: 32,
+      views: 21749,
+      avg: 680,
+      best: 5379,
+    },
+    {
+      name: "Hearing aid pricing",
+      example: "The $4,800 shocker: one hidden line ate half the bill",
+      n: 23,
+      views: 15012,
+      avg: 653,
+      best: 2265,
+    },
+    {
+      name: "Everything else",
+      example: "One-off topics used to test new angles",
+      n: 94,
+      views: 33895,
+      avg: 361,
+      best: 1963,
+    },
   ],
   takeaway:
     "Numbered lists average almost seven times the views of a one-off topic, and the ADHD crossover found a second audience with the same hearing loss problem. Those two formats are now the backbone of the carousel accounts.",
@@ -865,8 +924,7 @@ export const journey = [
     where: "Lilly Seay & Co",
     type: "Self-employed",
     when: "May 2019 to Now",
-    details:
-      "I help app startups design, build, and market their apps.",
+    details: "I help app startups design, build, and market their apps.",
     bullets: [
       "I design and build native iOS and Android apps for startups. My specialty is IoT apps that talk to hardware and apps with AI features.",
       "I help apps get featured on the App Store with in-app events, marketing screens, and creative pitches to Apple.",
@@ -879,8 +937,7 @@ export const journey = [
     where: "Hyster-Yale Group",
     type: "Full-time",
     when: "July 2023 to March 2025",
-    details:
-      "I hired and trained new engineers at Hyster-Yale.",
+    details: "I hired and trained new engineers at Hyster-Yale.",
     bullets: [
       "I hired 20 engineers across several disciplines.",
       "I designed a six-month technical training program and led every new hire through it. It covered CAN, Embedded C, Simulink, hydraulics, and the electrical systems on a forklift.",
@@ -949,7 +1006,10 @@ export const statements = [
   {
     key: "social",
     headline: "I get apps downloaded.",
-    cta: { label: "Read a case study", href: "/case-studies/hearing-buddy-social/" },
+    cta: {
+      label: "Read a case study",
+      href: "/case-studies/hearing-buddy-social/",
+    },
     support:
       "Short-form video, carousels, and influencer campaigns turn views into downloads and trial starts.",
     tags: [
@@ -1053,7 +1113,7 @@ export const hikingPassport = {
     {
       kind: "Add your hikes",
       title: "Start from the hikes you are actually chasing",
-      body: "Type in the trail, the distance, the climb, and how many days it takes. On a device that supports Apple Intelligence, it can fill the stats in for you, and it tells you how confident it is so you know when to check a guidebook.",
+      body: "Type in the trail, the distance, the climb, and how many days it takes, straight from your guidebook or your favorite trail app.",
     },
     {
       kind: "Bring in Health",
@@ -1087,7 +1147,11 @@ export const hikingPassport = {
       { name: "Acorn", who: "Chipmunk", note: "Trains between naps" },
       { name: "Juniper", who: "Box turtle", note: "Queer, trans and outside" },
       { name: "Otis", who: "Barred owl", note: "Neurodivergent and clear" },
-      { name: "Biscuit", who: "Barn cat", note: "Funny, warm and on your side" },
+      {
+        name: "Biscuit",
+        who: "Barn cat",
+        note: "Funny, warm and on your side",
+      },
     ],
   },
   points: [
@@ -1127,5 +1191,5 @@ export const hikingPassport = {
     ],
   },
   requirements:
-    "iPhone on iOS 26 or later, in portrait. The watch app needs watchOS 26. Apple Intelligence features need a device that supports it; without one, you enter trail stats by hand and the plan is unchanged.",
+    "iPhone on iOS 26 or later, in portrait. The watch app needs watchOS 26. Apple Intelligence writes your plan's name and your buddy's notes on devices that support it; without one, everything else works the same.",
 };
