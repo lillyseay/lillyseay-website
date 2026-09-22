@@ -40,10 +40,34 @@ export type CaseStudy = {
   research: {
     title: string;
     body: string;
-    /** Real comments, with where they came from. */
-    quotes?: { text: string; meta: string }[];
-    /** Signal in, feature out. */
+    /** Real TikTok comments, rendered as comments. Handles, like counts and
+     *  reply counts are as pulled from the account on 2026-09-22. Wording is
+     *  lightly tidied for spelling only; meaning and voice are unchanged. */
+    quotes?: {
+      user: string;
+      text: string;
+      likes: number;
+      replies?: number;
+      date: string;
+    }[];
+    /** Pain point in, feature out. */
     findings?: { signal: string; shipped: string }[];
+    /** A line of my own, set large. Not a user comment. */
+    pullQuote?: { text: string; cite: string };
+  };
+  /** Who the app is for, in numbers. */
+  audience?: {
+    heading: string;
+    note: string;
+    primary: { value: string; label: string; source: string }[];
+    adjacent: { name: string; detail: string; evidence: string }[];
+  };
+  /** The campaign loop, for apps where marketing is a designed process. */
+  process?: {
+    heading: string;
+    note: string;
+    steps: { title: string; body: string }[];
+    footer: string;
   };
   strategy: { title: string; body: string };
   palette: {
@@ -124,28 +148,59 @@ export const caseStudies: CaseStudy[] = [
       body: "I score the keywords people already search, turn each one into a video, and read the view count as a vote. The comments are the qualitative half — people describing workarounds they had built for a problem they had never named.",
       quotes: [
         {
-          text: "All of this but I heard that hearing loss only comes with repetitive ringing in the ear(s) and I'm still young so wondering if I'm delusional",
-          meta: "67 likes · 6 replies",
+          user: "Sarah",
+          text: "All of this, but I heard that hearing loss only comes with ringing in the ears, and I'm still young — so now I'm wondering if I'm imagining it.",
+          likes: 67,
+          replies: 6,
+          date: "4-27",
         },
         {
-          text: "Half the time I just smile and nod in big groups or in loud places cuz I have no idea wtf anyone said lol",
-          meta: "41 likes",
+          user: "emmajadem",
+          text: "Sorry, am I finally connecting with my people? I've never felt so heard in my life!",
+          likes: 41,
+          replies: 5,
+          date: "5-16",
         },
         {
-          text: "It's not volume but clarity that's needed often. I wish people would speak clearer",
-          meta: "19 likes",
+          user: "Jackie B",
+          text: "Half the time I just smile and nod in big groups or loud places, because I have no idea what anyone said.",
+          likes: 41,
+          replies: 1,
+          date: "5-19",
         },
         {
-          text: "Sorry, am I finally connecting with my people?! Iv never felt so heard in my life!",
-          meta: "41 likes · 5 replies",
+          user: "secret",
+          text: "Yes, really — especially when I'm wearing hearing aids and someone tries whispering in my ear.",
+          likes: 34,
+          replies: 3,
+          date: "5-17",
         },
         {
-          text: "Needs to rest after social events. It's exhausting",
-          meta: "alongside \"I'm trying to preserve brain power until I'm ready to function\"",
+          user: "Tania40RT",
+          text: "I can't hear you properly. I have to concentrate on what you're saying, because the background music is too loud.",
+          likes: 33,
+          replies: 2,
+          date: "5-22",
         },
         {
-          text: "So real. I'm not deaf I just have audio processing issues and I get so excited when I don't have to be like \"huh?\"",
-          meta: "an audience I had not designed for",
+          user: "Fenny",
+          text: "It's not volume but clarity that's needed. I wish people would speak more clearly.",
+          likes: 19,
+          replies: 1,
+          date: "5-27",
+        },
+        {
+          user: "Tuberculosis",
+          text: "So real. I'm not deaf, I just have auditory processing issues, and I get so excited when I don't have to say \"huh?\"",
+          likes: 9,
+          replies: 1,
+          date: "7-9",
+        },
+        {
+          user: "user1439106569999",
+          text: "Needing to rest after social events. It's exhausting.",
+          likes: 2,
+          date: "6-2",
         },
       ],
       findings: [
@@ -174,6 +229,65 @@ export const caseStudies: CaseStudy[] = [
           shipped: "The videos changed. Research the audience cannot hear is filtered research.",
         },
       ],
+    },
+    audience: {
+      heading: "Who it is for,|and who turned up",
+      note: "The World Health Organization numbers are the market. The adjacent audiences are what my own research surfaced — people who arrived in the comments describing the same problem under a different name.",
+      primary: [
+        { value: "1.5B", label: "live with some degree of hearing loss", source: "WHO" },
+        { value: "2.5B", label: "projected by 2050", source: "WHO" },
+        { value: "430M", label: "need rehabilitation today", source: "WHO" },
+      ],
+      adjacent: [
+        {
+          name: "Auditory processing",
+          detail: "Hears the sound, cannot resolve the words. The exact problem captions solve, under a different diagnosis.",
+          evidence: "Arrived unprompted in the comments: \"I'm not deaf, I just have auditory processing issues.\"",
+        },
+        {
+          name: "ADHD",
+          detail: "Same failure to hold a thread in a noisy room, different cause. Tested as a carousel crossover.",
+          evidence: "16 carousels, 19,871 views, averaging 1,242 — second only to numbered lists.",
+        },
+        {
+          name: "Tinnitus",
+          detail: "Named alongside hearing loss in comment after comment, usually as the thing that makes concentrating impossible.",
+          evidence: "One of the recurring tags across the 210-video test.",
+        },
+        {
+          name: "Undiagnosed",
+          detail: "People who have built workarounds for years without a word for the problem. The largest single comment theme.",
+          evidence: "The top comment on the signs video, at 67 likes, is somebody asking whether they are imagining it.",
+        },
+        {
+          name: "Partners and allies",
+          detail: "Hearing people who want to help and get it wrong. They became their own content line, filmed by my co-founder.",
+          evidence: "4 videos, 11.4K views, and the highest share rate on the account.",
+        },
+      ],
+    },
+    process: {
+      heading: "The campaign loop|that works at two people",
+      note: "Every campaign is one loop, and each stage feeds the next. Nothing gets made twice.",
+      steps: [
+        {
+          title: "Build one to two months ahead",
+          body: "Features are finished early so there is something real to pitch. Apple and Google both want to see the work before the date, not the plan.",
+        },
+        {
+          title: "Pitch the App Store and Play Store",
+          body: "Tie the finished feature to a date that already matters — World Hearing Day, GAAD, Deaf Awareness Month — and ship in-app events and artwork with it.",
+        },
+        {
+          title: "Test the sector with keyword video",
+          body: "Every campaign ships with keyword-focused short-form video aimed at one slice of the audience. The numbers answer whether that group would use the feature, and the comments answer how.",
+        },
+        {
+          title: "Feed the winners into ad creative",
+          body: "Organic content that performed, written to my hook formula, becomes the paid creative pipeline. The test doubles as the asset library.",
+        },
+      ],
+      footer: "Two people. This is the loop that fits our size — research, launch and paid creative all come out of the same work.",
     },
     strategy: {
       title: "Design the app as the person,|not the technology",
@@ -583,12 +697,10 @@ export const caseStudies: CaseStudy[] = [
     research: {
       title: "Two hundred testers and|a feedback loop with no middle",
       body: "200 testers on TestFlight while I was still building. Feedback went in and came back out as App Store updates, with nobody in between. Apple Entrepreneur Camp was the other instrument — feedback from Apple's design evangelists, implemented the same week.",
-      quotes: [
-        {
-          text: "Pivoting doesn't have to make a big splash in your business. It's more like skipping a rock across a pond, making ripples of progress as each attempt is more calculated than the last.",
-          meta: "my talk at Apple's International Women's Day event, Cupertino, 2024",
-        },
-      ],
+      pullQuote: {
+        text: "Pivoting doesn't have to make a big splash. It's more like skipping a rock across a pond — ripples of progress, each attempt more calculated than the last.",
+        cite: "My talk at Apple's International Women's Day event, Cupertino, 2024",
+      },
     },
     strategy: {
       title: "Full-screen animation|as the entire interface",

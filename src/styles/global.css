@@ -5788,41 +5788,6 @@ section[id] {
   text-align: center;
 }
 
-.bh-hero-wash {
-  position: absolute;
-  inset: -30%;
-  z-index: -2;
-  background:
-    radial-gradient(45% 55% at 18% 22%, var(--from) 0%, transparent 70%),
-    radial-gradient(45% 55% at 82% 18%, var(--mid) 0%, transparent 70%),
-    radial-gradient(55% 60% at 50% 92%, var(--to) 0%, transparent 70%);
-  opacity: 0.55;
-  filter: blur(10px);
-  animation: bh-drift 26s ease-in-out infinite alternate;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .bh-hero-wash {
-    opacity: 0.4;
-  }
-}
-
-:root[data-theme="dark"] .bh-hero-wash {
-  opacity: 0.4;
-}
-
-@keyframes bh-drift {
-  0% {
-    transform: translate3d(-3%, -2%, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(3%, 2%, 0) scale(1.08);
-  }
-  100% {
-    transform: translate3d(-2%, 3%, 0) scale(1.03);
-  }
-}
-
 /* The app's name, set enormous and faint behind everything. */
 .bh-ghost {
   position: absolute;
@@ -6789,7 +6754,6 @@ section[id] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bh-hero-wash,
   .float,
   .bh-stats li {
     animation: none;
@@ -6860,4 +6824,363 @@ section[id] {
   flex-wrap: wrap;
   gap: 0.6rem;
   margin: 0 0 2.5rem;
+}
+
+/* ── Comments, rendered as comments ───────────────────────────────────── */
+
+.bh-comments-wrap {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 1.25rem 1.35rem 0.75rem;
+  box-shadow: var(--shadow-card);
+  max-width: 44rem;
+}
+
+.bh-comments-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.bh-comments-head span {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.bh-comments-head small {
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.bh-comments {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bh-comments li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  align-items: start;
+}
+
+.bh-comments li + li {
+  border-top: 1px solid var(--line);
+}
+
+.bh-av {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(140deg, var(--from), var(--to));
+  flex: none;
+}
+
+.bh-c-user {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.bh-c-text {
+  margin: 0.15rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.bh-c-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.bh-c-foot span:nth-child(2) {
+  font-weight: 600;
+}
+
+.bh-c-foot span:nth-child(3) {
+  color: var(--brand-text);
+  font-weight: 600;
+}
+
+.bh-c-like {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding-top: 0.2rem;
+  color: var(--muted);
+}
+
+.bh-c-like svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+.bh-c-like em {
+  font-style: normal;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Pull quote (my own words, not a comment) ─────────────────────────── */
+
+.bh-pull {
+  margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+  max-width: 44rem;
+}
+
+.bh-pull blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.bh-pull figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ── Sub-label ────────────────────────────────────────────────────────── */
+
+.bh-sub-label {
+  margin: clamp(2rem, 5vw, 3.25rem) 0 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-text);
+}
+
+/* ── Target audience ──────────────────────────────────────────────────── */
+
+.bh-aud-primary {
+  list-style: none;
+  padding: 0;
+  margin: clamp(2rem, 5vw, 3rem) 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bh-aud-primary li {
+  border-top: 3px solid var(--brand);
+  padding-top: 1rem;
+}
+
+.bh-aud-v {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.bh-aud-l {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.bh-aud-src {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+}
+
+.bh-aud-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bh-aud-list li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.1rem 1.2rem 1.2rem;
+}
+
+.bh-aud-dot {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--brand-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.bh-aud-list h4 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0.2rem 0 0.35rem;
+  color: var(--ink);
+}
+
+.bh-aud-list p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.bh-aud-ev {
+  margin-top: 0.6rem !important;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--line);
+  color: var(--muted) !important;
+  font-size: 0.82rem !important;
+}
+
+/* ── Marketing loop ───────────────────────────────────────────────────── */
+
+.bh-loop {
+  list-style: none;
+  padding: 0;
+  margin: clamp(2rem, 5vw, 3rem) 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bh-loop li {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.2rem 1.25rem 1.3rem;
+}
+
+.bh-loop-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.3px var(--brand-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.bh-loop h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0.4rem 0 0.35rem;
+  color: var(--ink);
+}
+
+.bh-loop p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* The arrow that carries one stage into the next, and wraps at the end. */
+.bh-loop-arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: -0.95rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--band-soft);
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+.bh-loop-arrow::after {
+  content: "\2192";
+  font-size: 0.8rem;
+  color: var(--brand-text);
+  line-height: 1;
+}
+
+.bh-loop li:last-child .bh-loop-arrow {
+  display: none;
+}
+
+.bh-loop-foot {
+  margin: 1.5rem 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--brand);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 44rem;
+}
+
+@media (max-width: 960px) {
+  .bh-aud-list,
+  .bh-loop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bh-loop li:nth-child(2) .bh-loop-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .bh-aud-primary,
+  .bh-aud-list,
+  .bh-loop {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bh-loop-arrow {
+    display: none !important;
+  }
+
+  .bh-comments-wrap {
+    padding: 1rem 1.05rem 0.5rem;
+    border-radius: 20px;
+  }
 }
