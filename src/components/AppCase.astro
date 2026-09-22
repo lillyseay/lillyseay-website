@@ -22,32 +22,33 @@ const theme = [
   `--band-dk:${s.band.dark}`,
 ].join("; ");
 
-const problem = split(s.problem.title);
-const research = split(s.research.title);
-const strategy = split(s.strategy.title);
-const systems = split(s.systems.title);
-const galleryT = s.gallery && split(s.gallery.title);
-const shotsT = s.marketingShots && split(s.marketingShots.title);
-const castT = s.characters && split(s.characters.heading);
-const themesT = s.themes && split(s.themes.heading);
 const audienceT = s.audience && split(s.audience.heading);
-const processT = s.process && split(s.process.heading);
+const researchT = split(s.research.heading);
+const designT = split(s.design.heading);
+const marketingT = split(s.marketing.heading);
+
+// Sections number in order, skipping any the app does not have.
+let n = 0;
+const step = () => String(++n).padStart(2, "0");
+const nAudience = s.audience ? step() : null;
+const nResearch = step();
+const nDesign = step();
+const nMarketing = step();
 ---
 
 <article class="bh" id={s.slug} style={theme}>
-  {/* ── Meta bar ──────────────────────────────────────────────────────── */}
+  {/* ══ Hero and overview ═══════════════════════════════════════════════ */}
   <div class="bh-meta reveal">
     <span>{s.category}</span>
     <span>Design case study</span>
     <span>{s.years}</span>
   </div>
 
-  {/* ── Hero ──────────────────────────────────────────────────────────── */}
   <header class="bh-hero">
     <span class="bh-ghost" aria-hidden="true">{s.name}</span>
-    <svg class="bh-arc one" viewBox="0 0 400 400" aria-hidden="true">
-      <circle cx="200" cy="200" r="198" />
-      <circle cx="200" cy="200" r="150" />
+    <svg class="bh-arc" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="198"></circle>
+      <circle cx="200" cy="200" r="150"></circle>
     </svg>
     <div class="bh-hero-inner">
       {
@@ -63,61 +64,96 @@ const processT = s.process && split(s.process.heading);
       }
       <h1 class="bh-title">{s.name}</h1>
       <p class="bh-lede">{s.lede}</p>
-      <p class="bh-role">{s.role} · {s.platforms}</p>
-      <ul class="bh-stats">
-        {
-          s.stats.map((st, i) => (
-            <li style={`--i:${i}`}>
-              <span class="bh-stat-v" data-count={st.value}>{st.value}</span>
-              <span class="bh-stat-l">{st.label}</span>
-            </li>
-          ))
-        }
-      </ul>
       <p class="bh-status">{s.status}</p>
     </div>
   </header>
 
-  {/* ── 01 Problem ────────────────────────────────────────────────────── */}
-  <section class="bh-sec">
-    <div class="bh-mark reveal">
-      <span class="bh-num">01</span>
-      <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">The problem</span>
-    </div>
-    <div class="bh-two reveal">
-      <h2 class="bh-h2">
-        {problem.lead}{problem.accent && <em>{problem.accent}</em>}
-      </h2>
-      <div class="bh-note-wrap">
-        <div class="bh-note">
-          <span class="bh-pin" aria-hidden="true"></span>
-          <p>{s.problem.body}</p>
-        </div>
+  <section class="bh-overview">
+    <ul class="bh-ov-stats stagger">
+      {
+        s.overview.stats.map((st, i) => (
+          <li style={`--i:${i}`}>
+            <span class="bh-ov-v" data-count={st.value}>
+              {st.value}
+            </span>
+            <span class="bh-ov-l">{st.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="bh-ov-two reveal">
+      <dl class="bh-facts">
+        {
+          s.overview.facts.map((f) => (
+            <div>
+              <dt>{f.k}</dt>
+              <dd>{f.v}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <div class="bh-ov-problem">
+        <p class="bh-label solo">The problem</p>
+        <p>{s.overview.problem}</p>
       </div>
     </div>
-    {
-      s.problem.stat && (
-        <div class="bh-hugestat reveal">
-          <strong>{s.problem.stat.value}</strong>
-          <span>{s.problem.stat.label}</span>
-        </div>
-      )
-    }
   </section>
 
-  {/* ── 02 Research ───────────────────────────────────────────────────── */}
+  {/* ══ Target audience ═════════════════════════════════════════════════ */}
+  {
+    s.audience && audienceT && (
+      <section class="bh-sec">
+        <div class="bh-mark reveal">
+          <span class="bh-num">{nAudience}</span>
+          <span class="bh-rule" aria-hidden="true" />
+          <span class="bh-label">Target audience</span>
+        </div>
+        <h2 class="bh-h2 reveal">
+          {audienceT.lead}
+          {audienceT.accent && <em>{audienceT.accent}</em>}
+        </h2>
+        <p class="bh-body wide reveal">{s.audience.note}</p>
+
+        <ul class="bh-aud-primary stagger">
+          {s.audience.primary.map((a, i) => (
+            <li style={`--i:${i}`}>
+              <span class="bh-aud-v" data-count={a.value}>
+                {a.value}
+              </span>
+              <span class="bh-aud-l">{a.label}</span>
+              <span class="bh-aud-src">{a.source}</span>
+            </li>
+          ))}
+        </ul>
+
+        <ul class="bh-aud-list stagger">
+          {s.audience.adjacent.map((a, i) => (
+            <li style={`--i:${i}`}>
+              <span class="bh-aud-dot" aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h4>{a.name}</h4>
+              <p>{a.detail}</p>
+              <p class="bh-aud-ev">{a.evidence}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* ══ User research ═══════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">02</span>
+      <span class="bh-num">{nResearch}</span>
       <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">Research</span>
+      <span class="bh-label">User research</span>
     </div>
     <div class="bh-two reveal">
       <h2 class="bh-h2">
-        {research.lead}{research.accent && <em>{research.accent}</em>}
+        {researchT.lead}{researchT.accent && <em>{researchT.accent}</em>}
       </h2>
-      <p class="bh-body">{s.research.body}</p>
+      <p class="bh-body">{s.research.note}</p>
     </div>
 
     {
@@ -174,161 +210,125 @@ const processT = s.process && split(s.process.heading);
     {
       s.research.findings && (
         <>
-        <p class="bh-sub-label reveal">Pain points identified</p>
-        <div class="bh-hub reveal">
-          <div class="bh-hub-core">
-            <span>{s.research.findings.length}</span>
-            <small>pain points</small>
+          <p class="bh-sub-label reveal">Pain points identified</p>
+          <div class="bh-hub reveal">
+            <div class="bh-hub-core">
+              <span>{s.research.findings.length}</span>
+              <small>pain points</small>
+            </div>
+            <ul class="bh-hub-list stagger">
+              {s.research.findings.map((f, i) => (
+                <li style={`--i:${i}`}>
+                  <span class="bh-hub-dot" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h4>{f.signal}</h4>
+                  <p>{f.shipped}</p>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul class="bh-hub-list stagger">
-            {s.research.findings.map((f, i) => (
-              <li style={`--i:${i}`}>
-                <span class="bh-hub-dot" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h4>{f.signal}</h4>
-                <p>{f.shipped}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
         </>
       )
     }
   </section>
 
+  {/* ══ Design ══════════════════════════════════════════════════════════ */}
+  <section class="bh-sec">
+    <div class="bh-mark reveal">
+      <span class="bh-num">{nDesign}</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">Design</span>
+    </div>
+    <div class="bh-two reveal">
+      <h2 class="bh-h2">
+        {designT.lead}{designT.accent && <em>{designT.accent}</em>}
+      </h2>
+      <p class="bh-body">{s.design.note}</p>
+    </div>
+  </section>
 
-  {/* ── Target audience ───────────────────────────────────────────────── */}
   {
-    s.audience && audienceT && (
-      <section class="bh-sec">
-        <div class="bh-mark reveal">
-          <span class="bh-num">03</span>
-          <span class="bh-rule" aria-hidden="true" />
-          <span class="bh-label">Target audience</span>
-        </div>
-        <h2 class="bh-h2 reveal">
-          {audienceT.lead}
-          {audienceT.accent && <em>{audienceT.accent}</em>}
-        </h2>
-        <p class="bh-body wide reveal">{s.audience.note}</p>
-
-        <ul class="bh-aud-primary stagger">
-          {s.audience.primary.map((a, i) => (
-            <li style={`--i:${i}`}>
-              <span class="bh-aud-v" data-count={a.value}>{a.value}</span>
-              <span class="bh-aud-l">{a.label}</span>
-              <span class="bh-aud-src">{a.source}</span>
-            </li>
-          ))}
-        </ul>
-
-        <p class="bh-sub-label reveal">Adjacent audiences the research surfaced</p>
-        <ul class="bh-aud-list stagger">
-          {s.audience.adjacent.map((a, i) => (
-            <li style={`--i:${i}`}>
-              <span class="bh-aud-dot" aria-hidden="true">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h4>{a.name}</h4>
-              <p>{a.detail}</p>
-              <p class="bh-aud-ev">{a.evidence}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  {/* ── Screens ────────────────────────────────────────────────────── */}
-  {
-    s.gallery && galleryT && (
+    s.design.screens && (
       <section class="bh-band">
-        <div class="bh-mark reveal">
-          <span class="bh-num">04</span>
-          <span class="bh-rule" aria-hidden="true" />
-          <span class="bh-label">{s.gallery.kicker}</span>
-        </div>
-        <h2 class="bh-h2 reveal">
-          {galleryT.lead}
-          {galleryT.accent && <em>{galleryT.accent}</em>}
-        </h2>
-        {s.gallery.note && <p class="bh-body wide reveal">{s.gallery.note}</p>}
+        <p class="bh-sub-label reveal flush">{s.design.screens.title}</p>
         <ul class="bh-screens stagger">
-          {s.gallery.images.map((im, i) => (
+          {s.design.screens.images.map((im, i) => (
             <li style={`--i:${i}`}>
               <img src={`${base}${im.src}`} alt={im.alt} loading="lazy" />
             </li>
           ))}
         </ul>
+        {s.design.second && (
+          <>
+            <p class="bh-sub-label reveal">{s.design.second.title}</p>
+            <ul class="bh-screens stagger">
+              {s.design.second.images.map((im, i) => (
+                <li style={`--i:${i}`}>
+                  <img src={`${base}${im.src}`} alt={im.alt} loading="lazy" />
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </section>
     )
   }
 
-  {/* ── 04 Strategy ───────────────────────────────────────────────────── */}
+  {/* Colour and type, side by side and compact. */}
   <section class="bh-sec">
-    <div class="bh-mark reveal">
-      <span class="bh-num">05</span>
-      <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">Design strategy</span>
-    </div>
-    <div class="bh-statement reveal">
-      <svg class="bh-squiggle" viewBox="0 0 120 40" aria-hidden="true">
-        <path d="M4 26c14-22 28 14 42-4s28 14 42-6" />
-      </svg>
-      <h2 class="bh-h2 big">
-        {strategy.lead}{strategy.accent && <em>{strategy.accent}</em>}
-      </h2>
-      <p>{s.strategy.body}</p>
-    </div>
-  </section>
-
-  {/* ── 05 Colour ─────────────────────────────────────────────────────── */}
-  <section class="bh-sec">
-    <div class="bh-mark reveal">
-      <span class="bh-num">06</span>
-      <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">Colour</span>
-    </div>
-    <p class="bh-body wide reveal">{s.palette.intro}</p>
-    {
-      s.palette.groups.map((g) => (
-        <div class="bh-pal reveal">
-          <div class="bh-pal-head">
-            <h4>{g.name}</h4>
-            <p>{g.note}</p>
-          </div>
-          <ul class="bh-blocks stagger">
-            {g.swatches.map((w, i) => (
-              <li style={`--i:${i}; --c:${w.hex}`}>
-                <span class="bh-block" aria-hidden="true" />
-                <span class="bh-block-hex">{w.hex}</span>
-                <span class="bh-block-name">{w.name}</span>
+    <div class="bh-ct">
+      <div class="bh-ct-col reveal">
+        <p class="bh-sub-label flush">Colour</p>
+        <p class="bh-ct-note">{s.design.palette.note}</p>
+        {
+          s.design.palette.groups.map((g) => (
+            <div class="bh-pal-row">
+              <p class="bh-pal-name">{g.name}</p>
+              <ul class="bh-chipset">
+                {g.swatches.map((w) => (
+                  <li style={`--c:${w.hex}`}>
+                    <span class="bh-chip" aria-hidden="true" />
+                    <span class="bh-chip-hex">{w.hex}</span>
+                    <span class="bh-chip-name">{w.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <div class="bh-ct-col reveal">
+        <p class="bh-sub-label flush">Typography</p>
+        <p class="bh-ct-note">{s.design.typography.note}</p>
+        <ul class="bh-faces">
+          {
+            s.design.typography.faces.map((f) => (
+              <li>
+                <span class="bh-face-sample" aria-hidden="true">
+                  {f.sample}
+                </span>
+                <div>
+                  <p class="bh-face-name">{f.name}</p>
+                  <p class="bh-face-role">{f.role}</p>
+                  <p class="bh-face-detail">{f.detail}</p>
+                </div>
               </li>
-            ))}
-          </ul>
-        </div>
-      ))
-    }
-    {s.palette.type && <p class="bh-type reveal">{s.palette.type}</p>}
+            ))
+          }
+        </ul>
+      </div>
+    </div>
   </section>
 
-  {/* ── The cast ──────────────────────────────────────────────────────── */}
+  {/* The cast, over their own gradients. */}
   {
-    s.characters && castT && (
+    s.design.characters && (
       <section class="bh-band">
-        <div class="bh-mark reveal">
-          <span class="bh-num">07</span>
-          <span class="bh-rule" aria-hidden="true" />
-          <span class="bh-label">The cast</span>
-        </div>
-        <h2 class="bh-h2 reveal">
-          {castT.lead}
-          {castT.accent && <em>{castT.accent}</em>}
-        </h2>
-        <p class="bh-body wide reveal">{s.characters.note}</p>
+        <p class="bh-sub-label reveal flush">{s.design.characters.title}</p>
+        <p class="bh-body wide reveal">{s.design.characters.note}</p>
         <ul class="bh-cast stagger">
-          {s.characters.list.map((c, i) => (
+          {s.design.characters.list.map((c, i) => (
             <li style={`--i:${i}; --a:${c.hex}; --b:${c.to}`}>
               <span class="bh-cast-art">
                 <img
@@ -346,22 +346,14 @@ const processT = s.process && split(s.process.heading);
     )
   }
 
-  {/* ── Themes ────────────────────────────────────────────────────────── */}
+  {/* Park themes. */}
   {
-    s.themes && themesT && (
+    s.design.themes && (
       <section class="bh-sec">
-        <div class="bh-mark reveal">
-          <span class="bh-num">08</span>
-          <span class="bh-rule" aria-hidden="true" />
-          <span class="bh-label">Themes</span>
-        </div>
-        <h2 class="bh-h2 reveal">
-          {themesT.lead}
-          {themesT.accent && <em>{themesT.accent}</em>}
-        </h2>
-        <p class="bh-body wide reveal">{s.themes.note}</p>
+        <p class="bh-sub-label reveal flush">{s.design.themes.title}</p>
+        <p class="bh-body wide reveal">{s.design.themes.note}</p>
         <ul class="bh-themes stagger">
-          {s.themes.list.map((t, i) => (
+          {s.design.themes.list.map((t, i) => (
             <li style={`--i:${i}`}>
               <img
                 src={`${base}/case-studies/${s.slug}/themes/${t.file}`}
@@ -382,155 +374,120 @@ const processT = s.process && split(s.process.heading);
     )
   }
 
-  {/* ── System ────────────────────────────────────────────────────────── */}
+  {/* Decisions and the system, side by side. */}
+  <section class="bh-sec">
+    <div class="bh-ct">
+      <div class="bh-ct-col">
+        <p class="bh-sub-label reveal flush">Design decisions</p>
+        <ol class="bh-decisions stagger">
+          {
+            s.design.decisions.map((d, i) => (
+              <li style={`--i:${i}`}>
+                <span class="bh-dec-num">{String(i + 1).padStart(2, "0")}</span>
+                <h4>{d.title}</h4>
+                <p>{d.body}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      {
+        s.design.system && (
+          <div class="bh-ct-col reveal">
+            <p class="bh-sub-label flush">System</p>
+            <h4 class="bh-sys-title">{s.design.system.title}</h4>
+            <p class="bh-ct-note">{s.design.system.body}</p>
+            <div class="bh-sysmap">
+              <p class="bh-sysmap-from">{s.design.system.from}</p>
+              <ul class="bh-sysmap-to">
+                {s.design.system.to.map((t) => (
+                  <li>{t}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  {/* ══ Marketing ═══════════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">09</span>
+      <span class="bh-num">{nMarketing}</span>
       <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">System</span>
+      <span class="bh-label">Marketing</span>
     </div>
     <div class="bh-two reveal">
       <h2 class="bh-h2">
-        {systems.lead}{systems.accent && <em>{systems.accent}</em>}
+        {marketingT.lead}{marketingT.accent && <em>{marketingT.accent}</em>}
       </h2>
-      <p class="bh-body">{s.systems.body}</p>
+      <p class="bh-body">{s.marketing.note}</p>
     </div>
-    {
-      s.systems.diagram && (
-        <div class="bh-sysmap reveal">
-          <p class="bh-sysmap-from">{s.systems.diagram.from}</p>
-          <svg class="bh-fan" viewBox="0 0 600 60" aria-hidden="true">
-            <path d="M300 2 C300 30 120 24 40 56" />
-            <path d="M300 2 C300 30 210 26 170 56" />
-            <path d="M300 2 V56" />
-            <path d="M300 2 C300 30 390 26 430 56" />
-            <path d="M300 2 C300 30 480 24 560 56" />
-          </svg>
-          <ul class="bh-sysmap-to stagger">
-            {s.systems.diagram.to.map((t, i) => (
-              <li style={`--i:${i}`}>{t}</li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
-  </section>
 
-  {/* ── Decisions ─────────────────────────────────────────────────────── */}
-  <section class="bh-sec">
-    <div class="bh-mark reveal">
-      <span class="bh-num">10</span>
-      <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">Decisions</span>
-    </div>
-    <ol class="bh-decisions stagger">
+    <p class="bh-sub-label reveal">The cycle</p>
+    <ol class="bh-timeline stagger">
       {
-        s.decisions.map((d, i) => (
+        s.marketing.cycle.map((c, i) => (
           <li style={`--i:${i}`}>
-            <span class="bh-dec-num">{String(i + 1).padStart(2, "0")}</span>
-            <h4>{d.title}</h4>
-            <p>{d.body}</p>
+            <span class="bh-tl-when">{c.when}</span>
+            <span class="bh-tl-dot" aria-hidden="true" />
+            <h4>{c.title}</h4>
+            <p>{c.body}</p>
           </li>
         ))
       }
     </ol>
-  </section>
 
-  {/* ── Second screen run ─────────────────────────────────────────────── */}
-  {
-    s.marketingShots && shotsT && (
-      <section class="bh-band">
-        <div class="bh-mark reveal">
-          <span class="bh-num">11</span>
-          <span class="bh-rule" aria-hidden="true" />
-          <span class="bh-label">{s.marketingShots.kicker}</span>
-        </div>
-        <h2 class="bh-h2 reveal">
-          {shotsT.lead}
-          {shotsT.accent && <em>{shotsT.accent}</em>}
-        </h2>
-        {s.marketingShots.note && (
-          <p class="bh-body wide reveal">{s.marketingShots.note}</p>
-        )}
-        <ul class="bh-screens stagger">
-          {s.marketingShots.images.map((im, i) => (
-            <li style={`--i:${i}`}>
-              <img src={`${base}${im.src}`} alt={im.alt} loading="lazy" />
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-
-  {/* ── Marketing process ─────────────────────────────────────────────── */}
-  {
-    s.process && processT && (
-      <section class="bh-sec">
-        <div class="bh-mark reveal">
-          <span class="bh-num">12</span>
-          <span class="bh-rule" aria-hidden="true" />
-          <span class="bh-label">Marketing process</span>
-        </div>
-        <h2 class="bh-h2 reveal">
-          {processT.lead}
-          {processT.accent && <em>{processT.accent}</em>}
-        </h2>
-        <p class="bh-body wide reveal">{s.process.note}</p>
-        <ol class="bh-loop stagger">
-          {s.process.steps.map((st, i) => (
-            <li style={`--i:${i}`}>
-              <span class="bh-loop-num">{String(i + 1).padStart(2, "0")}</span>
-              <h4>{st.title}</h4>
-              <p>{st.body}</p>
-              <span class="bh-loop-arrow" aria-hidden="true" />
-            </li>
-          ))}
-        </ol>
-        <p class="bh-loop-foot reveal">{s.process.footer}</p>
-      </section>
-    )
-  }
-
-  {/* ── Role and channels ─────────────────────────────────────────────── */}
-  <section class="bh-sec">
-    <div class="bh-cols reveal">
-      <div>
-        <p class="bh-label solo">My role</p>
-        <p class="bh-body">{s.myRole.body}</p>
-        <ul class="bh-chips">
-          {s.myRole.owned.map((o) => <li>{o}</li>)}
+    <div class="bh-ct">
+      <div class="bh-ct-col">
+        <p class="bh-sub-label reveal flush">Social strategy</p>
+        <ul class="bh-strats stagger">
+          {
+            s.marketing.strategies.map((t, i) => (
+              <li style={`--i:${i}`}>
+                <h4>{t.title}</h4>
+                <p>{t.body}</p>
+              </li>
+            ))
+          }
         </ul>
       </div>
-      <div>
-        <p class="bh-label solo">Marketing</p>
-        <p class="bh-body">{s.marketing.body}</p>
-        <ul class="bh-chips">
-          {s.marketing.channels.map((c) => <li>{c.name} · {c.detail}</li>)}
-        </ul>
+      <div class="bh-ct-col reveal">
+        <p class="bh-sub-label flush">{s.marketing.pipeline.title}</p>
+        <div class="bh-pipeline">
+          <svg class="bh-pipe-arrow" viewBox="0 0 60 12" aria-hidden="true">
+            <path d="M0 6h52m-6-5 6 5-6 5"></path>
+          </svg>
+          <p>{s.marketing.pipeline.body}</p>
+        </div>
       </div>
     </div>
   </section>
 
-  {/* ── Outcome ───────────────────────────────────────────────────────── */}
+  {/* ══ Results ═════════════════════════════════════════════════════════ */}
   <section class="bh-outcome reveal">
-    <span class="bh-ghost small" aria-hidden="true">Outcome</span>
-    <div class="bh-mark">
-      <span class="bh-num">13</span>
-      <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">Outcome</span>
-    </div>
-    <p class="bh-outcome-lede">{s.outcome.body}</p>
-    <ul class="bh-wins stagger">
-      {s.outcome.wins.map((w, i) => <li style={`--i:${i}`}>{w}</li>)}
+    <span class="bh-ghost small" aria-hidden="true">Results</span>
+    <p class="bh-label">Results</p>
+    <ul class="bh-results stagger">
+      {
+        s.marketing.results.map((r, i) => (
+          <li style={`--i:${i}`}>
+            <span class="bh-res-v" data-count={r.value}>
+              {r.value}
+            </span>
+            <span class="bh-res-l">{r.label}</span>
+          </li>
+        ))
+      }
     </ul>
+    <p class="bh-outcome-lede">{s.marketing.footer}</p>
   </section>
 </article>
 
 <script>
-  // Hero and audience figures count up when they scroll into view. Values like
-  // "1.5B", "533%", "200+" and "4.3" keep their prefix/suffix and decimals.
+  // Figures count up when they scroll into view. Values like "1.5B", "533%",
+  // "200+", "$75K" and "4.3" keep their prefix, suffix and decimals.
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const els = document.querySelectorAll<HTMLElement>("[data-count]");
 
