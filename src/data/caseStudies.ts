@@ -24,6 +24,9 @@ export type CaseStudy = {
   cardBadge: string;
   /** Hero wash, taken from the app's own palette. */
   accent: { from: string; mid: string; to: string };
+  /** The tint behind the app's own bands, so each case study reads like that
+   *  app's landing page rather than like this site. */
+  band: { light: string; dark: string };
   /** One sentence under the title. */
   lede: string;
   /** Three numbers for the hero. */
@@ -49,9 +52,21 @@ export type CaseStudy = {
   marketing: { body: string; channels: { name: string; detail: string }[] };
   outcome: { body: string; wins: string[] };
   /** Screens, shown big. */
-  gallery?: { title: string; images: { src: string; alt: string }[] };
-  /** Hearing Buddy's cast, drawn over their own gradients. */
-  characters?: { file: string; name: string; role: string; hex: string; to: string }[];
+  gallery?: { title: string; kicker: string; note?: string; images: { src: string; alt: string }[] };
+  /** A second run of screens — the marketing art, shown after the interface. */
+  marketingShots?: { title: string; kicker: string; note?: string; images: { src: string; alt: string }[] };
+  /** The cast, drawn over their own gradients. */
+  characters?: {
+    heading: string;
+    note: string;
+    list: { file: string; name: string; role: string; hex: string; to: string }[];
+  };
+  /** Hiking Passport's five park themes, each shown with its own five colours. */
+  themes?: {
+    heading: string;
+    note: string;
+    list: { file: string; name: string; park: string; swatches: string[] }[];
+  };
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -68,6 +83,7 @@ export const caseStudies: CaseStudy[] = [
     cardMeta: "Design + iOS · 5 platforms",
     cardBadge: "Apple Design Award Finalist",
     accent: { from: "#5BC0DE", mid: "#C4A0D8", to: "#E16A78" },
+    band: { light: "#EDF6F9", dark: "#0E1A1F" },
     badges: [
       "2026 Apple Design Award Finalist, Inclusivity",
       "Featured on the App Store 7 times",
@@ -209,33 +225,53 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
     },
-    characters: [
-      { file: "smart.svg", name: "Dash", role: "Concise", hex: "#5BC0DE", to: "#7DD3A8" },
-      { file: "encouraging.svg", name: "Coral", role: "Encouraging", hex: "#F4B458", to: "#E16A78" },
-      { file: "brainy.png", name: "Atlas", role: "Brainy", hex: "#7EC8B0", to: "#A8DECE" },
-      { file: "sweet.png", name: "Pearl", role: "Sweet", hex: "#F5DEB3", to: "#D4A0C0" },
-      { file: "playful.svg", name: "Ziggy", role: "Playful", hex: "#B8A9D9", to: "#FF7EB3" },
-      { file: "chill.svg", name: "Reef", role: "Chill", hex: "#87CEEB", to: "#FFE17B" },
-      { file: "sporty.png", name: "Sunny", role: "Sporty", hex: "#F8B4C8", to: "#5BB8E8" },
-      { file: "zen.png", name: "Fern", role: "Zen", hex: "#B5D8A0", to: "#F5A8C0" },
-      { file: "radiant.png", name: "Prism", role: "Pride", hex: "#C4A0D8", to: "#A0D0E8" },
-      { file: "affirming.png", name: "Rowen", role: "Trans Pride", hex: "#E87AA0", to: "#5AB8E0" },
-      { file: "lumi.png", name: "Lumi", role: "Disability Pride", hex: "#F6D86B", to: "#F4A95F" },
-      { file: "luna.png", name: "Luna", role: "Low light", hex: "#B5A9D6", to: "#4C3F73" },
-      { file: "paige.png", name: "Paige", role: "Studious", hex: "#C3BDDC", to: "#7B6BA6" },
-      { file: "chalkie.png", name: "Chalkie", role: "Patient", hex: "#F6CE55", to: "#E97B5C" },
-      { file: "celeste.png", name: "Celeste", role: "Deaf buddy", hex: "#9CBDB4", to: "#8FA3CE" },
-      { file: "goldie.png", name: "Goldie", role: "Golden", hex: "#C99054", to: "#6A6390" },
-    ],
+    characters: {
+      heading: "Sixteen buddies, sixteen palettes",
+      note: "Each one is a single value in code — a gradient, a coat, an accent pair and a voice. Pick one and the whole app, every widget and both companions follow it.",
+      list: [
+        { file: "smart.svg", name: "Dash", role: "Concise", hex: "#5BC0DE", to: "#7DD3A8" },
+        { file: "encouraging.svg", name: "Coral", role: "Encouraging", hex: "#F4B458", to: "#E16A78" },
+        { file: "brainy.png", name: "Atlas", role: "Brainy", hex: "#7EC8B0", to: "#A8DECE" },
+        { file: "sweet.png", name: "Pearl", role: "Sweet", hex: "#F5DEB3", to: "#D4A0C0" },
+        { file: "playful.svg", name: "Ziggy", role: "Playful", hex: "#B8A9D9", to: "#FF7EB3" },
+        { file: "chill.svg", name: "Reef", role: "Chill", hex: "#87CEEB", to: "#FFE17B" },
+        { file: "sporty.png", name: "Sunny", role: "Sporty", hex: "#F8B4C8", to: "#5BB8E8" },
+        { file: "zen.png", name: "Fern", role: "Zen", hex: "#B5D8A0", to: "#F5A8C0" },
+        { file: "radiant.png", name: "Prism", role: "Pride", hex: "#C4A0D8", to: "#A0D0E8" },
+        { file: "affirming.png", name: "Rowen", role: "Trans Pride", hex: "#E87AA0", to: "#5AB8E0" },
+        { file: "lumi.png", name: "Lumi", role: "Disability Pride", hex: "#F6D86B", to: "#F4A95F" },
+        { file: "luna.png", name: "Luna", role: "Low light", hex: "#B5A9D6", to: "#4C3F73" },
+        { file: "paige.png", name: "Paige", role: "Studious", hex: "#C3BDDC", to: "#7B6BA6" },
+        { file: "chalkie.png", name: "Chalkie", role: "Patient", hex: "#F6CE55", to: "#E97B5C" },
+        { file: "celeste.png", name: "Celeste", role: "Deaf buddy", hex: "#9CBDB4", to: "#8FA3CE" },
+        { file: "goldie.png", name: "Goldie", role: "Golden", hex: "#C99054", to: "#6A6390" },
+      ],
+    },
     gallery: {
-      title: "On the App Store",
+      kicker: "Inside the app",
+      title: "Captions, alerts, and a Buddy who takes notes",
+      note: "Live captions with speaker colours, a summary that surfaces the question you missed, a people tab that learns voices, and an onboarding that names your Buddy before it asks for anything.",
+      images: [
+        { src: "/case-studies/hearing-buddy/screens/listening-summary.png", alt: "The Summary view: a question alert from Scott, and the current topic written out" },
+        { src: "/case-studies/hearing-buddy/screens/listening-speakers.png", alt: "Live captions with each speaker in their own colour" },
+        { src: "/case-studies/hearing-buddy/screens/people-tab.png", alt: "The People tab, where voices are learned and named" },
+        { src: "/case-studies/hearing-buddy/screens/onboarding-tap.png", alt: "Onboarding: tap to start a session" },
+        { src: "/case-studies/hearing-buddy/screens/onboarding_name.png", alt: "Onboarding: naming your Buddy" },
+        { src: "/case-studies/hearing-buddy/screens/onboarding-morning.png", alt: "Onboarding: the morning scene" },
+        { src: "/case-studies/hearing-buddy/screens/settings.png", alt: "Settings" },
+      ],
+    },
+    marketingShots: {
+      kicker: "On the App Store",
+      title: "The listing is part of the design",
+      note: "Seven features in a year came off these. I design the screenshots, the in-app event art and the pitch behind each one.",
       images: [
         { src: "/case-studies/hearing-buddy/shots/01.jpg", alt: "Real-time captions for every conversation" },
-        { src: "/case-studies/hearing-buddy/shots/02.jpg", alt: "Hearing Buddy App Store screenshot" },
-        { src: "/case-studies/hearing-buddy/shots/03.jpg", alt: "Hearing Buddy App Store screenshot" },
-        { src: "/case-studies/hearing-buddy/shots/04.jpg", alt: "Hearing Buddy App Store screenshot" },
-        { src: "/case-studies/hearing-buddy/shots/05.jpg", alt: "Hearing Buddy App Store screenshot" },
-        { src: "/case-studies/hearing-buddy/shots/06.jpg", alt: "Hearing Buddy App Store screenshot" },
+        { src: "/case-studies/hearing-buddy/shots/02.jpg", alt: "Never miss a word again" },
+        { src: "/case-studies/hearing-buddy/shots/03.jpg", alt: "Onboarding flow shown on the App Store" },
+        { src: "/case-studies/hearing-buddy/shots/04.jpg", alt: "Live transcription for hearing loss" },
+        { src: "/case-studies/hearing-buddy/shots/05.jpg", alt: "Smart summaries keep you updated" },
+        { src: "/case-studies/hearing-buddy/shots/06.jpg", alt: "On-device transcription" },
       ],
     },
     decisions: [
@@ -295,6 +331,7 @@ export const caseStudies: CaseStudy[] = [
     cardMeta: "Design + iOS · iPhone and Watch",
     cardBadge: "Solo design and build",
     accent: { from: "#9A97D6", mid: "#F0A3BE", to: "#FFB48E" },
+    band: { light: "#F4F0E4", dark: "#17140F" },
     badges: ["New in 2026", "Solo design and build"],
     lede: "A training app for people the outdoors keeps telling to stay home. Your season becomes a hand-drawn passport you can read from across the room.",
     stats: [
@@ -337,42 +374,27 @@ export const caseStudies: CaseStudy[] = [
     },
     palette: {
       intro:
-        "Each theme is five colours lifted from its own icon — sky, sun, far ridge, near ridge, ground — plus a hand-picked accent. Everything else derives from those. The accents sit beside trail signs that are warm brown on tan, so the set stays earthy: lake blue, cedar, evergreen, huckleberry, lichen gold.",
+        "The five theme colours are only the input. Everything else is computed from them: the sky gradient takes its stops from the sky colour, the meadow takes the ground's hue, the stamp ink is the near ridge deepened in a loop until it reads as ink, and the stamp paper is the sun's warmth on card. The one colour I pick by hand is the accent, and it has to sit beside trail signs that are warm brown on tan — so the set stays earthy rather than neon.",
       groups: [
         {
-          name: "Alpine",
-          note: "The free default.",
+          name: "The accents, hand-picked",
+          note: "One per theme. Lake blue, cedar, evergreen, huckleberry, lichen gold — bright enough to feel alive, never enough to fight the wood.",
           swatches: [
-            { hex: "#D6E8F2", name: "sky" },
-            { hex: "#F8DFA0", name: "sun" },
-            { hex: "#9FB4D8", name: "ridge, far" },
-            { hex: "#6E86B4", name: "ridge, near" },
-            { hex: "#A9CFA6", name: "ground" },
-            { hex: "#5E9A63", name: "accent" },
+            { hex: "#5E9A63", name: "Alpine" },
+            { hex: "#A85A38", name: "Rainier" },
+            { hex: "#5C7A55", name: "Redwood" },
+            { hex: "#5A5788", name: "Voyageurs" },
+            { hex: "#2B6CA8", name: "White Sands" },
           ],
         },
         {
-          name: "Rainier",
-          note: "Alpenglow — the last of the sun on the summit while the valley is in shadow.",
+          name: "Computed, never picked",
+          note: "Derived in code from the five above, which is why no two themes can drift out of step.",
           swatches: [
-            { hex: "#9A97D6", name: "sky, top" },
-            { hex: "#F0A3BE", name: "sky, mid" },
-            { hex: "#FFB48E", name: "horizon" },
-            { hex: "#C2705E", name: "ridge" },
-            { hex: "#8DB078", name: "meadow" },
             { hex: "#FF5A2E", name: "alpenglow" },
-          ],
-        },
-        {
-          name: "Redwood, Voyageurs, White Sands",
-          note: "A grove washed white by canopy light, a dark-sky park with a live aurora, and high desert noon.",
-          swatches: [
-            { hex: "#A0522B", name: "bark" },
-            { hex: "#87A365", name: "grove floor" },
-            { hex: "#9A93DE", name: "violet" },
-            { hex: "#9FD4A4", name: "aurora" },
-            { hex: "#66A8E6", name: "desert sky" },
-            { hex: "#F2EEE2", name: "sand" },
+            { hex: "#C4A886", name: "sign wood" },
+            { hex: "#3A4A52", name: "stamp ink" },
+            { hex: "#FBF3E4", name: "stamp paper" },
           ],
         },
       ],
@@ -395,14 +417,78 @@ export const caseStudies: CaseStudy[] = [
       },
     },
     gallery: {
-      title: "The passport",
+      kicker: "Inside the app",
+      title: "A season you can read from across the room",
+      note: "The passport canvas, a summit being stamped, the training setup, the fifty-five things it works around, the buddy picker, and a theme changing the whole scene at once.",
       images: [
         { src: "/hiking-passport/shots/01-goal-hikes.jpg", alt: "The passport scene with a goal hike stamped on the summit" },
         { src: "/hiking-passport/shots/02-stamp-the-summit.jpg", alt: "Logging a summit with a date, rating, mood and photo" },
         { src: "/hiking-passport/shots/03-train-your-faves.jpg", alt: "Picking how you can train" },
         { src: "/hiking-passport/shots/04-training-for-everyone.jpg", alt: "The list of things the plan can work around" },
         { src: "/hiking-passport/shots/05-hike-with-a-buddy.jpg", alt: "Choosing a hiking buddy" },
+        { src: "/hiking-passport/shots/06-hiking-insights.jpg", alt: "The stats tab, written in your buddy's voice" },
         { src: "/hiking-passport/shots/07-passport-themes.jpg", alt: "Picking a theme, with the whole scene recoloured" },
+        { src: "/hiking-passport/shots/08-training-widgets.jpg", alt: "Home Screen widgets carrying the plan" },
+      ],
+    },
+    marketingShots: {
+      kicker: "On your wrist",
+      title: "The watch keeps its own copy",
+      note: "It opens with your passport whether or not the phone is nearby, so you can cross off a milestone or stamp a summit on a ridge with no signal.",
+      images: [
+        { src: "/hiking-passport/watch/1-plan.jpg", alt: "The plan on the watch" },
+        { src: "/hiking-passport/watch/2-todays-pick.jpg", alt: "Today's pick from your buddy" },
+        { src: "/hiking-passport/watch/3-ways-to-do-it.jpg", alt: "Ways to do today's milestone" },
+        { src: "/hiking-passport/watch/4-passport.jpg", alt: "The passport drawn on the watch" },
+        { src: "/hiking-passport/watch/5-insights.jpg", alt: "Insights on the watch" },
+      ],
+    },
+    characters: {
+      heading: "Six buddies, six reasons to be out there",
+      note: "Forest animals, each from a community that gets told the trail is not for them. They read your workouts and cheer. They are friends who hike — not trainers, not doctors — and they never scold.",
+      list: [
+        { file: "buddy-eagle.svg", name: "Aerie", role: "Disabled, fierce and kind", hex: "#6E86B4", to: "#9FB4D8" },
+        { file: "buddy-berry.png", name: "Berry", role: "Plus-size and joyful", hex: "#C2705E", to: "#F0AC85" },
+        { file: "buddy-acorn.png", name: "Acorn", role: "Trains between naps", hex: "#C99054", to: "#F8DFA0" },
+        { file: "buddy-turtle.png", name: "Juniper", role: "Queer, trans and outside", hex: "#5A5788", to: "#9A93DE" },
+        { file: "buddy-owl.svg", name: "Otis", role: "Neurodivergent and clear", hex: "#5C7A55", to: "#87A365" },
+        { file: "buddy-cat.png", name: "Biscuit", role: "Funny and on your side", hex: "#A0522B", to: "#DED7C9" },
+      ],
+    },
+    themes: {
+      heading: "Five parks, five colours each",
+      note: "Each theme starts from a place: alpenglow on Rainier, a grove washed white by canopy light, Voyageurs under the northern lights, high desert noon. The five colours under each icon are the whole theme.",
+      list: [
+        {
+          file: "theme-default.svg",
+          name: "Alpine",
+          park: "The free default",
+          swatches: ["#D6E8F2", "#F8DFA0", "#9FB4D8", "#6E86B4", "#A9CFA6"],
+        },
+        {
+          file: "theme-rainier.svg",
+          name: "Rainier",
+          park: "Inspired by Mount Rainier",
+          swatches: ["#9A97D6", "#F0A3BE", "#FFB48E", "#C2705E", "#8DB078"],
+        },
+        {
+          file: "theme-redwood.svg",
+          name: "Redwood",
+          park: "Inspired by Redwood",
+          swatches: ["#9FBACB", "#E6E4E2", "#A0522B", "#4A3123", "#87A365"],
+        },
+        {
+          file: "theme-voyageurs.svg",
+          name: "Voyageurs",
+          park: "Inspired by the northern lights",
+          swatches: ["#9A93DE", "#C5BCEA", "#9E97C6", "#7E79AC", "#9FD4A4"],
+        },
+        {
+          file: "theme-white-sands.svg",
+          name: "White Sands",
+          park: "Inspired by White Sands",
+          swatches: ["#66A8E6", "#FCF3D2", "#F6F2EA", "#DED7C9", "#F2EEE2"],
+        },
       ],
     },
     decisions: [
@@ -465,13 +551,14 @@ export const caseStudies: CaseStudy[] = [
     status: "Shipping",
     cardMeta: "Design + dev · iOS and Android",
     cardBadge: "Apple Entrepreneur Camp",
-    accent: { from: "#FFDC5E", mid: "#F8B38D", to: "#F497AC" },
-    badges: ["Apple Entrepreneur Camp 2023", "200+ beta testers"],
+    accent: { from: "#FE7DCA", mid: "#E07EFC", to: "#54D3FA" },
+    band: { light: "#FDF0F8", dark: "#1A1020" },
+    badges: ["Apple Entrepreneur Camp 2023", "4.3 stars", "200+ beta testers"],
     lede: "The app that taught me design. I learned animation as a craft, then found a purpose for it.",
     stats: [
+      { value: "4.3", label: "stars from 68 ratings" },
       { value: "200+", label: "beta testers" },
       { value: "533%", label: "marketing efficiency gain" },
-      { value: "$75K", label: "saved on the SwiftUI rebuild" },
     ],
     problem: {
       title: "Mental health apps asked you to be calm before you could use them",
@@ -502,28 +589,27 @@ export const caseStudies: CaseStudy[] = [
     },
     palette: {
       intro:
-        "Deliberately high-key and warm: sunshine yellow as the ground, coral and peach as the moving parts. The opposite of the beige-and-sage the category defaulted to — and it had to hold up full screen, because these are not accents, they are the interface.",
+        "One saturated colour per activity, carried edge to edge. The opposite of the beige-and-sage the category had settled on — and it had to hold up full screen, because these are not accents, they are the interface. Each activity owns a colour, so you know which one you are in before you read a word.",
       groups: [
         {
-          name: "Core",
-          note: "The brand yellow and the coral family it carries.",
+          name: "One colour per activity",
+          note: "Sampled from the shipped App Store screens.",
           swatches: [
-            { hex: "#FFDC5E", name: "sunshine" },
-            { hex: "#F497AC", name: "coral rose" },
-            { hex: "#F6A79B", name: "salmon" },
-            { hex: "#F8B38D", name: "peach" },
-            { hex: "#FBC479", name: "apricot" },
-            { hex: "#F5A1A1", name: "blush" },
+            { hex: "#FE7DCA", name: "task lists · pink" },
+            { hex: "#E07EFC", name: "organize · orchid" },
+            { hex: "#54D3FA", name: "negative thoughts · sky" },
+            { hex: "#5B69AF", name: "spin the wheel · indigo" },
+            { hex: "#FEDB5E", name: "gratitude · sunshine" },
           ],
         },
         {
-          name: "Activity surfaces",
-          note: "The same family dropped to a wash so the moving parts read on white.",
+          name: "Interface",
+          note: "White ground so the colour has something to be loud against.",
           swatches: [
+            { hex: "#FFFFFF", name: "paper" },
             { hex: "#FCE9A2", name: "pale gold" },
-            { hex: "#FDEEB5", name: "lit gold" },
             { hex: "#FEBDB4", name: "marker coral" },
-            { hex: "#FEF7DC", name: "cream" },
+            { hex: "#2B2B33", name: "ink" },
           ],
         },
       ],
@@ -533,7 +619,23 @@ export const caseStudies: CaseStudy[] = [
       body: "Tappily started in Storyboard — dozens of connected screens on a canvas, exactly the wrong architecture when the design is a system of animations. Migrating it to SwiftUI myself saved about $75,000. That is the lesson I still carry: the interesting design decisions are usually blocked by an architecture decision a designer is not allowed to touch.",
     },
     gallery: {
-      title: "The work",
+      kicker: "On the App Store",
+      title: "Every activity is a colour you land inside",
+      note: "The shipped listing, still live after eight years. Task lists in pink, self care in orchid, breathing in sky blue, and the night activity in indigo.",
+      images: [
+        { src: "/case-studies/tappily/shots/01.jpg", alt: "Daily, weekly and monthly task lists, on hot pink" },
+        { src: "/case-studies/tappily/shots/02.jpg", alt: "Accomplish tasks and stay organized, on orchid" },
+        { src: "/case-studies/tappily/shots/03.jpg", alt: "Overcome negative thoughts, on sky blue" },
+        { src: "/case-studies/tappily/shots/04.jpg", alt: "Interactive, game-like activities: spin the wheel, on indigo" },
+        { src: "/case-studies/tappily/shots/05.jpg", alt: "The maze animation: beautiful animations for a positive experience" },
+        { src: "/case-studies/tappily/shots/06.jpg", alt: "A safe space for your thoughts, on sunshine yellow" },
+        { src: "/case-studies/tappily/shots/07.jpg", alt: "Daily activities for positive mental health" },
+      ],
+    },
+    marketingShots: {
+      kicker: "Behind it",
+      title: "Learning the craft, then rebuilding for it",
+      note: "The animation work came first and the purpose followed. Migrating off Storyboard is what made the animation system possible.",
       images: [
         { src: "/blog/iwd/tappily-maze.jpg", alt: "A Tappily activity: a yellow maze with numbered checkpoints leading to a lightbulb" },
         { src: "/blog/iwd/designing-animations.jpg", alt: "Designing the animations in Photoshop" },

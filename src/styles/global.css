@@ -6151,12 +6151,15 @@ section[id] {
 
 .cs-cast li {
   text-align: center;
+  align-self: start;
 }
 
 .cs-cast-art {
   display: grid;
   place-items: center;
   aspect-ratio: 1;
+  min-height: 0;
+  overflow: hidden;
   border-radius: 22px;
   background: linear-gradient(145deg, var(--a), var(--b));
   padding: 14%;
@@ -6171,6 +6174,8 @@ section[id] {
 .cs-cast-art img {
   width: 100%;
   height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.16));
 }
@@ -6514,4 +6519,131 @@ section[id] {
 .case-page {
   --container: 72rem;
   padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(3rem, 7vw, 5rem);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Case study bands — each app's own colour, edge to edge, so the page reads
+   like that product's landing page rather than like this site.
+   ───────────────────────────────────────────────────────────────────────── */
+
+.cs-band {
+  /* Full-bleed out of .wrap, then padded back in so content stays aligned. */
+  margin: var(--cs-gap) calc(50% - 50vw) 0;
+  padding: clamp(2.5rem, 6vw, 4.5rem) max(calc(50vw - 50%), 1.25rem);
+  background: var(--band);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cs-band {
+    background: var(--band-dk);
+  }
+}
+
+:root[data-theme="dark"] .cs-band {
+  background: var(--band-dk);
+}
+
+.cs-band-head {
+  max-width: 46rem;
+  margin-bottom: 2rem;
+}
+
+.cs-band-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0.2rem 0 0;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.cs-band-note {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  max-width: 42rem;
+  text-wrap: pretty;
+}
+
+/* The gallery inside a band runs past the padding to the viewport edge. */
+.cs-band .cs-gallery {
+  margin-right: calc(-1 * max(calc(50vw - 50%), 1.25rem));
+  padding-right: max(calc(50vw - 50%), 1.25rem);
+}
+
+/* ── Park themes ──────────────────────────────────────────────────────── */
+
+.cs-themes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+}
+
+.cs-themes li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1rem 1.1rem 1.1rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.cs-themes li:hover {
+  transform: translateY(-5px);
+}
+
+.cs-theme-icon {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 0.7rem;
+  border: 1px solid var(--line);
+}
+
+.cs-theme-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.cs-theme-park {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.cs-theme-bar {
+  display: flex;
+  margin-top: 0.7rem;
+  border-radius: 999px;
+  overflow: hidden;
+  height: 0.75rem;
+}
+
+.cs-theme-bar > span {
+  flex: 1;
+  background: var(--c);
+}
+
+/* A band head used outside a band keeps the same rhythm. */
+.cs-band-head.plain {
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 720px) {
+  .cs-themes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

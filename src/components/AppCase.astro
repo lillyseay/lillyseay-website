@@ -7,14 +7,21 @@ interface Props {
 
 const { study: s } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+// Every band, wash and accent on the page comes from the app's own palette, so
+// each case study reads like that product's landing page rather than like this site.
+const theme = [
+  `--from:${s.accent.from}`,
+  `--mid:${s.accent.mid}`,
+  `--to:${s.accent.to}`,
+  `--band:${s.band.light}`,
+  `--band-dk:${s.band.dark}`,
+].join("; ");
 ---
 
-<article class="appcase" id={s.slug}>
-  {/* ── Hero: icon, name, one line, three numbers, over the app's own wash ── */}
-  <header
-    class="cs-hero"
-    style={`--from:${s.accent.from}; --mid:${s.accent.mid}; --to:${s.accent.to}`}
-  >
+<article class="appcase" id={s.slug} style={theme}>
+  {/* ── Hero ──────────────────────────────────────────────────────────── */}
+  <header class="cs-hero">
     <div class="cs-hero-wash" aria-hidden="true"></div>
     <div class="cs-hero-inner">
       {
@@ -45,11 +52,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </div>
   </header>
 
-  {/* ── Screens ── */}
+  {/* ── Inside the app ────────────────────────────────────────────────── */}
   {
     s.gallery && (
-      <section class="cs-sec cs-gallery-sec">
-        <p class="sec-kind reveal">{s.gallery.title}</p>
+      <section class="cs-band">
+        <div class="cs-band-head reveal">
+          <p class="sec-kind">{s.gallery.kicker}</p>
+          <h2>{s.gallery.title}</h2>
+          {s.gallery.note && <p class="cs-band-note">{s.gallery.note}</p>}
+        </div>
         <ul class="cs-gallery stagger">
           {s.gallery.images.map((im, i) => (
             <li style={`--i:${i}`}>
@@ -61,7 +72,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     )
   }
 
-  {/* ── Problem ── */}
+  {/* ── Problem ───────────────────────────────────────────────────────── */}
   <section class="cs-sec cs-split reveal">
     <div class="cs-split-head">
       <p class="sec-kind">The problem</p>
@@ -80,7 +91,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </div>
   </section>
 
-  {/* ── Role ── */}
+  {/* ── Role ──────────────────────────────────────────────────────────── */}
   <section class="cs-sec cs-split reveal">
     <div class="cs-split-head">
       <p class="sec-kind">My role</p>
@@ -94,7 +105,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </div>
   </section>
 
-  {/* ── Research ── */}
+  {/* ── Research ──────────────────────────────────────────────────────── */}
   <section class="cs-sec cs-split reveal">
     <div class="cs-split-head">
       <p class="sec-kind">Research</p>
@@ -137,26 +148,29 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     )
   }
 
-  {/* ── Strategy ── */}
+  {/* ── Strategy ──────────────────────────────────────────────────────── */}
   <section class="cs-sec cs-statement reveal">
     <p class="sec-kind">Design strategy</p>
     <h2>{s.strategy.title}</h2>
     <p>{s.strategy.body}</p>
   </section>
 
-  {/* ── Characters (Hearing Buddy) ── */}
+  {/* ── The cast ──────────────────────────────────────────────────────── */}
   {
     s.characters && (
-      <section class="cs-sec">
-        <p class="sec-kind reveal">The cast</p>
-        <h2 class="cs-h2 reveal">Sixteen buddies, sixteen palettes</h2>
+      <section class="cs-band">
+        <div class="cs-band-head reveal">
+          <p class="sec-kind">The cast</p>
+          <h2>{s.characters.heading}</h2>
+          <p class="cs-band-note">{s.characters.note}</p>
+        </div>
         <ul class="cs-cast stagger">
-          {s.characters.map((c, i) => (
+          {s.characters.list.map((c, i) => (
             <li style={`--i:${i}; --a:${c.hex}; --b:${c.to}`}>
               <span class="cs-cast-art">
                 <img
-                  src={`${base}/case-studies/hearing-buddy/buddies/${c.file}`}
-                  alt={`${c.name}, the ${c.role} buddy`}
+                  src={`${base}/case-studies/${s.slug}/buddies/${c.file}`}
+                  alt={`${c.name}, ${c.role}`}
                   loading="lazy"
                 />
               </span>
@@ -169,10 +183,45 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     )
   }
 
-  {/* ── Palette ── */}
+  {/* ── Themes ────────────────────────────────────────────────────────── */}
+  {
+    s.themes && (
+      <section class="cs-sec">
+        <div class="cs-band-head plain reveal">
+          <p class="sec-kind">Themes</p>
+          <h2>{s.themes.heading}</h2>
+          <p class="cs-band-note">{s.themes.note}</p>
+        </div>
+        <ul class="cs-themes stagger">
+          {s.themes.list.map((t, i) => (
+            <li style={`--i:${i}`}>
+              <img
+                class="cs-theme-icon"
+                src={`${base}/case-studies/${s.slug}/themes/${t.file}`}
+                alt={`The ${t.name} theme icon`}
+                loading="lazy"
+              />
+              <span class="cs-theme-name">{t.name}</span>
+              <span class="cs-theme-park">{t.park}</span>
+              <span class="cs-theme-bar" aria-hidden="true">
+                {t.swatches.map((w) => (
+                  <span style={`--c:${w}`} />
+                ))}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* ── Palette ───────────────────────────────────────────────────────── */}
   <section class="cs-sec">
-    <p class="sec-kind reveal">Colour</p>
-    <p class="cs-sec-intro reveal">{s.palette.intro}</p>
+    <div class="cs-band-head plain reveal">
+      <p class="sec-kind">Colour</p>
+      <h2>The palette, and what it has to survive</h2>
+      <p class="cs-band-note">{s.palette.intro}</p>
+    </div>
     <div class="palette">
       {
         s.palette.groups.map((g) => (
@@ -195,7 +244,29 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     {s.palette.type && <p class="palette-type reveal">{s.palette.type}</p>}
   </section>
 
-  {/* ── Systems ── */}
+  {/* ── Second run of screens ─────────────────────────────────────────── */}
+  {
+    s.marketingShots && (
+      <section class="cs-band">
+        <div class="cs-band-head reveal">
+          <p class="sec-kind">{s.marketingShots.kicker}</p>
+          <h2>{s.marketingShots.title}</h2>
+          {s.marketingShots.note && (
+            <p class="cs-band-note">{s.marketingShots.note}</p>
+          )}
+        </div>
+        <ul class="cs-gallery stagger">
+          {s.marketingShots.images.map((im, i) => (
+            <li style={`--i:${i}`}>
+              <img src={`${base}${im.src}`} alt={im.alt} loading="lazy" />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* ── Systems ───────────────────────────────────────────────────────── */}
   <section class="cs-sec cs-split reveal">
     <div class="cs-split-head">
       <p class="sec-kind">Systems</p>
@@ -221,7 +292,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     )
   }
 
-  {/* ── Decisions ── */}
+  {/* ── Decisions ─────────────────────────────────────────────────────── */}
   <section class="cs-sec">
     <p class="sec-kind reveal">Design decisions</p>
     <ol class="decision-list stagger">
@@ -236,7 +307,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </ol>
   </section>
 
-  {/* ── Marketing ── */}
+  {/* ── Marketing ─────────────────────────────────────────────────────── */}
   <section class="cs-sec cs-split reveal">
     <div class="cs-split-head">
       <p class="sec-kind">Marketing</p>
@@ -259,11 +330,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </ul>
   </section>
 
-  {/* ── Outcome ── */}
-  <section
-    class="cs-outcome reveal"
-    style={`--from:${s.accent.from}; --mid:${s.accent.mid}; --to:${s.accent.to}`}
-  >
+  {/* ── Outcome ───────────────────────────────────────────────────────── */}
+  <section class="cs-outcome reveal">
     <p class="sec-kind">Outcome</p>
     <p class="cs-outcome-lede">{s.outcome.body}</p>
     <ul class="win-list stagger">
