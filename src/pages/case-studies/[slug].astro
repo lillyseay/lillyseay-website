@@ -1,0 +1,68 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import AppCase from "../../components/AppCase.astro";
+import { caseStudies } from "../../data/caseStudies";
+import { profile } from "../../data/profile";
+
+export function getStaticPaths() {
+  return caseStudies.map((study, i) => ({
+    params: { slug: study.slug },
+    props: {
+      study,
+      prev: caseStudies[i - 1] ?? null,
+      next: caseStudies[i + 1] ?? null,
+    },
+  }));
+}
+
+const { study, prev, next } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<Layout
+  title={`${study.name} case study, Lilly Seay`}
+  description={study.lede}
+>
+  <section class="case-page">
+    <div class="wrap">
+      <p class="case-back reveal">
+        <a href={`${base}/case-studies/`}>All case studies</a>
+      </p>
+
+      <AppCase study={study} />
+
+      <nav class="case-next reveal" aria-label="More case studies">
+        {
+          prev && (
+            <a class="case-next-link" href={`${base}/case-studies/${prev.slug}/`}>
+              <span class="case-next-kind">Previous</span>
+              <span class="case-next-name">{prev.name}</span>
+            </a>
+          )
+        }
+        {
+          next && (
+            <a
+              class="case-next-link align-end"
+              href={`${base}/case-studies/${next.slug}/`}
+            >
+              <span class="case-next-kind">Next</span>
+              <span class="case-next-name">{next.name}</span>
+            </a>
+          )
+        }
+      </nav>
+
+      <p class="routes-cta reveal">
+        <a
+          class="pill-link"
+          href={`mailto:${profile.email}?subject=${encodeURIComponent(`${study.name} case study`)}`}
+          >Get in touch</a
+        >
+        <a class="pill-link ghost" href={`${base}/case-studies/`}
+          >All case studies</a
+        >
+      </p>
+    </div>
+  </section>
+</Layout>

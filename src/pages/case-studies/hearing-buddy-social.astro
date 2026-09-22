@@ -1,26 +1,37 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SocialCase from "../../components/SocialCase.astro";
-import { social } from "../../data/profile";
+import { socialCase } from "../../data/profile";
+import { profile } from "../../data/profile";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<Layout title="Case study: how I get apps downloaded, Lilly Seay">
+<Layout
+  title="Case study: how I get apps downloaded, Lilly Seay"
+  description="Short-form video for Hearing Buddy: 210 videos, 730,072 views, and the series that converted."
+>
   <section class="case-page">
     <div class="wrap">
+      <p class="case-back reveal">
+        <a href={`${base}/case-studies/`}>All case studies</a>
+      </p>
       <div class="section-head left reveal">
-        <p class="eyebrow">Case study</p>
+        <p class="eyebrow">
+          Channel case study · Short-form video · {socialCase.period}
+        </p>
         <h1>Find the series that <em>converts</em></h1>
         <p class="sub">
           For app startups I find the keywords people already search in your
           niche, test them as short-form video, and double down on the series
-          that convert. Here is how that played out for Hearing Buddy in 2026.
+          that convert. Here is how that played out for Hearing Buddy in 2026,
+          across TikTok, Instagram, and YouTube Shorts.
         </p>
       </div>
       <SocialCase />
       <p class="routes-cta reveal">
-        <a class="pill-link" href={`${base}/#routes`}>Back to services</a>
-        <a class="pill-link ghost" href={`mailto:team@lillyseay.co?subject=${encodeURIComponent("Start a project")}`}>Contact me</a>
+        <a class="pill-link" href={`mailto:${profile.email}?subject=${encodeURIComponent("Start a project")}`}>Contact me</a>
+        <a class="pill-link ghost" href={`${base}/case-studies/`}>All case studies</a>
+        <a class="pill-link ghost" href={`${base}/#routes`}>Back to services</a>
       </p>
     </div>
   </section>

@@ -5340,3 +5340,856 @@ section[id] {
   color: var(--text);
   line-height: 1.7;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   App design case studies (/case-studies/)
+   ───────────────────────────────────────────────────────────────────────── */
+
+.case-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 2.5rem;
+}
+
+.case-method-note {
+  background: var(--band-soft);
+  border-radius: 24px;
+  padding: 1.6rem 1.75rem 1.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.case-method-note h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.case-method-note p {
+  margin: 0;
+  max-width: 46rem;
+  color: var(--text);
+}
+
+/* One case study */
+.appcase {
+  padding-top: 3rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 5rem;
+}
+
+.appcase:first-of-type {
+  border-top: 0;
+}
+
+.appcase-head {
+  margin-bottom: 2.25rem;
+}
+
+.appcase-id {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.appcase-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  flex: none;
+  box-shadow: var(--shadow-card);
+  object-fit: cover;
+}
+
+.appcase-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0.2rem 0 0.3rem;
+  color: var(--ink);
+}
+
+.appcase-role {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.appcase-lede {
+  margin: 1.1rem 0 0;
+  font-size: 1.12rem;
+  line-height: 1.65;
+  max-width: 46rem;
+  color: var(--text);
+}
+
+.appcase-badges {
+  list-style: none;
+  padding: 0;
+  margin: 1.1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.appcase-badges li {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--brand-text);
+  background: var(--band-soft);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+}
+
+/* Sections within a case study */
+.appcase-sec {
+  margin-bottom: 2.75rem;
+  max-width: 48rem;
+}
+
+.sec-kind {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-text);
+  margin: 0 0 0.5rem;
+}
+
+.appcase-sec h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.8rem;
+  color: var(--ink);
+}
+
+.appcase-sec h4 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.3rem;
+  color: var(--ink);
+}
+
+.appcase-sec > p {
+  line-height: 1.72;
+}
+
+.appcase-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-left: 3px solid var(--brand);
+  padding: 0.2rem 0 0.2rem 1rem;
+  margin: 1.25rem 0 0;
+}
+
+.appcase-stat strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.appcase-stat span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.owned-list,
+.win-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.owned-list li,
+.win-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.owned-list li::before,
+.win-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+/* Research quotes */
+.quote-wall {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.quote-wall li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.quote-wall blockquote {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.quote-wall blockquote::before {
+  content: "\201C";
+}
+
+.quote-wall blockquote::after {
+  content: "\201D";
+}
+
+.quote-wall cite {
+  font-style: normal;
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-top: auto;
+}
+
+/* Research findings */
+.findings {
+  margin-top: 1.75rem;
+}
+
+.finding-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.9rem 0 0;
+  counter-reset: finding;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.finding-list li {
+  counter-increment: finding;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.1rem 1.25rem;
+}
+
+.finding-signal {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 0.35rem;
+}
+
+.finding-signal::before {
+  content: counter(finding, decimal-leading-zero) " ";
+  color: var(--brand-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.finding-evidence {
+  margin: 0 0 0.6rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.finding-shipped {
+  margin: 0;
+  font-size: 0.93rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.finding-shipped span {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-text);
+  background: var(--band-soft);
+  border-radius: 999px;
+  padding: 0.18rem 0.55rem;
+  margin-right: 0.5rem;
+  vertical-align: 0.1em;
+}
+
+/* Palette */
+.palette {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.4rem;
+}
+
+.palette-note {
+  margin: 0 0 0.7rem;
+  font-size: 0.89rem;
+  color: var(--muted);
+  max-width: 42rem;
+}
+
+.swatches {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.7rem;
+}
+
+.swatches li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.chip {
+  display: block;
+  height: 3.25rem;
+  border-radius: 12px;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  margin-bottom: 0.35rem;
+}
+
+.chip-hex {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.chip-name {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.palette-type {
+  margin-top: 1.4rem;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+/* Systems map */
+.sysmap {
+  margin-top: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.25rem 1.4rem 1.4rem;
+  box-shadow: var(--shadow-card);
+}
+
+.sysmap-from {
+  margin: 0 0 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.sysmap-from::after {
+  content: " →";
+  color: var(--brand-text);
+}
+
+.sysmap-to {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sysmap-to li {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--band-soft);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+}
+
+/* Decisions and channels */
+.decision-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: decision;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.decision-list li {
+  counter-increment: decision;
+  position: relative;
+  padding-left: 2.6rem;
+}
+
+.decision-list li::before {
+  content: counter(decision, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--brand-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.decision-list p {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.channel-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.channel-list li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1rem 1.15rem;
+}
+
+.channel-list p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.appcase-sec.outcome {
+  background: var(--band-soft);
+  border-radius: 24px;
+  padding: 1.6rem 1.75rem 1.75rem;
+  max-width: none;
+}
+
+.appcase-sec.outcome > p {
+  max-width: 46rem;
+}
+
+.appcase-sec.outcome .win-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .quote-wall,
+  .channel-list,
+  .appcase-sec.outcome .win-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .appcase-id {
+    gap: 0.8rem;
+  }
+
+  .appcase-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+  }
+
+  .case-method-note,
+  .appcase-sec.outcome {
+    padding: 1.25rem 1.2rem 1.4rem;
+    border-radius: 20px;
+  }
+}
+
+/* Case-study link beside the site link on an app card */
+.app-links {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.inline-link {
+  color: var(--brand-text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+/* ── Case study index and per-case chrome ───────────────────────────────── */
+
+.case-back {
+  margin: 0 0 1.5rem;
+  font-size: 0.88rem;
+}
+
+.case-back a {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.case-back a::before {
+  content: "\2190";
+  margin-right: 0.4rem;
+}
+
+.case-back a:hover {
+  color: var(--brand-text);
+}
+
+.case-group-head {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 3rem 0 1rem;
+}
+
+.case-index {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.case-index.channels {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.case-index-card {
+  display: flex;
+}
+
+.case-index-card > a {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.3rem 1.4rem 1.4rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  transition:
+    transform 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.case-index-card > a:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-float);
+  color: inherit;
+}
+
+.case-index-top {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.case-index-kind {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-text);
+}
+
+.case-index-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0.15rem 0 0.15rem;
+  color: var(--ink);
+}
+
+.case-index-role {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.case-index-body {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.case-index-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.case-index-tags li {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--brand-text);
+  background: var(--band-soft);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+}
+
+.case-index-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.case-index-stats dt {
+  font-size: 0.72rem;
+  color: var(--muted);
+  order: 2;
+}
+
+.case-index-stats dd {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.case-index-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.case-index-card .arrow-link {
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+/* Previous / next between case studies */
+.case-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 3rem 0 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.case-next-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.case-next-link.align-end {
+  margin-left: auto;
+  text-align: right;
+}
+
+.case-next-kind {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.case-next-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.case-next-link:hover .case-next-name {
+  color: var(--brand-text);
+}
+
+/* Carousel formats */
+.chart.wide svg {
+  width: 100%;
+}
+
+.chart .tick.posts {
+  fill: var(--brand-text);
+  font-weight: 700;
+}
+
+.format-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.format-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.format-row:first-child {
+  border-top: 0;
+}
+
+.format-main h5 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.15rem;
+  color: var(--ink);
+}
+
+.format-example {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.format-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.format-fill {
+  display: block;
+  height: 0.6rem;
+  width: var(--pct);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-text));
+}
+
+.format-avg {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.format-stats {
+  display: flex;
+  gap: 1.1rem;
+  margin: 0;
+}
+
+.format-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.format-stats dt {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  order: 2;
+}
+
+.format-stats dd {
+  margin: 0;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.format-takeaway {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.93rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .case-index,
+  .case-index.channels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .case-index,
+  .case-index.channels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .format-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .case-next {
+    flex-direction: column;
+  }
+
+  .case-next-link.align-end {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+
+.chart.wide .tick {
+  font-size: 13px;
+}
+
+.chart.wide .tick.posts {
+  font-size: 15px;
+}

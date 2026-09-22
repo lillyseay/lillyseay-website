@@ -39,6 +39,9 @@ import {
           href={`mailto:${profile.email}?subject=${encodeURIComponent("Hello from your website")}`}
           >Contact me</a
         >
+        <a class="pill-link ghost" href={`${base}/case-studies/`}
+          >Read my case studies</a
+        >
         <a class="pill-link ghost" href="#projects">See my work</a>
       </div>
     </div>
@@ -67,6 +70,13 @@ import {
       <div class="section-head reveal">
         <p class="eyebrow">Projects</p>
         <h2>Apps I've <em>shipped</em></h2>
+        <p class="sub">
+          Three of them have a full design case study: the research, the
+          palette, the system, and what it shipped as.
+          <a class="inline-link" href={`${base}/case-studies/`}
+            >Read the case studies</a
+          >.
+        </p>
       </div>
       <ul class="apps-grid stagger">
         {
@@ -112,14 +122,24 @@ import {
                     ))}
                   </ul>
                 )}
-                {app.url && (
-                  <a
-                    class="arrow-link"
-                    href={app.url.startsWith("/") ? `${base}${app.url}` : app.url}
-                  >
-                    {app.url.startsWith("/") ? "See the app" : "Visit site"}
-                  </a>
-                )}
+                <span class="app-links">
+                  {"caseStudy" in app && app.caseStudy && (
+                    <a
+                      class="arrow-link"
+                      href={`${base}/case-studies/${app.caseStudy}/`}
+                    >
+                      Case study
+                    </a>
+                  )}
+                  {app.url && (
+                    <a
+                      class="arrow-link"
+                      href={app.url.startsWith("/") ? `${base}${app.url}` : app.url}
+                    >
+                      {app.url.startsWith("/") ? "See the app" : "Visit site"}
+                    </a>
+                  )}
+                </span>
               </div>
             </li>
           ))

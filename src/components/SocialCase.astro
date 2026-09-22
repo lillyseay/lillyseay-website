@@ -1,5 +1,7 @@
 ---
-import { socialCase as c, carouselCase as k } from "../data/profile";
+import { socialCase as c } from "../data/profile";
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const nets = [
   { key: "tiktok", label: "TikTok" },
@@ -165,27 +167,18 @@ function bars(key: (typeof nets)[number]["key"]) {
   </div>
 
   <div class="case-divider reveal">
-    <h3>Carousels: the same method, <em>no camera</em></h3>
+    <h3>No camera? The same method runs on <em>carousels</em></h3>
     <p>
       For accounts that can't shoot video every day, I run the test on TikTok
       photo carousels instead. Hearing Buddy's Dash account is the example: a
-      character account that only posts carousels.
+      character account that only posts carousels, 190 of them in six months.
+    </p>
+    <p class="routes-cta">
+      <a class="pill-link ghost" href={`${base}/case-studies/hearing-buddy-carousels/`}
+        >Read the carousel case study</a
+      >
     </p>
   </div>
-
-  <ul class="case-stats stagger">
-    {
-      k.stats.map((s) => (
-        <li>
-          <span class="case-num" data-count={s.value} data-decimals="0" data-suffix={"suffix" in s ? s.suffix : ""}>
-            {full(s.value)}{"suffix" in s ? s.suffix : ""}
-          </span>
-          <span class="case-label">{s.label}</span>
-          <span class="case-sub">{s.sub}</span>
-        </li>
-      ))
-    }
-  </ul>
 </div>
 
 <script>

@@ -1,0 +1,185 @@
+---
+import type { CaseStudy } from "../data/caseStudies";
+
+interface Props {
+  study: CaseStudy;
+}
+
+const { study: s } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<article class="appcase" id={s.slug}>
+  <header class="appcase-head reveal">
+    <div class="appcase-id">
+      {
+        s.icon && (
+          <img
+            class="appcase-icon"
+            src={`${base}${s.icon}`}
+            alt=""
+            width="72"
+            height="72"
+            loading="lazy"
+          />
+        )
+      }
+      <div>
+        <p class="eyebrow">Case study · {s.years} · {s.status}</p>
+        <h1>{s.name}</h1>
+        <p class="appcase-role">{s.role} · {s.platforms}</p>
+      </div>
+    </div>
+    <p class="appcase-lede">{s.lede}</p>
+    <ul class="appcase-badges">
+      {s.badges.map((b) => <li>{b}</li>)}
+    </ul>
+  </header>
+
+  <section class="appcase-sec reveal">
+    <p class="sec-kind">The problem, and why it matters</p>
+    <h3>{s.problem.title}</h3>
+    {s.problem.body.map((p) => <p>{p}</p>)}
+    {
+      s.problem.stat && (
+        <p class="appcase-stat">
+          <strong>{s.problem.stat.value}</strong>
+          <span>{s.problem.stat.label}</span>
+        </p>
+      )
+    }
+  </section>
+
+  <section class="appcase-sec reveal">
+    <p class="sec-kind">My role</p>
+    <p>{s.myRole.body}</p>
+    <ul class="owned-list">
+      {s.myRole.owned.map((o) => <li>{o}</li>)}
+    </ul>
+  </section>
+
+  <section class="appcase-sec reveal">
+    <p class="sec-kind">User research</p>
+    <h3>{s.research.title}</h3>
+    {s.research.method.map((p) => <p>{p}</p>)}
+
+    {
+      s.research.quotes && (
+        <ul class="quote-wall stagger">
+          {s.research.quotes.map((q) => (
+            <li>
+              <blockquote>{q.text}</blockquote>
+              <cite>{q.meta}</cite>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      s.research.findings && (
+        <div class="findings">
+          <h4>What the research changed</h4>
+          <ol class="finding-list">
+            {s.research.findings.map((f) => (
+              <li>
+                <p class="finding-signal">{f.signal}</p>
+                <p class="finding-evidence">{f.evidence}</p>
+                <p class="finding-shipped">
+                  <span>Shipped</span>
+                  {f.shipped}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )
+    }
+  </section>
+
+  <section class="appcase-sec reveal">
+    <p class="sec-kind">Design strategy</p>
+    <h3>{s.strategy.title}</h3>
+    {s.strategy.body.map((p) => <p>{p}</p>)}
+  </section>
+
+  <section class="appcase-sec reveal">
+    <p class="sec-kind">Colour palette</p>
+    <p>{s.palette.intro}</p>
+    <div class="palette">
+      {
+        s.palette.groups.map((g) => (
+          <div class="palette-group">
+            <h4>{g.name}</h4>
+            <p class="palette-note">{g.note}</p>
+            <ul class="swatches">
+              {g.swatches.map((w) => (
+                <li>
+                  <span class="chip" style={`--chip:${w.hex}`} aria-hidden="true" />
+                  <span class="chip-hex">{w.hex}</span>
+                  <span class="chip-name">{w.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+    {s.palette.type && <p class="palette-type">{s.palette.type}</p>}
+  </section>
+
+  <section class="appcase-sec reveal">
+    <p class="sec-kind">Systems thinking</p>
+    <h3>{s.systems.title}</h3>
+    {s.systems.body.map((p) => <p>{p}</p>)}
+    {
+      s.systems.diagram && (
+        <div class="sysmap">
+          <p class="sysmap-from">{s.systems.diagram.from}</p>
+          <ul class="sysmap-to">
+            {s.systems.diagram.to.map((t) => (
+              <li>{t}</li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </section>
+
+  <section class="appcase-sec reveal">
+    <p class="sec-kind">Design decisions</p>
+    <ol class="decision-list">
+      {
+        s.decisions.map((d) => (
+          <li>
+            <h4>{d.title}</h4>
+            <p>{d.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="appcase-sec reveal">
+    <p class="sec-kind">How I marketed it</p>
+    {s.marketing.body.map((p) => <p>{p}</p>)}
+    <ul class="channel-list">
+      {
+        s.marketing.channels.map((c) => (
+          <li>
+            <h4>{c.name}</h4>
+            <p>{c.detail}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="appcase-sec outcome reveal">
+    <p class="sec-kind">Outcome</p>
+    <p>{s.outcome.body}</p>
+    <ul class="win-list">
+      {s.outcome.wins.map((w) => <li>{w}</li>)}
+    </ul>
+  </section>
+</article>
