@@ -48,7 +48,6 @@ export const apps = [
     tagline: "Live captions that help Deaf and hard of hearing people hear.",
     body: "Helps Deaf and hard of hearing people hear, with on-device live captions on every Apple platform. It's an Apple Design Award Finalist in Inclusivity and has been featured on the App Store 7 times this year.",
     badges: ["Apple Design Award Finalist", "Featured 7 times", "Apps We Love"],
-    caseStudy: "hearing-buddy",
     year: "2025",
   },
   {
@@ -60,7 +59,6 @@ export const apps = [
     tagline: "See your hiking goals as a picture, not a chart.",
     body: "Turns the hikes you're chasing into a passport. Each goal becomes a mountain, milestone signs line the trail below it, and summiting stamps the peak.",
     badges: ["New in 2026"],
-    caseStudy: "hiking-passport",
     year: "2026",
   },
   {
@@ -72,7 +70,6 @@ export const apps = [
     tagline: "Fun activities for your mental health.",
     body: "iOS/Android app that has fun mental health activities. The app was accepted into Apple Entrepreneur Camp in 2023 for its simplistic design and creative fullscreen animations.",
     badges: ["Apple Entrepreneur Camp 2023"],
-    caseStudy: "tappily",
     year: "2019",
   },
   {
