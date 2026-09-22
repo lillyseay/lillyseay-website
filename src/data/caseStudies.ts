@@ -54,6 +54,15 @@ export type CaseStudy = {
     pullQuote?: { text: string; cite: string };
     findings?: { signal: string; shipped: string }[];
     audiences?: { name: string; detail: string; evidence: string }[];
+    /** Posting into a category to see whether the audience is reachable,
+     *  before committing to building for it. */
+    preTest?: {
+      title: string;
+      note: string;
+      stats: Stat[];
+      posts: { title: string; views: number; flag?: string }[];
+      footer: string;
+    };
   };
 
   /** 3 — Product strategy. */
@@ -781,6 +790,44 @@ export const caseStudies: CaseStudy[] = [
     research: {
       heading: "Designed from constraints,|not from an average user",
       note: "This one did not start from a keyword sheet. It started from the observation that the people most often told the trail is not for them are the ones no training app asks about — so I built the taxonomy first and designed the plan around it.",
+      preTest: {
+        title: "I tested the audience before I built the app",
+        note: "Before writing a line of Hiking Passport I spent months posting outdoors content to my personal account — hiking, car camping, backpacking, the PNW — to find out whether the algorithm would carry it at all. The channel had 37 subscribers, so almost every view is discovery rather than followers. That was the number I needed: not whether my audience liked hiking, but whether a stranger's feed would surface it.",
+        stats: [
+          { value: "48", label: "outdoors posts" },
+          { value: "82K", label: "views, from 37 subscribers" },
+          { value: "1,200", label: "median views per post" },
+          { value: "31", label: "of 48 cleared 1,000 views" },
+        ],
+        posts: [
+          { title: "Sleeping on a backpacking trip be like…", views: 27000 },
+          { title: "Hiking in the PNW be like", views: 6700 },
+          { title: "Catching tadpoles while backpacking", views: 3200 },
+          {
+            title: "How to prevent blisters when hiking",
+            views: 2400,
+            flag: "Training content",
+          },
+          {
+            title: "My hiking goals for 2026",
+            views: 1800,
+            flag: "The app's premise",
+          },
+          { title: "3 things I'm good at (hiker edition)", views: 1600 },
+          {
+            title: "Hiking 1,000 ft of elevation in 1 mile",
+            views: 1500,
+            flag: "The app's premise",
+          },
+          {
+            title: "Training for a summit",
+            views: 800,
+            flag: "The app's premise",
+          },
+        ],
+        footer:
+          "Outdoors posts averaged 1,706 views against 581 for the founder and app-building content on the same channel — roughly three times the reach, from an account with no audience. Four of them were the product pitch before the product existed: goal hikes, elevation training, and what to do about blisters on the way up.",
+      },
       findings: [
         {
           signal: "A body that hurts",
@@ -1163,6 +1210,8 @@ export const caseStudies: CaseStudy[] = [
         body: "The same keyword-and-series method, pointed at hiking, with the passport image as the native hook — a visual that is already the product rather than an ad for it.",
       },
       stats: [
+        { value: "48", label: "outdoors posts already tested" },
+        { value: "82K", label: "views before the app existed" },
         { value: "74K", label: "outdoors audience on TikTok" },
         { value: "113K", label: "followers across my accounts" },
       ],

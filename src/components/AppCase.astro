@@ -187,6 +187,54 @@ const h = {
     }
 
     {
+      s.research.preTest && (
+        <div class="bh-pretest reveal">
+          <div class="bh-pretest-head">
+            <p class="bh-sub-label flush">Pre-launch audience test</p>
+            <h3 class="bh-pretest-title">{s.research.preTest.title}</h3>
+            <p class="bh-ct-note">{s.research.preTest.note}</p>
+            <ul class="bh-pretest-stats">
+              {s.research.preTest.stats.map((st) => (
+                <li>
+                  <span class="bh-pretest-v" data-count={st.value}>
+                    {st.value}
+                  </span>
+                  <span class="bh-pretest-l">{st.label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bh-pretest-chart">
+            <p class="bh-pretest-cap">Views per post, best first</p>
+            <ul>
+              {s.research.preTest.posts.map((post) => {
+                const max = Math.max(
+                  ...s.research.preTest!.posts.map((x) => x.views),
+                );
+                const pct = Math.max((post.views / max) * 100, 3);
+                return (
+                  <li>
+                    <span class="bh-pt-row">
+                      <span class="bh-pt-title">{post.title}</span>
+                      <span class="bh-pt-views">
+                        {post.views.toLocaleString("en-US")}
+                      </span>
+                    </span>
+                    <span class="bh-pt-bar" aria-hidden="true">
+                      <span style={`--pct:${pct}%`} />
+                    </span>
+                    {post.flag && <span class="bh-pt-flag">{post.flag}</span>}
+                  </li>
+                );
+              })}
+            </ul>
+            <p class="bh-pretest-foot">{s.research.preTest.footer}</p>
+          </div>
+        </div>
+      )
+    }
+
+    {
       s.research.findings && (
         <>
           <p class="bh-sub-label reveal">Pain points identified</p>
