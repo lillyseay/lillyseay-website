@@ -6141,20 +6141,6 @@ section[id] {
   transform: rotateY(0deg) rotate(0deg) translateY(-8px);
 }
 
-/* ── Statement ────────────────────────────────────────────────────────── */
-
-@media (prefers-color-scheme: dark) {
-  :root: not([data-theme= "light"]);
-}
-
-:root[data-theme="dark"] 
-
-
-
-
-
-
-
 /* ── Cast ─────────────────────────────────────────────────────────────── */
 
 .bh-cast {
