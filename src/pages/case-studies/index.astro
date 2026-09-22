@@ -11,8 +11,8 @@ const channels = [
     href: `${base}/case-studies/hearing-buddy-social/`,
     kind: "Short-form video",
     name: "Find the series that converts",
-    app: "Hearing Buddy · TikTok, Instagram, YouTube Shorts",
-    body: "A keyword sheet of 100 topics turned into 210 videos in seven months. The series that people recognized did 3.4 times the views of one-offs.",
+    app: "Hearing Buddy · TikTok, Instagram, YouTube",
+    body: "The series people recognized did 3.4 times the views of one-offs.",
     stats: [
       { v: "210", l: "videos" },
       { v: "730K", l: "views" },
@@ -25,7 +25,7 @@ const channels = [
     kind: "TikTok carousels",
     name: "Same method, no camera",
     app: `${carouselCase.account} · TikTok`,
-    body: "The same keyword test run as photo carousels from a character account, for apps that can't shoot video every day. Numbered lists win by almost 7x.",
+    body: "The same test as photo carousels. Numbered lists win by almost 7x.",
     stats: [
       { v: "190", l: "carousels" },
       { v: "151K", l: "views" },
@@ -78,26 +78,21 @@ const channels = [
                       class="appcase-icon"
                       src={`${base}${s.icon}`}
                       alt=""
-                      width="64"
-                      height="64"
+                      width="56"
+                      height="56"
                       loading="lazy"
                     />
                   )}
                   <div>
-                    <p class="case-index-kind">
-                      {s.years} · {s.status}
-                    </p>
                     <h3>{s.name}</h3>
-                    <p class="case-index-role">{s.role}</p>
+                    <p class="case-index-role">{s.cardMeta}</p>
                   </div>
                 </div>
                 <p class="case-index-body">{s.tagline}</p>
-                <ul class="case-index-tags">
-                  {s.badges.slice(0, 2).map((b) => (
-                    <li>{b}</li>
-                  ))}
-                </ul>
-                <span class="arrow-link">Read the case study</span>
+                <p class="case-index-foot">
+                  <span class="case-index-tag">{s.cardBadge}</span>
+                  <span class="case-go" aria-hidden="true" />
+                </p>
               </a>
             </li>
           ))
@@ -110,12 +105,11 @@ const channels = [
           channels.map((c) => (
             <li class="case-index-card">
               <a href={c.href}>
-                <div>
-                  <p class="case-index-kind">
-                    {c.kind} · {c.period}
-                  </p>
-                  <h3>{c.name}</h3>
-                  <p class="case-index-role">{c.app}</p>
+                <div class="case-index-top">
+                  <div>
+                    <h3>{c.name}</h3>
+                    <p class="case-index-role">{c.app}</p>
+                  </div>
                 </div>
                 <p class="case-index-body">{c.body}</p>
                 <dl class="case-index-stats">
@@ -126,7 +120,10 @@ const channels = [
                     </div>
                   ))}
                 </dl>
-                <span class="arrow-link">Read the case study</span>
+                <p class="case-index-foot">
+                  <span class="case-index-tag">{c.kind}</span>
+                  <span class="case-go" aria-hidden="true" />
+                </p>
               </a>
             </li>
           ))

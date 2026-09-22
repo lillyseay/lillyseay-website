@@ -10,111 +10,178 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <article class="appcase" id={s.slug}>
-  <header class="appcase-head reveal">
-    <div class="appcase-id">
+  {/* ── Hero: icon, name, one line, three numbers, over the app's own wash ── */}
+  <header
+    class="cs-hero"
+    style={`--from:${s.accent.from}; --mid:${s.accent.mid}; --to:${s.accent.to}`}
+  >
+    <div class="cs-hero-wash" aria-hidden="true"></div>
+    <div class="cs-hero-inner">
       {
         s.icon && (
           <img
-            class="appcase-icon"
+            class="cs-hero-icon float"
             src={`${base}${s.icon}`}
             alt=""
-            width="72"
-            height="72"
-            loading="lazy"
+            width="112"
+            height="112"
           />
         )
       }
-      <div>
-        <p class="eyebrow">Case study · {s.years} · {s.status}</p>
-        <h1>{s.name}</h1>
-        <p class="appcase-role">{s.role} · {s.platforms}</p>
-      </div>
+      <p class="cs-kicker">{s.years} · {s.status}</p>
+      <h1 class="cs-title">{s.name}</h1>
+      <p class="cs-lede">{s.lede}</p>
+      <p class="cs-role">{s.role} · {s.platforms}</p>
+      <ul class="cs-hero-stats">
+        {
+          s.stats.map((st, i) => (
+            <li style={`--i:${i}`}>
+              <span class="cs-stat-v">{st.value}</span>
+              <span class="cs-stat-l">{st.label}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
-    <p class="appcase-lede">{s.lede}</p>
-    <ul class="appcase-badges">
-      {s.badges.map((b) => <li>{b}</li>)}
-    </ul>
   </header>
 
-  <section class="appcase-sec reveal">
-    <p class="sec-kind">The problem, and why it matters</p>
-    <h3>{s.problem.title}</h3>
-    {s.problem.body.map((p) => <p>{p}</p>)}
-    {
-      s.problem.stat && (
-        <p class="appcase-stat">
-          <strong>{s.problem.stat.value}</strong>
-          <span>{s.problem.stat.label}</span>
-        </p>
-      )
-    }
+  {/* ── Screens ── */}
+  {
+    s.gallery && (
+      <section class="cs-sec cs-gallery-sec">
+        <p class="sec-kind reveal">{s.gallery.title}</p>
+        <ul class="cs-gallery stagger">
+          {s.gallery.images.map((im, i) => (
+            <li style={`--i:${i}`}>
+              <img src={`${base}${im.src}`} alt={im.alt} loading="lazy" />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* ── Problem ── */}
+  <section class="cs-sec cs-split reveal">
+    <div class="cs-split-head">
+      <p class="sec-kind">The problem</p>
+      <h2>{s.problem.title}</h2>
+    </div>
+    <div class="cs-split-body">
+      <p>{s.problem.body}</p>
+      {
+        s.problem.stat && (
+          <p class="cs-bigstat">
+            <strong>{s.problem.stat.value}</strong>
+            <span>{s.problem.stat.label}</span>
+          </p>
+        )
+      }
+    </div>
   </section>
 
-  <section class="appcase-sec reveal">
-    <p class="sec-kind">My role</p>
-    <p>{s.myRole.body}</p>
-    <ul class="owned-list">
-      {s.myRole.owned.map((o) => <li>{o}</li>)}
-    </ul>
+  {/* ── Role ── */}
+  <section class="cs-sec cs-split reveal">
+    <div class="cs-split-head">
+      <p class="sec-kind">My role</p>
+      <h2>{s.role}</h2>
+    </div>
+    <div class="cs-split-body">
+      <p>{s.myRole.body}</p>
+      <ul class="cs-chips">
+        {s.myRole.owned.map((o) => <li>{o}</li>)}
+      </ul>
+    </div>
   </section>
 
-  <section class="appcase-sec reveal">
-    <p class="sec-kind">User research</p>
-    <h3>{s.research.title}</h3>
-    {s.research.method.map((p) => <p>{p}</p>)}
+  {/* ── Research ── */}
+  <section class="cs-sec cs-split reveal">
+    <div class="cs-split-head">
+      <p class="sec-kind">Research</p>
+      <h2>{s.research.title}</h2>
+    </div>
+    <div class="cs-split-body">
+      <p>{s.research.body}</p>
+    </div>
+  </section>
 
-    {
-      s.research.quotes && (
+  {
+    s.research.quotes && (
+      <section class="cs-sec cs-bleed">
         <ul class="quote-wall stagger">
-          {s.research.quotes.map((q) => (
-            <li>
+          {s.research.quotes.map((q, i) => (
+            <li style={`--i:${i}`}>
               <blockquote>{q.text}</blockquote>
               <cite>{q.meta}</cite>
             </li>
           ))}
         </ul>
-      )
-    }
+      </section>
+    )
+  }
 
-    {
-      s.research.findings && (
-        <div class="findings">
-          <h4>What the research changed</h4>
-          <ol class="finding-list">
-            {s.research.findings.map((f) => (
-              <li>
-                <p class="finding-signal">{f.signal}</p>
-                <p class="finding-evidence">{f.evidence}</p>
-                <p class="finding-shipped">
-                  <span>Shipped</span>
-                  {f.shipped}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      )
-    }
-  </section>
+  {
+    s.research.findings && (
+      <section class="cs-sec reveal">
+        <p class="sec-kind">Signal in, feature out</p>
+        <ol class="cs-findings stagger">
+          {s.research.findings.map((f, i) => (
+            <li style={`--i:${i}`}>
+              <span class="cs-find-signal">{f.signal}</span>
+              <span class="cs-find-arrow" aria-hidden="true" />
+              <span class="cs-find-shipped">{f.shipped}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )
+  }
 
-  <section class="appcase-sec reveal">
+  {/* ── Strategy ── */}
+  <section class="cs-sec cs-statement reveal">
     <p class="sec-kind">Design strategy</p>
-    <h3>{s.strategy.title}</h3>
-    {s.strategy.body.map((p) => <p>{p}</p>)}
+    <h2>{s.strategy.title}</h2>
+    <p>{s.strategy.body}</p>
   </section>
 
-  <section class="appcase-sec reveal">
-    <p class="sec-kind">Colour palette</p>
-    <p>{s.palette.intro}</p>
+  {/* ── Characters (Hearing Buddy) ── */}
+  {
+    s.characters && (
+      <section class="cs-sec">
+        <p class="sec-kind reveal">The cast</p>
+        <h2 class="cs-h2 reveal">Sixteen buddies, sixteen palettes</h2>
+        <ul class="cs-cast stagger">
+          {s.characters.map((c, i) => (
+            <li style={`--i:${i}; --a:${c.hex}; --b:${c.to}`}>
+              <span class="cs-cast-art">
+                <img
+                  src={`${base}/case-studies/hearing-buddy/buddies/${c.file}`}
+                  alt={`${c.name}, the ${c.role} buddy`}
+                  loading="lazy"
+                />
+              </span>
+              <span class="cs-cast-name">{c.name}</span>
+              <span class="cs-cast-role">{c.role}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {/* ── Palette ── */}
+  <section class="cs-sec">
+    <p class="sec-kind reveal">Colour</p>
+    <p class="cs-sec-intro reveal">{s.palette.intro}</p>
     <div class="palette">
       {
         s.palette.groups.map((g) => (
-          <div class="palette-group">
+          <div class="palette-group reveal">
             <h4>{g.name}</h4>
             <p class="palette-note">{g.note}</p>
-            <ul class="swatches">
-              {g.swatches.map((w) => (
-                <li>
+            <ul class="swatches stagger">
+              {g.swatches.map((w, i) => (
+                <li style={`--i:${i}`}>
                   <span class="chip" style={`--chip:${w.hex}`} aria-hidden="true" />
                   <span class="chip-hex">{w.hex}</span>
                   <span class="chip-name">{w.name}</span>
@@ -125,33 +192,42 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         ))
       }
     </div>
-    {s.palette.type && <p class="palette-type">{s.palette.type}</p>}
+    {s.palette.type && <p class="palette-type reveal">{s.palette.type}</p>}
   </section>
 
-  <section class="appcase-sec reveal">
-    <p class="sec-kind">Systems thinking</p>
-    <h3>{s.systems.title}</h3>
-    {s.systems.body.map((p) => <p>{p}</p>)}
-    {
-      s.systems.diagram && (
+  {/* ── Systems ── */}
+  <section class="cs-sec cs-split reveal">
+    <div class="cs-split-head">
+      <p class="sec-kind">Systems</p>
+      <h2>{s.systems.title}</h2>
+    </div>
+    <div class="cs-split-body">
+      <p>{s.systems.body}</p>
+    </div>
+  </section>
+
+  {
+    s.systems.diagram && (
+      <section class="cs-sec reveal">
         <div class="sysmap">
           <p class="sysmap-from">{s.systems.diagram.from}</p>
-          <ul class="sysmap-to">
-            {s.systems.diagram.to.map((t) => (
-              <li>{t}</li>
+          <ul class="sysmap-to stagger">
+            {s.systems.diagram.to.map((t, i) => (
+              <li style={`--i:${i}`}>{t}</li>
             ))}
           </ul>
         </div>
-      )
-    }
-  </section>
+      </section>
+    )
+  }
 
-  <section class="appcase-sec reveal">
-    <p class="sec-kind">Design decisions</p>
-    <ol class="decision-list">
+  {/* ── Decisions ── */}
+  <section class="cs-sec">
+    <p class="sec-kind reveal">Design decisions</p>
+    <ol class="decision-list stagger">
       {
-        s.decisions.map((d) => (
-          <li>
+        s.decisions.map((d, i) => (
+          <li style={`--i:${i}`}>
             <h4>{d.title}</h4>
             <p>{d.body}</p>
           </li>
@@ -160,13 +236,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </ol>
   </section>
 
-  <section class="appcase-sec reveal">
-    <p class="sec-kind">How I marketed it</p>
-    {s.marketing.body.map((p) => <p>{p}</p>)}
-    <ul class="channel-list">
+  {/* ── Marketing ── */}
+  <section class="cs-sec cs-split reveal">
+    <div class="cs-split-head">
+      <p class="sec-kind">Marketing</p>
+      <h2>How it got downloaded</h2>
+    </div>
+    <div class="cs-split-body">
+      <p>{s.marketing.body}</p>
+    </div>
+  </section>
+  <section class="cs-sec">
+    <ul class="channel-list stagger">
       {
-        s.marketing.channels.map((c) => (
-          <li>
+        s.marketing.channels.map((c, i) => (
+          <li style={`--i:${i}`}>
             <h4>{c.name}</h4>
             <p>{c.detail}</p>
           </li>
@@ -175,11 +259,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </ul>
   </section>
 
-  <section class="appcase-sec outcome reveal">
+  {/* ── Outcome ── */}
+  <section
+    class="cs-outcome reveal"
+    style={`--from:${s.accent.from}; --mid:${s.accent.mid}; --to:${s.accent.to}`}
+  >
     <p class="sec-kind">Outcome</p>
-    <p>{s.outcome.body}</p>
-    <ul class="win-list">
-      {s.outcome.wins.map((w) => <li>{w}</li>)}
+    <p class="cs-outcome-lede">{s.outcome.body}</p>
+    <ul class="win-list stagger">
+      {s.outcome.wins.map((w, i) => <li style={`--i:${i}`}>{w}</li>)}
     </ul>
   </section>
 </article>
