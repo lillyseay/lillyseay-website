@@ -792,41 +792,48 @@ export const caseStudies: CaseStudy[] = [
       note: "This one did not start from a keyword sheet. It started from the observation that the people most often told the trail is not for them are the ones no training app asks about — so I built the taxonomy first and designed the plan around it.",
       preTest: {
         title: "I tested the audience before I built the app",
-        note: "Before writing a line of Hiking Passport I spent months posting outdoors content to my personal account — hiking, car camping, backpacking, the PNW — to find out whether the algorithm would carry it at all. The channel had 37 subscribers, so almost every view is discovery rather than followers. That was the number I needed: not whether my audience liked hiking, but whether a stranger's feed would surface it.",
+        note: "Hiking Passport started as content. For a year before the app was submitted I posted outdoors work to @lillyseay — hiking, car camping, backpacking, the PNW — to find out whether the category would carry at all. The earliest dated hiking post is September 2025; submission was September 2026. The answer came back clearly: outdoors is the best-performing thing on that account in its modern era, and the app's exact premise already worked as a hook.",
         stats: [
-          { value: "48", label: "outdoors posts" },
-          { value: "82K", label: "views, from 37 subscribers" },
-          { value: "1,200", label: "median views per post" },
-          { value: "31", label: "of 48 cleared 1,000 views" },
+          { value: "80K", label: "views, best outdoors post" },
+          { value: "13K", label: "likes on it — a 16% like rate" },
+          { value: "12", label: "months of testing before submission" },
+          { value: "4", label: "posts that were the app's premise" },
         ],
         posts: [
-          { title: "Sleeping on a backpacking trip be like…", views: 27000 },
-          { title: "Hiking in the PNW be like", views: 6700 },
-          { title: "Catching tadpoles while backpacking", views: 3200 },
           {
-            title: "How to prevent blisters when hiking",
-            views: 2400,
-            flag: "Training content",
+            title: "#paddleboarding #outdoorsy #pnw",
+            views: 80000,
+            flag: "Best post on the account since 2020",
           },
           {
-            title: "My hiking goals for 2026",
-            views: 1800,
+            title: "Bc this sleeping pad may as well be the ground",
+            views: 15000,
+          },
+          { title: "My ego after cowboy camping ONCE", views: 8469 },
+          { title: "My Day Traveling in Switzerland", views: 5698 },
+          {
+            title: "5 hr 38 minute summit time",
+            views: 1596,
+            flag: "Sept 2025 · the app's premise",
+          },
+          {
+            title: "1000 ft elevation in 1 mile",
+            views: 1243,
             flag: "The app's premise",
           },
-          { title: "3 things I'm good at (hiker edition)", views: 1600 },
           {
-            title: "Hiking 1,000 ft of elevation in 1 mile",
-            views: 1500,
+            title: "Setting hiking goals for 2026",
+            views: 968,
             flag: "The app's premise",
           },
           {
-            title: "Training for a summit",
-            views: 800,
+            title: "Summit my first mountain with me",
+            views: 425,
             flag: "The app's premise",
           },
         ],
         footer:
-          "Outdoors posts averaged 1,706 views against 581 for the founder and app-building content on the same channel — roughly three times the reach, from an account with no audience. Four of them were the product pitch before the product existed: goal hikes, elevation training, and what to do about blisters on the way up.",
+          "The paddleboarding post is the highest-performing thing @lillyseay has published since a viral engineering run in 2020, and it took 13,000 likes doing it. Underneath the spikes the category holds a floor: outdoors posts sit reliably between 400 and 1,600 views, week after week. Four of them were the product pitch before the product existed — goal hikes, elevation training, summit times. The same posts cross-posted to a 37-subscriber YouTube channel pulled another 82,000 views, which says the reach is the category rather than the following.",
       },
       findings: [
         {
@@ -1210,8 +1217,8 @@ export const caseStudies: CaseStudy[] = [
         body: "The same keyword-and-series method, pointed at hiking, with the passport image as the native hook — a visual that is already the product rather than an ad for it.",
       },
       stats: [
-        { value: "48", label: "outdoors posts already tested" },
-        { value: "82K", label: "views before the app existed" },
+        { value: "80K", label: "best outdoors post, pre-launch" },
+        { value: "12", label: "months of category testing" },
         { value: "74K", label: "outdoors audience on TikTok" },
         { value: "113K", label: "followers across my accounts" },
       ],
