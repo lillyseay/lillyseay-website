@@ -8,8 +8,12 @@ interface Props {
 const { study: s } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-// Every band, wash and accent on the page comes from the app's own palette, so
-// each case study reads like that product's landing page rather than like this site.
+// Headings carry a single "|". Everything after it renders in the app's accent.
+const split = (t: string) => {
+  const [lead, accent] = t.split("|");
+  return { lead: lead.trim(), accent: accent?.trim() };
+};
+
 const theme = [
   `--from:${s.accent.from}`,
   `--mid:${s.accent.mid}`,
@@ -17,17 +21,38 @@ const theme = [
   `--band:${s.band.light}`,
   `--band-dk:${s.band.dark}`,
 ].join("; ");
+
+const problem = split(s.problem.title);
+const research = split(s.research.title);
+const strategy = split(s.strategy.title);
+const systems = split(s.systems.title);
+const galleryT = s.gallery && split(s.gallery.title);
+const shotsT = s.marketingShots && split(s.marketingShots.title);
+const castT = s.characters && split(s.characters.heading);
+const themesT = s.themes && split(s.themes.heading);
 ---
 
-<article class="appcase" id={s.slug} style={theme}>
+<article class="bh" id={s.slug} style={theme}>
+  {/* ── Meta bar ──────────────────────────────────────────────────────── */}
+  <div class="bh-meta reveal">
+    <span>{s.category}</span>
+    <span>Design case study</span>
+    <span>{s.years}</span>
+  </div>
+
   {/* ── Hero ──────────────────────────────────────────────────────────── */}
-  <header class="cs-hero">
-    <div class="cs-hero-wash" aria-hidden="true"></div>
-    <div class="cs-hero-inner">
+  <header class="bh-hero">
+    <div class="bh-hero-wash" aria-hidden="true"></div>
+    <span class="bh-ghost" aria-hidden="true">{s.name}</span>
+    <svg class="bh-arc one" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="198" />
+      <circle cx="200" cy="200" r="150" />
+    </svg>
+    <div class="bh-hero-inner">
       {
         s.icon && (
           <img
-            class="cs-hero-icon float"
+            class="bh-hero-icon float"
             src={`${base}${s.icon}`}
             alt=""
             width="112"
@@ -35,33 +60,119 @@ const theme = [
           />
         )
       }
-      <p class="cs-kicker">{s.years} · {s.status}</p>
-      <h1 class="cs-title">{s.name}</h1>
-      <p class="cs-lede">{s.lede}</p>
-      <p class="cs-role">{s.role} · {s.platforms}</p>
-      <ul class="cs-hero-stats">
+      <h1 class="bh-title">{s.name}</h1>
+      <p class="bh-lede">{s.lede}</p>
+      <p class="bh-role">{s.role} · {s.platforms}</p>
+      <ul class="bh-stats">
         {
           s.stats.map((st, i) => (
             <li style={`--i:${i}`}>
-              <span class="cs-stat-v">{st.value}</span>
-              <span class="cs-stat-l">{st.label}</span>
+              <span class="bh-stat-v">{st.value}</span>
+              <span class="bh-stat-l">{st.label}</span>
             </li>
           ))
         }
       </ul>
+      <p class="bh-status">{s.status}</p>
     </div>
   </header>
 
-  {/* ── Inside the app ────────────────────────────────────────────────── */}
-  {
-    s.gallery && (
-      <section class="cs-band">
-        <div class="cs-band-head reveal">
-          <p class="sec-kind">{s.gallery.kicker}</p>
-          <h2>{s.gallery.title}</h2>
-          {s.gallery.note && <p class="cs-band-note">{s.gallery.note}</p>}
+  {/* ── 01 Problem ────────────────────────────────────────────────────── */}
+  <section class="bh-sec">
+    <div class="bh-mark reveal">
+      <span class="bh-num">01</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">The problem</span>
+    </div>
+    <div class="bh-two reveal">
+      <h2 class="bh-h2">
+        {problem.lead}{problem.accent && <em>{problem.accent}</em>}
+      </h2>
+      <div class="bh-note-wrap">
+        <div class="bh-note">
+          <span class="bh-pin" aria-hidden="true"></span>
+          <p>{s.problem.body}</p>
         </div>
-        <ul class="cs-gallery stagger">
+      </div>
+    </div>
+    {
+      s.problem.stat && (
+        <div class="bh-hugestat reveal">
+          <strong>{s.problem.stat.value}</strong>
+          <span>{s.problem.stat.label}</span>
+        </div>
+      )
+    }
+  </section>
+
+  {/* ── 02 Research ───────────────────────────────────────────────────── */}
+  <section class="bh-sec">
+    <div class="bh-mark reveal">
+      <span class="bh-num">02</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">Research</span>
+    </div>
+    <div class="bh-two reveal">
+      <h2 class="bh-h2">
+        {research.lead}{research.accent && <em>{research.accent}</em>}
+      </h2>
+      <p class="bh-body">{s.research.body}</p>
+    </div>
+
+    {
+      s.research.quotes && (
+        <ul class="bh-quotes stagger">
+          {s.research.quotes.map((q, i) => (
+            <li style={`--i:${i}`}>
+              <span class="bh-quote-mark" aria-hidden="true">
+                //
+              </span>
+              <blockquote>{q.text}</blockquote>
+              <cite>{q.meta}</cite>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      s.research.findings && (
+        <div class="bh-hub reveal">
+          <div class="bh-hub-core">
+            <span>{s.research.findings.length}</span>
+            <small>signals</small>
+          </div>
+          <ul class="bh-hub-list stagger">
+            {s.research.findings.map((f, i) => (
+              <li style={`--i:${i}`}>
+                <span class="bh-hub-dot" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h4>{f.signal}</h4>
+                <p>{f.shipped}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </section>
+
+  {/* ── 03 Screens ────────────────────────────────────────────────────── */}
+  {
+    s.gallery && galleryT && (
+      <section class="bh-band">
+        <div class="bh-mark reveal">
+          <span class="bh-num">03</span>
+          <span class="bh-rule" aria-hidden="true" />
+          <span class="bh-label">{s.gallery.kicker}</span>
+        </div>
+        <h2 class="bh-h2 reveal">
+          {galleryT.lead}
+          {galleryT.accent && <em>{galleryT.accent}</em>}
+        </h2>
+        {s.gallery.note && <p class="bh-body wide reveal">{s.gallery.note}</p>}
+        <ul class="bh-screens stagger">
           {s.gallery.images.map((im, i) => (
             <li style={`--i:${i}`}>
               <img src={`${base}${im.src}`} alt={im.alt} loading="lazy" />
@@ -72,110 +183,80 @@ const theme = [
     )
   }
 
-  {/* ── Problem ───────────────────────────────────────────────────────── */}
-  <section class="cs-sec cs-split reveal">
-    <div class="cs-split-head">
-      <p class="sec-kind">The problem</p>
-      <h2>{s.problem.title}</h2>
+  {/* ── 04 Strategy ───────────────────────────────────────────────────── */}
+  <section class="bh-sec">
+    <div class="bh-mark reveal">
+      <span class="bh-num">04</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">Design strategy</span>
     </div>
-    <div class="cs-split-body">
-      <p>{s.problem.body}</p>
-      {
-        s.problem.stat && (
-          <p class="cs-bigstat">
-            <strong>{s.problem.stat.value}</strong>
-            <span>{s.problem.stat.label}</span>
-          </p>
-        )
-      }
-    </div>
-  </section>
-
-  {/* ── Role ──────────────────────────────────────────────────────────── */}
-  <section class="cs-sec cs-split reveal">
-    <div class="cs-split-head">
-      <p class="sec-kind">My role</p>
-      <h2>{s.role}</h2>
-    </div>
-    <div class="cs-split-body">
-      <p>{s.myRole.body}</p>
-      <ul class="cs-chips">
-        {s.myRole.owned.map((o) => <li>{o}</li>)}
-      </ul>
+    <div class="bh-statement reveal">
+      <svg class="bh-squiggle" viewBox="0 0 120 40" aria-hidden="true">
+        <path d="M4 26c14-22 28 14 42-4s28 14 42-6" />
+      </svg>
+      <h2 class="bh-h2 big">
+        {strategy.lead}{strategy.accent && <em>{strategy.accent}</em>}
+      </h2>
+      <p>{s.strategy.body}</p>
     </div>
   </section>
 
-  {/* ── Research ──────────────────────────────────────────────────────── */}
-  <section class="cs-sec cs-split reveal">
-    <div class="cs-split-head">
-      <p class="sec-kind">Research</p>
-      <h2>{s.research.title}</h2>
+  {/* ── 05 Colour ─────────────────────────────────────────────────────── */}
+  <section class="bh-sec">
+    <div class="bh-mark reveal">
+      <span class="bh-num">05</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">Colour</span>
     </div>
-    <div class="cs-split-body">
-      <p>{s.research.body}</p>
-    </div>
-  </section>
-
-  {
-    s.research.quotes && (
-      <section class="cs-sec cs-bleed">
-        <ul class="quote-wall stagger">
-          {s.research.quotes.map((q, i) => (
-            <li style={`--i:${i}`}>
-              <blockquote>{q.text}</blockquote>
-              <cite>{q.meta}</cite>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  {
-    s.research.findings && (
-      <section class="cs-sec reveal">
-        <p class="sec-kind">Signal in, feature out</p>
-        <ol class="cs-findings stagger">
-          {s.research.findings.map((f, i) => (
-            <li style={`--i:${i}`}>
-              <span class="cs-find-signal">{f.signal}</span>
-              <span class="cs-find-arrow" aria-hidden="true" />
-              <span class="cs-find-shipped">{f.shipped}</span>
-            </li>
-          ))}
-        </ol>
-      </section>
-    )
-  }
-
-  {/* ── Strategy ──────────────────────────────────────────────────────── */}
-  <section class="cs-sec cs-statement reveal">
-    <p class="sec-kind">Design strategy</p>
-    <h2>{s.strategy.title}</h2>
-    <p>{s.strategy.body}</p>
+    <p class="bh-body wide reveal">{s.palette.intro}</p>
+    {
+      s.palette.groups.map((g) => (
+        <div class="bh-pal reveal">
+          <div class="bh-pal-head">
+            <h4>{g.name}</h4>
+            <p>{g.note}</p>
+          </div>
+          <ul class="bh-blocks stagger">
+            {g.swatches.map((w, i) => (
+              <li style={`--i:${i}; --c:${w.hex}`}>
+                <span class="bh-block" aria-hidden="true" />
+                <span class="bh-block-hex">{w.hex}</span>
+                <span class="bh-block-name">{w.name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+    {s.palette.type && <p class="bh-type reveal">{s.palette.type}</p>}
   </section>
 
   {/* ── The cast ──────────────────────────────────────────────────────── */}
   {
-    s.characters && (
-      <section class="cs-band">
-        <div class="cs-band-head reveal">
-          <p class="sec-kind">The cast</p>
-          <h2>{s.characters.heading}</h2>
-          <p class="cs-band-note">{s.characters.note}</p>
+    s.characters && castT && (
+      <section class="bh-band">
+        <div class="bh-mark reveal">
+          <span class="bh-num">06</span>
+          <span class="bh-rule" aria-hidden="true" />
+          <span class="bh-label">The cast</span>
         </div>
-        <ul class="cs-cast stagger">
+        <h2 class="bh-h2 reveal">
+          {castT.lead}
+          {castT.accent && <em>{castT.accent}</em>}
+        </h2>
+        <p class="bh-body wide reveal">{s.characters.note}</p>
+        <ul class="bh-cast stagger">
           {s.characters.list.map((c, i) => (
             <li style={`--i:${i}; --a:${c.hex}; --b:${c.to}`}>
-              <span class="cs-cast-art">
+              <span class="bh-cast-art">
                 <img
                   src={`${base}/case-studies/${s.slug}/buddies/${c.file}`}
                   alt={`${c.name}, ${c.role}`}
                   loading="lazy"
                 />
               </span>
-              <span class="cs-cast-name">{c.name}</span>
-              <span class="cs-cast-role">{c.role}</span>
+              <span class="bh-cast-name">{c.name}</span>
+              <span class="bh-cast-role">{c.role}</span>
             </li>
           ))}
         </ul>
@@ -185,25 +266,29 @@ const theme = [
 
   {/* ── Themes ────────────────────────────────────────────────────────── */}
   {
-    s.themes && (
-      <section class="cs-sec">
-        <div class="cs-band-head plain reveal">
-          <p class="sec-kind">Themes</p>
-          <h2>{s.themes.heading}</h2>
-          <p class="cs-band-note">{s.themes.note}</p>
+    s.themes && themesT && (
+      <section class="bh-sec">
+        <div class="bh-mark reveal">
+          <span class="bh-num">07</span>
+          <span class="bh-rule" aria-hidden="true" />
+          <span class="bh-label">Themes</span>
         </div>
-        <ul class="cs-themes stagger">
+        <h2 class="bh-h2 reveal">
+          {themesT.lead}
+          {themesT.accent && <em>{themesT.accent}</em>}
+        </h2>
+        <p class="bh-body wide reveal">{s.themes.note}</p>
+        <ul class="bh-themes stagger">
           {s.themes.list.map((t, i) => (
             <li style={`--i:${i}`}>
               <img
-                class="cs-theme-icon"
                 src={`${base}/case-studies/${s.slug}/themes/${t.file}`}
                 alt={`The ${t.name} theme icon`}
                 loading="lazy"
               />
-              <span class="cs-theme-name">{t.name}</span>
-              <span class="cs-theme-park">{t.park}</span>
-              <span class="cs-theme-bar" aria-hidden="true">
+              <span class="bh-theme-name">{t.name}</span>
+              <span class="bh-theme-park">{t.park}</span>
+              <span class="bh-theme-bar" aria-hidden="true">
                 {t.swatches.map((w) => (
                   <span style={`--c:${w}`} />
                 ))}
@@ -215,47 +300,77 @@ const theme = [
     )
   }
 
-  {/* ── Palette ───────────────────────────────────────────────────────── */}
-  <section class="cs-sec">
-    <div class="cs-band-head plain reveal">
-      <p class="sec-kind">Colour</p>
-      <h2>The palette, and what it has to survive</h2>
-      <p class="cs-band-note">{s.palette.intro}</p>
+  {/* ── System ────────────────────────────────────────────────────────── */}
+  <section class="bh-sec">
+    <div class="bh-mark reveal">
+      <span class="bh-num">08</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">System</span>
     </div>
-    <div class="palette">
-      {
-        s.palette.groups.map((g) => (
-          <div class="palette-group reveal">
-            <h4>{g.name}</h4>
-            <p class="palette-note">{g.note}</p>
-            <ul class="swatches stagger">
-              {g.swatches.map((w, i) => (
-                <li style={`--i:${i}`}>
-                  <span class="chip" style={`--chip:${w.hex}`} aria-hidden="true" />
-                  <span class="chip-hex">{w.hex}</span>
-                  <span class="chip-name">{w.name}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
+    <div class="bh-two reveal">
+      <h2 class="bh-h2">
+        {systems.lead}{systems.accent && <em>{systems.accent}</em>}
+      </h2>
+      <p class="bh-body">{s.systems.body}</p>
     </div>
-    {s.palette.type && <p class="palette-type reveal">{s.palette.type}</p>}
+    {
+      s.systems.diagram && (
+        <div class="bh-sysmap reveal">
+          <p class="bh-sysmap-from">{s.systems.diagram.from}</p>
+          <svg class="bh-fan" viewBox="0 0 600 60" aria-hidden="true">
+            <path d="M300 2 C300 30 120 24 40 56" />
+            <path d="M300 2 C300 30 210 26 170 56" />
+            <path d="M300 2 V56" />
+            <path d="M300 2 C300 30 390 26 430 56" />
+            <path d="M300 2 C300 30 480 24 560 56" />
+          </svg>
+          <ul class="bh-sysmap-to stagger">
+            {s.systems.diagram.to.map((t, i) => (
+              <li style={`--i:${i}`}>{t}</li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
   </section>
 
-  {/* ── Second run of screens ─────────────────────────────────────────── */}
+  {/* ── Decisions ─────────────────────────────────────────────────────── */}
+  <section class="bh-sec">
+    <div class="bh-mark reveal">
+      <span class="bh-num">09</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">Decisions</span>
+    </div>
+    <ol class="bh-decisions stagger">
+      {
+        s.decisions.map((d, i) => (
+          <li style={`--i:${i}`}>
+            <span class="bh-dec-num">{String(i + 1).padStart(2, "0")}</span>
+            <h4>{d.title}</h4>
+            <p>{d.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  {/* ── Second screen run ─────────────────────────────────────────────── */}
   {
-    s.marketingShots && (
-      <section class="cs-band">
-        <div class="cs-band-head reveal">
-          <p class="sec-kind">{s.marketingShots.kicker}</p>
-          <h2>{s.marketingShots.title}</h2>
-          {s.marketingShots.note && (
-            <p class="cs-band-note">{s.marketingShots.note}</p>
-          )}
+    s.marketingShots && shotsT && (
+      <section class="bh-band">
+        <div class="bh-mark reveal">
+          <span class="bh-num">10</span>
+          <span class="bh-rule" aria-hidden="true" />
+          <span class="bh-label">{s.marketingShots.kicker}</span>
         </div>
-        <ul class="cs-gallery stagger">
+        <h2 class="bh-h2 reveal">
+          {shotsT.lead}
+          {shotsT.accent && <em>{shotsT.accent}</em>}
+        </h2>
+        {s.marketingShots.note && (
+          <p class="bh-body wide reveal">{s.marketingShots.note}</p>
+        )}
+        <ul class="bh-screens stagger">
           {s.marketingShots.images.map((im, i) => (
             <li style={`--i:${i}`}>
               <img src={`${base}${im.src}`} alt={im.alt} loading="lazy" />
@@ -266,75 +381,36 @@ const theme = [
     )
   }
 
-  {/* ── Systems ───────────────────────────────────────────────────────── */}
-  <section class="cs-sec cs-split reveal">
-    <div class="cs-split-head">
-      <p class="sec-kind">Systems</p>
-      <h2>{s.systems.title}</h2>
+  {/* ── Role and channels ─────────────────────────────────────────────── */}
+  <section class="bh-sec">
+    <div class="bh-cols reveal">
+      <div>
+        <p class="bh-label solo">My role</p>
+        <p class="bh-body">{s.myRole.body}</p>
+        <ul class="bh-chips">
+          {s.myRole.owned.map((o) => <li>{o}</li>)}
+        </ul>
+      </div>
+      <div>
+        <p class="bh-label solo">Marketing</p>
+        <p class="bh-body">{s.marketing.body}</p>
+        <ul class="bh-chips">
+          {s.marketing.channels.map((c) => <li>{c.name} · {c.detail}</li>)}
+        </ul>
+      </div>
     </div>
-    <div class="cs-split-body">
-      <p>{s.systems.body}</p>
-    </div>
-  </section>
-
-  {
-    s.systems.diagram && (
-      <section class="cs-sec reveal">
-        <div class="sysmap">
-          <p class="sysmap-from">{s.systems.diagram.from}</p>
-          <ul class="sysmap-to stagger">
-            {s.systems.diagram.to.map((t, i) => (
-              <li style={`--i:${i}`}>{t}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    )
-  }
-
-  {/* ── Decisions ─────────────────────────────────────────────────────── */}
-  <section class="cs-sec">
-    <p class="sec-kind reveal">Design decisions</p>
-    <ol class="decision-list stagger">
-      {
-        s.decisions.map((d, i) => (
-          <li style={`--i:${i}`}>
-            <h4>{d.title}</h4>
-            <p>{d.body}</p>
-          </li>
-        ))
-      }
-    </ol>
-  </section>
-
-  {/* ── Marketing ─────────────────────────────────────────────────────── */}
-  <section class="cs-sec cs-split reveal">
-    <div class="cs-split-head">
-      <p class="sec-kind">Marketing</p>
-      <h2>How it got downloaded</h2>
-    </div>
-    <div class="cs-split-body">
-      <p>{s.marketing.body}</p>
-    </div>
-  </section>
-  <section class="cs-sec">
-    <ul class="channel-list stagger">
-      {
-        s.marketing.channels.map((c, i) => (
-          <li style={`--i:${i}`}>
-            <h4>{c.name}</h4>
-            <p>{c.detail}</p>
-          </li>
-        ))
-      }
-    </ul>
   </section>
 
   {/* ── Outcome ───────────────────────────────────────────────────────── */}
-  <section class="cs-outcome reveal">
-    <p class="sec-kind">Outcome</p>
-    <p class="cs-outcome-lede">{s.outcome.body}</p>
-    <ul class="win-list stagger">
+  <section class="bh-outcome reveal">
+    <span class="bh-ghost small" aria-hidden="true">Outcome</span>
+    <div class="bh-mark">
+      <span class="bh-num">11</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">Outcome</span>
+    </div>
+    <p class="bh-outcome-lede">{s.outcome.body}</p>
+    <ul class="bh-wins stagger">
       {s.outcome.wins.map((w, i) => <li style={`--i:${i}`}>{w}</li>)}
     </ul>
   </section>
