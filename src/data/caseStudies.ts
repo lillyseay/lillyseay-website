@@ -185,8 +185,8 @@ export const caseStudies: CaseStudy[] = [
     },
 
     problem: {
-      heading: "The tools were charging rent on|an accessibility need",
-      note: "Captioning apps metered a disability by the minute, or capped free users with strict time limits. I spent a year and a half in an office apologising for not hearing people who would not adjust. Then Apple shipped on-device speech models at WWDC25, and the app I had wanted for years became possible to build.",
+      heading: "I needed a way to hear|in large meeting rooms",
+      note: "Live captioning apps charge by the hour of transcription, and most cap you at around ten hours a month. Ten hours does not cover a week of meetings, let alone a life — and every hour spent is an hour you are counting instead of listening. I wanted a product and a brand that felt like round-the-clock accessibility support rather than a metered utility: something simply there, the way a person who helps you hear is there. Apple shipping on-device speech models at WWDC25 is what made that affordable to build.",
       scale: [
         {
           value: "1.5B",
