@@ -61,7 +61,9 @@ export type CaseStudy = {
       note: string;
       list: { name: string; tests: string; result: string }[];
     };
-    findings?: { signal: string; shipped: string }[];
+    /** signal = the pain point, shipped = the feature it drove,
+     *  why = the one sentence behind it, revealed on expand. */
+    findings?: { signal: string; shipped: string; why: string }[];
     audiences?: { name: string; detail: string; evidence: string }[];
     /** Posting into a category to see whether the audience is reachable,
      *  before committing to building for it. */
@@ -341,38 +343,48 @@ export const caseStudies: CaseStudy[] = [
       findings: [
         {
           signal: "Clarity, not volume",
-          shipped:
-            "Captions are the free core, and amplification the paid extra.",
+          shipped: "Free unlimited live captions",
+          why: "Amplification only makes a blurry room louder, so the captions had to be the free core and the boost the paid extra.",
         },
         {
           signal: "Lip reading, discovered in the pandemic",
-          shipped:
-            "Captions as the replacement for a channel people did not know they were relying on until masks took it away.",
+          shipped: "Captions as the replacement channel",
+          why: "Masks took away a channel people did not know they were relying on, and captions are the only thing that puts it back.",
         },
         {
           signal: "The relief of hearing correctly",
-          shipped:
-            "The brand celebrates the moment it works rather than the struggle, and it is the best-performing content we make.",
+          shipped: "A brand built on the moment it works",
+          why: "The most shared experience in this category is not the struggle but answering a question correctly, so the brand celebrates that instead.",
         },
         {
           signal: "Hearing aids are not a fix",
-          shipped:
-            "A software layer that sits on top of whatever hardware someone already owns, instead of competing with it.",
+          shipped: "A layer on top of existing hardware",
+          why: "People already own the hardware and know its ceiling, so competing with it would have been the wrong product to build.",
         },
-        { signal: "The fake nod", shipped: "Question Alerts and Name Alerts." },
-        { signal: "Listening fatigue", shipped: "Conversation summaries." },
+        {
+          signal: "The fake nod",
+          shipped: "Question Alerts and Name Alerts",
+          why: "People fake comprehension rather than ask a third time, so the app taps them when their name or a question lands.",
+        },
+        {
+          signal: "Listening fatigue",
+          shipped: "Conversation summaries",
+          why: "Concentrating for an hour costs more than the hour, so the app carries the recall instead of the listener.",
+        },
         {
           signal: "Undiagnosed audience",
-          shipped: "Hearing test support through Apple Health.",
+          shipped: "Hearing test support through Apple Health",
+          why: "Much of the audience has never been tested, so the app had to meet them before a diagnosis rather than after one.",
         },
         {
           signal: "Adjacent audiences",
-          shipped: "A partner content line and an ADHD crossover.",
+          shipped: "A partner content line and an ADHD crossover",
+          why: "Auditory processing and ADHD arrive with the same failure in a noisy room, and the people helping needed material of their own.",
         },
         {
           signal: "Music blocks the research",
-          shipped:
-            "The videos changed, because research the audience cannot hear is filtered research.",
+          shipped: "Silent, caption-first video",
+          why: "Research the audience cannot hear is filtered research, so the videos dropped the background track.",
         },
       ],
       audiences: [
@@ -947,20 +959,23 @@ export const caseStudies: CaseStudy[] = [
       findings: [
         {
           signal: "A body that hurts",
-          shipped: "Five ways up every milestone, including a low-energy one.",
+          shipped: "Five ways up every milestone",
+          why: "Pain changes what a session can be, so each milestone carries a low-energy route instead of one prescribed effort.",
         },
         {
           signal: "No car, no trail nearby",
-          shipped: "Treadmill, stairs and everyday-life versions of each step.",
+          shipped: "Treadmill and everyday-life versions",
+          why: "Access is the most common barrier in the taxonomy, so every step has a version that works from a front door.",
         },
         {
           signal: "A schedule that will not bend",
-          shipped:
-            "A short-on-time tier sized to the session you actually get.",
+          shipped: "A short-on-time tier",
+          why: "Most plans assume a flexible week, so each milestone is sized to the session you actually get.",
         },
         {
           signal: "Told the trail is not for you",
-          shipped: "Six buddies from communities that hear it most.",
+          shipped: "Six buddies from those communities",
+          why: "The people told to stay home are the ones no training app asks about, so the cast is drawn from them.",
         },
       ],
       audiences: [
@@ -1395,16 +1410,18 @@ export const caseStudies: CaseStudy[] = [
       findings: [
         {
           signal: "Forms feel like homework",
-          shipped: "Every activity is an animation you land inside.",
+          shipped: "Full-screen animated activities",
+          why: "A form asks you to report on yourself before it helps, so every activity became something you land inside instead.",
         },
         {
           signal: "Streaks punish bad weeks",
-          shipped: "No streak to break, ever.",
+          shipped: "No streaks, no scoring",
+          why: "A broken streak punishes exactly the week you most needed the app, so there is nothing to break.",
         },
         {
           signal: "Nobody reads instructions",
-          shipped:
-            "One colour per activity, so you know where you are before you read.",
+          shipped: "One colour per activity",
+          why: "Colour tells you which activity you are in before you read a word, so the interface never depends on being read.",
         },
       ],
     },

@@ -320,8 +320,20 @@ const h = {
                 <span class="bh-pain-n" aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span class="bh-pain-t">{f.signal}</span>
-                <span class="bh-pain-b">{f.shipped}</span>
+                <details>
+                  <summary>
+                    <span class="bh-pain-f">
+                      <span class="bh-pain-lab">Pain point</span>
+                      <span class="bh-pain-t">{f.signal}</span>
+                    </span>
+                    <span class="bh-pain-f">
+                      <span class="bh-pain-lab">What it drove</span>
+                      <span class="bh-pain-b">{f.shipped}</span>
+                    </span>
+                    <span class="bh-pain-chev" aria-hidden="true" />
+                  </summary>
+                  <p class="bh-pain-why">{f.why}</p>
+                </details>
               </li>
             ))}
           </ol>

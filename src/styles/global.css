@@ -6096,10 +6096,104 @@ section[id] {
   display: grid;
   grid-template-columns: 2.2rem minmax(0, 1fr);
   column-gap: 1.15rem;
-  row-gap: 0.2rem;
-  align-items: center;
-  padding: 0.85rem 0;
+  align-items: start;
   border-bottom: 1px solid var(--line);
+}
+
+.bh-pain details {
+  grid-column: 2;
+}
+
+.bh-pain summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) auto;
+  align-items: start;
+  gap: 0.4rem 1.5rem;
+  /* The padding lives here, not on the row, so the whole row is a hit target
+     rather than just the text inside it. */
+  padding: 0.9rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.bh-pain summary:hover .bh-pain-chev {
+  border-color: var(--c);
+}
+
+.bh-pain summary:hover .bh-pain-chev::before,
+.bh-pain summary:hover .bh-pain-chev::after {
+  border-top-color: var(--c);
+}
+
+.bh-pain summary::-webkit-details-marker {
+  display: none;
+}
+
+.bh-pain summary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.bh-pain-f {
+  display: block;
+  min-width: 0;
+}
+
+.bh-pain-lab {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+/* The open/closed affordance: a plus that becomes a minus. */
+.bh-pain-chev {
+  position: relative;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  transition: border-color 0.25s var(--ease-out);
+  flex: none;
+}
+
+.bh-pain-chev::before,
+.bh-pain-chev::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0.35rem;
+  border-top: 1.5px solid var(--muted);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.bh-pain-chev::after {
+  transform: rotate(90deg);
+}
+
+.bh-pain details[open] .bh-pain-chev::after {
+  transform: rotate(0deg);
+}
+
+.bh-pain-why {
+  margin: 0 0 1rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--c);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text);
+  text-wrap: pretty;
+  animation: bh-why-in 0.35s var(--ease-out);
+}
+
+@keyframes bh-why-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
 }
 
 .bh-pain li:last-child {
@@ -6118,7 +6212,7 @@ section[id] {
 
 .bh-pain-n {
   grid-column: 1;
-  grid-row: 1 / span 2;
+  margin-top: 1.45rem;
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
@@ -6164,8 +6258,7 @@ section[id] {
 }
 
 .bh-pain-t {
-  grid-column: 2;
-  grid-row: 1;
+  display: block;
   font-family: var(--font-display);
   font-size: 1.02rem;
   font-weight: 800;
@@ -6174,12 +6267,24 @@ section[id] {
 }
 
 .bh-pain-b {
-  grid-column: 2;
-  grid-row: 2;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--muted);
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--ink);
   text-wrap: pretty;
+}
+
+@media (max-width: 700px) {
+  .bh-pain summary {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .bh-pain-f {
+    grid-column: 1;
+  }
 }
 
 @media (max-width: 560px) {
@@ -6557,6 +6662,10 @@ section[id] {
   .bh-pain.stagger > li,
   .bh-pain-n {
     transform: none;
+  }
+
+  .bh-pain-why {
+    animation: none;
   }
 
   .bh-pain-n {
