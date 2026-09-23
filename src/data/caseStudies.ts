@@ -202,7 +202,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "My real-life hearing buddy",
-          body: "Scott Krager, my partner and co-founder, brings the half of this I cannot see — what it is to be the hearing buddy rather than the person needing one — and he wanted to help so much that he coded the MVP.",
+          body: "Scott Krager, my partner and co-founder, brings the half of this I cannot see, being the hearing buddy rather than the person who needs one, and he wanted to help so much that he coded the MVP.",
         },
         {
           title: "The model that made it possible",
@@ -213,7 +213,7 @@ export const caseStudies: CaseStudy[] = [
 
     problem: {
       heading: "I needed a way to hear|in large meeting rooms",
-      note: "Live captioning apps charge by the hour of transcription, and most cap you at around ten hours a month — nowhere near a week of meetings. I wanted a product and a brand that felt like round-the-clock accessibility support, not a metered utility.",
+      note: "Live captioning apps charge by the hour of transcription, and most cap you at around ten hours a month, nowhere near a week of meetings. I wanted a product and a brand that felt like round-the-clock accessibility support, not a metered utility.",
       scale: [
         {
           value: "1.5B",
@@ -231,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
       quotes: [
         {
           user: "Sarah",
-          text: "All of this, but I heard that hearing loss only comes with ringing in the ears, and I'm still young — so now I'm wondering if I'm imagining it.",
+          text: "All of this, but I heard that hearing loss only comes with ringing in the ears, and I'm still young, so now I'm wondering if I'm imagining it.",
           likes: 67,
           replies: 6,
           date: "4-27",
@@ -286,7 +286,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           user: "Diesel ocean",
-          text: "My brain fills in the gaps, but it's never right — and sometimes it's wild.",
+          text: "My brain fills in the gaps, but it's never right, and sometimes it's wild.",
           likes: 4,
           replies: 1,
           date: "6-7",
@@ -321,14 +321,14 @@ export const caseStudies: CaseStudy[] = [
             tests:
               "Written for the undiagnosed, where every reply is somebody recognising themselves in a workaround they had never named.",
             result:
-              "Surfaced the lip-reading finding — a lot of people only discovered they were reading lips when everyone started wearing masks and their comprehension fell off a cliff.",
+              "Surfaced the lip-reading finding: a lot of people only discovered they were reading lips when everyone started wearing masks and their comprehension fell off a cliff.",
           },
           {
             name: "Things people with hearing loss are tired of explaining",
             tests:
               "Written for the diagnosed, about the social friction rather than the audiology.",
             result:
-              'The highest comment volume of the three, with "it\'s not volume but clarity" coming back again and again — the whole argument for captions over amplification.',
+              'The highest comment volume of the three, with "it\'s not volume but clarity" coming back again and again, which is the whole argument for captions over amplification.',
           },
           {
             name: "POV: your ears finally work",
@@ -379,7 +379,7 @@ export const caseStudies: CaseStudy[] = [
         {
           name: "Auditory processing",
           detail:
-            "Hears the sound, cannot resolve the words — the exact problem captions solve, under a different diagnosis.",
+            "Hears the sound but cannot resolve the words, the exact problem captions solve under a different diagnosis.",
           evidence:
             'Arrived unprompted: "I\'m not deaf, I just have auditory processing issues."',
         },
@@ -418,15 +418,15 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Sell relief, not minutes",
-          body: "The paid tier is amplification, summaries and the companions — the things that reduce effort once you can already read the room.",
+          body: "The paid tier is amplification, summaries and the companions: the things that reduce effort once you can already read the room.",
         },
         {
           title: 'Never say "AI"',
-          body: "Not in the interface, the App Store copy, or a commit message — you named this character, and crediting a model breaks the one relationship the product runs on.",
+          body: "Not in the interface, the App Store copy, or a commit message, because you named this character and crediting a model breaks the one relationship the product runs on.",
         },
         {
           title: "Ship where the conversation is",
-          body: "Phone in your pocket, watch on your wrist, Mac in the meeting, Vision Pro at the table — the same session, wherever you can actually look.",
+          body: "Phone in your pocket, watch on your wrist, Mac in the meeting, Vision Pro at the table: the same session, wherever you can actually look.",
         },
       ],
     },
@@ -451,7 +451,7 @@ export const caseStudies: CaseStudy[] = [
           {
             name: "Cards",
             detail:
-              "Each page's content by state — summary, alert and suggestion cards on Buddy; locked, enable and running on Boost.",
+              "Each page's content by state: summary, alert and suggestion cards on Buddy, then locked, enable and running on Boost.",
           },
           {
             name: "Status icons",
@@ -481,7 +481,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Haptics only on the wrist",
-          body: "No Watch notifications, because they fight the haptic system — one language instead: up for your name, down for a question.",
+          body: "No Watch notifications, because they fight the haptic system; there is one language instead, up for your name and down for a question.",
         },
         {
           title: "Alerts outrank summaries",
@@ -496,7 +496,7 @@ export const caseStudies: CaseStudy[] = [
 
     identity: {
       heading: "Sixteen palettes,|one reading surface",
-      note: "The brand is a cast, not a colour. Choosing a buddy re-themes the entire app — but every gradient has to keep caption text legible over it, because the captions are the product.",
+      note: "The brand is a cast, not a colour. Choosing a buddy re-themes the entire app, but every gradient has to keep caption text legible over it, because the captions are the product.",
       palette: {
         note: "Each buddy carries a three-colour gradient, a character coat and an accent pair. The identity buddies launch to the awareness month they belong to.",
         groups: [
@@ -540,7 +540,7 @@ export const caseStudies: CaseStudy[] = [
       },
       characters: {
         title: "Sixteen buddies, sixteen palettes",
-        note: "One value in code — a gradient, a coat, an accent pair and a voice. It paints sixteen surfaces at once, and carries a launch date, so a Pride buddy does not exist in the interface until its day.",
+        note: "One value in code: a gradient, a coat, an accent pair and a voice. It paints sixteen surfaces at once, and carries a launch date, so a Pride buddy does not exist in the interface until its day.",
         list: [
           {
             file: "smart.svg",
@@ -725,7 +725,7 @@ export const caseStudies: CaseStudy[] = [
       },
       adaptivity: {
         title: "Rebuilt for adaptivity",
-        note: "The interface was rebuilt so it holds up at any window size and either orientation — not just the two the simulator defaults to. It earned a Great on iPadOS 27 feature on the App Store.",
+        note: "The interface was rebuilt so it holds up at any window size and either orientation, not just the two the simulator defaults to. It earned a Great on iPadOS 27 feature on the App Store.",
         points: [
           {
             title: "The system lies about iPhone width",
@@ -783,7 +783,7 @@ export const caseStudies: CaseStudy[] = [
         {
           when: "4 weeks out",
           title: "Pitch the stores",
-          body: "Tie the finished feature to a date that already matters — World Hearing Day, GAAD, Deaf Awareness Month — with in-app events and artwork.",
+          body: "Tie the finished feature to a date that already matters (World Hearing Day, GAAD, Deaf Awareness Month) with in-app events and artwork.",
         },
         {
           when: "Launch",
@@ -880,7 +880,7 @@ export const caseStudies: CaseStudy[] = [
 
     problem: {
       heading: "Training plans assume a body|and a life you might not have",
-      note: "Every plan I found assumed no injuries, a car, a trailhead nearby, a flexible schedule, and a body that does what it is told. If you are not that person the plan does not adapt — it just makes the goal feel like it was never yours.",
+      note: "Every plan I found assumed no injuries, a car, a trailhead nearby, a flexible schedule, and a body that does what it is told. If you are not that person the plan does not adapt; it just makes the goal feel like it was never yours.",
       scale: [
         {
           value: "55",
@@ -898,13 +898,13 @@ export const caseStudies: CaseStudy[] = [
 
     research: {
       heading: "Designed from constraints,|not from an average user",
-      note: "This one did not start from a keyword sheet. It started from the observation that the people most often told the trail is not for them are the ones no training app asks about — so I built the taxonomy first and designed the plan around it.",
+      note: "This one did not start from a keyword sheet. It started from the observation that the people most often told the trail is not for them are the ones no training app asks about, so I built the taxonomy first and designed the plan around it.",
       preTest: {
         title: "I tested the audience before I built the app",
-        note: "For a year before the app was submitted I posted outdoors work to @lillyseay — hiking, car camping, backpacking, the PNW — to find out whether the category would carry at all. It came back as the best-performing thing on that account in its modern era, with the app's exact premise already working as a hook.",
+        note: "For a year before the app was submitted I posted outdoors work to @lillyseay (hiking, car camping, backpacking, the PNW) to find out whether the category would carry at all. It came back as the best-performing thing on that account in its modern era, with the app's exact premise already working as a hook.",
         stats: [
           { value: "80K", label: "views, best outdoors post" },
-          { value: "13K", label: "likes on it — a 16% like rate" },
+          { value: "13K", label: "likes on it, a 16% like rate" },
           { value: "12", label: "months of testing before submission" },
           { value: "4", label: "posts that were the app's premise" },
         ],
@@ -1001,11 +1001,11 @@ export const caseStudies: CaseStudy[] = [
       bets: [
         {
           title: "Draw the season, don't chart it",
-          body: "A goal hike is a mountain, milestones are signs along the trail, and a summit is a stamp on the peak — readable from four feet away.",
+          body: "A goal hike is a mountain, milestones are signs along the trail, and a summit is a stamp on the peak, readable from four feet away.",
         },
         {
           title: "Start from the week you already have",
-          body: "The plan is built from real Apple Health history — your longest outing, your biggest climb, how often you actually move — not from an ideal beginner.",
+          body: "The plan is built from real Apple Health history (your longest outing, your biggest climb, how often you actually move) rather than from an ideal beginner.",
         },
         {
           title: "Constraints change the route, never the goal",
@@ -1078,7 +1078,7 @@ export const caseStudies: CaseStudy[] = [
 
     identity: {
       heading: "Five colours in,|a whole app out",
-      note: "Each theme is five colours lifted from its own icon. Everything else — the sky gradient, the meadow, the stamp ink, the stamp paper — is computed from them, which is why no two themes can drift out of step.",
+      note: "Each theme is five colours lifted from its own icon. Everything else (the sky gradient, the meadow, the stamp ink, the stamp paper) is computed from them, which is why no two themes can drift out of step.",
       palette: {
         note: "The accent is the one colour picked by hand, and it has to sit beside trail signs that are warm brown on tan. Bright enough to feel alive, never a neon that fights the wood.",
         groups: [
@@ -1124,7 +1124,7 @@ export const caseStudies: CaseStudy[] = [
       },
       characters: {
         title: "Six buddies, six reasons to be out there",
-        note: "Forest animals, each from a community that gets told the trail is not for them, who read your workouts and cheer. Friends who hike — not trainers, not doctors — and they never scold.",
+        note: "Forest animals, each from a community that gets told the trail is not for them, who read your workouts and cheer. Friends who hike, not trainers or doctors, and they never scold.",
         list: [
           {
             file: "buddy-eagle.svg",
@@ -1210,7 +1210,7 @@ export const caseStudies: CaseStudy[] = [
 
     product: {
       heading: "A season on your phone|and on your wrist",
-      note: "Everything lives on the device. Apple Health is read only — five things read, nothing written back — and declining any of them leaves the plan working.",
+      note: "Everything lives on the device. Apple Health is read only (five things read, nothing written back) and declining any of them leaves the plan working.",
       screens: {
         title: "Inside the app",
         images: [
@@ -1293,7 +1293,7 @@ export const caseStudies: CaseStudy[] = [
         {
           when: "Metadata",
           title: "Write to a character budget",
-          body: 'The keyword field skips "passport" and "goal hikes" — the name and subtitle already index those — and spends its 100 characters elsewhere.',
+          body: 'The keyword field skips "passport" and "goal hikes", since the name and subtitle already index those, and spends its 100 characters elsewhere.',
         },
         {
           when: "Art",
@@ -1323,7 +1323,7 @@ export const caseStudies: CaseStudy[] = [
       ],
       pipeline: {
         title: "Creative pipeline",
-        body: "The same keyword-and-series method, pointed at hiking, with the passport image as the native hook — a visual that is already the product rather than an ad for it.",
+        body: "The same keyword-and-series method, pointed at hiking, with the passport image as the native hook, a visual that is already the product rather than an ad for it.",
       },
       stats: [
         { value: "80K", label: "best outdoors post, pre-launch" },
@@ -1382,14 +1382,14 @@ export const caseStudies: CaseStudy[] = [
     problem: {
       heading:
         "Mental health apps asked you to be calm|before you could use them",
-      note: "Every app in the category was either clinical — forms, streaks, mood charts — or quiet and meditative, and both assume you arrive with enough focus to sit still. What I wanted when anxious was something to do with my hands that was not a form.",
+      note: "Every app in the category was either clinical (forms, streaks, mood charts) or quiet and meditative, and both assume you arrive with enough focus to sit still. What I wanted when anxious was something to do with my hands that was not a form.",
     },
 
     research: {
       heading: "Two hundred testers and|a feedback loop with no middle",
-      note: "200 testers on TestFlight while I was still building, with feedback going in and coming back out as App Store updates and nobody in between. Apple Entrepreneur Camp was the other instrument — feedback from Apple's design evangelists, implemented the same week.",
+      note: "200 testers on TestFlight while I was still building, with feedback going in and coming back out as App Store updates and nobody in between. Apple Entrepreneur Camp was the other instrument, with feedback from Apple's design evangelists implemented the same week.",
       pullQuote: {
-        text: "Pivoting doesn't have to make a big splash. It's more like skipping a rock across a pond — ripples of progress, each attempt more calculated than the last.",
+        text: "Pivoting doesn't have to make a big splash. It's more like skipping a rock across a pond, ripples of progress, each attempt more calculated than the last.",
         cite: "My talk at Apple's International Women's Day event, Cupertino, 2024",
       },
       findings: [
@@ -1461,7 +1461,7 @@ export const caseStudies: CaseStudy[] = [
           {
             name: "Start button",
             detail:
-              "Full width, bottom of screen, the same position every time — one decision to make.",
+              "Full width, bottom of screen, the same position every time, so there is one decision to make.",
           },
         ],
         shot: {
@@ -1472,7 +1472,7 @@ export const caseStudies: CaseStudy[] = [
       rules: [
         {
           title: "One colour per activity",
-          body: "Pink for task lists, orchid for organize, sky for negative thoughts, indigo for the wheel — the colour is the wayfinding.",
+          body: "Pink for task lists, orchid for organize, sky for negative thoughts, indigo for the wheel, so the colour is the wayfinding.",
         },
         {
           title: "Full screen or it is not finished",
@@ -1518,7 +1518,7 @@ export const caseStudies: CaseStudy[] = [
             role: "App Store headlines",
             sample: "aa",
             detail:
-              '"daily, weekly, & monthly task lists" — lowercase reads as a friend, not a clinician.',
+              '"daily, weekly, & monthly task lists", where lowercase reads as a friend, not a clinician.',
           },
         ],
       },

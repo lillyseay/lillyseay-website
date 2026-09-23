@@ -58,21 +58,34 @@ const avgMax = Math.max(...k.formats.map((f) => f.avg));
       <h4>Views and volume by month</h4>
       <p>
         {k.period}. The bars are views; the number under each month is how many
-        carousels went out. July and August are the volume test — 123 posts
+        carousels went out. July and August are the volume test, 123 posts
         across two months.
       </p>
     </div>
     <figure class="chart wide">
       <figcaption>
         <strong>{k.account}</strong>
-        <span class="muted">{full(k.views.reduce((a, v) => a + v, 0))} views</span>
+        <span class="muted"
+          >{full(k.views.reduce((a, v) => a + v, 0))} views</span
+        >
       </figcaption>
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Monthly carousel views">
-        <line class="axis" x1={padL} x2={W - padR} y1={H - padB} y2={H - padB} />
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        role="img"
+        aria-label="Monthly carousel views"
+      >
+        <line class="axis" x1={padL} x2={W - padR} y1={H - padB} y2={H - padB}
+        ></line>
         {
           bars.map((r) => (
             <g class="bar">
-              <rect x={r.x} y={r.y} width={r.w} height={Math.max(r.h, 1)} rx="3" />
+              <rect
+                x={r.x}
+                y={r.y}
+                width={r.w}
+                height={Math.max(r.h, 1)}
+                rx="3"
+              />
               <rect
                 class="hit"
                 x={r.x - barW * 0.18}
