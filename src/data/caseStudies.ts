@@ -186,7 +186,7 @@ export const caseStudies: CaseStudy[] = [
 
     problem: {
       heading: "I needed a way to hear|in large meeting rooms",
-      note: "Live captioning apps charge by the hour of transcription, and most cap you at around ten hours a month. Ten hours does not cover a week of meetings, let alone a life — and every hour spent is an hour you are counting instead of listening. I wanted a product and a brand that felt like round-the-clock accessibility support rather than a metered utility: something simply there, the way a person who helps you hear is there. Apple shipping on-device speech models at WWDC25 is what made that affordable to build.",
+      note: "Live captioning apps charge by the hour of transcription, and most cap you at around ten hours a month — nowhere near a week of meetings. I wanted a product and a brand that felt like round-the-clock accessibility support, not a metered utility.",
       scale: [
         {
           value: "1.5B",
