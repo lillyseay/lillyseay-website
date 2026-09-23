@@ -198,7 +198,7 @@ export const caseStudies: CaseStudy[] = [
       beats: [
         {
           title: "What a hearing buddy is",
-          body: "The safe person who helps you hear without judgement — mine mattered most in the conference rooms where I managed twenty engineers and a speaker would ask me a question from across the room.",
+          body: "A term I started using a decade ago for the safe person who helps me hear without judgement, the one who mattered most in the conference rooms where I managed twenty engineers and a speaker would ask me a question from across the room.",
         },
         {
           title: "My real-life hearing buddy",
