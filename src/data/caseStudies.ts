@@ -61,9 +61,9 @@ export type CaseStudy = {
       note: string;
       list: { name: string; tests: string; result: string }[];
     };
-    /** signal = the pain point, shipped = the feature it drove,
-     *  why = the one sentence behind it, revealed on expand. */
-    findings?: { signal: string; shipped: string; why: string }[];
+    /** Organised by what shipped: one feature can answer several pain
+     *  points at once. `why` is the one sentence, revealed on expand. */
+    findings?: { feature: string; pains: string[]; why: string }[];
     audiences?: { name: string; detail: string; evidence: string }[];
     /** Posting into a category to see whether the audience is reachable,
      *  before committing to building for it. */
@@ -342,48 +342,32 @@ export const caseStudies: CaseStudy[] = [
       },
       findings: [
         {
-          signal: "Clarity, not volume",
-          shipped: "Free unlimited live captions",
-          why: "Amplification only makes a blurry room louder, so the captions had to be the free core and the boost the paid extra.",
+          feature: "Free unlimited live captions",
+          pains: [
+            "Clarity, not volume",
+            "Hearing aids are not a fix",
+            "Lip reading, discovered in the pandemic",
+          ],
+          why: "All three say the hardware people already own cannot deliver comprehension, so captions became the free core and amplification the paid extra.",
         },
         {
-          signal: "Lip reading, discovered in the pandemic",
-          shipped: "Captions as the replacement channel",
-          why: "Masks took away a channel people did not know they were relying on, and captions are the only thing that puts it back.",
+          feature: "Question Alerts and Name Alerts",
+          pains: ["The fake nod", "The relief of hearing correctly"],
+          why: "People fake comprehension rather than ask a third time, and the moment they most want is answering correctly, so the app taps them when their name or a question lands.",
         },
         {
-          signal: "The relief of hearing correctly",
-          shipped: "A brand built on the moment it works",
-          why: "The most shared experience in this category is not the struggle but answering a question correctly, so the brand celebrates that instead.",
-        },
-        {
-          signal: "Hearing aids are not a fix",
-          shipped: "A layer on top of existing hardware",
-          why: "People already own the hardware and know its ceiling, so competing with it would have been the wrong product to build.",
-        },
-        {
-          signal: "The fake nod",
-          shipped: "Question Alerts and Name Alerts",
-          why: "People fake comprehension rather than ask a third time, so the app taps them when their name or a question lands.",
-        },
-        {
-          signal: "Listening fatigue",
-          shipped: "Conversation summaries",
+          feature: "Conversation summaries",
+          pains: ["Listening fatigue"],
           why: "Concentrating for an hour costs more than the hour, so the app carries the recall instead of the listener.",
         },
         {
-          signal: "Undiagnosed audience",
-          shipped: "Hearing test support through Apple Health",
-          why: "Much of the audience has never been tested, so the app had to meet them before a diagnosis rather than after one.",
+          feature: "Hearing test support through Apple Health",
+          pains: ["Undiagnosed audience", "Adjacent audiences"],
+          why: "Much of the audience has never been tested and many arrive through auditory processing or ADHD, so the app meets them before a diagnosis rather than after one.",
         },
         {
-          signal: "Adjacent audiences",
-          shipped: "A partner content line and an ADHD crossover",
-          why: "Auditory processing and ADHD arrive with the same failure in a noisy room, and the people helping needed material of their own.",
-        },
-        {
-          signal: "Music blocks the research",
-          shipped: "Silent, caption-first video",
+          feature: "Silent, caption-first video",
+          pains: ["Music blocks the research"],
           why: "Research the audience cannot hear is filtered research, so the videos dropped the background track.",
         },
       ],
@@ -958,23 +942,18 @@ export const caseStudies: CaseStudy[] = [
       },
       findings: [
         {
-          signal: "A body that hurts",
-          shipped: "Five ways up every milestone",
-          why: "Pain changes what a session can be, so each milestone carries a low-energy route instead of one prescribed effort.",
+          feature: "Five ways up every milestone",
+          pains: ["A body that hurts", "A schedule that will not bend"],
+          why: "Pain and a rigid week both change what a session can be rather than whether the goal is yours, so each milestone carries a low-energy route and a short-on-time one.",
         },
         {
-          signal: "No car, no trail nearby",
-          shipped: "Treadmill and everyday-life versions",
+          feature: "Treadmill and everyday-life versions",
+          pains: ["No car, no trail nearby"],
           why: "Access is the most common barrier in the taxonomy, so every step has a version that works from a front door.",
         },
         {
-          signal: "A schedule that will not bend",
-          shipped: "A short-on-time tier",
-          why: "Most plans assume a flexible week, so each milestone is sized to the session you actually get.",
-        },
-        {
-          signal: "Told the trail is not for you",
-          shipped: "Six buddies from those communities",
+          feature: "Six buddies from those communities",
+          pains: ["Told the trail is not for you"],
           why: "The people told to stay home are the ones no training app asks about, so the cast is drawn from them.",
         },
       ],
@@ -1409,18 +1388,18 @@ export const caseStudies: CaseStudy[] = [
       },
       findings: [
         {
-          signal: "Forms feel like homework",
-          shipped: "Full-screen animated activities",
+          feature: "Full-screen animated activities",
+          pains: ["Forms feel like homework"],
           why: "A form asks you to report on yourself before it helps, so every activity became something you land inside instead.",
         },
         {
-          signal: "Streaks punish bad weeks",
-          shipped: "No streaks, no scoring",
+          feature: "No streaks, no scoring",
+          pains: ["Streaks punish bad weeks"],
           why: "A broken streak punishes exactly the week you most needed the app, so there is nothing to break.",
         },
         {
-          signal: "Nobody reads instructions",
-          shipped: "One colour per activity",
+          feature: "One colour per activity",
+          pains: ["Nobody reads instructions"],
           why: "Colour tells you which activity you are in before you read a word, so the interface never depends on being read.",
         },
       ],

@@ -6106,7 +6106,7 @@ section[id] {
 
 .bh-pain summary {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) auto;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr) auto;
   align-items: start;
   gap: 0.4rem 1.5rem;
   /* The padding lives here, not on the row, so the whole row is a hit target
@@ -6148,6 +6148,25 @@ section[id] {
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 0.2rem;
+}
+
+/* The pain points behind a feature. Soft and small: they are evidence for
+   the feature, not competing headlines. */
+.bh-pain-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.bh-pain-pill {
+  display: inline-block;
+  padding: 0.24rem 0.6rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--c) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 34%, transparent);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--ink);
 }
 
 /* The open/closed affordance: a plus that becomes a minus. */
@@ -6263,16 +6282,6 @@ section[id] {
   font-size: 1.02rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--ink);
-}
-
-.bh-pain-b {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 0.98rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.4;
   color: var(--ink);
   text-wrap: pretty;
 }

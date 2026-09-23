@@ -312,7 +312,9 @@ const h = {
         <>
           <p class="bh-sub-label reveal">
             Pain points identified
-            <span class="bh-sub-count">{s.research.findings.length}</span>
+            <span class="bh-sub-count">
+              {new Set(s.research.findings.flatMap((f) => f.pains)).size}
+            </span>
           </p>
           <ol class="bh-pain stagger">
             {s.research.findings.map((f, i) => (
@@ -323,12 +325,19 @@ const h = {
                 <details>
                   <summary>
                     <span class="bh-pain-f">
-                      <span class="bh-pain-lab">Pain point</span>
-                      <span class="bh-pain-t">{f.signal}</span>
+                      <span class="bh-pain-lab">Feature</span>
+                      <span class="bh-pain-t">{f.feature}</span>
                     </span>
                     <span class="bh-pain-f">
-                      <span class="bh-pain-lab">What it drove</span>
-                      <span class="bh-pain-b">{f.shipped}</span>
+                      <span class="bh-pain-lab">
+                        Inspired by {f.pains.length > 1 && f.pains.length}
+                        {f.pains.length > 1 && " pain points"}
+                      </span>
+                      <span class="bh-pain-pills">
+                        {f.pains.map((q) => (
+                          <span class="bh-pain-pill">{q}</span>
+                        ))}
+                      </span>
                     </span>
                     <span class="bh-pain-chev" aria-hidden="true" />
                   </summary>
