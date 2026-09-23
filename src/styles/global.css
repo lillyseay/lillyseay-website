@@ -6412,125 +6412,6 @@ section[id] {
   margin: 0 0 2.5rem;
 }
 
-/* ── Comments, rendered as comments ───────────────────────────────────── */
-
-.bh-comments-wrap {
-  margin-top: clamp(2rem, 5vw, 3.5rem);
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 1.25rem 1.35rem 0.75rem;
-  box-shadow: var(--shadow-card);
-  max-width: 44rem;
-}
-
-.bh-comments-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin: 0 0 0.9rem;
-  padding-bottom: 0.9rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.bh-comments-head span {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--ink);
-}
-
-.bh-comments-head small {
-  font-size: 0.76rem;
-  color: var(--muted);
-}
-
-.bh-comments {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.bh-comments li {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 0.75rem;
-  padding: 0.75rem 0;
-  align-items: start;
-}
-
-.bh-comments li + li {
-  border-top: 1px solid var(--line);
-}
-
-.bh-av {
-  width: 2.1rem;
-  height: 2.1rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(140deg, var(--from), var(--to));
-  flex: none;
-}
-
-.bh-c-user {
-  margin: 0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.bh-c-text {
-  margin: 0.15rem 0 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--ink);
-}
-
-.bh-c-foot {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-  margin: 0.35rem 0 0;
-  font-size: 0.74rem;
-  color: var(--muted);
-}
-
-.bh-c-foot span:nth-child(2) {
-  font-weight: 600;
-}
-
-.bh-c-foot span:nth-child(3) {
-  color: var(--brand-text);
-  font-weight: 600;
-}
-
-.bh-c-like {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
-  padding-top: 0.2rem;
-  color: var(--muted);
-}
-
-.bh-c-like svg {
-  width: 1rem;
-  height: 1rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.6;
-}
-
-.bh-c-like em {
-  font-style: normal;
-  font-size: 0.72rem;
-  font-variant-numeric: tabular-nums;
-}
-
 /* ── Pull quote (my own words, not a comment) ─────────────────────────── */
 
 .bh-pull {
@@ -7686,5 +7567,201 @@ section[id] {
 
   .bh-pretest-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ── Testimonials ─────────────────────────────────────────────────────── */
+
+.bh-testimonials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bh-testimonials li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.5rem 1.4rem 1.3rem;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out);
+}
+
+.bh-testimonials li:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-float);
+}
+
+.bh-t-mark {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 0.6;
+  color: var(--brand);
+  margin-bottom: 0.4rem;
+}
+
+.bh-testimonials blockquote {
+  margin: 0 0 1.1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.bh-testimonials footer {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.bh-t-av {
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(140deg, var(--from), var(--to));
+}
+
+.bh-t-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.bh-t-meta {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Series ───────────────────────────────────────────────────────────── */
+
+.bh-series {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  background: var(--band);
+  border-radius: 28px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .bh-series {
+    background: var(--band-dk);
+  }
+}
+
+:root[data-theme="dark"] .bh-series {
+  background: var(--band-dk);
+}
+
+.bh-series-head {
+  max-width: 44rem;
+  margin-bottom: 1.6rem;
+}
+
+.bh-series-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin: 0.15rem 0 0.6rem;
+  color: var(--ink);
+}
+
+.bh-series-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bh-series-list li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.2rem 1.3rem 1.3rem;
+}
+
+.bh-series-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1.3px var(--brand-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.bh-series-list h4 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin: 0.35rem 0 0.45rem;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.bh-series-tests {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.bh-series-result {
+  margin: 0.8rem 0 0;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--line);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.bh-series-result span {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-text);
+}
+
+@media (max-width: 960px) {
+  .bh-testimonials,
+  .bh-series-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .bh-testimonials,
+  .bh-series-list {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

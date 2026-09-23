@@ -52,6 +52,12 @@ export type CaseStudy = {
       date: string;
     }[];
     pullQuote?: { text: string; cite: string };
+    /** The recurring video formats, and what each one was testing. */
+    series?: {
+      title: string;
+      note: string;
+      list: { name: string; tests: string; result: string }[];
+    };
     findings?: { signal: string; shipped: string }[];
     audiences?: { name: string; detail: string; evidence: string }[];
     /** Posting into a category to see whether the audience is reachable,
@@ -200,7 +206,7 @@ export const caseStudies: CaseStudy[] = [
 
     research: {
       heading: "Social media is my|research instrument",
-      note: "I score the keywords people already search, turn each one into a video, and read the view count as a vote on which pain point lands. The comments are the qualitative half — one video on the signs of hearing loss drew 84 of them.",
+      note: "I score the keywords people already search, then turn the winners into recurring series. Every video lists three pain points rather than one, so a single post tests three hypotheses at once and the comments tell me which line people reply to. The three formats that worked reached past the diagnosed audience into people still questioning whether they had hearing loss at all.",
       quotes: [
         {
           user: "Sarah",
@@ -245,11 +251,47 @@ export const caseStudies: CaseStudy[] = [
           date: "7-9",
         },
       ],
+      series: {
+        title: "Three series, three pain points each",
+        note: "Listing three experiences per video turns a sixty-second post into a ranked list. People reply quoting the one that is theirs, so the comments sort the pain points for me.",
+        list: [
+          {
+            name: "Things I thought were normal but were actually hearing loss",
+            tests:
+              "Written for the undiagnosed. Every reply is somebody recognising themselves in a workaround they had never named.",
+            result:
+              "Surfaced the lip-reading finding — a lot of people only discovered they were reading lips when everyone started wearing masks and their comprehension fell off a cliff.",
+          },
+          {
+            name: "Things people with hearing loss are tired of explaining",
+            tests:
+              "Written for the diagnosed. The social friction rather than the audiology.",
+            result:
+              'The highest comment volume of the three. "It\'s not volume but clarity" came back again and again, which is the whole argument for captions over amplification.',
+          },
+          {
+            name: "POV: your ears finally work",
+            tests: "The relief of hearing correctly, for once.",
+            result:
+              "The most viral by a distance. The most shared experience in this category is not the struggle — it is the moment your ears work, you hear the question, and you answer it correctly.",
+          },
+        ],
+      },
       findings: [
         {
           signal: "Clarity, not volume",
           shipped:
             "Captions are the free core. Amplification is the paid extra.",
+        },
+        {
+          signal: "Lip reading, discovered in the pandemic",
+          shipped:
+            "Captions as the replacement for a channel people did not know they were relying on until masks took it away.",
+        },
+        {
+          signal: "The relief of hearing correctly",
+          shipped:
+            "The brand celebrates the moment it works rather than the struggle. It is also the best-performing content we make.",
         },
         { signal: "The fake nod", shipped: "Question Alerts and Name Alerts." },
         { signal: "Listening fatigue", shipped: "Conversation summaries." },

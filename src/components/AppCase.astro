@@ -137,40 +137,33 @@ const h = {
 
     {
       s.research.quotes && (
-        <div class="bh-comments-wrap">
-          <p class="bh-comments-head reveal">
-            <span>{s.research.quotes.length} comments</span>
-            <small>@hearingbuddy · TikTok</small>
-          </p>
-          <ul class="bh-comments stagger">
+        <>
+          <p class="bh-sub-label reveal">What people said back</p>
+          <ul class="bh-testimonials stagger">
             {s.research.quotes.map((q, i) => (
               <li style={`--i:${i}`}>
-                <span class="bh-av" aria-hidden="true">
-                  {q.user.replace(/^@/, "").charAt(0).toUpperCase()}
+                <span class="bh-t-mark" aria-hidden="true">
+                  &ldquo;
                 </span>
-                <div class="bh-c-body">
-                  <p class="bh-c-user">{q.user}</p>
-                  <p class="bh-c-text">{q.text}</p>
-                  <p class="bh-c-foot">
-                    <span>{q.date}</span>
-                    <span>Reply</span>
-                    {q.replies ? (
-                      <span>
-                        View {q.replies} {q.replies === 1 ? "reply" : "replies"}
-                      </span>
-                    ) : null}
-                  </p>
-                </div>
-                <span class="bh-c-like">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 21s-7.5-4.6-9.6-9A5.2 5.2 0 0 1 12 6.6 5.2 5.2 0 0 1 21.6 12c-2.1 4.4-9.6 9-9.6 9z" />
-                  </svg>
-                  <em>{q.likes}</em>
-                </span>
+                <blockquote>{q.text}</blockquote>
+                <footer>
+                  <span class="bh-t-av" aria-hidden="true">
+                    {q.user.replace(/^@/, "").charAt(0).toUpperCase()}
+                  </span>
+                  <span>
+                    <span class="bh-t-name">{q.user}</span>
+                    <span class="bh-t-meta">
+                      {q.likes.toLocaleString("en-US")} likes
+                      {q.replies
+                        ? ` · ${q.replies} ${q.replies === 1 ? "reply" : "replies"}`
+                        : ""}
+                    </span>
+                  </span>
+                </footer>
               </li>
             ))}
           </ul>
-        </div>
+        </>
       )
     }
 
@@ -230,6 +223,33 @@ const h = {
             </ul>
             <p class="bh-pretest-foot">{s.research.preTest.footer}</p>
           </div>
+        </div>
+      )
+    }
+
+    {
+      s.research.series && (
+        <div class="bh-series reveal">
+          <div class="bh-series-head">
+            <p class="bh-sub-label flush">The formats</p>
+            <h3 class="bh-series-title">{s.research.series.title}</h3>
+            <p class="bh-ct-note">{s.research.series.note}</p>
+          </div>
+          <ol class="bh-series-list">
+            {s.research.series.list.map((v, i) => (
+              <li>
+                <span class="bh-series-num" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h4>{v.name}</h4>
+                <p class="bh-series-tests">{v.tests}</p>
+                <p class="bh-series-result">
+                  <span>What it told us</span>
+                  {v.result}
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       )
     }
