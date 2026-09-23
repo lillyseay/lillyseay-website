@@ -202,7 +202,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "My real-life hearing buddy",
-          body: "Scott Krager is my partner and co-founder; he wanted to help so badly that he coded the MVP himself, and he knows the side of this I do not — being the hearing buddy rather than needing one.",
+          body: "Scott Krager, my partner and co-founder, brings the half of this I cannot see — what it is to be the hearing buddy rather than the person needing one — and he wanted to help so much that he coded the MVP.",
         },
         {
           title: "The model that made it possible",
