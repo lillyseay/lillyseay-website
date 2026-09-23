@@ -6349,6 +6349,24 @@ section[id] {
     animation: none;
   }
 
+  /* No auto-rotation: the testimonials become a strip you scroll yourself. */
+  .bh-tcarousel {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .bh-tcarousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bh-ttrack {
+    animation: none;
+  }
+
+  .bh-ttrack li[aria-hidden="true"] {
+    display: none;
+  }
+
   .bh-screens img {
     transform: none;
   }
@@ -7572,16 +7590,60 @@ section[id] {
 
 /* ── Testimonials ─────────────────────────────────────────────────────── */
 
-.bh-testimonials {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+/* A seamless marquee: the track holds two copies of the list and slides by
+   exactly one copy, so the reset is invisible. Pauses on hover and on focus
+   so a card can actually be read. */
+.bh-tcarousel {
+  --tgap: 1rem;
+  overflow: hidden;
+  /* Fade both edges so cards enter and leave instead of being cut off. */
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
 }
 
-.bh-testimonials li {
+.bh-ttrack {
+  list-style: none;
+  padding: 0.6rem 0 1rem;
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+  gap: var(--tgap);
+  width: max-content;
+  animation: bh-marquee calc(var(--n, 8) * 6s) linear infinite;
+}
+
+/* :active covers touch, where there is no hover — press and hold to read. */
+.bh-tcarousel:hover .bh-ttrack,
+.bh-tcarousel:active .bh-ttrack,
+.bh-tcarousel:focus-within .bh-ttrack {
+  animation-play-state: paused;
+}
+
+@keyframes bh-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  /* Half the track is one full copy, less half a gap — the gap between the two
+     copies is counted in the 50% but is not part of a copy's width. */
+  to {
+    transform: translate3d(calc(-50% - var(--tgap) / 2), 0, 0);
+  }
+}
+
+.bh-ttrack li {
+  flex: 0 0 min(340px, 78vw);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -7595,7 +7657,7 @@ section[id] {
     box-shadow 0.35s var(--ease-out);
 }
 
-.bh-testimonials li:hover {
+.bh-ttrack li:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-float);
 }
@@ -7609,7 +7671,7 @@ section[id] {
   margin-bottom: 0.4rem;
 }
 
-.bh-testimonials blockquote {
+.bh-ttrack blockquote {
   margin: 0 0 1.1rem;
   font-size: 1rem;
   line-height: 1.6;
@@ -7617,7 +7679,7 @@ section[id] {
   text-wrap: pretty;
 }
 
-.bh-testimonials footer {
+.bh-ttrack footer {
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -7753,14 +7815,12 @@ section[id] {
 }
 
 @media (max-width: 960px) {
-  .bh-testimonials,
   .bh-series-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 720px) {
-  .bh-testimonials,
   .bh-series-list {
     grid-template-columns: minmax(0, 1fr);
   }

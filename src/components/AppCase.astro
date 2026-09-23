@@ -139,30 +139,39 @@ const h = {
       s.research.quotes && (
         <>
           <p class="bh-sub-label reveal">What people said back</p>
-          <ul class="bh-testimonials stagger">
-            {s.research.quotes.map((q, i) => (
-              <li style={`--i:${i}`}>
-                <span class="bh-t-mark" aria-hidden="true">
-                  &ldquo;
-                </span>
-                <blockquote>{q.text}</blockquote>
-                <footer>
-                  <span class="bh-t-av" aria-hidden="true">
-                    {q.user.replace(/^@/, "").charAt(0).toUpperCase()}
-                  </span>
-                  <span>
-                    <span class="bh-t-name">{q.user}</span>
-                    <span class="bh-t-meta">
-                      {q.likes.toLocaleString("en-US")} likes
-                      {q.replies
-                        ? ` · ${q.replies} ${q.replies === 1 ? "reply" : "replies"}`
-                        : ""}
+          <div
+            class="bh-tcarousel reveal"
+            style={`--n:${s.research.quotes.length}`}
+          >
+            <ul class="bh-ttrack">
+              {/* The list is rendered twice so the loop has no seam. The second
+                  copy is decorative, so it is hidden from assistive tech. */}
+              {[0, 1].map((copy) =>
+                s.research.quotes!.map((q) => (
+                  <li aria-hidden={copy === 1 ? "true" : undefined}>
+                    <span class="bh-t-mark" aria-hidden="true">
+                      &ldquo;
                     </span>
-                  </span>
-                </footer>
-              </li>
-            ))}
-          </ul>
+                    <blockquote>{q.text}</blockquote>
+                    <footer>
+                      <span class="bh-t-av" aria-hidden="true">
+                        {q.user.replace(/^@/, "").charAt(0).toUpperCase()}
+                      </span>
+                      <span>
+                        <span class="bh-t-name">{q.user}</span>
+                        <span class="bh-t-meta">
+                          {q.likes.toLocaleString("en-US")} likes
+                          {q.replies
+                            ? ` · ${q.replies} ${q.replies === 1 ? "reply" : "replies"}`
+                            : ""}
+                        </span>
+                      </span>
+                    </footer>
+                  </li>
+                )),
+              )}
+            </ul>
+          </div>
         </>
       )
     }
