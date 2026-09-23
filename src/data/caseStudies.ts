@@ -206,7 +206,7 @@ export const caseStudies: CaseStudy[] = [
 
     research: {
       heading: "Social media is my|research instrument",
-      note: "I score the keywords people already search, then turn the winners into recurring series. Every video lists three pain points rather than one, so a single post tests three hypotheses at once and the comments tell me which line people reply to. The three formats that worked reached past the diagnosed audience into people still questioning whether they had hearing loss at all.",
+      note: "I score the keywords people already search, then turn the winners into recurring series. Every video lists three pain points rather than one, so a single post tests three hypotheses at once and the comments tell me which line people reply to.",
       quotes: [
         {
           user: "Sarah",
@@ -292,28 +292,28 @@ export const caseStudies: CaseStudy[] = [
         },
       ],
       series: {
-        title: "Three series, three pain points each",
+        title: "Three short form video series to test pain points",
         note: "Listing three experiences per video turns a sixty-second post into a ranked list. People reply quoting the one that is theirs, so the comments sort the pain points for me.",
         list: [
           {
             name: "Things I thought were normal but were actually hearing loss",
             tests:
-              "Written for the undiagnosed. Every reply is somebody recognising themselves in a workaround they had never named.",
+              "Written for the undiagnosed, where every reply is somebody recognising themselves in a workaround they had never named.",
             result:
               "Surfaced the lip-reading finding — a lot of people only discovered they were reading lips when everyone started wearing masks and their comprehension fell off a cliff.",
           },
           {
             name: "Things people with hearing loss are tired of explaining",
             tests:
-              "Written for the diagnosed. The social friction rather than the audiology.",
+              "Written for the diagnosed, about the social friction rather than the audiology.",
             result:
-              'The highest comment volume of the three. "It\'s not volume but clarity" came back again and again, which is the whole argument for captions over amplification.',
+              'The highest comment volume of the three, with "it\'s not volume but clarity" coming back again and again — the whole argument for captions over amplification.',
           },
           {
             name: "POV: your ears finally work",
             tests: "The relief of hearing correctly, for once.",
             result:
-              "The most viral by a distance. The most shared experience in this category is not the struggle — it is the moment your ears work, you hear the question, and you answer it correctly.",
+              "The most viral by a distance, because the most shared experience here is not the struggle but the moment your ears work and you answer correctly.",
           },
         ],
       },
@@ -321,7 +321,7 @@ export const caseStudies: CaseStudy[] = [
         {
           signal: "Clarity, not volume",
           shipped:
-            "Captions are the free core. Amplification is the paid extra.",
+            "Captions are the free core, and amplification the paid extra.",
         },
         {
           signal: "Lip reading, discovered in the pandemic",
@@ -331,7 +331,7 @@ export const caseStudies: CaseStudy[] = [
         {
           signal: "The relief of hearing correctly",
           shipped:
-            "The brand celebrates the moment it works rather than the struggle. It is also the best-performing content we make.",
+            "The brand celebrates the moment it works rather than the struggle, and it is the best-performing content we make.",
         },
         {
           signal: "Hearing aids are not a fix",
@@ -351,7 +351,7 @@ export const caseStudies: CaseStudy[] = [
         {
           signal: "Music blocks the research",
           shipped:
-            "The videos changed. Research the audience cannot hear is filtered research.",
+            "The videos changed, because research the audience cannot hear is filtered research.",
         },
       ],
       audiences: [
@@ -372,14 +372,14 @@ export const caseStudies: CaseStudy[] = [
         {
           name: "Undiagnosed",
           detail:
-            "Years of workarounds without a word for the problem. The single largest comment theme.",
+            "Years of workarounds without a word for the problem, and the single largest comment theme.",
           evidence:
             "The top comment, at 67 likes, asks whether they are imagining it.",
         },
         {
           name: "Partners and allies",
           detail:
-            "Hearing people who want to help and get it wrong. Their own content line, filmed by my co-founder.",
+            "Hearing people who want to help and get it wrong, with their own content line filmed by my co-founder.",
           evidence:
             "4 videos, 11.4K views, the highest share rate on the account.",
         },
@@ -387,12 +387,12 @@ export const caseStudies: CaseStudy[] = [
     },
 
     strategy: {
-      heading: "Be the person,|not the transcription window",
+      heading: "Make an AI app feel like a real hearing buddy,|make it human",
       note: "A hearing buddy is what I have always called the person who repeats the question without making me feel like a burden. Every strategic call came out of that one idea.",
       bets: [
         {
           title: "Give the core away",
-          body: "Unlimited live captions stay free forever. On-device models made that affordable, and metering an accessibility need was the thing I built this to escape.",
+          body: "Unlimited live captions stay free forever, because on-device models made that affordable and metering an accessibility need was the thing I built this to escape.",
         },
         {
           title: "Sell relief, not minutes",
@@ -400,11 +400,11 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: 'Never say "AI"',
-          body: "Not in the interface, the App Store copy, or a commit message. You named this character. Crediting a model breaks the one relationship the product runs on.",
+          body: "Not in the interface, the App Store copy, or a commit message — you named this character, and crediting a model breaks the one relationship the product runs on.",
         },
         {
           title: "Ship where the conversation is",
-          body: "Phone in your pocket, watch on your wrist, Mac in the meeting, Vision Pro at the table. The same session, wherever you can actually look.",
+          body: "Phone in your pocket, watch on your wrist, Mac in the meeting, Vision Pro at the table — the same session, wherever you can actually look.",
         },
       ],
     },
@@ -424,7 +424,7 @@ export const caseStudies: CaseStudy[] = [
           {
             name: "Box pages",
             detail:
-              "Buddy, Boost and Share Captions. Swipe between them; the Buddy page is permanent by rule and no toggle can remove it.",
+              "Buddy, Boost and Share Captions, swipeable, with the Buddy page permanent by rule and no toggle able to remove it.",
           },
           {
             name: "Cards",
@@ -455,19 +455,19 @@ export const caseStudies: CaseStudy[] = [
       rules: [
         {
           title: "The live line is invisible to VoiceOver",
-          body: "Each finalised caption segment is one element; the in-progress line is hidden. A sentence that rewrites itself mid-word is unreadable aloud.",
+          body: "Each finalised caption segment is one element and the in-progress line is hidden, because a sentence that rewrites itself mid-word is unreadable aloud.",
         },
         {
           title: "Haptics only on the wrist",
-          body: "No Watch notifications — they fight the haptic system. One language instead: up for your name, down for a question.",
+          body: "No Watch notifications, because they fight the haptic system — one language instead: up for your name, down for a question.",
         },
         {
           title: "Alerts outrank summaries",
-          body: "On the Lock Screen a question jumps the queue, shows immediately and dismisses itself after ten seconds. You need it now or not at all.",
+          body: "On the Lock Screen a question jumps the queue and dismisses itself after ten seconds, because you need it now or not at all.",
         },
         {
           title: "Accessibility ships on all four surfaces",
-          body: "VoiceOver labels are mirrored into Mac, Vision and Watch. Nothing ships iOS-only.",
+          body: "VoiceOver labels are mirrored into Mac, Vision and Watch, so nothing ships iOS-only.",
         },
       ],
     },
@@ -505,14 +505,14 @@ export const caseStudies: CaseStudy[] = [
             name: "SF Pro Display",
             role: "Headings, buddy names",
             sample: "Aa",
-            detail: "Tight tracking at large sizes. Semibold and bold only.",
+            detail: "Tight tracking at large sizes, semibold and bold only.",
           },
           {
             name: "SF Pro Text",
             role: "Captions and interface",
             sample: "Aa",
             detail:
-              "Full Dynamic Type, semantic styles only. Captions never take a decorative treatment.",
+              "Full Dynamic Type and semantic styles only, so captions never take a decorative treatment.",
           },
         ],
       },
@@ -707,23 +707,23 @@ export const caseStudies: CaseStudy[] = [
         points: [
           {
             title: "The system lies about iPhone width",
-            body: "iOS never grants an iPhone window the regular size class, even at 874pt in landscape. Every width-adaptive layout was therefore dead on iPhone. I publish an effective size class instead, upgrading to regular above 600pt so a wide iPhone window behaves exactly like an equally sized iPad one.",
+            body: "iOS never grants an iPhone window the regular size class, so I publish an effective size class instead, upgrading above 600pt so a wide iPhone window behaves exactly like an equally sized iPad one.",
           },
           {
             title: "Grids decide by fit, not by device",
-            body: "Settings flows two-up when a column can hold 360pt, conversations at 330pt. No device checks anywhere — the layout answers the space it was given.",
+            body: "Settings flows two-up when a column can hold 360pt and conversations at 330pt, with no device checks anywhere.",
           },
           {
             title: "Never second-guess iPad",
-            body: "The override is iPhone-only. On iPad the system already picks per window, Stage Manager splits included, and overriding that would break the one case it gets right.",
+            body: "The override is iPhone-only, because on iPad the system already picks per window and overriding that would break the one case it gets right.",
           },
           {
             title: "Drag straight out of a summary",
-            body: "Action items, decisions and questions are individually draggable, so a summary lands in Notes or Reminders without a copy-and-paste round trip. That is what the extra width on iPad is for.",
+            body: "Action items, decisions and questions are individually draggable, so a summary lands in Notes or Reminders without a copy-and-paste round trip.",
           },
           {
             title: "Landscape is the meeting case",
-            body: "A lecture or a long meeting is where people prop an iPad sideways. Getting landscape right was not polish, it was the primary posture for the longest sessions.",
+            body: "A lecture or a long meeting is where people prop an iPad sideways, so landscape was not polish but the primary posture for the longest sessions.",
           },
         ],
         shot: {
@@ -733,7 +733,7 @@ export const caseStudies: CaseStudy[] = [
       },
       system: {
         title: "One value, sixteen surfaces",
-        body: "Add a buddy and the whole system themes itself. That single rule is why the design system and the App Store calendar are the same object.",
+        body: "Add a buddy and the whole system themes itself, which is why the design system and the App Store calendar are the same object.",
         from: "One buddy value",
         to: [
           "Listen tab",
@@ -756,7 +756,7 @@ export const caseStudies: CaseStudy[] = [
         {
           when: "8 weeks out",
           title: "Build ahead",
-          body: "Features are finished one to two months early. Apple and Google both want to see the work, not the plan.",
+          body: "Features are finished one to two months early, because Apple and Google both want to see the work, not the plan.",
         },
         {
           when: "4 weeks out",
@@ -766,12 +766,12 @@ export const caseStudies: CaseStudy[] = [
         {
           when: "Launch",
           title: "Test the sector",
-          body: "Keyword-focused short-form video aimed at one slice of the audience. Views answer whether that group would use the feature; comments answer how.",
+          body: "Keyword-focused short-form video aimed at one slice of the audience, where views answer whether that group would use the feature and comments answer how.",
         },
         {
           when: "After",
           title: "Convert the winners",
-          body: "Organic posts that performed become the paid creative. The test doubles as the asset library.",
+          body: "Organic posts that performed become the paid creative, so the test doubles as the asset library.",
         },
       ],
     },
@@ -790,16 +790,16 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Turn winners into series",
-          body: "A topic that lands gets a recognisable title and a regular slot. Series average 3.4× the views of one-offs.",
+          body: "A topic that lands gets a recognisable title and a regular slot, and series average 3.4× the views of one-offs.",
         },
         {
           title: "Carousels where video will not fit",
-          body: "A character account posting nothing but TikTok photo carousels. Numbered lists win by almost 7×.",
+          body: "A character account posting nothing but TikTok photo carousels, where numbered lists win by almost 7×.",
         },
       ],
       pipeline: {
         title: "Creative pipeline",
-        body: "Every organic post is written to my hook formula, so anything that performs is already shaped for paid. Winners move straight into ad creative with no reshoot — the research budget and the creative budget are the same budget.",
+        body: "Every organic post is written to my hook formula, so winners move straight into ad creative with no reshoot and the research budget is the creative budget.",
       },
       stats: [
         { value: "210", label: "videos in 7 months" },
@@ -858,7 +858,7 @@ export const caseStudies: CaseStudy[] = [
 
     problem: {
       heading: "Training plans assume a body|and a life you might not have",
-      note: "Every plan I found assumed no injuries, a car, a trailhead nearby, a flexible schedule, and a body that does what it is told. If you are not that person the plan does not adapt — it just makes the goal feel like it was never yours. And progress toward a mountain always arrives as a chart, which is not why anyone hikes.",
+      note: "Every plan I found assumed no injuries, a car, a trailhead nearby, a flexible schedule, and a body that does what it is told. If you are not that person the plan does not adapt — it just makes the goal feel like it was never yours.",
       scale: [
         {
           value: "55",
@@ -879,7 +879,7 @@ export const caseStudies: CaseStudy[] = [
       note: "This one did not start from a keyword sheet. It started from the observation that the people most often told the trail is not for them are the ones no training app asks about — so I built the taxonomy first and designed the plan around it.",
       preTest: {
         title: "I tested the audience before I built the app",
-        note: "Hiking Passport started as content. For a year before the app was submitted I posted outdoors work to @lillyseay — hiking, car camping, backpacking, the PNW — to find out whether the category would carry at all. The earliest dated hiking post is September 2025; submission was September 2026. The answer came back clearly: outdoors is the best-performing thing on that account in its modern era, and the app's exact premise already worked as a hook.",
+        note: "For a year before the app was submitted I posted outdoors work to @lillyseay — hiking, car camping, backpacking, the PNW — to find out whether the category would carry at all. It came back as the best-performing thing on that account in its modern era, with the app's exact premise already working as a hook.",
         stats: [
           { value: "80K", label: "views, best outdoors post" },
           { value: "13K", label: "likes on it — a 16% like rate" },
@@ -920,7 +920,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
         footer:
-          "The paddleboarding post is the highest-performing thing @lillyseay has published since a viral engineering run in 2020, and it took 13,000 likes doing it. Underneath the spikes the category holds a floor: outdoors posts sit reliably between 400 and 1,600 views, week after week. Four of them were the product pitch before the product existed — goal hikes, elevation training, summit times. The same posts cross-posted to a 37-subscriber YouTube channel pulled another 82,000 views, which says the reach is the category rather than the following.",
+          "The paddleboarding post is the highest-performing thing @lillyseay has published since 2020, and underneath the spikes outdoors posts hold a floor of 400 to 1,600 views week after week. The same posts cross-posted to a 37-subscriber YouTube channel pulled another 82,000 views, which says the reach is the category rather than the following.",
       },
       findings: [
         {
@@ -979,7 +979,7 @@ export const caseStudies: CaseStudy[] = [
       bets: [
         {
           title: "Draw the season, don't chart it",
-          body: "A goal hike is a mountain, milestones are signs along the trail, and a summit is a stamp on the peak. You can read your whole season from four feet away.",
+          body: "A goal hike is a mountain, milestones are signs along the trail, and a summit is a stamp on the peak — readable from four feet away.",
         },
         {
           title: "Start from the week you already have",
@@ -987,11 +987,11 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Constraints change the route, never the goal",
-          body: "Fifty-five things to tap, and none of them is a barrier. They change what the plan suggests and nothing else.",
+          body: "Fifty-five things to tap, none of them a barrier, changing what the plan suggests and nothing else.",
         },
         {
           title: "Keep it on the device",
-          body: "No account, no cloud, works with no signal. A hiking app should never need a login on a trail.",
+          body: "No account, no cloud and no signal needed, because a hiking app should never ask for a login on a trail.",
         },
       ],
     },
@@ -1006,7 +1006,7 @@ export const caseStudies: CaseStudy[] = [
           {
             name: "The mountain",
             detail:
-              "Each goal hike, drawn to its own shape. Summit it and a dated stamp lands on the peak.",
+              "Each goal hike drawn to its own shape, with a dated stamp landing on the peak when you summit.",
           },
           {
             name: "Milestone signs",
@@ -1037,7 +1037,7 @@ export const caseStudies: CaseStudy[] = [
       rules: [
         {
           title: "Signs thin out instead of colliding",
-          body: "As Dynamic Type grows the scene drops signs rather than overlapping them into mush. Fewer, readable signs beats a full set nobody can read.",
+          body: "As Dynamic Type grows the scene drops signs rather than overlapping them, because fewer readable signs beats a full set nobody can read.",
         },
         {
           title: "The opening animation skips itself",
@@ -1089,7 +1089,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Hike names, stamps, signs",
             sample: "Aa",
             detail:
-              "Four weights. It steps up a weight by hand when Bold Text is on, because a custom face does not answer that setting on its own.",
+              "Four weights, stepped up by hand when Bold Text is on, because a custom face does not answer that setting on its own.",
           },
           {
             name: "SF Pro",
@@ -1102,7 +1102,7 @@ export const caseStudies: CaseStudy[] = [
       },
       characters: {
         title: "Six buddies, six reasons to be out there",
-        note: "Forest animals, each from a community that gets told the trail is not for them. They read your workouts and cheer. Friends who hike — not trainers, not doctors — and they never scold.",
+        note: "Forest animals, each from a community that gets told the trail is not for them, who read your workouts and cheer. Friends who hike — not trainers, not doctors — and they never scold.",
         list: [
           {
             file: "buddy-eagle.svg",
@@ -1296,7 +1296,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "The passport is the shareable",
-          body: "Sharing a picture of your passport is free, by design. The product markets itself in the group chat.",
+          body: "Sharing a picture of your passport is free by design, so the product markets itself in the group chat.",
         },
       ],
       pipeline: {
@@ -1360,12 +1360,12 @@ export const caseStudies: CaseStudy[] = [
     problem: {
       heading:
         "Mental health apps asked you to be calm|before you could use them",
-      note: "Every app in the category was either clinical — forms, streaks, mood charts — or quiet and meditative. Both assume you arrive with enough focus to sit still. What I wanted when anxious was something to do with my hands that was not a form.",
+      note: "Every app in the category was either clinical — forms, streaks, mood charts — or quiet and meditative, and both assume you arrive with enough focus to sit still. What I wanted when anxious was something to do with my hands that was not a form.",
     },
 
     research: {
       heading: "Two hundred testers and|a feedback loop with no middle",
-      note: "200 testers on TestFlight while I was still building. Feedback went in and came back out as App Store updates, with nobody in between. Apple Entrepreneur Camp was the other instrument — feedback from Apple's design evangelists, implemented the same week.",
+      note: "200 testers on TestFlight while I was still building, with feedback going in and coming back out as App Store updates and nobody in between. Apple Entrepreneur Camp was the other instrument — feedback from Apple's design evangelists, implemented the same week.",
       pullQuote: {
         text: "Pivoting doesn't have to make a big splash. It's more like skipping a rock across a pond — ripples of progress, each attempt more calculated than the last.",
         cite: "My talk at Apple's International Women's Day event, Cupertino, 2024",
@@ -1393,11 +1393,11 @@ export const caseStudies: CaseStudy[] = [
       bets: [
         {
           title: "Animation is the product",
-          body: "Not decoration on a form. The activity is the animation, and the whole screen is it.",
+          body: "Not decoration on a form: the activity is the animation, and the whole screen is it.",
         },
         {
           title: "Loud, against the category",
-          body: "Saturated colour edge to edge where everyone else went beige. A person in a spiral needs somewhere to put their attention, not to be soothed into stillness.",
+          body: "Saturated colour edge to edge where everyone else went beige, because a person in a spiral needs somewhere to put their attention rather than to be soothed into stillness.",
         },
         {
           title: "No streaks, no scoring",
@@ -1420,7 +1420,7 @@ export const caseStudies: CaseStudy[] = [
           {
             name: "The colour",
             detail:
-              "Carried edge to edge. It tells you which activity you are in before you read the title.",
+              "Carried edge to edge, telling you which activity you are in before you read the title.",
           },
           {
             name: "Title and one line",
@@ -1439,7 +1439,7 @@ export const caseStudies: CaseStudy[] = [
           {
             name: "Start button",
             detail:
-              "Full width, bottom of screen, the same position every time. One decision to make.",
+              "Full width, bottom of screen, the same position every time — one decision to make.",
           },
         ],
         shot: {
@@ -1450,7 +1450,7 @@ export const caseStudies: CaseStudy[] = [
       rules: [
         {
           title: "One colour per activity",
-          body: "Pink for task lists, orchid for organize, sky for negative thoughts, indigo for the wheel. The colour is the wayfinding.",
+          body: "Pink for task lists, orchid for organize, sky for negative thoughts, indigo for the wheel — the colour is the wayfinding.",
         },
         {
           title: "Full screen or it is not finished",
@@ -1458,7 +1458,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "The same button in the same place",
-          body: "Every activity ends in one full-width action at the bottom. Nothing to hunt for.",
+          body: "Every activity ends in one full-width action at the bottom, with nothing to hunt for.",
         },
       ],
     },
@@ -1561,7 +1561,7 @@ export const caseStudies: CaseStudy[] = [
       },
       system: {
         title: "Rebuilding the app to make the design possible",
-        body: "Storyboard was the wrong architecture for a system of animations. Migrating to SwiftUI myself saved about $75,000 and unlocked the work the app is known for.",
+        body: "Storyboard was the wrong architecture for a system of animations, and migrating to SwiftUI myself saved about $75,000 and unlocked the work the app is known for.",
         from: "Storyboard to SwiftUI",
         to: [
           "Reusable animation system",
@@ -1614,7 +1614,7 @@ export const caseStudies: CaseStudy[] = [
       ],
       pipeline: {
         title: "Creative pipeline",
-        body: "The bot handled reach, the carousels handled proof, and the beta community handled word of mouth. With no budget each channel had to feed the next — the same principle the Hearing Buddy loop runs on now.",
+        body: "The bot handled reach, the carousels handled proof and the beta community handled word of mouth, with each channel feeding the next on no budget.",
       },
       stats: [
         { value: "2.9K", label: "Instagram followers" },

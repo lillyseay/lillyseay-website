@@ -6005,83 +6005,99 @@ section[id] {
   margin-bottom: 0.4rem;
 }
 
-/* ── Hub ──────────────────────────────────────────────────────────────── */
+/* ── Tag chips ────────────────────────────────────────────────────────── */
 
-.bh-hub {
-  margin-top: clamp(2.5rem, 6vw, 4rem);
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: start;
-}
-
-.bh-hub-core {
-  display: grid;
-  place-content: center;
-  width: clamp(7rem, 13vw, 10rem);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: linear-gradient(140deg, var(--from), var(--mid), var(--to));
-  color: #fff;
-  text-align: center;
-  box-shadow: var(--shadow-float);
-}
-
-.bh-hub-core span {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.bh-hub-core small {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-
-.bh-hub-list {
+/* One chip carries a label and the answer to it: a pain point and what
+   shipped, or an audience and what it needed. They wrap like tags rather
+   than sitting in a grid, so a short chip stays short. */
+.bh-tags {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
 }
 
-.bh-hub-list li {
+.bh-tags li {
+  flex: 0 1 auto;
+  max-width: min(100%, 30rem);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 1rem 1.15rem;
-  position: relative;
+  /* Browsers clamp the radius to half the height, so a short chip comes out a
+     true pill and one whose answer wraps comes out a rounded rect instead of
+     a stretched stadium. */
+  border-radius: 1.5rem;
+  padding: 0.45rem 1.15rem 0.6rem 0.45rem;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out);
 }
 
-.bh-hub-dot {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--brand-text);
-  font-variant-numeric: tabular-nums;
+.bh-tags li:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--mid) 45%, var(--line));
+  box-shadow: var(--shadow-float);
 }
 
-.bh-hub-list h4 {
+.bh-tag {
+  flex: none;
+  border-radius: 999px;
+  padding: 0.42rem 0.95rem;
+  background: linear-gradient(135deg, var(--from), var(--mid), var(--to));
+  color: #fff;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: -0.01em;
-  margin: 0.15rem 0 0.3rem;
-  color: var(--ink);
+  line-height: 1.3;
 }
 
-.bh-hub-list p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.55;
+.bh-tag-body {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+/* Audience chips carry a third line, so they square off and stack. */
+.bh-tags.is-aud li {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  border-radius: 22px;
+  padding: 0.75rem 1.1rem 0.95rem;
+  max-width: min(100%, 24rem);
+}
+
+.bh-tag-ev {
+  font-size: 0.78rem;
+  line-height: 1.5;
   color: var(--muted);
+  padding-top: 0.55rem;
+  border-top: 1px dashed var(--line);
+  align-self: stretch;
+}
+
+/* The count beside a sub-label. */
+.bh-sub-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.45rem;
+  height: 1.45rem;
+  margin-left: 0.5rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--band-soft);
+  color: var(--brand-text);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ── Bands and screens ────────────────────────────────────────────────── */
@@ -6316,14 +6332,9 @@ section[id] {
 }
 
 @media (max-width: 720px) {
-  .bh-two,
-  .bh-hub {
+  .bh-two {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
-  }
-
-  .bh-hub-list {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .bh-themes {
@@ -6513,65 +6524,10 @@ section[id] {
   padding: 0.2rem 0.55rem;
 }
 
-.bh-aud-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.bh-aud-list li {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 1.1rem 1.2rem 1.2rem;
-}
-
-.bh-aud-dot {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--brand-text);
-  font-variant-numeric: tabular-nums;
-}
-
-.bh-aud-list h4 {
-  font-family: var(--font-display);
-  font-size: 1.02rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  margin: 0.2rem 0 0.35rem;
-  color: var(--ink);
-}
-
-.bh-aud-list p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--text);
-}
-
-.bh-aud-ev {
-  margin-top: 0.6rem !important;
-  padding-top: 0.6rem;
-  border-top: 1px dashed var(--line);
-  color: var(--muted) !important;
-  font-size: 0.82rem !important;
-}
-
 /* ── Marketing loop ───────────────────────────────────────────────────── */
 
-@media (max-width: 960px) {
-  .bh-aud-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 720px) {
-  .bh-aud-primary,
-  .bh-aud-list {
+  .bh-aud-primary {
     grid-template-columns: minmax(0, 1fr);
   }
 

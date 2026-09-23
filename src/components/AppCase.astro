@@ -266,24 +266,18 @@ const h = {
     {
       s.research.findings && (
         <>
-          <p class="bh-sub-label reveal">Pain points identified</p>
-          <div class="bh-hub reveal">
-            <div class="bh-hub-core">
-              <span>{s.research.findings.length}</span>
-              <small>pain points</small>
-            </div>
-            <ul class="bh-hub-list stagger">
-              {s.research.findings.map((f, i) => (
-                <li style={`--i:${i}`}>
-                  <span class="bh-hub-dot" aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h4>{f.signal}</h4>
-                  <p>{f.shipped}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <p class="bh-sub-label reveal">
+            Pain points identified
+            <span class="bh-sub-count">{s.research.findings.length}</span>
+          </p>
+          <ul class="bh-tags stagger">
+            {s.research.findings.map((f, i) => (
+              <li style={`--i:${i}`}>
+                <span class="bh-tag">{f.signal}</span>
+                <span class="bh-tag-body">{f.shipped}</span>
+              </li>
+            ))}
+          </ul>
         </>
       )
     }
@@ -292,15 +286,12 @@ const h = {
       s.research.audiences && (
         <>
           <p class="bh-sub-label reveal">Who it turned out to be for</p>
-          <ul class="bh-aud-list stagger">
+          <ul class="bh-tags is-aud stagger">
             {s.research.audiences.map((a, i) => (
               <li style={`--i:${i}`}>
-                <span class="bh-aud-dot" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h4>{a.name}</h4>
-                <p>{a.detail}</p>
-                <p class="bh-aud-ev">{a.evidence}</p>
+                <span class="bh-tag">{a.name}</span>
+                <span class="bh-tag-body">{a.detail}</span>
+                <span class="bh-tag-ev">{a.evidence}</span>
               </li>
             ))}
           </ul>
