@@ -6064,6 +6064,140 @@ section[id] {
   }
 }
 
+/* ── Pain points ──────────────────────────────────────────────────────── */
+
+/* A numbered list that draws itself: the rail grows from the top while the
+   rows slide in from the left and the numbers pop, one after another. */
+.bh-pain {
+  list-style: none;
+  padding: 0;
+  margin: clamp(1.5rem, 4vw, 2.5rem) 0 0;
+  position: relative;
+}
+
+.bh-pain::before {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  top: 1.4rem;
+  bottom: 1.4rem;
+  width: 2px;
+  background: var(--line);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.6s var(--ease-out);
+}
+
+.bh-pain.is-visible::before {
+  transform: scaleY(1);
+}
+
+.bh-pain li {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  column-gap: 1.15rem;
+  row-gap: 0.2rem;
+  align-items: center;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.bh-pain li:last-child {
+  border-bottom: 0;
+}
+
+/* Slide in from the rail rather than straight up, so the list reads as one
+   thing being written out. Beats the generic .stagger transform. */
+.bh-pain.stagger > li {
+  transform: translateX(-16px);
+}
+
+.bh-pain.stagger.is-visible > li {
+  transform: none;
+}
+
+.bh-pain-n {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--c);
+  /* Not --ink: the accent colours are the same in both themes, so the text on
+     them has to be fixed dark too. White on these pastels is about 1.7:1. */
+  color: #1d1224;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  /* Punches a hole in the rail so it runs between the numbers, not under. */
+  box-shadow: 0 0 0 5px var(--surface);
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 70ms + 120ms);
+}
+
+.bh-pain.stagger.is-visible > li .bh-pain-n {
+  opacity: 1;
+  transform: none;
+}
+
+/* Solid colours from the app's own palette, cycled. */
+.bh-pain li:nth-child(3n + 1),
+.bh-tags li:nth-child(3n + 1) {
+  --c: var(--from);
+}
+
+.bh-pain li:nth-child(3n + 2),
+.bh-tags li:nth-child(3n + 2) {
+  --c: var(--mid);
+}
+
+.bh-pain li:nth-child(3n),
+.bh-tags li:nth-child(3n) {
+  --c: var(--to);
+}
+
+.bh-pain-t {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.bh-pain-b {
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+@media (max-width: 560px) {
+  .bh-pain li {
+    grid-template-columns: 1.9rem minmax(0, 1fr);
+    column-gap: 0.85rem;
+  }
+
+  .bh-pain-n {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .bh-pain::before {
+    left: 0.95rem;
+  }
+}
+
 /* ── Tag chips ────────────────────────────────────────────────────────── */
 
 /* One chip carries a label and the answer to it: a pain point and what
@@ -6109,8 +6243,8 @@ section[id] {
   flex: none;
   border-radius: 999px;
   padding: 0.42rem 0.95rem;
-  background: linear-gradient(135deg, var(--from), var(--mid), var(--to));
-  color: #fff;
+  background: var(--c, var(--mid));
+  color: #1d1224;
   font-family: var(--font-display);
   font-size: 0.86rem;
   font-weight: 800;
@@ -6417,6 +6551,16 @@ section[id] {
   .float,
   .bh-ov-stats li {
     animation: none;
+  }
+
+  .bh-pain::before,
+  .bh-pain.stagger > li,
+  .bh-pain-n {
+    transform: none;
+  }
+
+  .bh-pain-n {
+    opacity: 1;
   }
 
   /* No auto-rotation: the testimonials become a strip you scroll yourself. */

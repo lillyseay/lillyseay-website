@@ -314,14 +314,17 @@ const h = {
             Pain points identified
             <span class="bh-sub-count">{s.research.findings.length}</span>
           </p>
-          <ul class="bh-tags stagger">
+          <ol class="bh-pain stagger">
             {s.research.findings.map((f, i) => (
               <li style={`--i:${i}`}>
-                <span class="bh-tag">{f.signal}</span>
-                <span class="bh-tag-body">{f.shipped}</span>
+                <span class="bh-pain-n" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span class="bh-pain-t">{f.signal}</span>
+                <span class="bh-pain-b">{f.shipped}</span>
               </li>
             ))}
-          </ul>
+          </ol>
         </>
       )
     }
