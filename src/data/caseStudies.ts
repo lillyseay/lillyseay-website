@@ -250,6 +250,46 @@ export const caseStudies: CaseStudy[] = [
           replies: 1,
           date: "7-9",
         },
+        {
+          user: "Rosemarie",
+          text: "Yep, I thought my hearing aids would fix everything. How wrong was I?",
+          likes: 5,
+          date: "5-21",
+        },
+        {
+          user: "klaudia",
+          text: "Me not being able to watch anything unless I have captions, because I simply don't understand the other person.",
+          likes: 6,
+          replies: 3,
+          date: "3-22",
+        },
+        {
+          user: "Diesel ocean",
+          text: "My brain fills in the gaps, but it's never right — and sometimes it's wild.",
+          likes: 4,
+          replies: 1,
+          date: "6-7",
+        },
+        {
+          user: "Paula",
+          text: "I wish people understood that hearing aids aren't replacing your hearing. They're there to help.",
+          likes: 5,
+          date: "6-6",
+        },
+        {
+          user: "Heather",
+          text: 'The "if you can hear me, you aren\'t really deaf" one really irks me.',
+          likes: 4,
+          replies: 1,
+          date: "5-5",
+        },
+        {
+          user: "Treedoc",
+          text: "I hate the drive-through.",
+          likes: 5,
+          replies: 1,
+          date: "6-5",
+        },
       ],
       series: {
         title: "Three series, three pain points each",
@@ -292,6 +332,11 @@ export const caseStudies: CaseStudy[] = [
           signal: "The relief of hearing correctly",
           shipped:
             "The brand celebrates the moment it works rather than the struggle. It is also the best-performing content we make.",
+        },
+        {
+          signal: "Hearing aids are not a fix",
+          shipped:
+            "A software layer that sits on top of whatever hardware someone already owns, instead of competing with it.",
         },
         { signal: "The fake nod", shipped: "Question Alerts and Name Alerts." },
         { signal: "Listening fatigue", shipped: "Conversation summaries." },
