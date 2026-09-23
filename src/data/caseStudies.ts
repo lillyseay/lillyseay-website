@@ -37,6 +37,9 @@ export type CaseStudy = {
   /** Hero: headline numbers and the facts beside them. */
   overview: { stats: Stat[]; facts: { k: string; v: string }[] };
 
+  /** 0 — The founder story, where there is one. Three sentences, no more. */
+  story?: { heading: string; beats: Point[] };
+
   /** 1 — Problem. */
   problem: { heading: string; note: string; scale?: Stat[] };
 
@@ -187,6 +190,24 @@ export const caseStudies: CaseStudy[] = [
         { k: "Team", v: "Two people" },
         { k: "Ships on", v: "iPhone, iPad, Watch, Mac, Vision Pro" },
         { k: "Built with", v: "SwiftUI, on-device speech" },
+      ],
+    },
+
+    story: {
+      heading: "Hearing Buddy started with|a real hearing buddy",
+      beats: [
+        {
+          title: "What a hearing buddy is",
+          body: "The safe person who helps you hear without judgement — mine mattered most in the conference rooms where I managed twenty engineers and a speaker would ask me a question from across the room.",
+        },
+        {
+          title: "My real-life hearing buddy",
+          body: "Scott Krager is my partner and co-founder; we matched on Hinge, FaceTimed on our Vision Pros before the first date, and he watched what those meetings were doing to me.",
+        },
+        {
+          title: "The model that made it possible",
+          body: "At WWDC25 he started testing Apple's new SpeechAnalyzer API, and the on-device model was finally accurate, private and free enough to build a whole product on.",
+        },
       ],
     },
 
@@ -387,8 +408,9 @@ export const caseStudies: CaseStudy[] = [
     },
 
     strategy: {
-      heading: "Make an AI app feel like a real hearing buddy,|make it human",
-      note: "A hearing buddy is what I have always called the person who repeats the question without making me feel like a burden. Every strategic call came out of that one idea.",
+      heading:
+        "Design an AI app that feels like a real hearing buddy,|make it human",
+      note: "A hearing buddy is the safe person who helps me hear without judgement. I wanted to embody my real-life hearing buddy, Scott Krager, in an app, so I could have a hearing buddy when he is not there.",
       bets: [
         {
           title: "Give the core away",

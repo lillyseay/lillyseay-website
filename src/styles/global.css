@@ -6005,6 +6005,65 @@ section[id] {
   margin-bottom: 0.4rem;
 }
 
+/* ── Founder story ────────────────────────────────────────────────────── */
+
+/* Three beats, one sentence each. Borderless, so the opening section reads as
+   narrative rather than as another card grid. */
+.bh-story {
+  list-style: none;
+  padding: 0;
+  margin: clamp(2rem, 5vw, 3rem) 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.bh-story li {
+  padding-top: 1.1rem;
+  border-top: 2px solid var(--line);
+}
+
+.bh-story-n {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--from), var(--mid), var(--to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bh-story h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0.7rem 0 0.4rem;
+  color: var(--ink);
+}
+
+.bh-story p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+/* A heading that spans the column instead of sitting beside a body column. */
+.bh-h2-wide {
+  max-width: 24ch;
+}
+
+@media (max-width: 860px) {
+  .bh-story {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ── Tag chips ────────────────────────────────────────────────────────── */
 
 /* One chip carries a label and the answer to it: a pain point and what

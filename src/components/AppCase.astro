@@ -22,7 +22,24 @@ const theme = [
   `--band-dk:${s.band.dark}`,
 ].join("; ");
 
+// Section numbers are derived, not written down: a study without a founder
+// story starts at Problem and everything below it shifts up by one.
+const order = [
+  ...(s.story ? ["story"] : []),
+  "problem",
+  "research",
+  "strategy",
+  "ux",
+  "identity",
+  "product",
+  "marketing",
+  "social",
+  "results",
+];
+const no = (k: string) => String(order.indexOf(k) + 1).padStart(2, "0");
+
 const h = {
+  ...(s.story ? { story: split(s.story.heading) } : {}),
   problem: split(s.problem.heading),
   research: split(s.research.heading),
   strategy: split(s.strategy.heading),
@@ -91,10 +108,37 @@ const h = {
     </dl>
   </section>
 
-  {/* ══ 01 Problem ══════════════════════════════════════════════════════ */}
+  {
+    s.story && (
+      <section class="bh-sec">
+        <div class="bh-mark reveal">
+          <span class="bh-num">{no("story")}</span>
+          <span class="bh-rule" aria-hidden="true" />
+          <span class="bh-label">The story</span>
+        </div>
+        <h2 class="bh-h2 bh-h2-wide reveal">
+          {h.story!.lead}
+          {h.story!.accent && <em>{h.story!.accent}</em>}
+        </h2>
+        <ol class="bh-story stagger">
+          {s.story.beats.map((b, i) => (
+            <li style={`--i:${i}`}>
+              <span class="bh-story-n" aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3>{b.title}</h3>
+              <p>{b.body}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )
+  }
+
+  {/* ══ Problem ══════════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">01</span>
+      <span class="bh-num">{no("problem")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">Problem</span>
     </div>
@@ -121,10 +165,10 @@ const h = {
     }
   </section>
 
-  {/* ══ 02 Research ═════════════════════════════════════════════════════ */}
+  {/* ══ Research ═════════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">02</span>
+      <span class="bh-num">{no("research")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">Research</span>
     </div>
@@ -300,10 +344,10 @@ const h = {
     }
   </section>
 
-  {/* ══ 03 Product strategy ═════════════════════════════════════════════ */}
+  {/* ══ Product strategy ═════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">03</span>
+      <span class="bh-num">{no("strategy")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">Product strategy</span>
     </div>
@@ -326,10 +370,10 @@ const h = {
     </ol>
   </section>
 
-  {/* ══ 04 UX ═══════════════════════════════════════════════════════════ */}
+  {/* ══ UX ═══════════════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">04</span>
+      <span class="bh-num">{no("ux")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">UX</span>
     </div>
@@ -387,10 +431,10 @@ const h = {
     </ul>
   </section>
 
-  {/* ══ 05 Visual identity ══════════════════════════════════════════════ */}
+  {/* ══ Visual identity ══════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">05</span>
+      <span class="bh-num">{no("identity")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">Visual identity</span>
     </div>
@@ -496,10 +540,10 @@ const h = {
     )
   }
 
-  {/* ══ 06 Product ══════════════════════════════════════════════════════ */}
+  {/* ══ Product ══════════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">06</span>
+      <span class="bh-num">{no("product")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">Product</span>
     </div>
@@ -596,10 +640,10 @@ const h = {
     )
   }
 
-  {/* ══ 07 Marketing ════════════════════════════════════════════════════ */}
+  {/* ══ Marketing ════════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">07</span>
+      <span class="bh-num">{no("marketing")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">Marketing</span>
     </div>
@@ -623,10 +667,10 @@ const h = {
     </ol>
   </section>
 
-  {/* ══ 08 Social ═══════════════════════════════════════════════════════ */}
+  {/* ══ Social ═══════════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
-      <span class="bh-num">08</span>
+      <span class="bh-num">{no("social")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">Social</span>
     </div>
@@ -678,11 +722,11 @@ const h = {
     </div>
   </section>
 
-  {/* ══ 09 Results ══════════════════════════════════════════════════════ */}
+  {/* ══ Results ══════════════════════════════════════════════════════ */}
   <section class="bh-outcome reveal">
     <span class="bh-ghost small" aria-hidden="true">Results</span>
     <div class="bh-mark">
-      <span class="bh-num">09</span>
+      <span class="bh-num">{no("results")}</span>
       <span class="bh-rule" aria-hidden="true"></span>
       <span class="bh-label">Results</span>
     </div>
