@@ -431,8 +431,10 @@ const h = {
             )}
           </div>
           <div class="bh-anatomy-key">
-            <p class="bh-sub-label flush">Anatomy</p>
-            <h3 class="bh-anatomy-title">{s.ux.anatomy.title}</h3>
+            <p class="bh-sub-label flush">{s.ux.anatomy.label ?? "Anatomy"}</p>
+            {s.ux.anatomy.title && (
+              <h3 class="bh-anatomy-title">{s.ux.anatomy.title}</h3>
+            )}
             <p class="bh-ct-note">{s.ux.anatomy.note}</p>
             {s.ux.anatomy.checklist && (
               <ul class="bh-checklist">
@@ -446,14 +448,16 @@ const h = {
                 ))}
               </ul>
             )}
-            <ul class="bh-parts">
-              {s.ux.anatomy.parts.map((p) => (
-                <li>
-                  <p class="bh-part-name">{p.name}</p>
-                  <p class="bh-part-detail">{p.detail}</p>
-                </li>
-              ))}
-            </ul>
+            {s.ux.anatomy.parts && (
+              <ul class="bh-parts">
+                {s.ux.anatomy.parts.map((p) => (
+                  <li>
+                    <p class="bh-part-name">{p.name}</p>
+                    <p class="bh-part-detail">{p.detail}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       )

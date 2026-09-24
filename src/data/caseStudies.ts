@@ -85,9 +85,11 @@ export type CaseStudy = {
     note: string;
     /** An annotated breakdown of one component. */
     anatomy?: {
-      title: string;
+      /** Eyebrow above the block. Defaults to "Anatomy". */
+      label?: string;
+      title?: string;
       note: string;
-      parts: { name: string; detail: string }[];
+      parts?: { name: string; detail: string }[];
       shot?: { src: string; alt: string };
       /** The component walked through its states, in order. */
       states?: { src: string; alt: string; label: string; caption: string }[];
@@ -436,7 +438,7 @@ export const caseStudies: CaseStudy[] = [
       heading: "One container for everything|that happens mid-conversation",
       note: "During a session you are reading, not browsing. Every control had to collapse into a single surface you can find without looking away from the captions.",
       anatomy: {
-        title: "The Buddy Box",
+        label: "The Listening tab",
         note: "Every in-session control lives behind one floating container, so the captions keep the whole screen. Maximum functionality, minimum footprint.",
         checklist: [
           "Audio Boost",
@@ -468,43 +470,6 @@ export const caseStudies: CaseStudy[] = [
             label: "Settings",
             caption:
               "The overflow holds what you set less often, including live translation and switching your buddy.",
-          },
-        ],
-        parts: [
-          {
-            name: "Box header",
-            detail:
-              "Pinned and never swipes: buddy avatar, headline, per-page subline, status icons, minimize.",
-          },
-          {
-            name: "Box pages",
-            detail:
-              "Buddy, Boost and Share Captions, swipeable, with the Buddy page permanent by rule and no toggle able to remove it.",
-          },
-          {
-            name: "Cards",
-            detail:
-              "Each page's content by state: summary, alert and suggestion cards on Buddy, then locked, enable and running on Boost.",
-          },
-          {
-            name: "Enhanced captions",
-            detail:
-              "An opt-in switch to a server model for the rooms where on-device accuracy is not enough.",
-          },
-          {
-            name: "Status icons",
-            detail:
-              "A control appears when its feature is engaged and slides away when it goes idle, so an active feature is always one tap away.",
-          },
-          {
-            name: "Minimize",
-            detail:
-              "The Box collapses to a corner avatar, with the header avatar flying to it via matched geometry.",
-          },
-          {
-            name: "Presence capsule",
-            detail:
-              "Who else is in the room, kept separate from the action bar so people and controls never compete.",
           },
         ],
       },
