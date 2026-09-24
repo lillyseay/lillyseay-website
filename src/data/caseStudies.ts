@@ -97,6 +97,13 @@ export type CaseStudy = {
       checklist?: string[];
     };
     rules: Point[];
+    /** The adaptivity rebuild, where there is one. */
+    adaptivity?: {
+      title: string;
+      note: string;
+      points: Point[];
+      shot?: { src: string; alt: string };
+    };
   };
 
   /** 5 — Visual identity. */
@@ -137,13 +144,6 @@ export type CaseStudy = {
     note: string;
     screens?: { title: string; images: { src: string; alt: string }[] };
     second?: { title: string; images: { src: string; alt: string }[] };
-    /** The adaptivity rebuild, where there is one. */
-    adaptivity?: {
-      title: string;
-      note: string;
-      points: Point[];
-      shot?: { src: string; alt: string };
-    };
     system?: { title: string; body: string; from: string; to: string[] };
   };
 
@@ -496,6 +496,36 @@ export const caseStudies: CaseStudy[] = [
           body: "VoiceOver labels are mirrored into Mac, Vision and Watch, so nothing ships iOS-only.",
         },
       ],
+      adaptivity: {
+        title: "Any window size, either orientation",
+        note: "The interface was rebuilt so it holds up at any window size and either orientation, not just the two the simulator defaults to. It earned a Great on iPadOS 27 feature on the App Store.",
+        points: [
+          {
+            title: "The system lies about iPhone width",
+            body: "iOS never grants an iPhone window the regular size class, so I publish an effective size class instead, upgrading above 600pt so a wide iPhone window behaves exactly like an equally sized iPad one.",
+          },
+          {
+            title: "Grids decide by fit, not by device",
+            body: "Settings flows two-up when a column can hold 360pt and conversations at 330pt, with no device checks anywhere.",
+          },
+          {
+            title: "Never second-guess iPad",
+            body: "The override is iPhone-only, because on iPad the system already picks per window and overriding that would break the one case it gets right.",
+          },
+          {
+            title: "Drag straight out of a summary",
+            body: "Action items, decisions and questions are individually draggable, so a summary lands in Notes or Reminders without a copy-and-paste round trip.",
+          },
+          {
+            title: "Landscape is the meeting case",
+            body: "A lecture or a long meeting is where people prop an iPad sideways, so landscape was not polish but the primary posture for the longest sessions.",
+          },
+        ],
+        shot: {
+          src: "/case-studies/hearing-buddy/platforms/ipados-feature.jpg",
+          alt: "Hearing Buddy featured on the App Store as Great on iPadOS 27",
+        },
+      },
     },
 
     identity: {
@@ -719,36 +749,6 @@ export const caseStudies: CaseStudy[] = [
             alt: "Session control from the wrist",
           },
         ],
-      },
-      adaptivity: {
-        title: "Rebuilt for adaptivity",
-        note: "The interface was rebuilt so it holds up at any window size and either orientation, not just the two the simulator defaults to. It earned a Great on iPadOS 27 feature on the App Store.",
-        points: [
-          {
-            title: "The system lies about iPhone width",
-            body: "iOS never grants an iPhone window the regular size class, so I publish an effective size class instead, upgrading above 600pt so a wide iPhone window behaves exactly like an equally sized iPad one.",
-          },
-          {
-            title: "Grids decide by fit, not by device",
-            body: "Settings flows two-up when a column can hold 360pt and conversations at 330pt, with no device checks anywhere.",
-          },
-          {
-            title: "Never second-guess iPad",
-            body: "The override is iPhone-only, because on iPad the system already picks per window and overriding that would break the one case it gets right.",
-          },
-          {
-            title: "Drag straight out of a summary",
-            body: "Action items, decisions and questions are individually draggable, so a summary lands in Notes or Reminders without a copy-and-paste round trip.",
-          },
-          {
-            title: "Landscape is the meeting case",
-            body: "A lecture or a long meeting is where people prop an iPad sideways, so landscape was not polish but the primary posture for the longest sessions.",
-          },
-        ],
-        shot: {
-          src: "/case-studies/hearing-buddy/platforms/ipados-feature.jpg",
-          alt: "Hearing Buddy featured on the App Store as Great on iPadOS 27",
-        },
       },
       system: {
         title: "One value, sixteen surfaces",

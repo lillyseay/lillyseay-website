@@ -29,8 +29,8 @@ const order = [
   "problem",
   "research",
   "strategy",
-  "ux",
   "identity",
+  "ux",
   "product",
   "marketing",
   "social",
@@ -385,97 +385,6 @@ const h = {
     </ol>
   </section>
 
-  {/* ══ UX ═══════════════════════════════════════════════════════════ */}
-  <section class="bh-sec">
-    <div class="bh-mark reveal">
-      <span class="bh-num">{no("ux")}</span>
-      <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">UX</span>
-    </div>
-    <div class="bh-two reveal">
-      <h2 class="bh-h2">
-        {h.ux.lead}{h.ux.accent && <em>{h.ux.accent}</em>}
-      </h2>
-      <p class="bh-body">{s.ux.note}</p>
-    </div>
-
-    {
-      s.ux.anatomy && (
-        <div
-          class={`bh-anatomy reveal${s.ux.anatomy.states ? " is-states" : ""}`}
-        >
-          <div class="bh-anatomy-shot">
-            {s.ux.anatomy.states ? (
-              <ol class="bh-states">
-                {s.ux.anatomy.states.map((st, i) => (
-                  <li>
-                    <img src={`${base}${st.src}`} alt={st.alt} loading="lazy" />
-                    <p class="bh-state-label">
-                      <span aria-hidden="true">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      {st.label}
-                    </p>
-                    <p class="bh-state-caption">{st.caption}</p>
-                  </li>
-                ))}
-              </ol>
-            ) : (
-              s.ux.anatomy.shot && (
-                <img
-                  src={`${base}${s.ux.anatomy.shot.src}`}
-                  alt={s.ux.anatomy.shot.alt}
-                  loading="lazy"
-                />
-              )
-            )}
-          </div>
-          <div class="bh-anatomy-key">
-            <p class="bh-sub-label flush">{s.ux.anatomy.label ?? "Anatomy"}</p>
-            {s.ux.anatomy.title && (
-              <h3 class="bh-anatomy-title">{s.ux.anatomy.title}</h3>
-            )}
-            <p class="bh-ct-note">{s.ux.anatomy.note}</p>
-            {s.ux.anatomy.checklist && (
-              <ul class="bh-checklist">
-                {s.ux.anatomy.checklist.map((c) => (
-                  <li>
-                    <svg viewBox="0 0 16 16" aria-hidden="true">
-                      <path d="M3.5 8.5l3 3 6-7" />
-                    </svg>
-                    {c}
-                  </li>
-                ))}
-              </ul>
-            )}
-            {s.ux.anatomy.parts && (
-              <ul class="bh-parts">
-                {s.ux.anatomy.parts.map((p) => (
-                  <li>
-                    <p class="bh-part-name">{p.name}</p>
-                    <p class="bh-part-detail">{p.detail}</p>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
-      )
-    }
-
-    <p class="bh-sub-label reveal">Interaction rules</p>
-    <ul class="bh-rules stagger">
-      {
-        s.ux.rules.map((r, i) => (
-          <li style={`--i:${i}`}>
-            <h4>{r.title}</h4>
-            <p>{r.body}</p>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-
   {/* ══ Visual identity ══════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
@@ -603,6 +512,129 @@ const h = {
     )
   }
 
+  {/* ══ UX ═══════════════════════════════════════════════════════════ */}
+  <section class="bh-sec">
+    <div class="bh-mark reveal">
+      <span class="bh-num">{no("ux")}</span>
+      <span class="bh-rule" aria-hidden="true"></span>
+      <span class="bh-label">UX</span>
+    </div>
+    <div class="bh-two reveal">
+      <h2 class="bh-h2">
+        {h.ux.lead}{h.ux.accent && <em>{h.ux.accent}</em>}
+      </h2>
+      <p class="bh-body">{s.ux.note}</p>
+    </div>
+
+    {
+      s.ux.anatomy && (
+        <div
+          class={`bh-anatomy reveal${s.ux.anatomy.states ? " is-states" : ""}`}
+        >
+          <div class="bh-anatomy-shot">
+            {s.ux.anatomy.states ? (
+              <ol class="bh-states">
+                {s.ux.anatomy.states.map((st, i) => (
+                  <li>
+                    <img src={`${base}${st.src}`} alt={st.alt} loading="lazy" />
+                    <p class="bh-state-label">
+                      <span aria-hidden="true">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {st.label}
+                    </p>
+                    <p class="bh-state-caption">{st.caption}</p>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              s.ux.anatomy.shot && (
+                <img
+                  src={`${base}${s.ux.anatomy.shot.src}`}
+                  alt={s.ux.anatomy.shot.alt}
+                  loading="lazy"
+                />
+              )
+            )}
+          </div>
+          <div class="bh-anatomy-key">
+            <p class="bh-sub-label flush">{s.ux.anatomy.label ?? "Anatomy"}</p>
+            {s.ux.anatomy.title && (
+              <h3 class="bh-anatomy-title">{s.ux.anatomy.title}</h3>
+            )}
+            <p class="bh-ct-note">{s.ux.anatomy.note}</p>
+            {s.ux.anatomy.checklist && (
+              <ul class="bh-checklist">
+                {s.ux.anatomy.checklist.map((c) => (
+                  <li>
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M3.5 8.5l3 3 6-7" />
+                    </svg>
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {s.ux.anatomy.parts && (
+              <ul class="bh-parts">
+                {s.ux.anatomy.parts.map((p) => (
+                  <li>
+                    <p class="bh-part-name">{p.name}</p>
+                    <p class="bh-part-detail">{p.detail}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      )
+    }
+
+    <p class="bh-sub-label reveal">Interaction rules</p>
+    <ul class="bh-rules stagger">
+      {
+        s.ux.rules.map((r, i) => (
+          <li style={`--i:${i}`}>
+            <h4>{r.title}</h4>
+            <p>{r.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    {/* The adaptivity rebuild. */}
+    {
+      s.ux.adaptivity && (
+        <div class="bh-adapt reveal">
+          <div class="bh-adapt-head">
+            <p class="bh-sub-label flush">Rebuilt for adaptivity</p>
+            <h3 class="bh-adapt-title">{s.ux.adaptivity.title}</h3>
+            <p class="bh-ct-note">{s.ux.adaptivity.note}</p>
+            {s.ux.adaptivity.shot && (
+              <img
+                class="bh-adapt-shot"
+                src={`${base}${s.ux.adaptivity.shot.src}`}
+                alt={s.ux.adaptivity.shot.alt}
+                loading="lazy"
+              />
+            )}
+          </div>
+          <ol class="bh-adapt-list">
+            {s.ux.adaptivity.points.map((p, i) => (
+              <li>
+                <span class="bh-adapt-num" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h4>{p.title}</h4>
+                <p>{p.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )
+    }
+  </section>
+
   {/* ══ Product ══════════════════════════════════════════════════════ */}
   <section class="bh-sec">
     <div class="bh-mark reveal">
@@ -641,40 +673,6 @@ const h = {
             </ul>
           </>
         )}
-      </section>
-    )
-  }
-
-  {/* The adaptivity rebuild. */}
-  {
-    s.product.adaptivity && (
-      <section class="bh-sec">
-        <div class="bh-adapt reveal">
-          <div class="bh-adapt-head">
-            <p class="bh-sub-label flush">Rebuilt for adaptivity</p>
-            <h3 class="bh-adapt-title">{s.product.adaptivity.title}</h3>
-            <p class="bh-ct-note">{s.product.adaptivity.note}</p>
-            {s.product.adaptivity.shot && (
-              <img
-                class="bh-adapt-shot"
-                src={`${base}${s.product.adaptivity.shot.src}`}
-                alt={s.product.adaptivity.shot.alt}
-                loading="lazy"
-              />
-            )}
-          </div>
-          <ol class="bh-adapt-list">
-            {s.product.adaptivity.points.map((p, i) => (
-              <li>
-                <span class="bh-adapt-num" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h4>{p.title}</h4>
-                <p>{p.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
       </section>
     )
   }
