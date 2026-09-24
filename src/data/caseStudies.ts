@@ -461,8 +461,6 @@ export const caseStudies: CaseStudy[] = [
           "Looks great in any window size or orientation",
           "Ready for the iPhone Duo",
           "Layouts decide by fit, never by device",
-          "Never second-guesses iPad",
-          "Drag straight out of a summary",
           "Landscape built for long meetings",
         ],
         shot: {

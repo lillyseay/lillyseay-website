@@ -7639,9 +7639,10 @@ section[id] {
    The gap is opened up so the checks and the shot come out the same height. */
 .bh-checklist.bh-adapt-checks {
   margin-top: 0;
-  align-self: center;
+  /* Level with the top of the shot rather than floating in the middle. */
+  align-self: start;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1.4rem;
+  gap: 1.5rem;
 }
 
 /* A component walked through its states: the row spans the full width and the
@@ -7788,7 +7789,7 @@ section[id] {
   margin-top: clamp(3rem, 7vw, 5rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 3.5rem);
+  gap: clamp(1.25rem, 3vw, 2rem) clamp(1.5rem, 4vw, 3rem);
   align-items: start;
 }
 
@@ -7817,14 +7818,11 @@ section[id] {
 
 /* Spans both columns, so the short checks column stops leaving a void. */
 .bh-adapt-shot {
-  /* Sized to about the height of the checks beside it, so neither column
-     dominates. aspect-ratio reserves the box before the lazy image lands,
-     which width:auto did not. */
+  /* Fills its column. Capped smaller, it left a gap between itself and the
+     checks. aspect-ratio reserves the box before the lazy image lands. */
   width: 100%;
-  max-width: 18rem;
   aspect-ratio: 1098 / 930;
   height: auto;
-  align-self: center;
   display: block;
   border-radius: 18px;
   border: 1px solid var(--line);
