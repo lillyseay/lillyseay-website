@@ -7634,9 +7634,8 @@ section[id] {
 
 /* The adaptivity checks sit in the wide column beside the shot. */
 .bh-adapt-checks {
-  /* Line the checks up with the title, not the eyebrow above it. */
-  margin-top: 1.7rem;
-  align-self: start;
+  margin-top: 0;
+  align-self: center;
   /* One column: the column here is narrower than the Listening tab's, and
      two-up made the longest check wrap while the rest stayed on one line. */
   grid-template-columns: minmax(0, 1fr);
@@ -7791,6 +7790,19 @@ section[id] {
   align-items: start;
 }
 
+/* Row 1 is the title beside its note, row 2 the shot beside the checks. */
+.bh-adapt-note {
+  margin: 0;
+  align-self: center;
+}
+
+/* Own line, like the section headings, rather than wrapping mid-phrase. */
+.bh-adapt-title em {
+  display: block;
+  font-style: normal;
+  color: var(--brand-text);
+}
+
 .bh-adapt-title {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3.2vw, 2.2rem);
@@ -7803,13 +7815,9 @@ section[id] {
 
 /* Spans both columns, so the short checks column stops leaving a void. */
 .bh-adapt-shot {
-  grid-column: 1 / -1;
-  justify-self: center;
   width: 100%;
-  max-width: 44rem;
   height: auto;
   display: block;
-  margin-top: 0.75rem;
   border-radius: 18px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-card);

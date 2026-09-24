@@ -612,9 +612,22 @@ const h = {
         <div class="bh-adapt reveal">
           <div class="bh-adapt-head">
             <p class="bh-sub-label flush">Rebuilt for adaptivity</p>
-            <h3 class="bh-adapt-title">{s.ux.adaptivity.title}</h3>
-            <p class="bh-ct-note">{s.ux.adaptivity.note}</p>
+            <h3 class="bh-adapt-title">
+              {split(s.ux.adaptivity.title).lead}
+              {split(s.ux.adaptivity.title).accent && (
+                <em>{split(s.ux.adaptivity.title).accent}</em>
+              )}
+            </h3>
           </div>
+          <p class="bh-ct-note bh-adapt-note">{s.ux.adaptivity.note}</p>
+          {s.ux.adaptivity.shot && (
+            <img
+              class="bh-adapt-shot"
+              src={`${base}${s.ux.adaptivity.shot.src}`}
+              alt={s.ux.adaptivity.shot.alt}
+              loading="lazy"
+            />
+          )}
           {s.ux.adaptivity.checklist ? (
             <ul class="bh-checklist bh-adapt-checks">
               {s.ux.adaptivity.checklist.map((c) => (
@@ -640,14 +653,6 @@ const h = {
                 ))}
               </ol>
             )
-          )}
-          {s.ux.adaptivity.shot && (
-            <img
-              class="bh-adapt-shot"
-              src={`${base}${s.ux.adaptivity.shot.src}`}
-              alt={s.ux.adaptivity.shot.alt}
-              loading="lazy"
-            />
           )}
         </div>
       )

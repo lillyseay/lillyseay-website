@@ -455,7 +455,7 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       adaptivity: {
-        title: "Any window size, either orientation",
+        title: "Any window size,|either orientation",
         note: "The interface was rebuilt so it holds up at any window size and either orientation, not just the two the simulator defaults to. It earned a Great on iPadOS 27 feature on the App Store.",
         checklist: [
           "Looks great in any window size or orientation",
