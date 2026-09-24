@@ -199,8 +199,8 @@ export const caseStudies: CaseStudy[] = [
     band: { light: "#EDF6F9", dark: "#0E1A1F" },
     badges: [
       "2026 Apple Design Award Finalist",
+      "Shipaton Peace Prize, 2nd",
       "Featured 7 times",
-      "Apps We Love",
     ],
     lede: "I am hard of hearing. I built the app I had been waiting for someone else to build, and designed it as a person rather than a tool.",
 
@@ -778,14 +778,19 @@ export const caseStudies: CaseStudy[] = [
 
     results: {
       stats: [
+        {
+          value: "2026",
+          label: "Apple Design Award Finalist, Inclusivity",
+        },
+        {
+          value: "2nd",
+          label: "RevenueCat Shipaton Peace Prize",
+        },
         { value: "7", label: "App Store features" },
-        { value: "730K", label: "views in 7 months" },
-        { value: "57%", label: "of views from 17 series videos" },
-        { value: "95%", label: "of carousel reach from For You" },
-        { value: "5", label: "platforms shipped" },
+        { value: "5", label: "Apple platforms shipped" },
       ],
       footer:
-        "Hearing Buddy is a 2026 Apple Design Award Finalist in Inclusivity, pitched in the Observatory at Apple Park, and it won RevenueCat's Shipaton Peace Prize.",
+        "Hearing Buddy is a 2026 Apple Design Award Finalist in Inclusivity, pitched in the Observatory at Apple Park, and took second place in RevenueCat's Shipaton Peace Prize.",
     },
   },
 

@@ -60,16 +60,11 @@ const h = {
   </div>
 
   <header class="bh-hero">
-    <span class="bh-ghost" aria-hidden="true">{s.name}</span>
-    <svg class="bh-arc" viewBox="0 0 400 400" aria-hidden="true">
-      <circle cx="200" cy="200" r="198"></circle>
-      <circle cx="200" cy="200" r="150"></circle>
-    </svg>
-    <div class="bh-hero-inner">
+    <div class="bh-hero-top">
       {
         s.icon && (
           <img
-            class="bh-hero-icon float"
+            class="bh-hero-icon"
             src={`${base}${s.icon}`}
             alt=""
             width="112"
@@ -77,9 +72,22 @@ const h = {
           />
         )
       }
-      <h1 class="bh-title">{s.name}</h1>
-      <p class="bh-lede">{s.lede}</p>
+      <div class="bh-hero-words">
+        <h1 class="bh-title">{s.name}</h1>
+        <p class="bh-lede">{s.lede}</p>
+      </div>
+    </div>
+    <div class="bh-hero-foot">
       <p class="bh-status">{s.status}</p>
+      {
+        s.badges && (
+          <ul class="bh-hero-badges">
+            {s.badges.map((b) => (
+              <li>{b}</li>
+            ))}
+          </ul>
+        )
+      }
     </div>
   </header>
 
@@ -889,9 +897,14 @@ const h = {
   const parse = (raw: string) => {
     const m = raw.match(/^([^\d.]*)([\d.,]+)(.*)$/);
     if (!m) return null;
-    // A second number means this is a phrase, not a figure. "1 in 4" would
-    // otherwise animate as "0 in 4" all the way up.
+    // A second number means this is a phrase, not a figure: "1 in 4" would
+    // otherwise animate as "0 in 4" all the way up. An ordinal is the same
+    // problem, counting through "0nd" and "1nd" to reach "2nd".
     if (/\d/.test(m[3])) return null;
+    if (/^(st|nd|rd|th)\b/.test(m[3])) return null;
+    // A bare year is a label, not a quantity. Counting to it reads as a
+    // random number for most of the run.
+    if (!m[1] && !m[3] && /^(19|20)\d{2}$/.test(m[2])) return null;
     const num = Number(m[2].replace(/,/g, ""));
     if (!Number.isFinite(num)) return null;
     const dec = (m[2].split(".")[1] ?? "").length;
