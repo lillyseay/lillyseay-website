@@ -546,7 +546,7 @@ export const caseStudies: CaseStudy[] = [
         note: "One value in code paints sixteen surfaces at once, and carries the launch date for the awareness month it belongs to.",
         list: [
           {
-            file: "smart.svg",
+            file: "dash.png",
             name: "Dash",
             role: "Concise",
             hex: "#5BC0DE",
@@ -554,7 +554,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#5BC0DE", "#7DD3A8", "#F7B1C5", "#7EB8C9", "#5A9DAD"],
           },
           {
-            file: "encouraging.svg",
+            file: "coral.png",
             name: "Coral",
             role: "Encouraging",
             hex: "#F4B458",
@@ -562,7 +562,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#F4B458", "#E16A78", "#C4527A", "#E05880", "#E05880"],
           },
           {
-            file: "brainy.png",
+            file: "atlas.png",
             name: "Atlas",
             role: "Brainy",
             hex: "#7EC8B0",
@@ -570,7 +570,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#7EC8B0", "#A8DECE", "#1B4332", "#2D8B6F", "#237A5E"],
           },
           {
-            file: "sweet.png",
+            file: "pearl.png",
             name: "Pearl",
             role: "Sweet",
             hex: "#F5DEB3",
@@ -578,7 +578,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#F5DEB3", "#D4A0C0", "#C4956A", "#D4A0C0", "#AB809C"],
           },
           {
-            file: "playful.svg",
+            file: "ziggy.png",
             name: "Ziggy",
             role: "Playful",
             hex: "#B8A9D9",
@@ -586,7 +586,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#B8A9D9", "#FF7EB3", "#FFDAB9", "#8660A9", "#5A4080"],
           },
           {
-            file: "chill.svg",
+            file: "reef.png",
             name: "Reef",
             role: "Chill",
             hex: "#87CEEB",
@@ -594,7 +594,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#87CEEB", "#FFE17B", "#F5DEB3", "#5A9FCF", "#4A8BBF"],
           },
           {
-            file: "sporty.png",
+            file: "sunny.png",
             name: "Sunny",
             role: "Sporty",
             hex: "#F8B4C8",
@@ -602,7 +602,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#F8B4C8", "#5BB8E8", "#1B2D5A", "#4A9FD4", "#3A87BC"],
           },
           {
-            file: "zen.png",
+            file: "fern.png",
             name: "Fern",
             role: "Zen",
             hex: "#B5D8A0",
@@ -610,7 +610,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#B5D8A0", "#F5A8C0", "#3B5A2E", "#6B9B5A", "#5A8A4A"],
           },
           {
-            file: "radiant.png",
+            file: "prism.png",
             name: "Prism",
             role: "Pride",
             hex: "#C4A0D8",
@@ -618,7 +618,7 @@ export const caseStudies: CaseStudy[] = [
             swatches: ["#C4A0D8", "#A0D0E8", "#A8D8A0", "#7EB8C9", "#5A9DAD"],
           },
           {
-            file: "affirming.png",
+            file: "rowen.png",
             name: "Rowen",
             role: "Trans Pride",
             hex: "#E87AA0",
