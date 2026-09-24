@@ -520,8 +520,8 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       characters: {
-        title: "Sixteen buddies, sixteen palettes",
-        note: "One value in code paints sixteen surfaces at once, and carries the launch date for the awareness month it belongs to.",
+        title: "Sixteen hearing buddies",
+        note: "Each buddy has its own color palette, gradients, and inclusive personality.",
         list: [
           {
             file: "dash.png",
