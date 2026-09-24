@@ -1021,8 +1021,8 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
         shot: {
-          src: "/hiking-passport/shots/01-goal-hikes.jpg",
-          alt: "The passport canvas: a goal hike stamped on the summit, milestone signs along the trail, a tent and a buddy where the boot prints end",
+          src: "/hiking-passport/shots/passport-canvas.jpg",
+          alt: "The 2026 passport: two goal hikes on the horizon, milestone signs along the trail, and a tent, campfire and buddy where the boot prints end",
         },
       },
       rules: [
@@ -1186,8 +1186,32 @@ export const caseStudies: CaseStudy[] = [
     },
 
     product: {
-      heading: "A season on your phone|and on your wrist",
-      note: "Swift and SwiftUI throughout, with on-device Apple Intelligence reading Apple Health to build the milestones and RevenueCat running the Pro plan. Everything lives on the device, Health is read only, and declining any of it leaves the plan working.",
+      heading: "One canvas,|everywhere you check it",
+      note: "The passport is drawn in SwiftUI rather than assembled from images, so the same scene can be redrawn at any size. That is what lets it travel from the phone to the wrist and into a widget without becoming a chart on the way.",
+      devices: {
+        title: "Where the passport goes",
+        list: [
+          {
+            name: "iPhone",
+            role: "The full season",
+            detail:
+              "The whole landscape at reading size, with every milestone sign, the trail, the camp and your buddy in their real positions.",
+          },
+          {
+            name: "Apple Watch",
+            role: "The same scene, smaller",
+            detail:
+              "It keeps its own copy of the passport so a milestone can be crossed off on a ridge with no phone and no signal.",
+          },
+          {
+            name: "Widgets",
+            role: "A glance at the trail",
+            detail:
+              "The canvas redraws small enough to sit on the Home Screen, which is the hardest size to keep legible and the one people see most.",
+          },
+        ],
+      },
+
       screens: {
         title: "Inside the app",
         images: [
@@ -1215,45 +1239,6 @@ export const caseStudies: CaseStudy[] = [
             src: "/hiking-passport/shots/07-passport-themes.jpg",
             alt: "Picking a theme, with the whole scene recolored",
           },
-        ],
-      },
-      second: {
-        title: "On your wrist",
-        images: [
-          {
-            src: "/hiking-passport/watch/1-plan.jpg",
-            alt: "The plan on the watch",
-          },
-          {
-            src: "/hiking-passport/watch/2-todays-pick.jpg",
-            alt: "Today's pick from your buddy",
-          },
-          {
-            src: "/hiking-passport/watch/3-ways-to-do-it.jpg",
-            alt: "Ways to do today's milestone",
-          },
-          {
-            src: "/hiking-passport/watch/4-passport.jpg",
-            alt: "The passport drawn on the watch",
-          },
-          {
-            src: "/hiking-passport/watch/5-insights.jpg",
-            alt: "Insights on the watch",
-          },
-        ],
-      },
-      system: {
-        title: "Five colors in, a whole app out",
-        body: "The stamp ink is the near ridge deepened in a loop, and the decision I am proudest of is reversing an earlier one where the accent followed your buddy rather than the app.",
-        from: "Five colors from one icon",
-        to: [
-          "Sky gradient",
-          "Meadow",
-          "Stamp ink",
-          "Stamp paper",
-          "Accents",
-          "Widgets",
-          "Apple Watch",
         ],
       },
     },
