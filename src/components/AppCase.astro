@@ -434,6 +434,18 @@ const h = {
             <p class="bh-sub-label flush">Anatomy</p>
             <h3 class="bh-anatomy-title">{s.ux.anatomy.title}</h3>
             <p class="bh-ct-note">{s.ux.anatomy.note}</p>
+            {s.ux.anatomy.checklist && (
+              <ul class="bh-checklist">
+                {s.ux.anatomy.checklist.map((c) => (
+                  <li>
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M3.5 8.5l3 3 6-7" />
+                    </svg>
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            )}
             <ol class="bh-parts">
               {s.ux.anatomy.parts.map((p, i) => (
                 <li>

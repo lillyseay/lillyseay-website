@@ -91,6 +91,8 @@ export type CaseStudy = {
       shot?: { src: string; alt: string };
       /** The component walked through its states, in order. */
       states?: { src: string; alt: string; label: string; caption: string }[];
+      /** Everything the component has to hold. */
+      checklist?: string[];
     };
     rules: Point[];
   };
@@ -435,7 +437,16 @@ export const caseStudies: CaseStudy[] = [
       note: "During a session you are reading, not browsing. Every control had to collapse into a single surface you can find without looking away from the captions.",
       anatomy: {
         title: "The Buddy Box",
-        note: "Share Captions, Boost Audio, enhanced captions, alerts, summaries, live translation and the buddy switcher all live behind one floating container. Maximum functionality, minimum footprint.",
+        note: "Every in-session control lives behind one floating container, so the captions keep the whole screen. Maximum functionality, minimum footprint.",
+        checklist: [
+          "Audio Boost",
+          "Live captions, on-device and server",
+          "Live translation",
+          "Changing buddies",
+          "Summaries",
+          "Name and question alerts",
+          "Sharing captions",
+        ],
         states: [
           {
             src: "/case-studies/hearing-buddy/buddybox/1-collapsed.png",
