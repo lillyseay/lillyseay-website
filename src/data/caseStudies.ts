@@ -202,7 +202,7 @@ export const caseStudies: CaseStudy[] = [
       "Shipaton Peace Prize, 2nd",
       "Featured 7 times",
     ],
-    lede: "I am hard of hearing. I built the app I had been waiting for someone else to build, and designed it as a person rather than a tool.",
+    lede: "I am hard of hearing. I built this app so people with hearing loss can feel more confident in conversations.",
 
     overview: {
       stats: [
@@ -810,7 +810,7 @@ export const caseStudies: CaseStudy[] = [
     accent: { from: "#9A97D6", mid: "#F0A3BE", to: "#FFB48E" },
     band: { light: "#F4F0E4", dark: "#17140F" },
     badges: ["New in 2026", "Solo design and build"],
-    lede: "A training app for people the outdoors keeps telling to stay home. Your season becomes a hand-drawn passport you can read from across the room.",
+    lede: "Track your hiking goals in a beautiful canvas instead of data charts. All your favorite hikes in one passport to stamp the summit.",
 
     overview: {
       stats: [
