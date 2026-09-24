@@ -29,6 +29,11 @@
   --font-sans:
     -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
     "Segoe UI", system-ui, sans-serif;
+  /* Outlined numerals only. SF Pro builds digits like 2, 5 and 9 from
+     overlapping contours: invisible when filled, but -webkit-text-stroke
+     traces every contour and the internal seam shows up as a spur. These
+     faces draw each digit as one closed path, so the outline stays clean. */
+  --font-num: Arial, "Liberation Sans", "Segoe UI", system-ui, sans-serif;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --container: 60rem;
 }
@@ -5915,7 +5920,7 @@ section[id] {
 }
 
 .bh-num {
-  font-family: var(--font-display);
+  font-family: var(--font-num);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.05em;
@@ -6762,7 +6767,7 @@ section[id] {
   position: absolute;
   right: 1.25rem;
   bottom: -1.5rem;
-  font-family: var(--font-display);
+  font-family: var(--font-num);
   font-size: clamp(4rem, 10vw, 7rem);
   font-weight: 800;
   letter-spacing: -0.05em;
@@ -7153,7 +7158,7 @@ section[id] {
 }
 
 .bh-dec-num {
-  font-family: var(--font-display);
+  font-family: var(--font-num);
   font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -7463,7 +7468,7 @@ section[id] {
 }
 
 .bh-bet-num {
-  font-family: var(--font-display);
+  font-family: var(--font-num);
   font-size: 1.7rem;
   font-weight: 800;
   letter-spacing: -0.05em;
@@ -7650,7 +7655,7 @@ section[id] {
 }
 
 .bh-adapt-num {
-  font-family: var(--font-display);
+  font-family: var(--font-num);
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -8055,7 +8060,7 @@ section[id] {
 }
 
 .bh-series-num {
-  font-family: var(--font-display);
+  font-family: var(--font-num);
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: -0.05em;
