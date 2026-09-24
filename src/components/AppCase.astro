@@ -590,17 +590,21 @@ const h = {
       )
     }
 
-    <p class="bh-sub-label reveal">Interaction rules</p>
-    <ul class="bh-rules stagger">
-      {
-        s.ux.rules.map((r, i) => (
-          <li style={`--i:${i}`}>
-            <h4>{r.title}</h4>
-            <p>{r.body}</p>
-          </li>
-        ))
-      }
-    </ul>
+    {
+      s.ux.rules && (
+        <>
+          <p class="bh-sub-label reveal">Interaction rules</p>
+          <ul class="bh-rules stagger">
+            {s.ux.rules.map((r, i) => (
+              <li style={`--i:${i}`}>
+                <h4>{r.title}</h4>
+                <p>{r.body}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      )
+    }
 
     {/* The adaptivity rebuild. */}
     {
@@ -619,17 +623,32 @@ const h = {
               />
             )}
           </div>
-          <ol class="bh-adapt-list">
-            {s.ux.adaptivity.points.map((p, i) => (
-              <li>
-                <span class="bh-adapt-num" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h4>{p.title}</h4>
-                <p>{p.body}</p>
-              </li>
-            ))}
-          </ol>
+          {s.ux.adaptivity.checklist ? (
+            <ul class="bh-checklist bh-adapt-checks">
+              {s.ux.adaptivity.checklist.map((c) => (
+                <li>
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M3.5 8.5l3 3 6-7" />
+                  </svg>
+                  {c}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            s.ux.adaptivity.points && (
+              <ol class="bh-adapt-list">
+                {s.ux.adaptivity.points.map((p, i) => (
+                  <li>
+                    <span class="bh-adapt-num" aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h4>{p.title}</h4>
+                    <p>{p.body}</p>
+                  </li>
+                ))}
+              </ol>
+            )
+          )}
         </div>
       )
     }

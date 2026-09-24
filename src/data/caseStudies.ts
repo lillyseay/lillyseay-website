@@ -96,12 +96,14 @@ export type CaseStudy = {
       /** Everything the component has to hold. */
       checklist?: string[];
     };
-    rules: Point[];
+    rules?: Point[];
     /** The adaptivity rebuild, where there is one. */
     adaptivity?: {
       title: string;
       note: string;
-      points: Point[];
+      /** Ticked off, like the Listening tab. */
+      checklist?: string[];
+      points?: Point[];
       shot?: { src: string; alt: string };
     };
   };
@@ -478,48 +480,16 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
-      rules: [
-        {
-          title: "The live line is invisible to VoiceOver",
-          body: "Each finalised caption segment is one element and the in-progress line is hidden, because a sentence that rewrites itself mid-word is unreadable aloud.",
-        },
-        {
-          title: "Haptics only on the wrist",
-          body: "No Watch notifications, because they fight the haptic system; there is one language instead, up for your name and down for a question.",
-        },
-        {
-          title: "Alerts outrank summaries",
-          body: "On the Lock Screen a question jumps the queue and dismisses itself after ten seconds, because you need it now or not at all.",
-        },
-        {
-          title: "Accessibility ships on all four surfaces",
-          body: "VoiceOver labels are mirrored into Mac, Vision and Watch, so nothing ships iOS-only.",
-        },
-      ],
       adaptivity: {
         title: "Any window size, either orientation",
         note: "The interface was rebuilt so it holds up at any window size and either orientation, not just the two the simulator defaults to. It earned a Great on iPadOS 27 feature on the App Store.",
-        points: [
-          {
-            title: "The system lies about iPhone width",
-            body: "iOS never grants an iPhone window the regular size class, so I publish an effective size class instead, upgrading above 600pt so a wide iPhone window behaves exactly like an equally sized iPad one.",
-          },
-          {
-            title: "Grids decide by fit, not by device",
-            body: "Settings flows two-up when a column can hold 360pt and conversations at 330pt, with no device checks anywhere.",
-          },
-          {
-            title: "Never second-guess iPad",
-            body: "The override is iPhone-only, because on iPad the system already picks per window and overriding that would break the one case it gets right.",
-          },
-          {
-            title: "Drag straight out of a summary",
-            body: "Action items, decisions and questions are individually draggable, so a summary lands in Notes or Reminders without a copy-and-paste round trip.",
-          },
-          {
-            title: "Landscape is the meeting case",
-            body: "A lecture or a long meeting is where people prop an iPad sideways, so landscape was not polish but the primary posture for the longest sessions.",
-          },
+        checklist: [
+          "Looks great in any window size or orientation",
+          "Ready for the iPhone Duo",
+          "Layouts decide by fit, never by device",
+          "Never second-guesses iPad",
+          "Drag straight out of a summary",
+          "Landscape built for long meetings",
         ],
         shot: {
           src: "/case-studies/hearing-buddy/platforms/ipados-feature.jpg",

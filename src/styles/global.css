@@ -7622,6 +7622,16 @@ section[id] {
   stroke-linejoin: round;
 }
 
+/* The adaptivity checks sit in the wide column beside the shot. */
+.bh-adapt-checks {
+  margin-top: 0;
+  align-self: start;
+  /* One column: the column here is narrower than the Listening tab's, and
+     two-up made the longest check wrap while the rest stayed on one line. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.7rem;
+}
+
 /* A component walked through its states: the row spans the full width and the
    key sits underneath, rather than squeezing three phones into one column. */
 .bh-anatomy.is-states {
