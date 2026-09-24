@@ -199,16 +199,16 @@ export const caseStudies: CaseStudy[] = [
       heading: "Hearing Buddy started with|a real hearing buddy",
       beats: [
         {
-          title: "What a hearing buddy is",
-          body: "A term I started using a decade ago for the safe person who helps me hear without judgement, the one who mattered most in the conference rooms where I managed twenty engineers and a speaker would ask me a question from across the room.",
+          title: "What a hearing buddy means",
+          body: "A decade ago, I started using \u201chearing buddy\u201d for the person I could rely on to help me hear without judgment, the person who made conference rooms feel less isolating when I couldn\u2019t hear a question from across the room.",
         },
         {
-          title: "My real-life hearing buddy",
-          body: "Scott Krager, my partner and co-founder, brings the half of this I cannot see, being the hearing buddy rather than the person who needs one, and he wanted to help so much that he coded the MVP.",
+          title: "My hearing buddy",
+          body: "That person is Scott Krager, my partner and co-founder. He brings the half of the conversation I can\u2019t always hear, and he cared enough about the problem to build the first MVP himself.",
         },
         {
-          title: "The model that made it possible",
-          body: "At WWDC25 he started testing Apple's new SpeechAnalyzer API, and the on-device model was finally accurate, private and free enough to build a whole product on.",
+          title: "The technology that made it possible",
+          body: "At WWDC25, Scott began testing Apple\u2019s new SpeechAnalyzer API. For the first time, on-device speech recognition was accurate, private, and lightweight enough to build the entire experience around it.",
         },
       ],
     },
@@ -229,7 +229,7 @@ export const caseStudies: CaseStudy[] = [
 
     research: {
       heading: "Social media is my|research instrument",
-      note: "I score the keywords people already search, then turn the winners into recurring series. Every video lists three pain points rather than one, so a single post tests three hypotheses at once and the comments tell me which line people reply to.",
+      note: "I use social media to test ideas before I build them. I score the keywords people already search for, turn the strongest into recurring series, and build three pain points into every video. The comments show me which one resonates most, turning every post into a lightweight research study.",
       quotes: [
         {
           user: "Sarah",
@@ -406,7 +406,7 @@ export const caseStudies: CaseStudy[] = [
     strategy: {
       heading:
         "Design an AI app that feels like a real hearing buddy,|make it human",
-      note: "A hearing buddy is the safe person who helps me hear without judgement. I wanted to embody my real-life hearing buddy, Scott Krager, in an app, so I could have a hearing buddy when he is not there.",
+      note: "A hearing buddy is the safe person who helps me hear without judgment. I wanted to embody my real-life hearing buddy, Scott Krager, in an app, so I could have a hearing buddy when he is not there.",
       bets: [
         {
           title: "Give the core away",

@@ -587,13 +587,15 @@ section {
   color: var(--brand-text);
 }
 
-footer {
+/* Scoped to the page footer: a bare `footer` selector also hits the nested
+   <footer> inside testimonial cards and adds 3rem of padding to each. */
+body > footer {
   padding: 1rem 0 3rem;
   font-size: 0.9rem;
   color: var(--muted);
 }
 
-footer .wrap {
+body > footer .wrap {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -7892,10 +7894,12 @@ section[id] {
 
 .bh-ttrack {
   list-style: none;
-  padding: 0.6rem 0 1rem;
+  padding: 0.35rem 0 0.6rem;
   margin: 0;
   display: flex;
-  align-items: stretch;
+  /* Each card sizes to its own quote instead of stretching to the tallest,
+     so the strip is only as deep as it has to be. */
+  align-items: start;
   gap: var(--tgap);
   width: max-content;
   animation: bh-marquee calc(var(--n, 8) * 6s) linear infinite;
@@ -7920,14 +7924,14 @@ section[id] {
 }
 
 .bh-ttrack li {
-  flex: 0 0 min(340px, 78vw);
+  flex: 0 0 min(430px, 82vw);
   position: relative;
   display: flex;
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 1.5rem 1.4rem 1.3rem;
+  border-radius: 16px;
+  padding: 0.8rem 1rem 0.7rem;
   box-shadow: var(--shadow-card);
   transition:
     transform 0.35s var(--ease-out),
@@ -7939,19 +7943,10 @@ section[id] {
   box-shadow: var(--shadow-float);
 }
 
-.bh-t-mark {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 0.6;
-  color: var(--brand);
-  margin-bottom: 0.4rem;
-}
-
 .bh-ttrack blockquote {
-  margin: 0 0 1.1rem;
-  font-size: 1rem;
-  line-height: 1.6;
+  margin: 0 0 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
   color: var(--ink);
   text-wrap: pretty;
 }
@@ -7959,37 +7954,36 @@ section[id] {
 .bh-ttrack footer {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  flex-wrap: wrap;
+  gap: 0 0.45rem;
   margin-top: auto;
-  padding-top: 0.9rem;
+  padding-top: 0.5rem;
   border-top: 1px solid var(--line);
 }
 
 .bh-t-av {
   flex: none;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 1.4rem;
+  height: 1.4rem;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 0.82rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  color: #fff;
-  background: linear-gradient(140deg, var(--from), var(--to));
+  color: #1d1224;
+  background: var(--mid);
 }
 
 .bh-t-name {
-  display: block;
   font-family: var(--font-display);
-  font-size: 0.92rem;
+  font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: var(--ink);
 }
 
 .bh-t-meta {
-  display: block;
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }

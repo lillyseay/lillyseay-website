@@ -193,22 +193,17 @@ const h = {
               {[0, 1].map((copy) =>
                 s.research.quotes!.map((q) => (
                   <li aria-hidden={copy === 1 ? "true" : undefined}>
-                    <span class="bh-t-mark" aria-hidden="true">
-                      &ldquo;
-                    </span>
                     <blockquote>{q.text}</blockquote>
                     <footer>
                       <span class="bh-t-av" aria-hidden="true">
                         {q.user.replace(/^@/, "").charAt(0).toUpperCase()}
                       </span>
-                      <span>
-                        <span class="bh-t-name">{q.user}</span>
-                        <span class="bh-t-meta">
-                          {q.likes.toLocaleString("en-US")} likes
-                          {q.replies
-                            ? ` · ${q.replies} ${q.replies === 1 ? "reply" : "replies"}`
-                            : ""}
-                        </span>
+                      <span class="bh-t-name">{q.user}</span>
+                      <span class="bh-t-meta">
+                        {q.likes.toLocaleString("en-US")} likes
+                        {q.replies
+                          ? ` · ${q.replies} ${q.replies === 1 ? "reply" : "replies"}`
+                          : ""}
                       </span>
                     </footer>
                   </li>
