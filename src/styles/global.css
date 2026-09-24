@@ -6040,18 +6040,15 @@ section[id] {
   color: var(--c, var(--mid));
 }
 
-.bh-story li:nth-child(3n + 1),
-.bh-parts li:nth-child(3n + 1) {
+.bh-story li:nth-child(3n + 1) {
   --c: var(--from);
 }
 
-.bh-story li:nth-child(3n + 2),
-.bh-parts li:nth-child(3n + 2) {
+.bh-story li:nth-child(3n + 2) {
   --c: var(--mid);
 }
 
-.bh-story li:nth-child(3n),
-.bh-parts li:nth-child(3n) {
+.bh-story li:nth-child(3n) {
   --c: var(--to);
 }
 
@@ -7645,24 +7642,8 @@ section[id] {
 }
 
 .bh-parts li {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.85rem;
-  align-items: start;
-}
-
-.bh-part-num {
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 0.66rem;
-  font-weight: 700;
-  color: #1d1224;
-  background: var(--c, var(--mid));
-  font-variant-numeric: tabular-nums;
-  flex: none;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--line);
 }
 
 .bh-part-name {

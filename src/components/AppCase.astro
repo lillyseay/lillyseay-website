@@ -446,19 +446,14 @@ const h = {
                 ))}
               </ul>
             )}
-            <ol class="bh-parts">
-              {s.ux.anatomy.parts.map((p, i) => (
+            <ul class="bh-parts">
+              {s.ux.anatomy.parts.map((p) => (
                 <li>
-                  <span class="bh-part-num" aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <p class="bh-part-name">{p.name}</p>
-                    <p class="bh-part-detail">{p.detail}</p>
-                  </div>
+                  <p class="bh-part-name">{p.name}</p>
+                  <p class="bh-part-detail">{p.detail}</p>
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
         </div>
       )
