@@ -115,8 +115,12 @@ export type CaseStudy = {
         file: string;
         name: string;
         role: string;
+        /** gradientPrimary and gradientSecondary, straight from the app. */
         hex: string;
         to: string;
+        /** Three gradient stops then the accent pair, as the app defines them.
+         *  Falls back to the gradient pair where a study has not supplied it. */
+        swatches?: string[];
       }[];
     };
     themes?: {
@@ -547,6 +551,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Concise",
             hex: "#5BC0DE",
             to: "#7DD3A8",
+            swatches: ["#5BC0DE", "#7DD3A8", "#F7B1C5", "#7EB8C9", "#5A9DAD"],
           },
           {
             file: "encouraging.svg",
@@ -554,6 +559,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Encouraging",
             hex: "#F4B458",
             to: "#E16A78",
+            swatches: ["#F4B458", "#E16A78", "#C4527A", "#E05880", "#E05880"],
           },
           {
             file: "brainy.png",
@@ -561,6 +567,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Brainy",
             hex: "#7EC8B0",
             to: "#A8DECE",
+            swatches: ["#7EC8B0", "#A8DECE", "#1B4332", "#2D8B6F", "#237A5E"],
           },
           {
             file: "sweet.png",
@@ -568,6 +575,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Sweet",
             hex: "#F5DEB3",
             to: "#D4A0C0",
+            swatches: ["#F5DEB3", "#D4A0C0", "#C4956A", "#D4A0C0", "#AB809C"],
           },
           {
             file: "playful.svg",
@@ -575,6 +583,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Playful",
             hex: "#B8A9D9",
             to: "#FF7EB3",
+            swatches: ["#B8A9D9", "#FF7EB3", "#FFDAB9", "#8660A9", "#5A4080"],
           },
           {
             file: "chill.svg",
@@ -582,6 +591,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Chill",
             hex: "#87CEEB",
             to: "#FFE17B",
+            swatches: ["#87CEEB", "#FFE17B", "#F5DEB3", "#5A9FCF", "#4A8BBF"],
           },
           {
             file: "sporty.png",
@@ -589,6 +599,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Sporty",
             hex: "#F8B4C8",
             to: "#5BB8E8",
+            swatches: ["#F8B4C8", "#5BB8E8", "#1B2D5A", "#4A9FD4", "#3A87BC"],
           },
           {
             file: "zen.png",
@@ -596,6 +607,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Zen",
             hex: "#B5D8A0",
             to: "#F5A8C0",
+            swatches: ["#B5D8A0", "#F5A8C0", "#3B5A2E", "#6B9B5A", "#5A8A4A"],
           },
           {
             file: "radiant.png",
@@ -603,6 +615,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Pride",
             hex: "#C4A0D8",
             to: "#A0D0E8",
+            swatches: ["#C4A0D8", "#A0D0E8", "#A8D8A0", "#7EB8C9", "#5A9DAD"],
           },
           {
             file: "affirming.png",
@@ -610,6 +623,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Trans Pride",
             hex: "#E87AA0",
             to: "#5AB8E0",
+            swatches: ["#E87AA0", "#5AB8E0", "#D46088", "#37AEDC", "#2890B8"],
           },
           {
             file: "lumi.png",
@@ -617,6 +631,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Disability Pride",
             hex: "#F6D86B",
             to: "#F4A95F",
+            swatches: ["#F6D86B", "#F4A95F", "#D98C3A", "#ED8C70", "#ED8C70"],
           },
           {
             file: "luna.png",
@@ -624,6 +639,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Low light",
             hex: "#B5A9D6",
             to: "#4C3F73",
+            swatches: ["#B5A9D6", "#4C3F73", "#3E3457", "#6E5DA0", "#4C3F73"],
           },
           {
             file: "paige.png",
@@ -631,6 +647,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Studious",
             hex: "#C3BDDC",
             to: "#7B6BA6",
+            swatches: ["#C3BDDC", "#7B6BA6", "#4E4370", "#7B6BA6", "#6C5E96"],
           },
           {
             file: "chalkie.png",
@@ -638,6 +655,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Patient",
             hex: "#F6CE55",
             to: "#E97B5C",
+            swatches: ["#F6CE55", "#E97B5C", "#D9503C", "#E4674A", "#D9503C"],
           },
           {
             file: "celeste.png",
@@ -645,6 +663,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Deaf buddy",
             hex: "#9CBDB4",
             to: "#8FA3CE",
+            swatches: ["#9CBDB4", "#8FA3CE", "#EBDAB1", "#7FA79B", "#5D8177"],
           },
           {
             file: "goldie.png",
@@ -652,6 +671,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Golden",
             hex: "#C99054",
             to: "#6A6390",
+            swatches: ["#C99054", "#6A6390", "#D9AE72", "#C29F72", "#91764A"],
           },
         ],
       },

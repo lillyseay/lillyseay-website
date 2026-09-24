@@ -38,23 +38,6 @@ const order = [
 ];
 const no = (k: string) => String(order.indexOf(k) + 1).padStart(2, "0");
 
-// Five stops across a buddy's gradient, so the cast carries the same swatch
-// bar the themes row does.
-const ramp = (from: string, to: string, n = 5) => {
-  const parts = (h: string) =>
-    [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
-  const [r1, g1, b1] = parts(from);
-  const [r2, g2, b2] = parts(to);
-  const at = (a: number, b: number, t: number) =>
-    Math.round(a + (b - a) * t)
-      .toString(16)
-      .padStart(2, "0");
-  return Array.from({ length: n }, (_, i) => {
-    const t = i / (n - 1);
-    return `#${at(r1, r2, t)}${at(g1, g2, t)}${at(b1, b2, t)}`;
-  });
-};
-
 const h = {
   ...(s.story ? { story: split(s.story.heading) } : {}),
   problem: split(s.problem.heading),
@@ -556,26 +539,37 @@ const h = {
       <section class="bh-band">
         <p class="bh-sub-label reveal flush">{s.identity.characters.title}</p>
         <p class="bh-body wide reveal">{s.identity.characters.note}</p>
-        <ul class="bh-cast stagger">
-          {s.identity.characters.list.map((c, i) => (
-            <li style={`--i:${i}; --a:${c.hex}; --b:${c.to}`}>
-              <span class="bh-cast-art">
-                <img
-                  src={`${base}/case-studies/${s.slug}/buddies/${c.file}`}
-                  alt={`${c.name}, ${c.role}`}
-                  loading="lazy"
-                />
-              </span>
-              <span class="bh-cast-name">{c.name}</span>
-              <span class="bh-cast-role">{c.role}</span>
-              <span class="bh-cast-bar" aria-hidden="true">
-                {ramp(c.hex, c.to).map((w) => (
-                  <span style={`--c:${w}`} />
-                ))}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <div
+          class="bh-castwrap reveal"
+          style={`--n:${s.identity.characters.list.length}`}
+        >
+          <ul class="bh-cast">
+            {/* Two copies, so the loop has no seam. */}
+            {[0, 1].map((copy) =>
+              s.identity.characters!.list.map((c) => (
+                <li
+                  style={`--a:${c.hex}; --b:${c.to}`}
+                  aria-hidden={copy === 1 ? "true" : undefined}
+                >
+                  <span class="bh-cast-art">
+                    <img
+                      src={`${base}/case-studies/${s.slug}/buddies/${c.file}`}
+                      alt={`${c.name}, ${c.role}`}
+                      loading="lazy"
+                    />
+                  </span>
+                  <span class="bh-cast-name">{c.name}</span>
+                  <span class="bh-cast-role">{c.role}</span>
+                  <span class="bh-cast-bar" aria-hidden="true">
+                    {[...new Set(c.swatches ?? [c.hex, c.to])].map((w) => (
+                      <span style={`--c:${w}`} />
+                    ))}
+                  </span>
+                </li>
+              )),
+            )}
+          </ul>
+        </div>
       </section>
     )
   }

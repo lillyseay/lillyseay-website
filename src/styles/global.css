@@ -6498,19 +6498,48 @@ section[id] {
 
 /* ── Cast ─────────────────────────────────────────────────────────────── */
 
+/* The cast rides the same marquee the testimonials do. */
+.bh-castwrap {
+  --tgap: 1rem;
+  margin-top: 2rem;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
+}
+
 .bh-cast {
   list-style: none;
-  padding: 0;
-  margin: 2rem 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
-  gap: 1rem;
+  padding: 0.35rem 0 0.6rem;
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+  gap: var(--tgap);
+  width: max-content;
+  animation: bh-marquee calc(var(--n, 16) * 3.2s) linear infinite;
+}
+
+.bh-castwrap:hover .bh-cast,
+.bh-castwrap:active .bh-cast,
+.bh-castwrap:focus-within .bh-cast {
+  animation-play-state: paused;
 }
 
 .bh-cast li {
+  flex: 0 0 9.5rem;
   display: flex;
   flex-direction: column;
-  align-self: start;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 22px;
@@ -6743,8 +6772,18 @@ section[id] {
     display: none;
   }
 
-  .bh-ttrack {
+  .bh-ttrack,
+  .bh-cast {
     animation: none;
+  }
+
+  .bh-castwrap {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .bh-cast li[aria-hidden="true"] {
+    display: none;
   }
 
   .bh-ttrack li[aria-hidden="true"] {
