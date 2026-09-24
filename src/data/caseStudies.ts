@@ -411,19 +411,19 @@ export const caseStudies: CaseStudy[] = [
       bets: [
         {
           title: "Give the AI an inclusive personality",
-          body: "The captions come from a buddy you choose and name, and the cast is drawn from communities that rarely see themselves in accessibility software.",
+          body: "Sixteen buddies to choose from, drawn from communities that rarely see themselves in accessibility software.",
         },
         {
           title: "Make the app feel like a supportive friend",
-          body: "A hearing buddy repeats the question without making you feel like a burden, so the app had to answer in that tone rather than like a machine reading out a transcript.",
+          body: "It repeats the question without making you feel like a burden.",
         },
         {
           title: "No AI jargon",
-          body: "Much of the audience is older and does not think in models or prompts, so words like AI, transcription and speech recognition never appear in the interface or the App Store copy.",
+          body: "The audience skews older, so the words AI, transcription and speech recognition never appear anywhere they can see.",
         },
         {
           title: "Always there for you",
-          body: "Live captions are unlimited and free forever, because an accessibility need metered by the hour is not support anyone can rely on.",
+          body: "Live captions are unlimited and free forever, never metered by the hour.",
         },
       ],
     },
@@ -1262,7 +1262,7 @@ export const caseStudies: CaseStudy[] = [
       },
       system: {
         title: "Five colours in, a whole app out",
-        body: "The stamp ink is the near ridge deepened in a loop until it reads as ink. The decision I am proudest of is one I reversed: the accent used to follow your buddy, which meant colour was saying something about a character instead of about the app.",
+        body: "The stamp ink is the near ridge deepened in a loop, and the decision I am proudest of is reversing an earlier one where the accent followed your buddy rather than the app.",
         from: "Five colours from one icon",
         to: [
           "Sky gradient",
