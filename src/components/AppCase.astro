@@ -75,18 +75,16 @@ const h = {
       <div class="bh-hero-words">
         <h1 class="bh-title">{s.name}</h1>
         <p class="bh-lede">{s.lede}</p>
+        {
+          s.badges && (
+            <ul class="bh-hero-badges">
+              {s.badges.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+          )
+        }
       </div>
-    </div>
-    <div class="bh-hero-foot">
-      {
-        s.badges && (
-          <ul class="bh-hero-badges">
-            {s.badges.map((b) => (
-              <li>{b}</li>
-            ))}
-          </ul>
-        )
-      }
     </div>
   </header>
 

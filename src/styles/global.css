@@ -5831,23 +5831,12 @@ section[id] {
   min-width: 0;
 }
 
-.bh-hero-foot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.25rem;
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
-  padding-top: clamp(1rem, 2vw, 1.4rem);
-  border-top: 1px solid var(--line);
-}
-
+/* Directly under the lede, left aligned with it, no rule between. */
 .bh-hero-badges {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: clamp(1rem, 2vw, 1.35rem) 0 0;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 0.45rem;
 }
