@@ -6302,6 +6302,16 @@ section[id] {
   text-wrap: pretty;
 }
 
+@media (max-width: 760px) {
+  .bh-adapt {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bh-adapt-checks {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 700px) {
   .bh-pain summary {
     grid-template-columns: minmax(0, 1fr) auto;
@@ -7624,7 +7634,8 @@ section[id] {
 
 /* The adaptivity checks sit in the wide column beside the shot. */
 .bh-adapt-checks {
-  margin-top: 0;
+  /* Line the checks up with the title, not the eyebrow above it. */
+  margin-top: 1.7rem;
   align-self: start;
   /* One column: the column here is narrower than the Listening tab's, and
      two-up made the longest check wrap while the rest stayed on one line. */
@@ -7771,9 +7782,12 @@ section[id] {
 /* ── Adaptivity ───────────────────────────────────────────────────────── */
 
 .bh-adapt {
+  /* It sits inside the UX section now, so it carries its own top spacing
+     rather than inheriting a section's. */
+  margin-top: clamp(3rem, 7vw, 5rem);
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(1.5rem, 5vw, 3.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 3.5rem);
   align-items: start;
 }
 
@@ -7787,11 +7801,15 @@ section[id] {
   color: var(--ink);
 }
 
+/* Spans both columns, so the short checks column stops leaving a void. */
 .bh-adapt-shot {
+  grid-column: 1 / -1;
+  justify-self: center;
   width: 100%;
+  max-width: 44rem;
   height: auto;
   display: block;
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
   border-radius: 18px;
   border: 1px solid var(--line);
   box-shadow: var(--shadow-card);

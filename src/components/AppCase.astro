@@ -614,14 +614,6 @@ const h = {
             <p class="bh-sub-label flush">Rebuilt for adaptivity</p>
             <h3 class="bh-adapt-title">{s.ux.adaptivity.title}</h3>
             <p class="bh-ct-note">{s.ux.adaptivity.note}</p>
-            {s.ux.adaptivity.shot && (
-              <img
-                class="bh-adapt-shot"
-                src={`${base}${s.ux.adaptivity.shot.src}`}
-                alt={s.ux.adaptivity.shot.alt}
-                loading="lazy"
-              />
-            )}
           </div>
           {s.ux.adaptivity.checklist ? (
             <ul class="bh-checklist bh-adapt-checks">
@@ -648,6 +640,14 @@ const h = {
                 ))}
               </ol>
             )
+          )}
+          {s.ux.adaptivity.shot && (
+            <img
+              class="bh-adapt-shot"
+              src={`${base}${s.ux.adaptivity.shot.src}`}
+              alt={s.ux.adaptivity.shot.alt}
+              loading="lazy"
+            />
           )}
         </div>
       )
