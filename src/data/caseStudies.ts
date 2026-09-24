@@ -435,7 +435,7 @@ export const caseStudies: CaseStudy[] = [
       note: "During a session you are reading, not browsing. Every control had to collapse into a single surface you can find without looking away from the captions.",
       anatomy: {
         title: "The Buddy Box",
-        note: "One floating container holds every in-session control, so the captions keep the whole screen. Maximum functionality, minimum footprint.",
+        note: "Share Captions, Boost Audio, enhanced captions, alerts, summaries, live translation and the buddy switcher all live behind one floating container. Maximum functionality, minimum footprint.",
         states: [
           {
             src: "/case-studies/hearing-buddy/buddybox/1-collapsed.png",
@@ -449,14 +449,14 @@ export const caseStudies: CaseStudy[] = [
             alt: "The Buddy Box expanded into a card showing Dash's summary, with page dots beneath",
             label: "Expanded",
             caption:
-              "Tapping it opens one card with the buddy, the summary and page dots, never a second screen.",
+              "One card carries Share Captions, Boost Audio, enhanced captions, Name and Question alerts, and summaries.",
           },
           {
             src: "/case-studies/hearing-buddy/buddybox/3-settings.png",
             alt: "The Buddy Box settings popover: summaries, alerts, spoken language, translation, text size, position and change buddy",
             label: "Settings",
             caption:
-              "Everything you might change mid-conversation sits one tap deeper, including translation and text size.",
+              "The overflow holds what you set less often, including live translation and switching your buddy.",
           },
         ],
         parts: [
@@ -474,6 +474,11 @@ export const caseStudies: CaseStudy[] = [
             name: "Cards",
             detail:
               "Each page's content by state: summary, alert and suggestion cards on Buddy, then locked, enable and running on Boost.",
+          },
+          {
+            name: "Enhanced captions",
+            detail:
+              "An opt-in switch to a server model for the rooms where on-device accuracy is not enough.",
           },
           {
             name: "Status icons",
