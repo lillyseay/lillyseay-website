@@ -500,7 +500,7 @@ export const caseStudies: CaseStudy[] = [
 
     identity: {
       heading: "Colorful and minimal,|everything floats",
-      note: "Every buddy brings its own color while the reading surface stays plain, and nothing snaps into place because everything drifts the way it would underwater.",
+      note: "Every buddy brings its own color while the captions stay clean and easy to read. Every animation eases and drifts the way it would underwater, so the app feels calm and weightless.",
       typography: {
         note: "System type throughout, so the face answers the reader's own accessibility settings instead of expressing a brand.",
         faces: [
