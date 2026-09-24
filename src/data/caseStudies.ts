@@ -11,7 +11,7 @@
 // spelling only.
 //
 // Headings carry a single "|" — everything after it renders on its own line in
-// the app's accent colour. Any `value` in a stat list counts up on scroll.
+// the app's accent color. Any `value` in a stat list counts up on scroll.
 
 export type Swatch = { hex: string; name: string };
 export type Stat = { value: string; label: string; source?: string };
@@ -103,7 +103,8 @@ export type CaseStudy = {
   identity: {
     heading: string;
     note: string;
-    palette: { note: string; groups: { name: string; swatches: Swatch[] }[] };
+    /** Hearing Buddy carries its color story in the cast instead. */
+    palette?: { note: string; groups: { name: string; swatches: Swatch[] }[] };
     typography: {
       note: string;
       faces: { name: string; role: string; sample: string; detail: string }[];
@@ -331,7 +332,7 @@ export const caseStudies: CaseStudy[] = [
           {
             name: "Things I thought were normal but were actually hearing loss",
             tests:
-              "Written for the undiagnosed, where every reply is somebody recognising themselves in a workaround they had never named.",
+              "Written for the undiagnosed, where every reply is somebody recognizing themselves in a workaround they had never named.",
             result:
               "Surfaced the lip-reading finding: a lot of people only discovered they were reading lips when everyone started wearing masks and their comprehension fell off a cliff.",
           },
@@ -499,30 +500,7 @@ export const caseStudies: CaseStudy[] = [
 
     identity: {
       heading: "Sixteen palettes,|one reading surface",
-      note: "The brand is a cast rather than a colour, and every buddy re-themes the app without ever making the captions harder to read.",
-      palette: {
-        note: "Each buddy carries a three-colour gradient, a coat and an accent pair.",
-        groups: [
-          {
-            name: "The four originals",
-            swatches: [
-              { hex: "#5BC0DE", name: "Dash" },
-              { hex: "#E16A78", name: "Coral" },
-              { hex: "#7EC8B0", name: "Atlas" },
-              { hex: "#D4A0C0", name: "Pearl" },
-            ],
-          },
-          {
-            name: "Identity buddies",
-            swatches: [
-              { hex: "#C4A0D8", name: "Prism · Pride" },
-              { hex: "#E87AA0", name: "Rowen · Trans" },
-              { hex: "#F6D86B", name: "Lumi · Disability" },
-              { hex: "#9CBDB4", name: "Celeste · Deaf" },
-            ],
-          },
-        ],
-      },
+      note: "The brand is a cast rather than a color, and every buddy re-themes the app without ever making the captions harder to read.",
       typography: {
         note: "System type throughout, so the face answers the reader's own accessibility settings instead of expressing a brand.",
         faces: [
@@ -551,7 +529,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Concise",
             hex: "#5BC0DE",
             to: "#7DD3A8",
-            swatches: ["#5BC0DE", "#7DD3A8", "#F7B1C5", "#7EB8C9", "#5A9DAD"],
+            swatches: ["#E3F1F9", "#BADFEE", "#F4B3C7", "#385578"],
           },
           {
             file: "coral.png",
@@ -559,7 +537,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Encouraging",
             hex: "#F4B458",
             to: "#E16A78",
-            swatches: ["#F4B458", "#E16A78", "#C4527A", "#E05880", "#E05880"],
+            swatches: ["#FEF1EF", "#F3CECA", "#E68587", "#50333E"],
           },
           {
             file: "atlas.png",
@@ -567,7 +545,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Brainy",
             hex: "#7EC8B0",
             to: "#A8DECE",
-            swatches: ["#7EC8B0", "#A8DECE", "#1B4332", "#2D8B6F", "#237A5E"],
+            swatches: ["#E5F2F1", "#C5E4DF", "#789D95", "#255348"],
           },
           {
             file: "pearl.png",
@@ -575,7 +553,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Sweet",
             hex: "#F5DEB3",
             to: "#D4A0C0",
-            swatches: ["#F5DEB3", "#D4A0C0", "#C4956A", "#D4A0C0", "#AB809C"],
+            swatches: ["#FBF1D5", "#E8B9B3", "#D69F76", "#462F18"],
           },
           {
             file: "ziggy.png",
@@ -583,7 +561,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Playful",
             hex: "#B8A9D9",
             to: "#FF7EB3",
-            swatches: ["#B8A9D9", "#FF7EB3", "#FFDAB9", "#8660A9", "#5A4080"],
+            swatches: ["#F6EEF5", "#D2B8D6", "#B286B8", "#735195"],
           },
           {
             file: "reef.png",
@@ -591,7 +569,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Chill",
             hex: "#87CEEB",
             to: "#FFE17B",
-            swatches: ["#87CEEB", "#FFE17B", "#F5DEB3", "#5A9FCF", "#4A8BBF"],
+            swatches: ["#F4F6F7", "#FBE27E", "#CFDAE1", "#4D85B0"],
           },
           {
             file: "sunny.png",
@@ -599,7 +577,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Sporty",
             hex: "#F8B4C8",
             to: "#5BB8E8",
-            swatches: ["#F8B4C8", "#5BB8E8", "#1B2D5A", "#4A9FD4", "#3A87BC"],
+            swatches: ["#F9EEF3", "#ECC7CF", "#3CB5E5", "#4F4367"],
           },
           {
             file: "fern.png",
@@ -607,7 +585,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Zen",
             hex: "#B5D8A0",
             to: "#F5A8C0",
-            swatches: ["#B5D8A0", "#F5A8C0", "#3B5A2E", "#6B9B5A", "#5A8A4A"],
+            swatches: ["#F1F1E6", "#F1B4CD", "#AFB296", "#73835A", "#395427"],
           },
           {
             file: "prism.png",
@@ -615,7 +593,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Pride",
             hex: "#C4A0D8",
             to: "#A0D0E8",
-            swatches: ["#C4A0D8", "#A0D0E8", "#A8D8A0", "#7EB8C9", "#5A9DAD"],
+            swatches: ["#F5E5DE", "#F4C388", "#A5B6BA", "#342B41"],
           },
           {
             file: "rowen.png",
@@ -623,7 +601,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Trans Pride",
             hex: "#E87AA0",
             to: "#5AB8E0",
-            swatches: ["#E87AA0", "#5AB8E0", "#D46088", "#37AEDC", "#2890B8"],
+            swatches: ["#F5F1F6", "#F7CFDA", "#B1CADE", "#78ACCA", "#3781A4"],
           },
           {
             file: "lumi.png",
@@ -631,7 +609,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Disability Pride",
             hex: "#F6D86B",
             to: "#F4A95F",
-            swatches: ["#F6D86B", "#F4A95F", "#D98C3A", "#ED8C70", "#ED8C70"],
+            swatches: ["#FCF7E5", "#EDD297"],
           },
           {
             file: "luna.png",
@@ -639,7 +617,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Low light",
             hex: "#B5A9D6",
             to: "#4C3F73",
-            swatches: ["#B5A9D6", "#4C3F73", "#3E3457", "#6E5DA0", "#4C3F73"],
+            swatches: ["#F4F0F7", "#C8C4DD", "#494061"],
           },
           {
             file: "paige.png",
@@ -647,7 +625,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Studious",
             hex: "#C3BDDC",
             to: "#7B6BA6",
-            swatches: ["#C3BDDC", "#7B6BA6", "#4E4370", "#7B6BA6", "#6C5E96"],
+            swatches: ["#F1ECF5", "#DAD7E3", "#D4AFC4", "#584866"],
           },
           {
             file: "chalkie.png",
@@ -655,7 +633,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Patient",
             hex: "#F6CE55",
             to: "#E97B5C",
-            swatches: ["#F6CE55", "#E97B5C", "#D9503C", "#E4674A", "#D9503C"],
+            swatches: ["#F8F0E2", "#CBBEAD", "#EA9761", "#503B31"],
           },
           {
             file: "celeste.png",
@@ -663,7 +641,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Deaf buddy",
             hex: "#9CBDB4",
             to: "#8FA3CE",
-            swatches: ["#9CBDB4", "#8FA3CE", "#EBDAB1", "#7FA79B", "#5D8177"],
+            swatches: ["#EEF4F3", "#EEC5B8", "#A1BBC0", "#6F83A3", "#3C5082"],
           },
           {
             file: "goldie.png",
@@ -671,7 +649,7 @@ export const caseStudies: CaseStudy[] = [
             role: "Golden",
             hex: "#C99054",
             to: "#6A6390",
-            swatches: ["#C99054", "#6A6390", "#D9AE72", "#C29F72", "#91764A"],
+            swatches: ["#F8F5EB", "#E6DCCF", "#DBC5A0", "#545970"],
           },
         ],
       },
@@ -689,7 +667,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             src: "/case-studies/hearing-buddy/screens/listening-speakers.png",
-            alt: "Live captions with each speaker in their own colour",
+            alt: "Live captions with each speaker in their own color",
           },
           {
             src: "/case-studies/hearing-buddy/screens/people-tab.png",
@@ -831,7 +809,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Turn winners into series",
-          body: "A topic that lands gets a recognisable title and a regular slot, and series average 3.4× the views of one-offs.",
+          body: "A topic that lands gets a recognizable title and a regular slot, and series average 3.4× the views of one-offs.",
         },
         {
           title: "Carousels where video will not fit",
@@ -1040,7 +1018,7 @@ export const caseStudies: CaseStudy[] = [
       note: "The passport is the interface. Everything else is a way of adding to it.",
       anatomy: {
         title: "The passport canvas",
-        note: "One hand-drawn scene that carries the whole season, redrawn from the theme's five colours.",
+        note: "One hand-drawn scene that carries the whole season, redrawn from the theme's five colors.",
         parts: [
           {
             name: "The mountain",
@@ -1065,7 +1043,7 @@ export const caseStudies: CaseStudy[] = [
           {
             name: "The stamp",
             detail:
-              "Date, rating, mood and your own photo, inked in the theme's deepened ridge colour.",
+              "Date, rating, mood and your own photo, inked in the theme's deepened ridge color.",
           },
         ],
         shot: {
@@ -1094,10 +1072,10 @@ export const caseStudies: CaseStudy[] = [
     },
 
     identity: {
-      heading: "Five colours in,|a whole app out",
-      note: "Each theme is five colours lifted from its own icon. Everything else (the sky gradient, the meadow, the stamp ink, the stamp paper) is computed from them, which is why no two themes can drift out of step.",
+      heading: "Five colors in,|a whole app out",
+      note: "Each theme is five colors lifted from its own icon. Everything else (the sky gradient, the meadow, the stamp ink, the stamp paper) is computed from them, which is why no two themes can drift out of step.",
       palette: {
-        note: "The accent is the one colour picked by hand, and it has to sit beside trail signs that are warm brown on tan. Bright enough to feel alive, never a neon that fights the wood.",
+        note: "The accent is the one color picked by hand, and it has to sit beside trail signs that are warm brown on tan. Bright enough to feel alive, never a neon that fights the wood.",
         groups: [
           {
             name: "The accents, hand-picked",
@@ -1188,7 +1166,7 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       themes: {
-        title: "Five parks, five colours each",
+        title: "Five parks, five colors each",
         note: "Each theme starts from a place: alpenglow on Rainier, a grove washed white by canopy light, Voyageurs under the northern lights, high desert noon.",
         list: [
           {
@@ -1253,7 +1231,7 @@ export const caseStudies: CaseStudy[] = [
           },
           {
             src: "/hiking-passport/shots/07-passport-themes.jpg",
-            alt: "Picking a theme, with the whole scene recoloured",
+            alt: "Picking a theme, with the whole scene recolored",
           },
         ],
       },
@@ -1283,9 +1261,9 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       system: {
-        title: "Five colours in, a whole app out",
+        title: "Five colors in, a whole app out",
         body: "The stamp ink is the near ridge deepened in a loop, and the decision I am proudest of is reversing an earlier one where the accent followed your buddy rather than the app.",
-        from: "Five colours from one icon",
+        from: "Five colors from one icon",
         to: [
           "Sky gradient",
           "Meadow",
@@ -1355,7 +1333,7 @@ export const caseStudies: CaseStudy[] = [
         { value: "1.0", label: "submitted to the App Store" },
         { value: "10", label: "screenshot backgrounds, all 10.7:1" },
         { value: "175", label: "countries at launch" },
-        { value: "55", label: "constraints modelled" },
+        { value: "55", label: "constraints modeled" },
       ],
       footer:
         "Version 1.0 is in review. Everything described here is built and in the binary.",
@@ -1421,9 +1399,9 @@ export const caseStudies: CaseStudy[] = [
           why: "A broken streak punishes exactly the week you most needed the app, so there is nothing to break.",
         },
         {
-          feature: "One colour per activity",
+          feature: "One color per activity",
           pains: ["Nobody reads instructions"],
-          why: "Colour tells you which activity you are in before you read a word, so the interface never depends on being read.",
+          why: "Color tells you which activity you are in before you read a word, so the interface never depends on being read.",
         },
       ],
     },
@@ -1438,7 +1416,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Loud, against the category",
-          body: "Saturated colour edge to edge where everyone else went beige, because a person in a spiral needs somewhere to put their attention rather than to be soothed into stillness.",
+          body: "Saturated color edge to edge where everyone else went beige, because a person in a spiral needs somewhere to put their attention rather than to be soothed into stillness.",
         },
         {
           title: "No streaks, no scoring",
@@ -1456,10 +1434,10 @@ export const caseStudies: CaseStudy[] = [
       note: "You open it in the worst five minutes of your day. Anything that asks a question first has already failed.",
       anatomy: {
         title: "An activity screen",
-        note: "Every activity is the same shape: a colour, a title, a one-line instruction and a single button.",
+        note: "Every activity is the same shape: a color, a title, a one-line instruction and a single button.",
         parts: [
           {
-            name: "The colour",
+            name: "The color",
             detail:
               "Carried edge to edge, telling you which activity you are in before you read the title.",
           },
@@ -1490,8 +1468,8 @@ export const caseStudies: CaseStudy[] = [
       },
       rules: [
         {
-          title: "One colour per activity",
-          body: "Pink for task lists, orchid for organize, sky for negative thoughts, indigo for the wheel, so the colour is the wayfinding.",
+          title: "One color per activity",
+          body: "Pink for task lists, orchid for organize, sky for negative thoughts, indigo for the wheel, so the color is the wayfinding.",
         },
         {
           title: "Full screen or it is not finished",
@@ -1505,13 +1483,13 @@ export const caseStudies: CaseStudy[] = [
     },
 
     identity: {
-      heading: "Candy colour|as the interface",
+      heading: "Candy color|as the interface",
       note: "The opposite of the beige-and-sage the category had settled on. These are not accents, they are the interface, so each one had to hold up full screen against white.",
       palette: {
-        note: "One saturated colour per activity, sampled from the shipped App Store screens.",
+        note: "One saturated color per activity, sampled from the shipped App Store screens.",
         groups: [
           {
-            name: "One colour per activity",
+            name: "One color per activity",
             swatches: [
               { hex: "#FE7DCA", name: "task lists" },
               { hex: "#E07EFC", name: "organize" },
@@ -1606,7 +1584,7 @@ export const caseStudies: CaseStudy[] = [
         from: "Storyboard to SwiftUI",
         to: [
           "Reusable animation system",
-          "One colour per activity",
+          "One color per activity",
           "Faster ship cycle",
           "~$75K saved",
         ],

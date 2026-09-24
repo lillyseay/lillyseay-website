@@ -7034,7 +7034,9 @@ section[id] {
   /* The eyebrow was landing on the heading's descenders above it. */
   margin-top: clamp(2rem, 5vw, 3.25rem);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* auto-fit, so a section with only one column fills the width instead of
+     leaving half the row empty. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   gap: clamp(1.75rem, 5vw, 4rem);
   align-items: start;
 }
@@ -7105,6 +7107,7 @@ section[id] {
   padding: 0;
   margin: 0;
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
   gap: 0.9rem;
 }
 

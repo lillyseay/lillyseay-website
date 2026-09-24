@@ -491,26 +491,28 @@ const h = {
     </div>
 
     <div class="bh-ct">
-      <div class="bh-ct-col reveal">
-        <p class="bh-sub-label flush">Colour</p>
-        <p class="bh-ct-note">{s.identity.palette.note}</p>
-        {
-          s.identity.palette.groups.map((g) => (
-            <div class="bh-pal-row">
-              <p class="bh-pal-name">{g.name}</p>
-              <ul class="bh-chipset">
-                {g.swatches.map((w) => (
-                  <li style={`--c:${w.hex}`}>
-                    <span class="bh-chip" aria-hidden="true" />
-                    <span class="bh-chip-hex">{w.hex}</span>
-                    <span class="bh-chip-name">{w.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-      </div>
+      {
+        s.identity.palette && (
+          <div class="bh-ct-col reveal">
+            <p class="bh-sub-label flush">Color</p>
+            <p class="bh-ct-note">{s.identity.palette.note}</p>
+            {s.identity.palette.groups.map((g) => (
+              <div class="bh-pal-row">
+                <p class="bh-pal-name">{g.name}</p>
+                <ul class="bh-chipset">
+                  {g.swatches.map((w) => (
+                    <li style={`--c:${w.hex}`}>
+                      <span class="bh-chip" aria-hidden="true" />
+                      <span class="bh-chip-hex">{w.hex}</span>
+                      <span class="bh-chip-name">{w.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )
+      }
       <div class="bh-ct-col reveal">
         <p class="bh-sub-label flush">Typography</p>
         <p class="bh-ct-note">{s.identity.typography.note}</p>
