@@ -89,6 +89,8 @@ export type CaseStudy = {
       note: string;
       parts: { name: string; detail: string }[];
       shot?: { src: string; alt: string };
+      /** The component walked through its states, in order. */
+      states?: { src: string; alt: string; label: string; caption: string }[];
     };
     rules: Point[];
   };
@@ -432,8 +434,31 @@ export const caseStudies: CaseStudy[] = [
       heading: "One container for everything|that happens mid-conversation",
       note: "During a session you are reading, not browsing. Every control had to collapse into a single surface you can find without looking away from the captions.",
       anatomy: {
-        title: "The Box",
-        note: "The floating in-session container. A pinned header that never moves, swipeable pages underneath, and cards that change with what the app is doing.",
+        title: "The Buddy Box",
+        note: "One floating container holds every in-session control, so the captions keep the whole screen. Maximum functionality, minimum footprint.",
+        states: [
+          {
+            src: "/case-studies/hearing-buddy/buddybox/1-collapsed.png",
+            alt: "The Buddy Box collapsed to a corner avatar with a question badge, captions filling the screen",
+            label: "Collapsed",
+            caption:
+              "Resting state is a single corner avatar, and the badge on it is the only thing that interrupts you.",
+          },
+          {
+            src: "/case-studies/hearing-buddy/buddybox/2-expanded.png",
+            alt: "The Buddy Box expanded into a card showing Dash's summary, with page dots beneath",
+            label: "Expanded",
+            caption:
+              "Tapping it opens one card with the buddy, the summary and page dots, never a second screen.",
+          },
+          {
+            src: "/case-studies/hearing-buddy/buddybox/3-settings.png",
+            alt: "The Buddy Box settings popover: summaries, alerts, spoken language, translation, text size, position and change buddy",
+            label: "Settings",
+            caption:
+              "Everything you might change mid-conversation sits one tap deeper, including translation and text size.",
+          },
+        ],
         parts: [
           {
             name: "Box header",
@@ -466,10 +491,6 @@ export const caseStudies: CaseStudy[] = [
               "Who else is in the room, kept separate from the action bar so people and controls never compete.",
           },
         ],
-        shot: {
-          src: "/case-studies/hearing-buddy/screens/listening-summary.png",
-          alt: "The Box in a live session: a pinned header, a question alert card from Scott, and the current topic written out below it",
-        },
       },
       rules: [
         {

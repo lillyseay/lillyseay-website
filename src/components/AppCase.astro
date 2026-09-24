@@ -401,14 +401,33 @@ const h = {
 
     {
       s.ux.anatomy && (
-        <div class="bh-anatomy reveal">
+        <div
+          class={`bh-anatomy reveal${s.ux.anatomy.states ? " is-states" : ""}`}
+        >
           <div class="bh-anatomy-shot">
-            {s.ux.anatomy.shot && (
-              <img
-                src={`${base}${s.ux.anatomy.shot.src}`}
-                alt={s.ux.anatomy.shot.alt}
-                loading="lazy"
-              />
+            {s.ux.anatomy.states ? (
+              <ol class="bh-states">
+                {s.ux.anatomy.states.map((st, i) => (
+                  <li>
+                    <img src={`${base}${st.src}`} alt={st.alt} loading="lazy" />
+                    <p class="bh-state-label">
+                      <span aria-hidden="true">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {st.label}
+                    </p>
+                    <p class="bh-state-caption">{st.caption}</p>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              s.ux.anatomy.shot && (
+                <img
+                  src={`${base}${s.ux.anatomy.shot.src}`}
+                  alt={s.ux.anatomy.shot.alt}
+                  loading="lazy"
+                />
+              )
             )}
           </div>
           <div class="bh-anatomy-key">
