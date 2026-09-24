@@ -828,7 +828,7 @@ export const caseStudies: CaseStudy[] = [
       beats: [
         {
           title: "Where it started",
-          body: "I took on a 20,000 step a day challenge having never walked more than five miles, and ended that month on the summit of South Sister, fourteen miles and five thousand feet of elevation.",
+          body: "I took on a 20,000 step a day challenge having never walked more than 5 miles, and ended that month on the summit of South Sister: 14 miles, 5,000 feet of elevation, 7 hours up.",
         },
         {
           title: "What was missing",
@@ -836,7 +836,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "What made it possible",
-          body: "That one unorthodox habit cut an hour and eighteen minutes off my summit time, which is when it clicked that I did not need a conventional plan, I needed one that adapts to my life.",
+          body: "That one unorthodox habit cut 1 hour and 18 minutes off my summit time, which is when it clicked that I did not need a conventional plan, I needed one that adapts to my life.",
         },
       ],
     },
@@ -974,7 +974,7 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Constraints change the route, never the goal",
-          body: "Fifty-five things to tap turn a barrier into an accommodation, changing what the plan suggests and never whether the goal is yours.",
+          body: "55 things to tap turn a barrier into an accommodation, changing what the plan suggests and never whether the goal is yours.",
         },
         {
           title: "Stairs and groceries count",
@@ -1325,7 +1325,7 @@ export const caseStudies: CaseStudy[] = [
     problem: {
       heading:
         "Mental health apps asked you to be calm|before you could use them",
-      note: "Over forty million US adults have anxiety, and cortisol runs highest in the first hour after waking, partly from anticipating the day ahead. Every app in the category was either clinical or meditative, and both assume you arrive with enough focus to sit still.",
+      note: "Over 40 million US adults have anxiety, and cortisol runs highest in the first hour after waking, partly from anticipating the day ahead. Every app in the category was either clinical or meditative, and both assume you arrive with enough focus to sit still.",
     },
 
     research: {
