@@ -7642,7 +7642,7 @@ section[id] {
   /* Level with the top of the shot rather than floating in the middle. */
   align-self: start;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1.5rem;
+  gap: 1.9rem;
 }
 
 /* A component walked through its states: the row spans the full width and the
@@ -7788,22 +7788,41 @@ section[id] {
      rather than inheriting a section's. */
   margin-top: clamp(3rem, 7vw, 5rem);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  /* The shot column is sized so the image comes out the same height as the
+     note and checks beside it. */
+  grid-template-columns: 21rem minmax(0, 1fr);
   gap: clamp(1.25rem, 3vw, 2rem) clamp(1.5rem, 4vw, 3rem);
   align-items: start;
 }
 
-/* Row 1 is the title beside its note, row 2 the shot beside the checks. */
-.bh-adapt-note {
-  margin: 0;
+/* Full width, so the title keeps its accent on the same line. */
+.bh-adapt-head {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+/* Note and checks as one block for the shot to match. */
+.bh-adapt-side {
+  grid-column: 2;
+  grid-row: 2;
   align-self: center;
 }
 
-/* Own line, like the section headings, rather than wrapping mid-phrase. */
+.bh-adapt-shot {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* Row 1 is the title beside its note, row 2 the shot beside the checks. */
+.bh-adapt-note {
+  margin: 0 0 1.5rem;
+}
+
 .bh-adapt-title em {
-  display: block;
   font-style: normal;
   color: var(--brand-text);
+  /* The accent renders adjacent to the lead, so it carries its own space. */
+  margin-left: 0.3em;
 }
 
 .bh-adapt-title {

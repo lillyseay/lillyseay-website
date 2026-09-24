@@ -619,7 +619,6 @@ const h = {
               )}
             </h3>
           </div>
-          <p class="bh-ct-note bh-adapt-note">{s.ux.adaptivity.note}</p>
           {s.ux.adaptivity.shot && (
             <img
               class="bh-adapt-shot"
@@ -628,32 +627,35 @@ const h = {
               loading="lazy"
             />
           )}
-          {s.ux.adaptivity.checklist ? (
-            <ul class="bh-checklist bh-adapt-checks">
-              {s.ux.adaptivity.checklist.map((c) => (
-                <li>
-                  <svg viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M3.5 8.5l3 3 6-7" />
-                  </svg>
-                  {c}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            s.ux.adaptivity.points && (
-              <ol class="bh-adapt-list">
-                {s.ux.adaptivity.points.map((p, i) => (
+          <div class="bh-adapt-side">
+            <p class="bh-ct-note bh-adapt-note">{s.ux.adaptivity.note}</p>
+            {s.ux.adaptivity.checklist ? (
+              <ul class="bh-checklist bh-adapt-checks">
+                {s.ux.adaptivity.checklist.map((c) => (
                   <li>
-                    <span class="bh-adapt-num" aria-hidden="true">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h4>{p.title}</h4>
-                    <p>{p.body}</p>
+                    <svg viewBox="0 0 16 16" aria-hidden="true">
+                      <path d="M3.5 8.5l3 3 6-7" />
+                    </svg>
+                    {c}
                   </li>
                 ))}
-              </ol>
-            )
-          )}
+              </ul>
+            ) : (
+              s.ux.adaptivity.points && (
+                <ol class="bh-adapt-list">
+                  {s.ux.adaptivity.points.map((p, i) => (
+                    <li>
+                      <span class="bh-adapt-num" aria-hidden="true">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h4>{p.title}</h4>
+                      <p>{p.body}</p>
+                    </li>
+                  ))}
+                </ol>
+              )
+            )}
+          </div>
         </div>
       )
     }

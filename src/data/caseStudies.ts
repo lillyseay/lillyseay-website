@@ -213,7 +213,7 @@ export const caseStudies: CaseStudy[] = [
       beats: [
         {
           title: "What a hearing buddy means",
-          body: "A decade ago, I started using \u201chearing buddy\u201d for the person I could rely on to help me hear without judgment, the person who made conference rooms feel less isolating when I couldn\u2019t hear a question from across the room.",
+          body: "A decade ago, I started using \u201chearing buddy\u201d for the person I could rely on to help me hear without judgment.",
         },
         {
           title: "My hearing buddy",
@@ -456,7 +456,7 @@ export const caseStudies: CaseStudy[] = [
       },
       adaptivity: {
         title: "Any window size,|either orientation",
-        note: "The interface was rebuilt so it holds up at any window size and either orientation, not just the two the simulator defaults to. It earned a Great on iPadOS 27 feature on the App Store.",
+        note: "The interface was rebuilt so it holds up at any window size and either orientation. It earned a Great on iPadOS 27 feature on the App Store.",
         checklist: [
           "Looks great in any window size or orientation",
           "Ready for the iPhone Duo",
