@@ -344,31 +344,32 @@ export const caseStudies: CaseStudy[] = [
         {
           feature: "Free unlimited live captions",
           pains: [
-            "Clarity, not volume",
-            "Hearing aids are not a fix",
-            "Lip reading, discovered in the pandemic",
+            "It is loud enough, the words are still mush",
+            "Hearing aids do not give you clarity back",
+            "Masks took away the lip reading people leaned on",
           ],
-          why: "All three say the hardware people already own cannot deliver comprehension, so captions became the free core and amplification the paid extra.",
+          why: "Every one of these says the same thing in a different way, that turning the room up does not make it understandable, so captions became the free core and amplification the paid extra.",
         },
         {
           feature: "Question Alerts and Name Alerts",
-          pains: ["The fake nod", "The relief of hearing correctly"],
-          why: "People fake comprehension rather than ask a third time, and the moment they most want is answering correctly, so the app taps them when their name or a question lands.",
+          pains: [
+            "Nodding along with no idea what was said",
+            "Missing a question aimed straight at you",
+          ],
+          why: "People fake understanding rather than ask a third time, so the app taps them the moment their name or a question lands.",
         },
         {
           feature: "Conversation summaries",
-          pains: ["Listening fatigue"],
-          why: "Concentrating for an hour costs more than the hour, so the app carries the recall instead of the listener.",
+          pains: ["Worn out by an hour of concentrating"],
+          why: "Following a long meeting costs more energy than the meeting itself, so the app carries the recall instead of the listener.",
         },
         {
           feature: "Hearing test support through Apple Health",
-          pains: ["Undiagnosed audience", "Adjacent audiences"],
-          why: "Much of the audience has never been tested and many arrive through auditory processing or ADHD, so the app meets them before a diagnosis rather than after one.",
-        },
-        {
-          feature: "Silent, caption-first video",
-          pains: ["Music blocks the research"],
-          why: "Research the audience cannot hear is filtered research, so the videos dropped the background track.",
+          pains: [
+            "Struggling for years without knowing why",
+            "The same struggle under a different diagnosis",
+          ],
+          why: "Much of the audience has never been tested, and many arrive through auditory processing or ADHD instead, so the app meets them before a diagnosis rather than after one.",
         },
       ],
       audiences: [
