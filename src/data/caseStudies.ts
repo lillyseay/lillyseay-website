@@ -410,20 +410,20 @@ export const caseStudies: CaseStudy[] = [
       note: "A hearing buddy is the safe person who helps me hear without judgment. I wanted to embody my real-life hearing buddy, Scott Krager, in an app, so I could have a hearing buddy when he is not there.",
       bets: [
         {
-          title: "Give the core away",
-          body: "Unlimited live captions stay free forever, because on-device models made that affordable and metering an accessibility need was the thing I built this to escape.",
+          title: "Give the AI an inclusive personality",
+          body: "The captions come from a buddy you choose and name, and the cast is drawn from communities that rarely see themselves in accessibility software.",
         },
         {
-          title: "Sell relief, not minutes",
-          body: "The paid tier is amplification, summaries and the companions: the things that reduce effort once you can already read the room.",
+          title: "Make the app feel like a supportive friend",
+          body: "A hearing buddy repeats the question without making you feel like a burden, so the app had to answer in that tone rather than like a machine reading out a transcript.",
         },
         {
-          title: 'Never say "AI"',
-          body: "Not in the interface, the App Store copy, or a commit message, because you named this character and crediting a model breaks the one relationship the product runs on.",
+          title: "No AI jargon",
+          body: "Much of the audience is older and does not think in models or prompts, so words like AI, transcription and speech recognition never appear in the interface or the App Store copy.",
         },
         {
-          title: "Ship where the conversation is",
-          body: "Phone in your pocket, watch on your wrist, Mac in the meeting, Vision Pro at the table: the same session, wherever you can actually look.",
+          title: "Always there for you",
+          body: "Live captions are unlimited and free forever, because an accessibility need metered by the hour is not support anyone can rely on.",
         },
       ],
     },
