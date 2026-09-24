@@ -32,22 +32,22 @@ const order = [
   "identity",
   "ux",
   "product",
-  "marketing",
-  "social",
+  ...(s.marketing ? ["marketing"] : []),
+  ...(s.social ? ["social"] : []),
   "results",
 ];
 const no = (k: string) => String(order.indexOf(k) + 1).padStart(2, "0");
 
 const h = {
   ...(s.story ? { story: split(s.story.heading) } : {}),
+  ...(s.marketing ? { marketing: split(s.marketing.heading) } : {}),
+  ...(s.social ? { social: split(s.social.heading) } : {}),
   problem: split(s.problem.heading),
   research: split(s.research.heading),
   strategy: split(s.strategy.heading),
   ux: split(s.ux.heading),
   identity: split(s.identity.heading),
   product: split(s.product.heading),
-  marketing: split(s.marketing.heading),
-  social: split(s.social.heading),
 };
 ---
 
@@ -762,87 +762,99 @@ const h = {
     )
   }
 
-  {/* ══ Marketing ════════════════════════════════════════════════════ */}
-  <section class="bh-sec">
-    <div class="bh-mark reveal">
-      <span class="bh-num">{no("marketing")}</span>
-      <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">Marketing</span>
-    </div>
-    <div class="bh-two reveal">
-      <h2 class="bh-h2">
-        {h.marketing.lead}{h.marketing.accent && <em>{h.marketing.accent}</em>}
-      </h2>
-      <p class="bh-body">{s.marketing.note}</p>
-    </div>
-    <ol class="bh-timeline stagger">
-      {
-        s.marketing.cycle.map((c, i) => (
-          <li style={`--i:${i}`}>
-            <span class="bh-tl-when">{c.when}</span>
-            <span class="bh-tl-dot" aria-hidden="true" />
-            <h4>{c.title}</h4>
-            <p>{c.body}</p>
-          </li>
-        ))
-      }
-    </ol>
-  </section>
-
-  {/* ══ Social ═══════════════════════════════════════════════════════ */}
-  <section class="bh-sec">
-    <div class="bh-mark reveal">
-      <span class="bh-num">{no("social")}</span>
-      <span class="bh-rule" aria-hidden="true"></span>
-      <span class="bh-label">Social</span>
-    </div>
-    <div class="bh-two reveal">
-      <h2 class="bh-h2">
-        {h.social.lead}{h.social.accent && <em>{h.social.accent}</em>}
-      </h2>
-      <p class="bh-body">{s.social.note}</p>
-    </div>
-
-    {
-      s.social.stats && (
-        <ul class="bh-soc-stats stagger">
-          {s.social.stats.map((st, i) => (
-            <li style={`--i:${i}`}>
-              <span class="bh-soc-v" data-count={st.value}>
-                {st.value}
-              </span>
-              <span class="bh-soc-l">{st.label}</span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
-
-    <div class="bh-ct">
-      <div class="bh-ct-col">
-        <p class="bh-sub-label reveal flush">Strategy</p>
-        <ul class="bh-strats stagger">
-          {
-            s.social.strategies.map((t, i) => (
+  {
+    s.marketing && (
+      <>
+        {/* ══ Marketing ════════════════════════════════════════════════════ */}
+        <section class="bh-sec">
+          <div class="bh-mark reveal">
+            <span class="bh-num">{no("marketing")}</span>
+            <span class="bh-rule" aria-hidden="true" />
+            <span class="bh-label">Marketing</span>
+          </div>
+          <div class="bh-two reveal">
+            <h2 class="bh-h2">
+              {h.marketing.lead}
+              {h.marketing.accent && <em>{h.marketing.accent}</em>}
+            </h2>
+            <p class="bh-body">{s.marketing.note}</p>
+          </div>
+          <ol class="bh-timeline stagger">
+            {s.marketing.cycle.map((c, i) => (
               <li style={`--i:${i}`}>
-                <h4>{t.title}</h4>
-                <p>{t.body}</p>
+                <span class="bh-tl-when">{c.when}</span>
+                <span class="bh-tl-dot" aria-hidden="true" />
+                <h4>{c.title}</h4>
+                <p>{c.body}</p>
               </li>
-            ))
-          }
-        </ul>
-      </div>
-      <div class="bh-ct-col reveal">
-        <p class="bh-sub-label flush">{s.social.pipeline.title}</p>
-        <div class="bh-pipeline">
-          <svg class="bh-pipe-arrow" viewBox="0 0 60 12" aria-hidden="true">
-            <path d="M0 6h52m-6-5 6 5-6 5"></path>
-          </svg>
-          <p>{s.social.pipeline.body}</p>
-        </div>
-      </div>
-    </div>
-  </section>
+            ))}
+          </ol>
+        </section>
+      </>
+    )
+  }
+
+  {
+    s.social && (
+      <>
+        {/* ══ Social ═══════════════════════════════════════════════════════ */}
+        <section class="bh-sec">
+          <div class="bh-mark reveal">
+            <span class="bh-num">{no("social")}</span>
+            <span class="bh-rule" aria-hidden="true" />
+            <span class="bh-label">Social</span>
+          </div>
+          <div class="bh-two reveal">
+            <h2 class="bh-h2">
+              {h.social.lead}
+              {h.social.accent && <em>{h.social.accent}</em>}
+            </h2>
+            <p class="bh-body">{s.social.note}</p>
+          </div>
+
+          {s.social.stats && (
+            <ul class="bh-soc-stats stagger">
+              {s.social.stats.map((st, i) => (
+                <li style={`--i:${i}`}>
+                  <span class="bh-soc-v" data-count={st.value}>
+                    {st.value}
+                  </span>
+                  <span class="bh-soc-l">{st.label}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div class="bh-ct">
+            <div class="bh-ct-col">
+              <p class="bh-sub-label reveal flush">Strategy</p>
+              <ul class="bh-strats stagger">
+                {s.social.strategies.map((t, i) => (
+                  <li style={`--i:${i}`}>
+                    <h4>{t.title}</h4>
+                    <p>{t.body}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="bh-ct-col reveal">
+              <p class="bh-sub-label flush">{s.social.pipeline.title}</p>
+              <div class="bh-pipeline">
+                <svg
+                  class="bh-pipe-arrow"
+                  viewBox="0 0 60 12"
+                  aria-hidden="true"
+                >
+                  <path d="M0 6h52m-6-5 6 5-6 5" />
+                </svg>
+                <p>{s.social.pipeline.body}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </>
+    )
+  }
 
   {/* ══ Results ══════════════════════════════════════════════════════ */}
   <section class="bh-outcome reveal">

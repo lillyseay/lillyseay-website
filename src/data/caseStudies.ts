@@ -161,15 +161,15 @@ export type CaseStudy = {
     };
   };
 
-  /** 7 — Marketing. */
-  marketing: {
+  /** 7 — Marketing, where a study has one. */
+  marketing?: {
     heading: string;
     note: string;
     cycle: { when: string; title: string; body: string }[];
   };
 
-  /** 8 — Social. */
-  social: {
+  /** 8 — Social, where a study has one. */
+  social?: {
     heading: string;
     note: string;
     strategies: Point[];
@@ -774,82 +774,6 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
-      system: {
-        title: "One value, sixteen surfaces",
-        body: "Add a buddy and the whole system themes itself, which is why the design system and the App Store calendar are the same object.",
-        from: "One buddy value",
-        to: [
-          "Listen tab",
-          "Widgets",
-          "Live Activity",
-          "Dynamic Island",
-          "Apple Watch",
-          "Mac",
-          "Vision Pro",
-          "Event art",
-          "Screenshots",
-        ],
-      },
-    },
-
-    marketing: {
-      heading: "One loop:|build, pitch, test, convert",
-      note: "Two people, so nothing gets made twice. Every campaign produces the launch, the research and the ad creative out of the same work.",
-      cycle: [
-        {
-          when: "8 weeks out",
-          title: "Build ahead",
-          body: "Features are finished one to two months early, because Apple and Google both want to see the work, not the plan.",
-        },
-        {
-          when: "4 weeks out",
-          title: "Pitch the stores",
-          body: "Tie the finished feature to a date that already matters (World Hearing Day, GAAD, Deaf Awareness Month) with in-app events and artwork.",
-        },
-        {
-          when: "Launch",
-          title: "Test the sector",
-          body: "Keyword-focused short-form video aimed at one slice of the audience, where views answer whether that group would use the feature and comments answer how.",
-        },
-        {
-          when: "After",
-          title: "Convert the winners",
-          body: "Organic posts that performed become the paid creative, so the test doubles as the asset library.",
-        },
-      ],
-    },
-
-    social: {
-      heading: "Volume finds the signal,|series bank it",
-      note: "Thirty videos a month across three platforms. The ones that land get a name and a slot, and the rest are data.",
-      strategies: [
-        {
-          title: "Keyword sheet first",
-          body: "100 topics across 15 clusters, scored by search volume and difficulty, before a single video is shot.",
-        },
-        {
-          title: "Thirty a month, three platforms",
-          body: "Every topic posts to TikTok, Instagram and YouTube Shorts the same day.",
-        },
-        {
-          title: "Turn winners into series",
-          body: "A topic that lands gets a recognizable title and a regular slot, and series average 3.4× the views of one-offs.",
-        },
-        {
-          title: "Carousels where video will not fit",
-          body: "A character account posting nothing but TikTok photo carousels, where numbered lists win by almost 7×.",
-        },
-      ],
-      pipeline: {
-        title: "Creative pipeline",
-        body: "Every organic post is written to my hook formula, so winners move straight into ad creative with no reshoot and the research budget is the creative budget.",
-      },
-      stats: [
-        { value: "210", label: "videos in 7 months" },
-        { value: "730K", label: "views" },
-        { value: "64K", label: "best single video" },
-        { value: "190", label: "carousels" },
-      ],
     },
 
     results: {
