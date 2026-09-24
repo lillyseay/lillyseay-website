@@ -495,9 +495,9 @@ export const caseStudies: CaseStudy[] = [
 
     identity: {
       heading: "Sixteen palettes,|one reading surface",
-      note: "The brand is a cast, not a colour. Choosing a buddy re-themes the entire app, but every gradient has to keep caption text legible over it, because the captions are the product.",
+      note: "The brand is a cast rather than a colour, and every buddy re-themes the app without ever making the captions harder to read.",
       palette: {
-        note: "Each buddy carries a three-colour gradient, a character coat and an accent pair. The identity buddies launch to the awareness month they belong to.",
+        note: "Each buddy carries a three-colour gradient, a coat and an accent pair.",
         groups: [
           {
             name: "The four originals",
@@ -520,7 +520,7 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       typography: {
-        note: "System type throughout. A captioning app is a reading app, so the face has to answer every accessibility setting the reader has already chosen rather than express a brand.",
+        note: "System type throughout, so the face answers the reader's own accessibility settings instead of expressing a brand.",
         faces: [
           {
             name: "SF Pro Display",
@@ -539,7 +539,7 @@ export const caseStudies: CaseStudy[] = [
       },
       characters: {
         title: "Sixteen buddies, sixteen palettes",
-        note: "One value in code: a gradient, a coat, an accent pair and a voice. It paints sixteen surfaces at once, and carries a launch date, so a Pride buddy does not exist in the interface until its day.",
+        note: "One value in code paints sixteen surfaces at once, and carries the launch date for the awareness month it belongs to.",
         list: [
           {
             file: "smart.svg",
