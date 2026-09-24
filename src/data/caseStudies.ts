@@ -823,21 +823,43 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
 
+    story: {
+      heading: "It started with|20,000 steps a day",
+      beats: [
+        {
+          title: "Where it started",
+          body: "I took on a 20,000 step a day challenge having never walked more than five miles, and ended that month on the summit of South Sister, fourteen miles and five thousand feet of elevation.",
+        },
+        {
+          title: "What was missing",
+          body: "I am disabled, with hearing loss and insomnia, so my training looks different every year, and in 2025 I had only enough energy to skip a stair on every staircase I walked up.",
+        },
+        {
+          title: "What made it possible",
+          body: "That one unorthodox habit cut an hour and eighteen minutes off my summit time, which is when it clicked that I did not need a conventional plan, I needed one that adapts to my life.",
+        },
+      ],
+    },
+
     problem: {
       heading: "Training plans assume a body|and a life you might not have",
-      note: "Every plan I found assumed no injuries, a car, a trailhead nearby, a flexible schedule, and a body that does what it is told. If you are not that person the plan does not adapt; it just makes the goal feel like it was never yours.",
+      note: "For millions of people hiking is limited by time, energy, transportation, caregiving or access, not by motivation. Hiking Passport turns those barriers into accommodations, so the plan bends and the goal does not.",
       scale: [
+        {
+          value: "1 in 4",
+          label: "US adults has a disability",
+          source: "CDC",
+        },
+        {
+          value: "63M",
+          label: "Americans are family caregivers",
+          source: "AARP",
+        },
         {
           value: "55",
           label: "constraints the plan adapts to",
           source: "In app",
         },
-        {
-          value: "7",
-          label: "categories, from transport to sleep",
-          source: "In app",
-        },
-        { value: "5", label: "versions of every milestone", source: "In app" },
       ],
     },
 
@@ -948,11 +970,15 @@ export const caseStudies: CaseStudy[] = [
         },
         {
           title: "Start from the week you already have",
-          body: "The plan is built from real Apple Health history (your longest outing, your biggest climb, how often you actually move) rather than from an ideal beginner.",
+          body: "On-device Apple Intelligence reads your real Health history and builds the milestones from how you already move, not from an ideal beginner.",
         },
         {
           title: "Constraints change the route, never the goal",
-          body: "Fifty-five things to tap, none of them a barrier, changing what the plan suggests and nothing else.",
+          body: "Fifty-five things to tap turn a barrier into an accommodation, changing what the plan suggests and never whether the goal is yours.",
+        },
+        {
+          title: "Stairs and groceries count",
+          body: "Taking the stairs, pushing a stroller or carrying groceries all build toward a hard hike, so unorthodox training is a first-class route rather than a fallback.",
         },
         {
           title: "Keep it on the device",
@@ -963,10 +989,10 @@ export const caseStudies: CaseStudy[] = [
 
     ux: {
       heading: "A canvas that answers|before you read anything",
-      note: "The passport is the interface. Everything else is a way of adding to it.",
+      note: "The passport is the interface and everything else is a way of adding to it. It is drawn natively in SwiftUI rather than assembled from images, because it has to redraw whenever your health data changes.",
       anatomy: {
         title: "The passport canvas",
-        note: "One hand-drawn scene that carries the whole season, redrawn from the theme's five colors.",
+        note: "The hardest thing in the app to draw, and harder still to make accessible.",
         parts: [
           {
             name: "The mountain",
@@ -1001,20 +1027,28 @@ export const caseStudies: CaseStudy[] = [
       },
       rules: [
         {
-          title: "Signs thin out instead of colliding",
-          body: "As Dynamic Type grows the scene drops signs rather than overlapping them, because fewer readable signs beats a full set nobody can read.",
+          title: "Jagged ridges that read as mountains",
+          body: "A triangle is not a mountain, so the ridgelines are built jagged enough to look natural and still resolve at icon size.",
         },
         {
-          title: "The opening animation skips itself",
-          body: "The two-and-a-half-second scene build is the first thing to go under Reduce Motion, and the whole canvas is described for VoiceOver.",
+          title: "Peaks layer instead of colliding",
+          body: "Several goal hikes share one horizon, so each peak sits behind the last with the overlap and depth that gives the range distance.",
         },
         {
-          title: "Five ways up every milestone",
-          body: "One that matches it exactly, one sized to your usual session, one modified for what you tapped, a low-energy version and a short-on-time version.",
+          title: "An easier hike is a hill",
+          body: "The silhouette scales with the goal, so adding a gentler hike draws a hill rather than a shrunken mountain.",
         },
         {
-          title: "The watch keeps its own copy",
-          body: "It opens with your passport whether or not the phone is nearby, so a milestone can be crossed off on a ridge with no signal.",
+          title: "The meadow is shaded by hand",
+          body: "Custom shading makes a flat SwiftUI canvas read as rolling terrain rather than a green rectangle.",
+        },
+        {
+          title: "The accessibility layer was harder than the drawing",
+          body: "Dynamic Type changes how much text fits on the landscape, VoiceOver needs the scene translated into meaning, and Reduce Motion changes how it animates, all while staying legible on iPhone, Watch and in widgets.",
+        },
+        {
+          title: "The icon is a tiny passport",
+          body: "Every theme has its own icon drawn from the same landscape, so opening the app feels like that tiny passport expanding into the full scene.",
         },
       ],
     },
@@ -1067,7 +1101,7 @@ export const caseStudies: CaseStudy[] = [
       },
       characters: {
         title: "Six buddies, six reasons to be out there",
-        note: "Forest animals, each from a community that gets told the trail is not for them, who read your workouts and cheer. Friends who hike, not trainers or doctors, and they never scold.",
+        note: "Six forest animals carrying inclusive identities, body types and perspectives, who read your workouts and cheer. Friends who hike, not trainers or doctors, and they never scold.",
         list: [
           {
             file: "buddy-eagle.svg",
@@ -1115,7 +1149,7 @@ export const caseStudies: CaseStudy[] = [
       },
       themes: {
         title: "Five parks, five colors each",
-        note: "Each theme starts from a place: alpenglow on Rainier, a grove washed white by canopy light, Voyageurs under the northern lights, high desert noon.",
+        note: "Each theme starts from a national park: alpenglow on Rainier, a grove washed white by canopy light, Voyageurs under the northern lights, high desert noon. The sun sits where it really is in the sky, and after dark it is stars and a moon instead.",
         list: [
           {
             file: "theme-default.svg",
@@ -1153,7 +1187,7 @@ export const caseStudies: CaseStudy[] = [
 
     product: {
       heading: "A season on your phone|and on your wrist",
-      note: "Everything lives on the device. Apple Health is read only (five things read, nothing written back) and declining any of them leaves the plan working.",
+      note: "Swift and SwiftUI throughout, with on-device Apple Intelligence reading Apple Health to build the milestones and RevenueCat running the Pro plan. Everything lives on the device, Health is read only, and declining any of it leaves the plan working.",
       screens: {
         title: "Inside the app",
         images: [
@@ -1224,58 +1258,6 @@ export const caseStudies: CaseStudy[] = [
       },
     },
 
-    marketing: {
-      heading: "Pre-launch, so the listing|is the marketing",
-      note: "Nothing to promote yet, so the work went into the thing that sells the app on the day it lands.",
-      cycle: [
-        {
-          when: "Build",
-          title: "Ship the feature set",
-          body: "Everything in this case study is in the binary before a word of marketing is written.",
-        },
-        {
-          when: "Metadata",
-          title: "Write to a character budget",
-          body: 'The keyword field skips "passport" and "goal hikes", since the name and subtitle already index those, and spends its 100 characters elsewhere.',
-        },
-        {
-          when: "Art",
-          title: "Screenshots from the app's own palette",
-          body: "Ten backgrounds pulled from the themes, each matched to the screen inside it, every one clearing 10.7:1.",
-        },
-        {
-          when: "Launch",
-          title: "Seasonal promo text",
-          body: "170 characters that can change for a new season without shipping a build.",
-        },
-      ],
-    },
-
-    social: {
-      heading: "The audience exists|before the app does",
-      note: "An outdoors audience is already built. The method that runs Hearing Buddy is ready to point at hiking the day this is approved.",
-      strategies: [
-        {
-          title: "A crossover audience already exists",
-          body: "My outdoors account is 74K on TikTok, and hiking content performs on my personal account.",
-        },
-        {
-          title: "The passport is the shareable",
-          body: "Sharing a picture of your passport is free by design, so the product markets itself in the group chat.",
-        },
-      ],
-      pipeline: {
-        title: "Creative pipeline",
-        body: "The same keyword-and-series method, pointed at hiking, with the passport image as the native hook, a visual that is already the product rather than an ad for it.",
-      },
-      stats: [
-        { value: "80K", label: "best outdoors post, pre-launch" },
-        { value: "12", label: "months of category testing" },
-        { value: "74K", label: "outdoors audience on TikTok" },
-        { value: "113K", label: "followers across my accounts" },
-      ],
-    },
-
     results: {
       stats: [
         { value: "1.0", label: "submitted to the App Store" },
@@ -1304,7 +1286,7 @@ export const caseStudies: CaseStudy[] = [
     accent: { from: "#FE7DCA", mid: "#E07EFC", to: "#54D3FA" },
     band: { light: "#FDF0F8", dark: "#1A1020" },
     badges: ["Apple Entrepreneur Camp 2023", "4.3 stars"],
-    lede: "The app that taught me design. I learned animation as a craft, then found a purpose for it.",
+    lede: "A mental health app that relieves anxiety with science-backed, game-like activities. It is also the app that taught me design.",
 
     overview: {
       stats: [
@@ -1322,10 +1304,28 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
 
+    story: {
+      heading: "Over 40 million US adults|have anxiety, me included",
+      beats: [
+        {
+          title: "Where it started",
+          body: "A few years ago my anxiety got really bad, and every app I opened was either a form to fill in or a meditation to sit still for.",
+        },
+        {
+          title: "What was missing",
+          body: "People with anxiety have higher cortisol in the first hour after waking, which finally explained why my mornings were the worst part of the day.",
+        },
+        {
+          title: "What made it possible",
+          body: "That first hour is the window where you can still decide how the day goes, so Tappily is three short activities built on cognitive behavioral therapy rather than one long one.",
+        },
+      ],
+    },
+
     problem: {
       heading:
         "Mental health apps asked you to be calm|before you could use them",
-      note: "Every app in the category was either clinical (forms, streaks, mood charts) or quiet and meditative, and both assume you arrive with enough focus to sit still. What I wanted when anxious was something to do with my hands that was not a form.",
+      note: "Over forty million US adults have anxiety, and cortisol runs highest in the first hour after waking, partly from anticipating the day ahead. Every app in the category was either clinical or meditative, and both assume you arrive with enough focus to sit still.",
     },
 
     research: {
@@ -1356,7 +1356,7 @@ export const caseStudies: CaseStudy[] = [
 
     strategy: {
       heading: "Give anxious hands|somewhere to go",
-      note: "The bet was that attention, not calm, is the thing to design for. Everything followed from refusing to ask for stillness first.",
+      note: "The bet was that attention, not calm, is the thing to design for, and that cognitive behavioral therapy works better as a game than as a worksheet.",
       bets: [
         {
           title: "Animation is the product",
@@ -1369,6 +1369,10 @@ export const caseStudies: CaseStudy[] = [
         {
           title: "No streaks, no scoring",
           body: "Nothing that can be broken, and nothing that makes a bad week visible.",
+        },
+        {
+          title: "Three activities, not a program",
+          body: "Gratitude to start the day, a plan for the anxiety that shows up later, and a task list that narrows the day to what is actually relevant.",
         },
         {
           title: "Own the whole stack",
@@ -1537,56 +1541,6 @@ export const caseStudies: CaseStudy[] = [
           "~$75K saved",
         ],
       },
-    },
-
-    marketing: {
-      heading: "Zero funding,|so I automated the outreach",
-      note: "The constraint was never ideas, it was hours. So the first thing I built after the app was the thing that found its users.",
-      cycle: [
-        {
-          when: "Build",
-          title: "Ship to TestFlight early",
-          body: "200 testers validating the app while it was still being built.",
-        },
-        {
-          when: "Listen",
-          title: "Feed it straight back in",
-          body: "Suggestions reached a build in days, with no team in between.",
-        },
-        {
-          when: "Automate",
-          title: "Find the audience with a bot",
-          body: "It surfaced people in the target audience and drafted a custom DM for each one.",
-        },
-        {
-          when: "Scale",
-          title: "Tune and repeat",
-          body: "Refining the targeting raised downloads as well as saving the hours.",
-        },
-      ],
-    },
-
-    social: {
-      heading: "Where the method|I sell today started",
-      note: "Mental health content and carousels on Instagram, long before carousels were the format everyone recommends.",
-      strategies: [
-        {
-          title: "Carousels before they were the format",
-          body: "Mental health content to 2,900 followers, testing which post shapes people saved and shared.",
-        },
-        {
-          title: "Speak the story",
-          body: "Tappily's journey became my talk at Apple's International Women's Day event in Cupertino.",
-        },
-      ],
-      pipeline: {
-        title: "Creative pipeline",
-        body: "The bot handled reach, the carousels handled proof and the beta community handled word of mouth, with each channel feeding the next on no budget.",
-      },
-      stats: [
-        { value: "2.9K", label: "Instagram followers" },
-        { value: "200+", label: "beta community" },
-      ],
     },
 
     results: {

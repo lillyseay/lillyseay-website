@@ -889,6 +889,9 @@ const h = {
   const parse = (raw: string) => {
     const m = raw.match(/^([^\d.]*)([\d.,]+)(.*)$/);
     if (!m) return null;
+    // A second number means this is a phrase, not a figure. "1 in 4" would
+    // otherwise animate as "0 in 4" all the way up.
+    if (/\d/.test(m[3])) return null;
     const num = Number(m[2].replace(/,/g, ""));
     if (!Number.isFinite(num)) return null;
     const dec = (m[2].split(".")[1] ?? "").length;
