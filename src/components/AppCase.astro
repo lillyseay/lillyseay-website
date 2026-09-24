@@ -690,6 +690,25 @@ const h = {
         </>
       )
     }
+    {
+      s.product.comingSoon && (
+        <div class="bh-soon reveal">
+          <div>
+            <p class="bh-sub-label flush">{s.product.comingSoon.label}</p>
+            <h3 class="bh-soon-title">{s.product.comingSoon.title}</h3>
+            <p class="bh-ct-note">{s.product.comingSoon.note}</p>
+          </div>
+          <ul class="bh-soon-quotes">
+            {s.product.comingSoon.quotes.map((q) => (
+              <li>
+                <blockquote>{q.text}</blockquote>
+                <footer>{q.user}</footer>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
   </section>
 
   {
@@ -715,28 +734,6 @@ const h = {
             </ul>
           </>
         )}
-      </section>
-    )
-  }
-
-  {
-    s.product.comingSoon && (
-      <section class="bh-sec">
-        <div class="bh-soon reveal">
-          <div>
-            <p class="bh-sub-label flush">{s.product.comingSoon.label}</p>
-            <h3 class="bh-soon-title">{s.product.comingSoon.title}</h3>
-            <p class="bh-ct-note">{s.product.comingSoon.note}</p>
-          </div>
-          <ul class="bh-soon-quotes">
-            {s.product.comingSoon.quotes.map((q) => (
-              <li>
-                <blockquote>{q.text}</blockquote>
-                <footer>{q.user}</footer>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
     )
   }

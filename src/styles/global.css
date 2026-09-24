@@ -6452,6 +6452,7 @@ section[id] {
 /* ── Coming soon ──────────────────────────────────────────────────────── */
 
 .bh-soon {
+  margin-top: clamp(2rem, 5vw, 3rem);
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(1.5rem, 4vw, 3rem);

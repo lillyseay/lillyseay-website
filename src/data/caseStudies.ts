@@ -677,38 +677,65 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
       },
+      comingSoon: {
+        label: "Coming soon",
+        title: "Android is the most asked for thing we do not have",
+        note: "The comments ask for it unprompted, in the middle of threads about something else entirely.",
+        quotes: [
+          {
+            user: "Chrissy",
+            text: "Firstly, thank you. It is so nice to actually feel seen. Secondly, is the app available on Android?",
+          },
+          {
+            user: "Janey",
+            text: "Can you download the app for Android?",
+          },
+        ],
+      },
       screens: {
         title: "Inside the app",
         images: [
           {
-            src: "/case-studies/hearing-buddy/screens/listening-summary.png",
-            alt: "The Box in summary mode: a question alert and the current topic",
+            src: "/case-studies/hearing-buddy/screens/captions.jpg",
+            alt: "Live captions on iPhone, with a question marked in the margin",
           },
           {
-            src: "/case-studies/hearing-buddy/screens/listening-speakers.png",
-            alt: "Live captions with each speaker in their own color",
+            src: "/case-studies/hearing-buddy/screens/questions.jpg",
+            alt: "A question alert surfacing in the summary",
           },
           {
-            src: "/case-studies/hearing-buddy/screens/people-tab.png",
-            alt: "The People tab, where voices are learned and named",
+            src: "/case-studies/hearing-buddy/screens/name.jpg",
+            alt: "A name alert: Sunny caught Mary",
           },
           {
-            src: "/case-studies/hearing-buddy/screens/onboarding-tap.png",
-            alt: "Onboarding: tap to start a session",
+            src: "/case-studies/hearing-buddy/screens/recap.jpg",
+            alt: "Coral's summary, recapping the conversation in topics",
           },
           {
-            src: "/case-studies/hearing-buddy/screens/onboarding_name.png",
-            alt: "Onboarding: naming your Buddy",
+            src: "/case-studies/hearing-buddy/screens/boost.jpg",
+            alt: "Buddy Boost, amplifying voices into your headphones",
           },
           {
-            src: "/case-studies/hearing-buddy/screens/settings.png",
-            alt: "Settings",
+            src: "/case-studies/hearing-buddy/screens/private.jpg",
+            alt: "A finished transcript, captured and stored on device",
+          },
+          {
+            src: "/case-studies/hearing-buddy/screens/lockscreen.jpg",
+            alt: "A summary arriving on the Lock Screen",
+          },
+          {
+            src: "/case-studies/hearing-buddy/screens/buddy.jpg",
+            alt: "Choosing a buddy, each with its own personality and match score",
           },
         ],
       },
       second: {
-        title: "Mac, iPad, Watch and Vision Pro",
+        title: "Vision Pro, Mac, iPad and Watch",
         images: [
+          {
+            src: "/case-studies/hearing-buddy/devices/vision.jpg",
+            alt: "Captions floating in view on Vision Pro, outdoors under a bridge",
+          },
           {
             src: "/case-studies/hearing-buddy/devices/mac-connect.jpg",
             alt: "The Mac companion pairing with an iPhone to receive captions",
@@ -745,10 +772,6 @@ export const caseStudies: CaseStudy[] = [
             src: "/case-studies/hearing-buddy/devices/watch-3.jpg",
             alt: "Summaries on Apple Watch",
           },
-          {
-            src: "/case-studies/hearing-buddy/devices/vision.jpg",
-            alt: "Captions floating in view on Vision Pro, outdoors under a bridge",
-          },
         ],
       },
       system: {
@@ -765,21 +788,6 @@ export const caseStudies: CaseStudy[] = [
           "Vision Pro",
           "Event art",
           "Screenshots",
-        ],
-      },
-      comingSoon: {
-        label: "Coming soon",
-        title: "Android is the most asked for thing we do not have",
-        note: "The comments ask for it unprompted, in the middle of threads about something else entirely.",
-        quotes: [
-          {
-            user: "Chrissy",
-            text: "Firstly, thank you. It is so nice to actually feel seen. Secondly, is the app available on Android?",
-          },
-          {
-            user: "Janey",
-            text: "Can you download the app for Android?",
-          },
         ],
       },
     },
