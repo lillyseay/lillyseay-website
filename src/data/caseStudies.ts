@@ -499,8 +499,8 @@ export const caseStudies: CaseStudy[] = [
     },
 
     identity: {
-      heading: "Sixteen palettes,|one reading surface",
-      note: "The brand is a cast rather than a color, and every buddy re-themes the app without ever making the captions harder to read.",
+      heading: "Colorful and minimal,|everything floats",
+      note: "Every buddy brings its own color while the reading surface stays plain, and nothing snaps into place because everything drifts the way it would underwater.",
       typography: {
         note: "System type throughout, so the face answers the reader's own accessibility settings instead of expressing a brand.",
         faces: [
