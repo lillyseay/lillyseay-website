@@ -870,51 +870,34 @@ export const caseStudies: CaseStudy[] = [
 
     research: {
       heading: "Designed from constraints,|not from an average user",
-      note: "This one did not start from a keyword sheet. It started from the observation that the people most often told the trail is not for them are the ones no training app asks about, so I built the taxonomy first and designed the plan around it.",
+      note: "Time outdoors is one of the most reliable things a person can do for their mental health, and the people most often shut out of it are shut out by circumstance rather than by interest. So I designed from a list of those circumstances instead of from an average user.",
       preTest: {
-        title: "I tested the audience before I built the app",
-        note: "For a year before the app was submitted I posted outdoors work to @lillyseay (hiking, car camping, backpacking, the PNW) to find out whether the category would carry at all. It came back as the best-performing thing on that account in its modern era, with the app's exact premise already working as a hook.",
+        title: "The audience is already outside",
+        note: "A year of outdoors posting on @lillyseay, to find out whether people training for hikes were reachable at all. They are, and the best of it is the strongest thing the account has published since 2020.",
         stats: [
-          { value: "80K", label: "views, best outdoors post" },
+          { value: "80K", label: "views, top outdoors post" },
           { value: "13K", label: "likes on it, a 16% like rate" },
-          { value: "12", label: "months of testing before submission" },
-          { value: "4", label: "posts that were the app's premise" },
+          { value: "82K", label: "more views cross-posted to YouTube" },
+          { value: "12", label: "months of posting before submission" },
         ],
         posts: [
           {
             title: "#paddleboarding #outdoorsy #pnw",
             views: 80000,
-            flag: "Best post on the account since 2020",
+            flag: "Top post on the account since 2020",
           },
           {
             title: "Bc this sleeping pad may as well be the ground",
             views: 15000,
           },
           { title: "My ego after cowboy camping ONCE", views: 8469 },
-          { title: "My Day Traveling in Switzerland", views: 5698 },
-          {
-            title: "5 hr 38 minute summit time",
-            views: 1596,
-            flag: "Sept 2025 · the app's premise",
-          },
-          {
-            title: "1000 ft elevation in 1 mile",
-            views: 1243,
-            flag: "The app's premise",
-          },
-          {
-            title: "Setting hiking goals for 2026",
-            views: 968,
-            flag: "The app's premise",
-          },
-          {
-            title: "Summit my first mountain with me",
-            views: 425,
-            flag: "The app's premise",
-          },
+          { title: "5 hr 38 minute summit time", views: 1596 },
+          { title: "1000 ft elevation in 1 mile", views: 1243 },
+          { title: "Setting hiking goals for 2026", views: 968 },
+          { title: "Summit my first mountain with me", views: 425 },
         ],
         footer:
-          "The paddleboarding post is the highest-performing thing @lillyseay has published since 2020, and underneath the spikes outdoors posts hold a floor of 400 to 1,600 views week after week. The same posts cross-posted to a 37-subscriber YouTube channel pulled another 82,000 views, which says the reach is the category rather than the following.",
+          "Outdoors posts hold a floor of 400 to 1,600 views week after week, with spikes well past that. The same posts cross-posted to a 37-subscriber YouTube channel pulled another 82,000 views, which says the reach is the category rather than the following.",
       },
       findings: [
         {
