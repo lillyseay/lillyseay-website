@@ -327,32 +327,6 @@ export const caseStudies: CaseStudy[] = [
           date: "6-5",
         },
       ],
-      series: {
-        title: "Three short form video series to test pain points",
-        note: "Listing three experiences per video turns a sixty-second post into a ranked list. People reply quoting the one that is theirs, so the comments sort the pain points for me.",
-        list: [
-          {
-            name: "Things I thought were normal but were actually hearing loss",
-            tests:
-              "Written for the undiagnosed, where every reply is somebody recognizing themselves in a workaround they had never named.",
-            result:
-              "Surfaced the lip-reading finding: a lot of people only discovered they were reading lips when everyone started wearing masks and their comprehension fell off a cliff.",
-          },
-          {
-            name: "Things people with hearing loss are tired of explaining",
-            tests:
-              "Written for the diagnosed, about the social friction rather than the audiology.",
-            result:
-              'The highest comment volume of the three, with "it\'s not volume but clarity" coming back again and again, which is the whole argument for captions over amplification.',
-          },
-          {
-            name: "POV: your ears finally work",
-            tests: "The relief of hearing correctly, for once.",
-            result:
-              "The most viral by a distance, because the most shared experience here is not the struggle but the moment your ears work and you answer correctly.",
-          },
-        ],
-      },
       findings: [
         {
           feature: "Free unlimited live captions",
