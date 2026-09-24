@@ -144,9 +144,21 @@ export type CaseStudy = {
   product: {
     heading: string;
     note: string;
+    /** What each device is for, when the app spans several. */
+    devices?: {
+      title: string;
+      list: { name: string; role: string; detail: string }[];
+    };
     screens?: { title: string; images: { src: string; alt: string }[] };
     second?: { title: string; images: { src: string; alt: string }[] };
     system?: { title: string; body: string; from: string; to: string[] };
+    /** Demand for a platform the product is not on yet. */
+    comingSoon?: {
+      label: string;
+      title: string;
+      note: string;
+      quotes: { user: string; text: string }[];
+    };
   };
 
   /** 7 — Marketing. */
@@ -628,8 +640,43 @@ export const caseStudies: CaseStudy[] = [
     },
 
     product: {
-      heading: "One session,|five Apple platforms",
-      note: "The iPhone is the source of truth. Everything else mirrors it, so there is never a question about which screen is right.",
+      heading: "Live captions,|five Apple devices",
+      note: "Hearing Buddy works as one system rather than five separate apps. The iPhone runs the session and every other device plays the part it is best placed to play.",
+      devices: {
+        title: "What each device is for",
+        list: [
+          {
+            name: "iPhone",
+            role: "Runs the session",
+            detail:
+              "Captions keep running from your pocket with the screen off, so the phone never has to be out on the table.",
+          },
+          {
+            name: "Mac",
+            role: "Reaches across the room",
+            detail:
+              "Leave the iPhone near whoever is speaking and it streams captions back to your Mac, which is what makes a large conference room workable.",
+          },
+          {
+            name: "iPad",
+            role: "Takes the notes",
+            detail:
+              "The extra width goes to summaries you can read and drag action items out of while the conversation is still going.",
+          },
+          {
+            name: "Apple Watch",
+            role: "Taps your wrist",
+            detail:
+              "Your name and a question each have their own haptic, so you know you are being spoken to without reading anything.",
+          },
+          {
+            name: "Vision Pro",
+            role: "Keeps your eyes up",
+            detail:
+              "Captions sit in your view at a play or a talk, so you follow the words without looking down at a screen.",
+          },
+        ],
+      },
       screens: {
         title: "Inside the app",
         images: [
@@ -660,35 +707,47 @@ export const caseStudies: CaseStudy[] = [
         ],
       },
       second: {
-        title: "Mac and Apple Watch",
+        title: "Mac, iPad, Watch and Vision Pro",
         images: [
           {
-            src: "/case-studies/hearing-buddy/platforms/mac-1.jpg",
-            alt: "Hearing Buddy on the Mac, streaming captions from the iPhone",
+            src: "/case-studies/hearing-buddy/devices/mac-connect.jpg",
+            alt: "The Mac companion pairing with an iPhone to receive captions",
           },
           {
-            src: "/case-studies/hearing-buddy/platforms/mac-2.jpg",
-            alt: "Conference mode on the Mac",
+            src: "/case-studies/hearing-buddy/devices/mac-2.jpg",
+            alt: "Summaries and custom alerts in the Mac window",
           },
           {
-            src: "/case-studies/hearing-buddy/platforms/mac-3.jpg",
-            alt: "Caption history on the Mac",
+            src: "/case-studies/hearing-buddy/devices/mac-3.jpg",
+            alt: "Every word captioned in the Mac window, with questions marked",
           },
           {
-            src: "/case-studies/hearing-buddy/platforms/watch-1.jpg",
-            alt: "Hearing Buddy on Apple Watch",
+            src: "/case-studies/hearing-buddy/devices/ipad-summary.jpg",
+            alt: "A running summary on iPad, with question and name alerts inline",
           },
           {
-            src: "/case-studies/hearing-buddy/platforms/watch-2.jpg",
+            src: "/case-studies/hearing-buddy/devices/ipad-captions.jpg",
+            alt: "Live captions on iPad at reading size",
+          },
+          {
+            src: "/case-studies/hearing-buddy/devices/ipad-boost.jpg",
+            alt: "Buddy Boost on iPad, amplifying voices into your headphones",
+          },
+          {
+            src: "/case-studies/hearing-buddy/devices/watch-1.jpg",
             alt: "A name alert on Apple Watch",
           },
           {
-            src: "/case-studies/hearing-buddy/platforms/watch-3.jpg",
-            alt: "Summaries glanceable on Apple Watch",
+            src: "/case-studies/hearing-buddy/devices/watch-2.jpg",
+            alt: "A question alert on Apple Watch",
           },
           {
-            src: "/case-studies/hearing-buddy/platforms/watch-4.jpg",
-            alt: "Session control from the wrist",
+            src: "/case-studies/hearing-buddy/devices/watch-3.jpg",
+            alt: "Summaries on Apple Watch",
+          },
+          {
+            src: "/case-studies/hearing-buddy/devices/vision.jpg",
+            alt: "Captions floating in view on Vision Pro, outdoors under a bridge",
           },
         ],
       },
@@ -706,6 +765,21 @@ export const caseStudies: CaseStudy[] = [
           "Vision Pro",
           "Event art",
           "Screenshots",
+        ],
+      },
+      comingSoon: {
+        label: "Coming soon",
+        title: "Android is the most asked for thing we do not have",
+        note: "The comments ask for it unprompted, in the middle of threads about something else entirely.",
+        quotes: [
+          {
+            user: "Chrissy",
+            text: "Firstly, thank you. It is so nice to actually feel seen. Secondly, is the app available on Android?",
+          },
+          {
+            user: "Janey",
+            text: "Can you download the app for Android?",
+          },
         ],
       },
     },
