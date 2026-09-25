@@ -914,8 +914,8 @@ export const caseStudies: CaseStudy[] = [
         stats: [
           { value: "4,745", label: "reviews read", source: "App Store" },
           { value: "14", label: "hiking and training apps" },
-          { value: "270", label: "naming a constraint I model" },
-          { value: "22", label: "mentioning accessibility at all" },
+          { value: "192", label: "naming a constraint I model" },
+          { value: "7", label: "mentioning accessibility at all" },
         ],
         quotes: [
           {
@@ -950,7 +950,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
         footer:
-          "Twenty-two reviews out of 4,745 mention accessibility at all, and the ones that do are asking for the basics. This is what people currently use complaining about it, which tells me the constraints are real, not that anyone is waiting for my answer to them.",
+          "Seven reviews out of 4,745 mention a disability at all, and every one of them is asking for a basic. This is what people already use being complained about, which tells me the constraints are real, not that anyone is waiting for my answer to them.",
       },
       findings: [
         {
