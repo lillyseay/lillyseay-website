@@ -909,13 +909,24 @@ export const caseStudies: CaseStudy[] = [
           "Outdoors posts hold a floor of 400 to 1,600 views week after week, with spikes well past that. The same posts cross-posted to a 37-subscriber YouTube channel pulled another 82,000 views, which says the reach is the category rather than the following.",
       },
       reviewMine: {
-        title: "I read 4,745 reviews of the apps people already use",
-        note: "Not interviews: the App Store is where people say, unprompted and in public, what a training plan asked of them that they could not give. I pulled every review I could from fourteen hiking, walking and training apps and read them against the taxonomy.",
+        title:
+          "The most common complaint about a training plan is that it hurt you",
+        note: "I read every review I could pull from fourteen hiking, walking and training apps. Two things came back: the category injures the people it is meant to train, and the people it shuts out never show up to complain at all.",
         stats: [
-          { value: "4,745", label: "reviews read", source: "App Store" },
-          { value: "14", label: "hiking and training apps" },
-          { value: "192", label: "naming a constraint I model" },
-          { value: "7", label: "mentioning accessibility at all" },
+          {
+            value: "1 in 38",
+            label: "reviews describe a plan that hurt them or pushed too hard",
+          },
+          {
+            value: "1 in 677",
+            label: "reviews mention a disability at all",
+          },
+          { value: "0", label: "mention not having a car" },
+          {
+            value: "4,745",
+            label: "reviews read across 14 apps",
+            source: "App Store",
+          },
         ],
         quotes: [
           {
@@ -950,7 +961,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
         footer:
-          "Seven reviews out of 4,745 mention a disability at all, and every one of them is asking for a basic. This is what people already use being complained about, which tells me the constraints are real, not that anyone is waiting for my answer to them.",
+          "Seventeen times more people say a plan hurt them than mention a disability, and it is the category rather than one bad app: seven percent of Runna\u2019s reviews and four percent of Couch to 5K\u2019s describe a plan that went too hard. The silence is the other half of the finding, because the people who cannot reach a trailhead never downloaded any of these apps to complain about them.",
       },
       findings: [
         {
