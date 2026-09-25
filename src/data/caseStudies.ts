@@ -65,6 +65,15 @@ export type CaseStudy = {
      *  points at once. `why` is the one sentence, revealed on expand. */
     findings?: { feature: string; pains: string[]; why: string }[];
     audiences?: { name: string; detail: string; evidence: string }[];
+    /** Reading what people already say about the apps they use. */
+    reviewMine?: {
+      title: string;
+      note: string;
+      stats: Stat[];
+      quotes: { app: string; stars: number; text: string }[];
+      footer: string;
+    };
+
     /** Posting into a category to see whether the audience is reachable,
      *  before committing to building for it. */
     preTest?: {
@@ -898,6 +907,50 @@ export const caseStudies: CaseStudy[] = [
         ],
         footer:
           "Outdoors posts hold a floor of 400 to 1,600 views week after week, with spikes well past that. The same posts cross-posted to a 37-subscriber YouTube channel pulled another 82,000 views, which says the reach is the category rather than the following.",
+      },
+      reviewMine: {
+        title: "I read 4,745 reviews of the apps people already use",
+        note: "Not interviews: the App Store is where people say, unprompted and in public, what a training plan asked of them that they could not give. I pulled every review I could from fourteen hiking, walking and training apps and read them against the taxonomy.",
+        stats: [
+          { value: "4,745", label: "reviews read", source: "App Store" },
+          { value: "14", label: "hiking and training apps" },
+          { value: "270", label: "naming a constraint I model" },
+          { value: "22", label: "mentioning accessibility at all" },
+        ],
+        quotes: [
+          {
+            app: "Runna",
+            stars: 1,
+            text: "I run suuuuper slow, I'm a beginner and I don't want to get injured. I just completed my first 10k, but it was over 2hrs 5min, which is their limit on how slow someone can be to enter their training program. This is so exclusionary and disappointing.",
+          },
+          {
+            app: "Runna",
+            stars: 1,
+            text: "The training plans in this app are wildly aggressive, and the app will fight you at every step if you try to dial it down.",
+          },
+          {
+            app: "Runna",
+            stars: 1,
+            text: "I have about 45 minutes to run per day. There is no way to set a maximum time or distance. Some runs were 75 minutes or more, no matter how I tried to program the sessions.",
+          },
+          {
+            app: "WalkFit",
+            stars: 5,
+            text: "The exercises I need to adapt for my balance issues. I'll do the lower body holding on to my walker and repeat the upper body standing against a counter or in a chair.",
+          },
+          {
+            app: "Map My Walk",
+            stars: 3,
+            text: "The pages do not expand. I am partially blind and cannot read the signs or instructions.",
+          },
+          {
+            app: "Strava",
+            stars: 5,
+            text: "I wish it was more wheelchair user friendly so people in wheelchairs could also log their activities like hand cycling.",
+          },
+        ],
+        footer:
+          "Twenty-two reviews out of 4,745 mention accessibility at all, and the ones that do are asking for the basics. This is what people currently use complaining about it, which tells me the constraints are real, not that anyone is waiting for my answer to them.",
       },
       findings: [
         {
