@@ -239,16 +239,18 @@ const h = {
             <p class="bh-sub-label flush">Competitor review mine</p>
             <h3 class="bh-mine-title">{s.research.reviewMine.title}</h3>
             <p class="bh-ct-note">{s.research.reviewMine.note}</p>
-            <ul class="bh-mine-stats">
-              {s.research.reviewMine.stats.map((st) => (
-                <li>
-                  <span class="bh-mine-v" data-count={st.value}>
-                    {st.value}
-                  </span>
-                  <span class="bh-mine-l">{st.label}</span>
-                </li>
-              ))}
-            </ul>
+            {s.research.reviewMine.stats && (
+              <ul class="bh-mine-stats">
+                {s.research.reviewMine.stats.map((st) => (
+                  <li>
+                    <span class="bh-mine-v" data-count={st.value}>
+                      {st.value}
+                    </span>
+                    <span class="bh-mine-l">{st.label}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <ul class="bh-mine-quotes">
             {s.research.reviewMine.quotes.map((q) => (
@@ -258,7 +260,6 @@ const h = {
                     {"★".repeat(q.stars)}
                     <i>{"★".repeat(5 - q.stars)}</i>
                   </span>
-                  <span class="bh-mine-app">{q.app}</span>
                 </p>
                 <blockquote>{q.text}</blockquote>
               </li>

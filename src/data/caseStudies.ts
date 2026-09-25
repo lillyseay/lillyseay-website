@@ -69,7 +69,7 @@ export type CaseStudy = {
     reviewMine?: {
       title: string;
       note: string;
-      stats: Stat[];
+      stats?: Stat[];
       quotes: { app: string; stars: number; text: string }[];
       footer: string;
     };
@@ -912,28 +912,7 @@ export const caseStudies: CaseStudy[] = [
         title:
           "The most common complaint about a training plan is that it hurt you",
         note: "I read every review I could pull from fourteen hiking, walking and training apps. Two things came back: the category injures the people it is meant to train, and the people it shuts out never show up to complain at all.",
-        stats: [
-          {
-            value: "1 in 38",
-            label: "reviews describe a plan that hurt them or pushed too hard",
-          },
-          {
-            value: "1 in 677",
-            label: "reviews mention a disability at all",
-          },
-          { value: "0", label: "mention not having a car" },
-          {
-            value: "4,745",
-            label: "reviews read across 14 apps",
-            source: "App Store",
-          },
-        ],
         quotes: [
-          {
-            app: "Runna",
-            stars: 1,
-            text: "I run suuuuper slow, I'm a beginner and I don't want to get injured. I just completed my first 10k, but it was over 2hrs 5min, which is their limit on how slow someone can be to enter their training program. This is so exclusionary and disappointing.",
-          },
           {
             app: "Runna",
             stars: 1,
@@ -943,11 +922,6 @@ export const caseStudies: CaseStudy[] = [
             app: "Runna",
             stars: 1,
             text: "I have about 45 minutes to run per day. There is no way to set a maximum time or distance. Some runs were 75 minutes or more, no matter how I tried to program the sessions.",
-          },
-          {
-            app: "WalkFit",
-            stars: 5,
-            text: "The exercises I need to adapt for my balance issues. I'll do the lower body holding on to my walker and repeat the upper body standing against a counter or in a chair.",
           },
           {
             app: "Map My Walk",
@@ -961,7 +935,7 @@ export const caseStudies: CaseStudy[] = [
           },
         ],
         footer:
-          "Seventeen times more people say a plan hurt them than mention a disability, and it is the category rather than one bad app: seven percent of Runna\u2019s reviews and four percent of Couch to 5K\u2019s describe a plan that went too hard. The silence is the other half of the finding, because the people who cannot reach a trailhead never downloaded any of these apps to complain about them.",
+          "The silence is the other half of the finding: the people who cannot reach a trailhead never downloaded any of these apps to complain about them.",
       },
       findings: [
         {
